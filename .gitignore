@@ -1,0 +1,8 @@
+## general computer stuff
+DS_Store
+
+## node
+node_modules
+
+## private keys
+config.js
