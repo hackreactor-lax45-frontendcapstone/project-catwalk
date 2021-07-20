@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use('/api', (req, res) => {
-  res.sendStatus(200);
+  res.status(200).json('Server active!');
 })
 
 app.listen(port, () => console.log(`Server connected on port ${port}`));
