@@ -1,5 +1,10 @@
 import React from 'react';
-import atelier from '../lib/atelierAPI.js';
+import atelier from '../config/lib/atelierAPI.js';
+
+import Overview from './Overview.jsx';
+import RelatedItems from './RelatedItems.jsx';
+import QuestionAnswer from './QuestionAnswer.jsx';
+import RatingsReviews from './RatingsReviews.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -10,7 +15,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>Wingardium leviosa!</div>
+      <div>
+        <Overview />
+        <RelatedItems />
+        <QuestionAnswer />
+        <RatingsReviews />
+      </div>
     );
   }
 }

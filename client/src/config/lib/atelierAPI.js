@@ -1,4 +1,4 @@
-import TOKEN from '../config/config';
+import TOKEN from '../config';
 
 const SERVER = 'https://app-hrsei-api.herokuapp.com/api/fec2/';
 const CAMPUS = 'hr-lax';
