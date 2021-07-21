@@ -5,6 +5,7 @@ Project Catwalk
 Frontend-focused project to implement a product page at a generic clothing company. The outdated page will be updated with dynamic components to improve user experience and bolster sales.
 
 # Table of Contents
+
 1. Description
 2. Installation
 3. Usage
@@ -32,10 +33,10 @@ An updated description to be included.
 
 # 4.0 Team Members
 
-Anna Lee - Product Owner / Development Team: https://github.com/dlthfl87
-Borg Wang - Product Owner / Development Team: https://github.com/bbwandx08
-Tyler Jones - Product Owner / Development Team: https://github.com/tyler-audio
-Sean Lawlor - Product Owner / Development Team: https://github.com/lawlorseanr
+* [Anna Lee](https://github.com/dlthfl87) - Product Owner / Development Team
+* [Borg Wang](https://github.com/bbwandx08) - Product Owner / Development Team
+* [Tyler Jones](https://github.com/tyler-audio) - Product Owner / Development Team
+* [Sean Lawlor](https://github.com/lawlorseanr) - Product Owner / Development Team
 
 # 5.0 License
 
