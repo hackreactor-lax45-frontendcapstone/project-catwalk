@@ -10,6 +10,6 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use('/api', (req, res) => {
   res.status(200).json('Server active!');
-})
+});
 
-app.listen(port, () => console.log(`Server connected on port ${port}`));
+app.listen(port, () => console.log(`Server connected on port https://localhost:${port}`));
