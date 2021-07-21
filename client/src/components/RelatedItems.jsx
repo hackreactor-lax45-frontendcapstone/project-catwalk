@@ -4,6 +4,8 @@ import RelatedProductsList from './RelatedItems/RelatedProductsList.jsx';
 
 export default props => {
   return (
-    <RelatedProductsList />
+    <div id="body-related">
+      <RelatedProductsList />
+    </div>
   );
 };

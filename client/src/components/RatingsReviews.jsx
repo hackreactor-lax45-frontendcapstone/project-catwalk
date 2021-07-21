@@ -10,7 +10,8 @@ import WriteNewReview from './RatingsReviews/WriteNewReview.jsx';
 
 export default props => {
   return (
-    <div>
+    <div id="body-ratings">
+      Ratings
       <KeywordSearch />
       <ProductBreakdown />
       <RatingBreakdown />

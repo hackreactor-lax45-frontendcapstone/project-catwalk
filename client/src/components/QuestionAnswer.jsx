@@ -10,6 +10,6 @@ import SearchQuestions from './QuestionAnswer/SearchQuestions.jsx';
 
 export default props => {
   return (
-    <div>QuestionAnswer</div>
+    <div id="body-questions">QuestionAnswer</div>
   );
 };

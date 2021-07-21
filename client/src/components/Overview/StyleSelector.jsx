@@ -2,6 +2,8 @@ import React from 'react';
 
 export default props => {
   return (
-    <div>StyleSelector</div>
+    <div id="body-overview-styleselector">
+      StyleSelector
+    </div>
   );
 };
