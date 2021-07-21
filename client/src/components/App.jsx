@@ -1,6 +1,5 @@
 import React from 'react';
-
-import api from '../utils/serverApi.js';
+import atelier from '../lib/atelierAPI.js';
 
 class App extends React.Component {
   constructor() {
@@ -10,7 +9,7 @@ class App extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>Wingardium leviosa!</div>
     );
   }
