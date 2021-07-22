@@ -1,5 +1,4 @@
 import React from 'react';
-import atelier from '../config/lib/atelierAPI.js';
 
 import Overview from './Overview.jsx';
 import RelatedItems from './RelatedItems.jsx';
