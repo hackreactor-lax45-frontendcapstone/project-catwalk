@@ -1,13 +1,17 @@
+body {
+  margin: 0;
+}
+
 #page {
   width: 100%;
 }
 
 #app {
-  min-width: 350px;
-  max-width: 600px;
+  min-width: 50%;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
-  background-color: red;
+  background-color: rgb(236, 81, 81);
 }
 
 #app-header {
@@ -16,12 +20,13 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: blue;
-  height: 50px;
+  background-color: rgb(77, 77, 250);
+  height: 80px;
 }
 
 #app-body {
-  background-color: green;
+  background-color: rgb(52, 128, 52);
+  height: 100em;
 }
 
 /*
@@ -30,7 +35,7 @@ Overview
 #body-overview {
   display: flex;
   flex-direction: column;
-  background-color: yellow;
+  background-color: rgb(224, 224, 84);
 }
 
 #body-overview-top {
@@ -40,36 +45,35 @@ Overview
   margin: 5px;
 }
 
+#body-overview-top-left {
+  background-color: rgb(180, 58, 180);
+  margin: 5px;
+  width: 55%;
+  height: 400px;
+}
+
+#body-overview-top-right {
+  background-color: rgb(180, 58, 180);
+  margin: 5px;
+  flex-grow: 1;
+}
+
 #body-overview-bottom {
   display: flex;
   background-color: pink;
   justify-content: flex-start;
   margin: 5px;
-  height: 100px;
-}
-
-#body-overview-top-left {
-  display: flex;
-  background-color: purple;
-  margin: 5px;
-  width: 70%;
-  height: 300px;
-}
-
-#body-overview-top-right {
-  background-color: purple;
-  margin: 5px;
-  flex-grow: 1;
+  height: 120px;
 }
 
 #body-overview-bottom-left {
-  background-color: blue;
+  background-color: rgb(65, 203, 245);
   margin: 5px;
   width: 70%;
 }
 
 #body-overview-bottom-right {
-  background-color: blue;
+  background-color: rgb(65, 203, 245);
   margin: 5px;
   flex-grow: 1;
 }
