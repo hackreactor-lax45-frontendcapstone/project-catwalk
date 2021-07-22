@@ -78,6 +78,12 @@ Overview
              Image Gallery
 ========================================= */
 
+/* ========== Classes ========== */
+.imagegallery-button {
+  width: 100%;
+}
+
+/* ========== IDs ========== */
 #body-overview-imagegallery-default {
   display: flex;
   flex-direction: column;
@@ -116,10 +122,6 @@ Overview
 #imagegallery-default-main-buttonright {
   display: flex;
   flex-grow: 1;
-}
-
-.imagegallery-button {
-  width: 100%;
 }
 
 #imagegallery-default-thumbnails-buttonleft {
