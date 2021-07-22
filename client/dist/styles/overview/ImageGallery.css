@@ -8,39 +8,40 @@
   width: 20px;
 }
 
+/* image class */
 .imagegallery-main {
   max-height: 100%;
   max-width: 100%;
-  box-sizing: border-box;
 }
 /* ========== IDs ========== */
 #body-overview-imagegallery-default {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  background-color: white;
   max-width: 100%;
   box-sizing: border-box;
 }
 
 #imagegallery-default-main {
-  background-color: green;
+  background-color: black;
   height: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px;
   box-sizing: border-box;
 }
 
-
 #imagegallery-default-main-button {
   display: flex;
-  width: 5%;
   height: 100%;
   box-sizing: border-box;
 }
 
+#imagegallery-default-main-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 310px;
+}
 
 #imagegallery-default-thumbnails {
   background-color: green;
@@ -48,23 +49,20 @@
   flex-grow: 1;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px;
   box-sizing: border-box;
 }
 
 #imagegallery-default-thumbnails-button {
   display: flex;
-  width: 5%;
   height: 100%;
   box-sizing: border-box;
 }
 
 #imagegallery-default-thumbnails-image {
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: hidden;
   flex-direction: row;
-  height: 75px;
-  padding: 0;
-  max-width: 90%;
+  height: 90px;
   box-sizing: border-box;
 }

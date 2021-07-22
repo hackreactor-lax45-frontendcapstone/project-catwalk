@@ -61,7 +61,12 @@ class ImageGallery extends React.Component {
         {/* thumbnails div */}
         <div id="imagegallery-default-thumbnails">
           <div id="imagegallery-default-thumbnails-button">
-            <button className="imagegallery-button"></button>
+            <button
+              className="imagegallery-button"
+              onClick={(e) => {
+                document.getElementById('imagegallery-default-thumbnails-image').scrollLeft -= 50;
+              }}
+            ></button>
           </div>
           <div id="imagegallery-default-thumbnails-image">
             {_.map(this.state.style.thumbnail, (thumbnail, i) => {
@@ -75,7 +80,12 @@ class ImageGallery extends React.Component {
 
           </div>
           <div id="imagegallery-default-thumbnails-button">
-            <button className="imagegallery-button"></button>
+            <button
+              className="imagegallery-button"
+              onClick={(e) => {
+                document.getElementById('imagegallery-default-thumbnails-image').scrollLeft += 50;
+              }}
+            ></button>
           </div>
         </div>
       </div>
