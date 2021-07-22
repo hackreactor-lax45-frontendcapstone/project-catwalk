@@ -11,10 +11,13 @@
 }
 
 #app-header {
+  top: 0;
+  position: sticky;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   background-color: blue;
+  height: 50px;
 }
 
 #app-body {
@@ -22,13 +25,48 @@
 }
 
 #body-overview {
+  display: flex;
+  flex-direction: column;
   background-color: yellow;
 }
 
 #body-overview-top {
+  display: flex;
   background-color: orange;
+  justify-content: flex-start;
+  margin: 5px;
 }
 
 #body-overview-bottom {
+  display: flex;
   background-color: pink;
+  justify-content: flex-start;
+  margin: 5px;
+  height: 100px;
 }
+
+#body-overview-top-left {
+  background-color: purple;
+  margin: 5px;
+  width: 70%;
+  height: 300px;
+}
+
+#body-overview-top-right {
+  background-color: purple;
+  margin: 5px;
+  flex-grow: 1;
+}
+
+#body-overview-bottom-left {
+  background-color: blue;
+  margin: 5px;
+  width: 70%;
+}
+
+#body-overview-bottom-right {
+  background-color: blue;
+  margin: 5px;
+  flex-grow: 1;
+}
+
