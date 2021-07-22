@@ -46,6 +46,7 @@ Overview
 }
 
 #body-overview-top-left {
+  display: flex;
   background-color: rgb(180, 58, 180);
   margin: 5px;
   width: 55%;
@@ -76,68 +77,4 @@ Overview
   background-color: rgb(65, 203, 245);
   margin: 5px;
   flex-grow: 1;
-}
-
-/* =========================================
-             Image Gallery
-========================================= */
-
-/* ========== Classes ========== */
-.imagegallery-button {
-  width: 100%;
-}
-
-/* ========== IDs ========== */
-#body-overview-imagegallery-default {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color:white;
-  margin: 5px;
-}
-
-#imagegallery-default-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 80%;
-  background-color: green;
-  margin: 5px;
-}
-
-#imagegallery-default-thumbnails {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-grow: 1;
-  background-color: pink;
-  margin: 5px;
-}
-
-#imagegallery-default-main-buttonleft {
-  display: flex;
-  flex-grow: 1;
-}
-
-#imagegallery-default-main-image {
-  width: 90%;
-}
-
-#imagegallery-default-main-buttonright {
-  display: flex;
-  flex-grow: 1;
-}
-
-#imagegallery-default-thumbnails-buttonleft {
-  display: flex;
-  flex-grow: 1;
-}
-
-#imagegallery-default-thumbnails-buttonright {
-  display: flex;
-  flex-grow: 1;
-}
-
-#imagegallery-default-thumbnails-image {
-  width: 90%;
 }
