@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import AtelierApi from '../../config/lib/atelierAPI';
+import AtelierApi from '../../lib/atelierAPI.js';
 
 export default class ProductSummary extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class ProductSummary extends React.Component {
     axios.get(`${AtelierApi.url}/products`, {
       headers: AtelierApi.headers
     })
-      .then(response => console.log(response))
+      .then(response => console.log(response.data))
       .catch(err => console.log('err', err));
   }
 
