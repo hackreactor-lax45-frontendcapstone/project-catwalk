@@ -6,47 +6,60 @@ export default class ProductSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {
-        'id': 16056,
-        'name': 'Camo Onesie',
-        'slogan': 'Blend in to your crowd',
-        'description': 'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.',
-        'category': 'Jackets',
-        'default_price': '140.00'
-      },
-      //star ratings from reviews/meta
-      review: {
-        'ratings': {
-          '1': '2',
-          '3': '5',
-          '4': '4',
-          '5': '9'
-        }
-      }
+      product: {},
+      reviewMetadata: {},
+      starRating: '',
+      count: ''
     };
   }
 
   componentDidMount() {
-    this.renderAll();
+    const productId = 16056;
+    this.renderProductInfo(productId);
+    this.renderReviewInfo(productId);
   }
 
-  renderAll() {
-    axios.get(`${AtelierApi.url}/products`, {
+  renderProductInfo(productId) {
+    axios.get(`${AtelierApi.url}/products/${productId}`, {
       headers: AtelierApi.headers
     })
-      .then(response => console.log(response.data))
-      .catch(err => console.log('err', err));
+      .then(response => {
+        this.setState({
+          product: response.data
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
+  renderReviewInfo(productId) {
+    axios.get(`${AtelierApi.url}/reviews/meta`, {
+      // eslint-disable-next-line camelcase
+      params: { product_id: productId },
+      headers: AtelierApi.headers
+    })
+      .then(response => {
+        this.setState({
+          reviewMetadata: response.data
+        });
+      })
+      .then(() => {
+        let ratings = 0;
+        let count = 0;
+        const eachRating = this.state.reviewMetadata.ratings;
+        for (var key in eachRating) {
+          count += Number(eachRating[key]);
+          ratings += (Number(key) * Number(eachRating[key]));
+        }
+        this.setState({
+          count: count,
+          starRating: ratings / count
+        }, () => console.log(this.state.starRating));
+
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
-    let ratings = 0;
-    let count = 0;
-    const eachRating = this.state.review.ratings;
-    for (var key in eachRating) {
-      count += Number(eachRating[key]);
-      ratings += (Number(key) * Number(eachRating[key]));
-    }
-    console.log(ratings / count);
 
     return (
       <div id="body-overview-productsummary">
@@ -67,6 +80,7 @@ export default class ProductSummary extends React.Component {
             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
           </svg>
         </div>
+        <div>Read all {this.state.count} reviews</div>
         <div>{this.state.product.category}</div>
         <div>{this.state.product.name}</div>
         <div>${this.state.product.default_price} USD</div>
