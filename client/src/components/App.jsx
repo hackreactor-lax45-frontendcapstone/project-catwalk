@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import Overview from './Overview.jsx';
 import RelatedItems from './RelatedItems.jsx';
 import QuestionAnswer from './QuestionAnswer.jsx';
