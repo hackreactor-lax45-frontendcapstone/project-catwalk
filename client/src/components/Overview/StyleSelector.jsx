@@ -1,9 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 
+import atelierAPI from '../../lib/atelierAPI.js'
 
 class StyleSelector extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      currentProduct: {}
+    }
+  }
+
+  componentDidMount() {
+    axios.get(`${atelierAPI.url}/products/16057/styles`, {
+      headers: atelierAPI.headers
+    })
+      .then(res => this.setState({
+        currentProduct: res.data
+      }))
   }
 
   render() {
