@@ -4,8 +4,11 @@
 
 /* ========== Classes ========== */
 .imagegallery-button {
-  height: 100%;
+  height: 80%;
   width: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: none;
 }
 
 /* image class */
@@ -32,7 +35,6 @@
 
 #imagegallery-default-main-button {
   display: flex;
-  height: 100%;
   box-sizing: border-box;
 }
 
@@ -44,7 +46,7 @@
 }
 
 #imagegallery-default-thumbnails {
-  background-color: green;
+  background-color: black;
   display: flex;
   flex-grow: 1;
   flex-direction: row;
@@ -54,14 +56,12 @@
 
 #imagegallery-default-thumbnails-button {
   display: flex;
-  height: 100%;
   box-sizing: border-box;
 }
 
 #imagegallery-default-thumbnails-image {
   display: flex;
   overflow: hidden;
-  overflow-y: hidden;
   flex-direction: row;
   height: 90px;
   box-sizing: border-box;
