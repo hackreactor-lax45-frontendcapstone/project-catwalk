@@ -29,6 +29,9 @@ body {
   height: 100em;
 }
 
+/*
+Overview
+ */
 #body-overview {
   display: flex;
   flex-direction: column;
@@ -44,6 +47,7 @@ body {
 }
 
 #body-overview-top-left {
+  display: flex;
   background-color: rgb(180, 58, 180);
   margin: 5px;
   width: 55%;
