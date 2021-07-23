@@ -13,7 +13,7 @@ export default class ProductDescription extends React.Component {
   }
 
   componentDidMount() {
-    const productId = 16056;
+    const productId = 16060;
     this.renderProductInfo(productId);
   }
 
