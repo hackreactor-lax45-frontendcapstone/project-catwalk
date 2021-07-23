@@ -26,12 +26,33 @@ class ImageGallery extends React.Component {
     };
 
     this.selectImage = this.selectImage.bind(this);
+    this.incrementImage = this.incrementImage.bind(this);
+  }
+
+  componentDidMount() {
+    // this.thumbnailWidth = document.getElementById('imagegallery-default-thumbnails-image').offsetWidth;
+    // var imageWidth = document.getElementById(`image-gallery-thumbnail-${index}`).offsetWidth;
+    // this.setState({
+    //   scrollPosition: document.getElementById(`image-gallery-thumbnail-${this.state.thumbnailIndex}`).offsetWidth
+    // });
   }
 
   setStyle(styleIndex) {
     this.setState({
       styleIndex
     });
+  }
+
+  incrementImage(increment) {
+    var index = this.state.thumbnailIndex + increment;
+    index = index < 0 ? 0 : index;
+    index = index > this.state.style.url.length - 1 ? this.state.style.url.length - 1 : index;
+
+    // document.getElementById('imagegallery-default-thumbnails-image').scrollLeft = scrollPosition;
+
+    this.setState({
+      thumbnailIndex: index,
+    }, () => console.log(this.state));
   }
 
   selectImage(thumbnailIndex) {
@@ -47,6 +68,7 @@ class ImageGallery extends React.Component {
         <div id="imagegallery-default-main">
           <div id="imagegallery-default-main-button">
             <button className="imagegallery-button"></button>
+            <button className="imagegallery-button"></button>
           </div>
           <div id="imagegallery-default-main-image">
             <img
@@ -54,38 +76,30 @@ class ImageGallery extends React.Component {
               src={this.state.style.url[this.state.thumbnailIndex]}
             ></img>
           </div>
-          <div id="imagegallery-default-main-button">
-            <button className="imagegallery-button"></button>
-          </div>
         </div>
         {/* thumbnails div */}
         <div id="imagegallery-default-thumbnails">
           <div id="imagegallery-default-thumbnails-button">
             <button
               className="imagegallery-button"
-              onClick={(e) => {
-                document.getElementById('imagegallery-default-thumbnails-image').scrollLeft -= 50;
-              }}
+              onClick={(e) => this.incrementImage(-1)}
+            ></button>
+            <button
+              className="imagegallery-button"
+              onClick={(e) => this.incrementImage(1)}
             ></button>
           </div>
           <div id="imagegallery-default-thumbnails-image">
             {_.map(this.state.style.thumbnail, (thumbnail, i) => {
+              var imageClass = 'imagegallery-thumbnail' + (this.state.thumbnailIndex === i ? '-selected' : '');
               return <img
                 key={i}
-                className="imagegallery-thumbnail"
+                id={`image-gallery-thumbnail-${i}`}
+                className={imageClass}
                 src={thumbnail}
                 onClick={() => this.selectImage(i)}
               ></img>;
             })}
-
-          </div>
-          <div id="imagegallery-default-thumbnails-button">
-            <button
-              className="imagegallery-button"
-              onClick={(e) => {
-                document.getElementById('imagegallery-default-thumbnails-image').scrollLeft += 50;
-              }}
-            ></button>
           </div>
         </div>
       </div>
