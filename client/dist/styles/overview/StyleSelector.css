@@ -1,5 +1,4 @@
 #body-overview-styleselector {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   max-height: 41%;
@@ -35,11 +34,6 @@
   height: 100px;
 }
 
-/* .is-selected{
-  transform: translate(-100px,400%) rotate(45deg);
-  transition:transform 0.5s;
-} */
-
 .is-selected{
   transform:scale(1.2);
   transition:transform 0.5s;
@@ -61,5 +55,3 @@ button {
 button:hover {
   color: ivory;
 }
-
-/* set max width to 45% for overview-top-right in app.css*/

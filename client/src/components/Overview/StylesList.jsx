@@ -16,7 +16,6 @@ const StylesList = (props) => {
     setSelected(e);
     props.handleSelected(e);
   }
-  console.log(selected)
 
   return (
     <span
