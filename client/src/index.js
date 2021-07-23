@@ -1,6 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
+import store from './state/store.js';
 import App from './components/App.jsx';
 
-ReactDOM.render(<App />, document.getElementById('page'));
+const rootElement = document.getElementById('page');
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
