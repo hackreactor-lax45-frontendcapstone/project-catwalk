@@ -9,6 +9,3 @@ config.js
 
 ## build
 bundle.js
-
-## package lock json
-package-lock.json
