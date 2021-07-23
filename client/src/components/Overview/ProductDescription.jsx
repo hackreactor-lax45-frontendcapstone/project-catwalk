@@ -30,7 +30,7 @@ export default class ProductDescription extends React.Component {
   }
   render() {
 
-    return (
+    return(
       <div id="body-overview-main">
         <div id="body-overview-slogan">{this.state.product.slogan}</div>
         <div id="body-overview-description">{this.state.product.description}</div>
