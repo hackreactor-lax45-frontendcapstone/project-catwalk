@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 const store = createStore(
   reducers, // combined reducers
-  {}, // default state
+  {}, // initial state
   applyMiddleware(thunk) // allows async calls
 );
 
