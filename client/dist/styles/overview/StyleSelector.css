@@ -2,11 +2,12 @@
   border: 2px solid black;
   display: flex;
   flex-direction: column;
-  max-height: 200px;
+  max-height: 41%;
   background-color: #b0bbbf;
 }
 
 .selection-title {
+  background-color: transparent;
   align-self: center;
 }
 
@@ -17,19 +18,25 @@
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 .thumbnail-container {
+  cursor: pointer;
   width: 25%;
-  height: 100px;
 }
 
 .thumbnail {
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 100px;
 }
 
 .btn-more-styles {
   align-self: center;
+  width: 100%;
 }
 
 button {
