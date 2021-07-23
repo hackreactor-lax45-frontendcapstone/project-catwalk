@@ -1,10 +1,10 @@
 import Redux from 'redux';
 
-const initialState = 0;
+const initialState = [];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-  case 'SELECT_QUANTITY':
+  case 'UPDATE_RELATED':
     return action.payload;
   default:
     return state;

@@ -5,6 +5,7 @@ import thumbnail from './selectThumbnail';
 import size from './selectSize';
 import quantity from './selectQuantity';
 import cart from './addToCart';
+import related from './related';
 
 const allReducers = {
   style,
@@ -12,6 +13,7 @@ const allReducers = {
   size,
   quantity,
   cart,
+  related,
 };
 
 export default combineReducers(allReducers);

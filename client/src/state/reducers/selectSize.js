@@ -1,6 +1,8 @@
 import Redux from 'redux';
 
-const reducer = (state = '', action) => {
+const initialState = '';
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SELECT_SIZE':
     return action.payload;

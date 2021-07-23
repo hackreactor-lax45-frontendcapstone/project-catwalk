@@ -1,6 +1,8 @@
 import Redux from 'redux';
 
-const reducer = (state = 0, action) => {
+const initialState = 0;
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SELECT_THUMBNAIL':
     return action.payload;

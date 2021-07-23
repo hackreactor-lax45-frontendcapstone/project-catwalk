@@ -1,7 +1,8 @@
 import Redux from 'redux';
 
-const reducer = (state = 0, action) => {
-  // action houses type + payload
+const initialState = 0;
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SELECT_STYLE':
     return action.payload;

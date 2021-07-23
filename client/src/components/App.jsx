@@ -7,23 +7,20 @@ import RatingsReviews from './RatingsReviews.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import actionCreators from '../state/action-creators/index.js';
-
 /*
 How to access state and action creators in a different file
-  import { useSelector, useDispatch } from 'react-redux';
-  import { bindActionCreators } from 'redux';
-  import actionCreators from '../state/action-creators/index.js';
 
-  const state = useSelector(state => state);
-
-  const boundActions = bindActionCreators(actionCreators, useDispatch());
-  const { selectStyle, selectThumbnail, selectSize, selectQuantity } = boundActions;
 */
 
+import { useSelector, useDispatch } from 'react-redux';
+import actions from '../state/actions/index.js';
+
 const App = () => {
+
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
+  // onClick={() => dispatch(actions.selectThumbnail(2))}
+
   return (
     <div id="app">
       <div id="app-header">
