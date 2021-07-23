@@ -8,7 +8,8 @@ class AddToCart extends React.Component {
     super(props);
 
     this.state = {
-      data: sampleData
+      data: sampleData,
+      currentSkus: {}
     }
   }
 
@@ -17,8 +18,10 @@ class AddToCart extends React.Component {
       <div id="body-overview-addtocart">
       AddToCart
       <div>
+
         <select>
         <SizeRenderEntry list={this.state.data} />
+
         </select>
       </div>
 
