@@ -29,6 +29,9 @@ body {
   height: 100em;
 }
 
+/*
+Overview
+ */
 #body-overview {
   display: flex;
   flex-direction: column;
@@ -40,9 +43,11 @@ body {
   background-color: orange;
   justify-content: flex-start;
   margin: 5px;
+  max-height: 400px;
 }
 
 #body-overview-top-left {
+  display: flex;
   background-color: rgb(180, 58, 180);
   margin: 5px;
   width: 55%;
@@ -53,6 +58,7 @@ body {
   background-color: rgb(180, 58, 180);
   margin: 5px;
   flex-grow: 1;
+  max-width: 45%;
 }
 
 #body-overview-bottom {

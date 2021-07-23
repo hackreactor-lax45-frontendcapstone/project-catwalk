@@ -34,7 +34,7 @@ An updated description to be included.
 # 4.0 Team Members
 
 * [Anna Lee](https://github.com/dlthfl87) - Product Owner / Development Team
-* [Borg Wang](https://github.com/bbwandx08) - Product Owner / Development Team
+* [Jooyoung Kim](https://github.com/jky0420) - Product Owner / Development Team
 * [Tyler Jones](https://github.com/tyler-audio) - Product Owner / Development Team
 * [Sean Lawlor](https://github.com/lawlorseanr) - Product Owner / Development Team
 
