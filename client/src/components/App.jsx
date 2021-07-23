@@ -8,19 +8,16 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
 /*
-How to access state and action creators in a different file
-
-*/
-
-import { useSelector, useDispatch } from 'react-redux';
-import actions from '../state/actions/index.js';
-
-const App = () => {
+How to access state and actions in a different file
+  import { useSelector, useDispatch } from 'react-redux';
+  import actions from '../state/actions/index.js';
 
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   // onClick={() => dispatch(actions.selectThumbnail(2))}
+*/
 
+export default () => {
   return (
     <div id="app">
       <div id="app-header">
@@ -36,5 +33,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
