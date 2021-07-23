@@ -1,6 +1,89 @@
 
-#body-overview-slogan {
-  display: flex;
-  justify-content: center;
+
+/* product description */
+#body-overview-bottom {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ margin: 10px;
 }
+
+#body-overview-bottom-left {
+  display: flex;
+  flex: 2;
+}
+
+#body-overview-bottom-right {
+  flex: 1;
+}
+
+#body-overview-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#body-overview-slogan {
+  font-weight: bold;
+}
+
+#body-overview-description {
+  margin-top: 5px;
+  align-items: center;
+}
+
+/* product info */
+#body-overview-productsummary {
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
+  background-color: rgb(65, 203, 245);
+  flex-basis: 80%;
+  flex-direction: column
+
+}
+
+#body-overview-starrating {
+  display: flex;
+  flex-direction: row;
+}
+
+#body-overview-stars {
+  flex: 1
+}
+
+#body-overview-count {
+  flex: 1;
+  font-size: 70%;
+  margin: 3px;
+}
+
+#body-overview-category {
+  font-size: 80%
+}
+
+#body-overview-name {
+  font-weight: bold;
+  font-size: 180%;
+  margin: 0px 0px 10px 0px;
+}
+
+#body-overview-price {
+  font-size: 80%;
+}
+
+/* share icons */
+
+#body-overview-share {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  height: 100%
+}
+
+#twitter, #facebook, #instagram {
+
+}
+
 

@@ -38,4 +38,3 @@ export default class ProductDescription extends React.Component {
     );
   }
 }
-
