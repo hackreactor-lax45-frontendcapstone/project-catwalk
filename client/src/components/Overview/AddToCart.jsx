@@ -1,5 +1,5 @@
 import React from 'react';
-import SizeRenderEntry from './SizeRenderEntry.jsx';
+import SizeRenderEntry from './sizeRenderEntry.jsx';
 import sampleData from './sampleData.js';
 
 class AddToCart extends React.Component {
