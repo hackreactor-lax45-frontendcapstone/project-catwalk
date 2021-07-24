@@ -12,8 +12,8 @@ var SizeRenderEntry = function(props) {
   // create an array that contains objects list --> ex) [{key:[skus#], size: "9", quantity: "12"},{},{}...{}]
   var final = [];
   for (var i = 0; i < skus.length; i++) {
-    var newobj = Object.assign(skus[i], qtyandSize[i])
-    final.push(newobj)
+    var newobj = Object.assign(skus[i], qtyandSize[i]);
+    final.push(newobj);
   }
 
   //if there's no remaining stock, the dropdown become inactive and read 'OUT OF STOCK"

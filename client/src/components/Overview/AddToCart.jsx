@@ -3,7 +3,6 @@ import SizeRenderEntry from './SizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
 import sampleData from './sampleData.js';
 
-
 class AddToCart extends React.Component {
   constructor(props) {
     super(props);
@@ -37,11 +36,7 @@ class AddToCart extends React.Component {
     </div>
     )
   }
-
-
 }
-
-
 
 export default AddToCart;
 

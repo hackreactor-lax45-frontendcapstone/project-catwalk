@@ -8,6 +8,11 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: 1000,
+    ignored: /node_modules/,
+  },
   module: {
     rules: [
       {
@@ -29,6 +34,13 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ],
       }
     ]
   }

@@ -1,0 +1,105 @@
+/* =========================================
+             Image Gallery
+========================================= */
+
+/* ========== Classes ========== */
+.imagegallery-button {
+  height: 80%;
+  width: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0.1;
+  border: none;
+  pointer-events: auto;
+}
+
+.imagegallery-button:hover {
+  opacity: 0.6;
+}
+
+/* image class */
+.imagegallery-main {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.imagegallery-thumbnail {
+  box-sizing: border-box;
+  border: none;
+}
+
+.imagegallery-thumbnail-selected {
+  box-sizing: border-box;
+  border: green 2px solid;
+}
+
+/* ========== IDs ========== */
+#body-overview-imagegallery-default {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ~~~~~~~~~~~~~~ Main ~~~~~~~~~~~~~ */
+#imagegallery-default-main {
+  background-color: black;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#imagegallery-default-main-image {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#imagegallery-default-main-button {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* ~~~~~~~~~~~~~~ Thumbnails ~~~~~~~~~~~~~ */
+#imagegallery-default-thumbnails {
+  position: relative;
+  background-color: black;
+  box-sizing: border-box;
+}
+
+#imagegallery-default-thumbnails-image {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  height: 90px;
+  box-sizing: border-box;
+}
+
+#imagegallery-default-thumbnails-button {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  pointer-events: none;
+}
