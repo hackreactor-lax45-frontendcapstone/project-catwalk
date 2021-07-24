@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Overview from './Overview.jsx';
 import Header from './Header.jsx';
@@ -18,17 +18,21 @@ How to access state and actions in a different file
   const thumbnail = useSelector(state => state.thumbnail);
 
   const dispatch = useDispatch();
-  // onClick={() => dispatch(actions.selectStyle(0))}
+  var styleIndex = 0;
+  // onClick={() => dispatch(actions.selectStyle(styleIndex))}
 */
 
 import setProductInfo from '../state/actions/setProductInfo.js';
 import setStyleInfo from '../state/actions/setStyleInfo.js';
 
-export default ({ product }) => {
+export default () => {
 
+  const productID = useSelector(state => state.productID);
   const dispatch = useDispatch();
-  setProductInfo(dispatch, product);
-  setStyleInfo(dispatch, product);
+  useEffect(() => {
+    setProductInfo(dispatch, productID);
+    setStyleInfo(dispatch, productID);
+  }, [productID]);
 
   return (
     <div id="app">
