@@ -1,68 +1,48 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useEffect }  from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import actions from '../../state/actions/index.js';
 
-import atelierAPI from '../../lib/atelierAPI.js';
 import '../../../dist/styles/overview/StyleSelector.css';
 
-class StyleSelector extends React.Component {
-  constructor(props) {
-    super(props);
+const StyleSelector = () => {
 
-    this.state = {
-      product: []
-    };
+  const dispatch = useDispatch();
 
-    this.handleSelected = this.handleSelected.bind(this);
-
-  }
-
-  componentDidMount() {
-    axios.get(`${atelierAPI.url}/products/16060/styles`, {
-      headers: atelierAPI.headers
-    })
-      .then(styles => {
-        let selected;
-        styles.data.results.forEach(style => {
-          if (style['default?'] === true) {
-            selected = style.name;
-          };
-        });
-
-        this.setState({
-          product: styles.data.results,
-          selected
-        });
-      })
-      .catch(err => console.error(err));
-  }
-
-  handleSelected(e) {
-    this.setState({
-      selected: e.target.name
-    });
-    if (e.target.getAttribute(checked)) {
-      e.target.setAttribute(checked, true);
+  const styles = useSelector(state => {
+    if (!state.product.styleInfo.results) {
+      return undefined;
     }
-  }
+    return state.product.styleInfo.results;
+  });
 
-  render() {
+  const selected = useSelector(state => {
+    if(!styles) {
+      return undefined;
+    }
+    return styles[state.style];
+  });
+
+  if (styles) {
     return (
       <div id="body-overview-styleselector">
-        <div className="selection-title">{this.state.selected}</div>
+        <div className="selection-title">{selected.name}</div>
         <div className="style-thumbnails">
-          {_.map(this.state.product, (style, i) => {
+          {_.map(styles, (style, i) => {
             return <span key={style.style_id} className="thumbnail-container">
               <img
                 src={style.photos[0].thumbnail_url}
                 className="thumbnail"
               ></img>
               <input
-                className={`cb ${this.state.selected === style.name && 'is-selected'}`}
-                onClick={this.handleSelected}
+                className={`cb ${selected.name === style.name && 'is-selected'}`}
+                onClick={() => {
+                  dispatch(actions.selectStyle(i));
+                }}
                 onChange={e => {}}
                 name={style.name}
                 type="checkbox"
-                checked={this.state.selected === style.name && true}
+                value={i}
+                checked={selected.name === style.name && true}
                 id={`cb${i}`}
               ></input>
               <label htmlFor={`cb${i}`}></label>
@@ -72,6 +52,7 @@ class StyleSelector extends React.Component {
     </div>
     )
   }
+  return <div></div>
 }
 
 export default StyleSelector;
