@@ -29,12 +29,14 @@
 }
 
 .thumbnail {
+  box-sizing: border-box;
   object-fit: cover;
   width: 100%;
   height: 100px;
 }
 
 .is-selected{
+  box-sizing: border-box;
   transform:scale(1.2);
   transition:transform 0.5s;
 }

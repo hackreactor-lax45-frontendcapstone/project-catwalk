@@ -47,12 +47,15 @@ class StyleSelector extends React.Component {
       <div id="body-overview-styleselector">
         <div className="selection-title">{this.state.selected}</div>
         <div className="style-thumbnails">
-          {this.state.product.map(style => {
-            return <StylesList
-              key={style.style_id}
-              style={style}
-              selected={this.state.selected}
-              handleSelected={this.handleSelected}/>
+          {_.map(this.state.product, style => {
+            return <span key={style.style_id} className="thumbnail-container">
+              <img
+                src={style.photos[0].thumbnail_url}
+                onClick={this.handleSelected}
+                className={`thumbnail ${this.state.selected === style.name && 'is-selected'}`}
+                name={style.name}
+              ></img>
+            </span>
           })}
         </div>
     </div>
@@ -61,3 +64,26 @@ class StyleSelector extends React.Component {
 }
 
 export default StyleSelector;
+
+
+/*
+{this.state.product.map(style => {
+  return <StylesList
+    key={style.style_id}
+    style={style}
+    selected={this.state.selected}
+    handleSelected={this.handleSelected}/>
+})}
+
+
+
+<span
+  className="thumbnail-container">
+  <img
+    onClick={onClick}
+    className={`thumbnail ${selected.selected === props.selected && 'is-selected'}`}
+    src={props.style.photos[0].thumbnail_url}
+    name={props.style.name}
+    ></img>
+</span>
+*/
