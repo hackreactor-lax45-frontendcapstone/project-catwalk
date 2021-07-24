@@ -13,6 +13,7 @@ class StyleSelector extends React.Component {
     };
 
     this.handleSelected = this.handleSelected.bind(this);
+
   }
 
   componentDidMount() {
@@ -39,6 +40,9 @@ class StyleSelector extends React.Component {
     this.setState({
       selected: e.target.name
     });
+    if (e.target.getAttribute(checked)) {
+      e.target.setAttribute(checked, true);
+    }
   }
 
   render() {
@@ -46,14 +50,22 @@ class StyleSelector extends React.Component {
       <div id="body-overview-styleselector">
         <div className="selection-title">{this.state.selected}</div>
         <div className="style-thumbnails">
-          {_.map(this.state.product, style => {
+          {_.map(this.state.product, (style, i) => {
             return <span key={style.style_id} className="thumbnail-container">
               <img
                 src={style.photos[0].thumbnail_url}
-                onClick={this.handleSelected}
-                className={`thumbnail ${this.state.selected === style.name && 'is-selected'}`}
-                name={style.name}
+                className="thumbnail"
               ></img>
+              <input
+                className={`cb ${this.state.selected === style.name && 'is-selected'}`}
+                onClick={this.handleSelected}
+                onChange={e => {}}
+                name={style.name}
+                type="checkbox"
+                checked={this.state.selected === style.name && true}
+                id={`cb${i}`}
+              ></input>
+              <label htmlFor={`cb${i}`}></label>
             </span>
           })}
         </div>
