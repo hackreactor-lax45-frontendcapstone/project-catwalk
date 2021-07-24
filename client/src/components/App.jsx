@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import Overview from './Overview.jsx';
+import Header from './Header.jsx';
 import RelatedItems from './RelatedItems.jsx';
 import QuestionAnswer from './QuestionAnswer.jsx';
 import RatingsReviews from './RatingsReviews.jsx';
-import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
 /*
@@ -14,8 +14,11 @@ How to access state and actions in a different file
   import actions from '../state/actions/index.js';
 
   const state = useSelector(state => state);
+  OR
+  const thumbnail = useSelector(state => state.thumbnail);
+
   const dispatch = useDispatch();
-  // onClick={() => dispatch(actions.selectThumbnail(2))}
+  // onClick={() => dispatch(actions.selectStyle(0))}
 */
 
 import setProductInfo from '../state/actions/setProductInfo.js';

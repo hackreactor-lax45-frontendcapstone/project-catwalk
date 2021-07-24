@@ -1,6 +1,8 @@
 import Redux from 'redux';
 
-export default (state = '', action) => {
+const initialState = '';
+
+export default (state = initialState, action) => {
   switch (action.type) {
   case 'SELECT_PRODUCT':
     return action.payload;

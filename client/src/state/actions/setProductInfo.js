@@ -13,7 +13,7 @@ const productQuery = (dispatch, product) => {
         payload: response.data,
       });
     })
-    .catch(err => console.error('!', err));
+    .catch(err => console.error(err));
 };
 
 export default productQuery;
