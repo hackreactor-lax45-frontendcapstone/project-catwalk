@@ -19,10 +19,10 @@ class AddToCart extends React.Component {
       AddToCart
       <div>
 
-        <select>
+
         <SizeRenderEntry list={this.state.data} />
 
-        </select>
+
       </div>
 
 

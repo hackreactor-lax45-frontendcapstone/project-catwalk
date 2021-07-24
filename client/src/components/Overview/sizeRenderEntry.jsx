@@ -7,7 +7,7 @@ var SizeRenderEntry = function(props) {
   var qtyandSize = [];
 
 
-  for (const [key, value] of Object.entries(props.list.results[0].skus)) {
+  for (const [key, value] of Object.entries(props.list.results[1].skus)) {
     skus.push({key});
     qtyandSize.push(value);
   }
@@ -17,17 +17,22 @@ var SizeRenderEntry = function(props) {
     var newobj = Object.assign(skus[i], qtyandSize[i])
     final.push(newobj)
   }
+  //if there's no remaining stock, the dropdown become inactive and read 'OUT OF STOCK"
+  if (final.length === 0) {
+    console.log(final.length)
+    return <select disabled="outofstock">
+      <option>OUT OF STOCK</option>
+    </select>
+  }
 
-  console.log(final)
-  return (
-    // <select name="sizes" id="sizes">
-      final.map(elem => {
+  else {
+
+    return ( <select>
+      {final.map(elem => {
         return <option key={elem.key} value={elem}> {elem.size} </option>
-      })
-
-    // </select>
-
-    )
+      })}
+     </select> )
+  }
 
 }
 
