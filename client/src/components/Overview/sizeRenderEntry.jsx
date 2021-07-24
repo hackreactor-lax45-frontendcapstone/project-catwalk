@@ -18,7 +18,6 @@ var SizeRenderEntry = function(props) {
     final.push(newobj)
   }
 
-  console.log(final)
   return (
     // <select name="sizes" id="sizes">
       final.map(elem => {

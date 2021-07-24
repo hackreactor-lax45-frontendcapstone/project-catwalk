@@ -51,7 +51,6 @@ export default class ProductSummary extends React.Component {
           ratings += (Number(key) * Number(eachRating[key]));
         }
         let starPercentage = (ratings / count) / 5 * 100;
-        console.log(starPercentage);
         if ((starPercentage % 5) < 2.5) {
           starPercentage -= (starPercentage % 5);
         } else {
@@ -62,7 +61,6 @@ export default class ProductSummary extends React.Component {
           count: count,
           starPercentage: starPercentage
         }, () => {
-          console.log(this.state.starPercentage);
           document.querySelector('#body-overview-star .stars-inner').style.width = `${this.state.starPercentage}%`;
         });
 
@@ -75,8 +73,8 @@ export default class ProductSummary extends React.Component {
       <div id="body-overview-productsummary">
         <div id="body-overview-starrating">
           <div id="body-overview-star">
-            <div class="stars-outer">
-              <div class="stars-inner"></div>
+            <div className="stars-outer">
+              <div className="stars-inner"></div>
             </div>
           </div>
           <div id="body-overview-count">Read all {this.state.count} reviews</div>

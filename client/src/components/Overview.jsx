@@ -18,7 +18,6 @@ class Overview extends React.Component {
   render() {
     return (
       <div id="body-overview">
-        Overview
         <div id="body-overview-top">
           <div id="body-overview-top-left">
             <ImageGallery />
