@@ -8,7 +8,7 @@ import ReviewsList from './RatingsReviews/ReviewsList.jsx';
 import SortOptions from './RatingsReviews/SortOptions.jsx';
 import WriteNewReview from './RatingsReviews/WriteNewReview.jsx';
 
-export default props => {
+export default () => {
   return (
     <div id="body-ratings">
       Ratings
