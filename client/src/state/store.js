@@ -2,10 +2,10 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers/index';
 import thunk from 'redux-thunk';
 
-const store = createStore(
-  reducers, // combined reducers
-  {}, // initial state
-  applyMiddleware(thunk) // allows async calls
-);
-
-export default store;
+export default initialState => {
+  return createStore(
+    reducers,
+    initialState,
+    applyMiddleware(thunk)
+  );
+};

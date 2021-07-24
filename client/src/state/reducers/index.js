@@ -6,6 +6,7 @@ import size from './selectSize';
 import quantity from './selectQuantity';
 import cart from './addToCart';
 import related from './related';
+import api from './changeProduct';
 
 const allReducers = {
   style,
@@ -14,6 +15,7 @@ const allReducers = {
   quantity,
   cart,
   related,
+  api,
 };
 
 export default combineReducers(allReducers);
