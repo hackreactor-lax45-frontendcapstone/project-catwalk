@@ -2,7 +2,6 @@ import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI';
 
 export default (dispatch, productID) => {
-
   var productQuery = axios({
     url: `${AtelierAPI.url}/products/${productID}`,
     method: 'get',

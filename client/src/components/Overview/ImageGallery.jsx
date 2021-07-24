@@ -52,7 +52,7 @@ class ImageGallery extends React.Component {
 
     this.setState({
       thumbnailIndex: index,
-    }, () => console.log(this.state));
+    });
   }
 
   selectImage(thumbnailIndex) {

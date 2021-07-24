@@ -8,8 +8,6 @@ import App from './components/App.jsx';
 const rootElement = document.getElementById('page');
 
 import selectProduct from './state/actions/selectProduct';
-import setProductInfo from './state/actions/setProductInfo';
-import setStyleInfo from './state/actions/setStyleInfo';
 
 ReactDOM.render(
   <Provider store={store}>

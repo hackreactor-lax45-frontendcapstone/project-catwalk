@@ -7,7 +7,6 @@ import size from './selectSize';
 import quantity from './selectQuantity';
 import cart from './addToCart';
 import related from './setRelated';
-import productInfo from './setProductInfo';
 
 const allReducers = {
   product,
