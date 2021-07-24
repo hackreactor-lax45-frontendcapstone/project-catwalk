@@ -8,7 +8,7 @@ import QuestionComponent from './QuestionAnswer/QuestionComponent.jsx';
 import SearchQuestions from './QuestionAnswer/SearchQuestions.jsx';
 
 
-export default props => {
+export default () => {
   return (
     <div id="body-questions">QuestionAnswer</div>
   );
