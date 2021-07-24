@@ -22,17 +22,12 @@ How to access state and actions in a different file
   // onClick={() => dispatch(actions.selectStyle(styleIndex))}
 */
 
-import setProductInfo from '../state/actions/setProductInfo.js';
-import setStyleInfo from '../state/actions/setStyleInfo.js';
+import selectProduct from '../state/actions/selectProduct.js';
 
-export default () => {
+export default ({ productID }) => {
 
-  const productID = useSelector(state => state.productID);
   const dispatch = useDispatch();
-  useEffect(() => {
-    setProductInfo(dispatch, productID);
-    setStyleInfo(dispatch, productID);
-  }, [productID]);
+  selectProduct(dispatch, productID);
 
   return (
     <div id="app">

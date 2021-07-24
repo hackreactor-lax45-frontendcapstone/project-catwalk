@@ -8,11 +8,12 @@ import App from './components/App.jsx';
 const rootElement = document.getElementById('page');
 
 import selectProduct from './state/actions/selectProduct';
-store.dispatch(selectProduct(16060));
+import setProductInfo from './state/actions/setProductInfo';
+import setStyleInfo from './state/actions/setStyleInfo';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App productID={16060}/>
   </Provider>,
   rootElement
 );
