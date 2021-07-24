@@ -1,9 +1,42 @@
 import React from 'react';
+import SizeRenderEntry from './SizeRenderEntry.jsx';
+import sampleData from './sampleData.js';
 
-export default props => {
-  return (
-    <div id="body-overview-addtocart">
+class AddToCart extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: sampleData,
+      currentSkus: {}
+    };
+  }
+
+  render() {
+    return (
+      <div id="body-overview-addtocart">
       AddToCart
-    </div>
-  );
-};
+        <div>
+          <select>
+            <SizeRenderEntry list={this.state.data} />
+          </select>
+        </div>
+        <div>
+          <select>
+            <option> Quantity Selector </option>
+          </select>
+        </div>
+        <button>Add to Cart </button>
+      </div>
+    );
+  }
+}
+
+export default AddToCart;
+
+// <select>
+//           <option value="small">S</option>
+//           <option value="medium">M</option>
+//           <option value="large">L</option>
+//           <option value="xlarge">XL</option>
+//         </select>
