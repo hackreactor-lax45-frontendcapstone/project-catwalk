@@ -1,5 +1,6 @@
 import React from 'react';
 import SizeRenderEntry from './SizeRenderEntry.jsx';
+import QtyRenderEntry from './qtyRenderEntry.jsx';
 import sampleData from './sampleData.js';
 
 
@@ -8,36 +9,32 @@ class AddToCart extends React.Component {
     super(props);
 
     this.state = {
-      data: sampleData,
-      currentSkus: {}
+      selectedStyleData: sampleData,
+      currentSkus: {},
+      currentSelectSize: '',
+      currentSelectQty: ''
     }
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange = (event) =>
+    this.setState({currentSelectQty: event.target.value})
 
   render() {
     return (
       <div id="body-overview-addtocart">
       AddToCart
       <div>
-
-
-        <SizeRenderEntry list={this.state.data} />
-
-
+        <SizeRenderEntry list={this.state.selectedStyleData} handleChange={this.handleChange} />
       </div>
-
 
       <div>
-        <select>
-        <option> Quantity Selector </option>
-        </select>
+        <QtyRenderEntry qty={this.state.currentSelectQty}/>
       </div>
 
-
       <button>Add to Cart </button>
+
     </div>
-
-
-
     )
   }
 
@@ -48,11 +45,3 @@ class AddToCart extends React.Component {
 
 export default AddToCart;
 
-
-
-// <select>
-//           <option value="small">S</option>
-//           <option value="medium">M</option>
-//           <option value="large">L</option>
-//           <option value="xlarge">XL</option>
-//         </select>
