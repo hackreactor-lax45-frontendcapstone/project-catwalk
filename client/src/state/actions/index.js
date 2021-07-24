@@ -1,19 +1,19 @@
-import selectStyle from './styleAction';
-import selectThumbnail from './thumbnailAction';
-import selectSize from './sizeAction';
-import selectQuantity from './quantityAction';
-import addToCart from './addToCartAction';
-import related from './relatedAction';
-import changeProduct from './changeProductAction';
+import selectProduct from './selectProduct';
+import selectStyle from './selectStyle';
+import selectThumbnail from './selectThumbnail';
+import selectSize from './selectSize';
+import selectQuantity from './selectQuantity';
+import addToCart from './addToCart';
+import setRelated from './setRelated';
 
 const actions = {
+  selectProduct,
   selectStyle,
   selectThumbnail,
   selectSize,
   selectQuantity,
   addToCart,
-  related,
-  changeProduct,
+  setRelated,
 };
 
 export default actions;

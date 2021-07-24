@@ -1,6 +1,6 @@
 export default related => {
   return {
-    type: 'UPDATED_RELATED',
+    type: 'SET_RELATED',
     payload: related
   };
 };

@@ -1,6 +1,6 @@
 export default product => {
   return {
-    type: 'CHANGE_PRODUCT',
+    type: 'SELECT_PRODUCT',
     payload: product
   };
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import Overview from './Overview.jsx';
 import RelatedItems from './RelatedItems.jsx';
@@ -6,6 +7,7 @@ import QuestionAnswer from './QuestionAnswer.jsx';
 import RatingsReviews from './RatingsReviews.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
+
 
 /*
 How to access state and actions in a different file
@@ -17,7 +19,11 @@ How to access state and actions in a different file
   // onClick={() => dispatch(actions.selectThumbnail(2))}
 */
 
-export default () => {
+export default ({ product }) => {
+
+  // const dispatch = useDispatch();
+  // dispatch(updateProducts(product));
+
   return (
     <div id="app">
       <div id="app-header">

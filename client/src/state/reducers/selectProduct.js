@@ -1,8 +1,8 @@
 import Redux from 'redux';
 
-export default (state = { product: {}, style: {} }, action) => {
+export default (state = '', action) => {
   switch (action.type) {
-  case 'CHANGE_PRODUCT':
+  case 'SELECT_PRODUCT':
     return action.payload;
   default:
     return state;
