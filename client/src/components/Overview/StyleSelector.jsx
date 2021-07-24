@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-import StylesList from './StylesList.jsx'
-import atelierAPI from '../../lib/atelierAPI.js'
-import '../../../dist/styles/overview/StyleSelector.css'
+import atelierAPI from '../../lib/atelierAPI.js';
+import '../../../dist/styles/overview/StyleSelector.css';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -25,13 +24,13 @@ class StyleSelector extends React.Component {
         styles.data.results.forEach(style => {
           if (style['default?'] === true) {
             selected = style.name;
-          }
-        })
+          };
+        });
 
         this.setState({
           product: styles.data.results,
           selected
-        })
+        });
       })
       .catch(err => console.error(err));
   }
@@ -64,26 +63,3 @@ class StyleSelector extends React.Component {
 }
 
 export default StyleSelector;
-
-
-/*
-{this.state.product.map(style => {
-  return <StylesList
-    key={style.style_id}
-    style={style}
-    selected={this.state.selected}
-    handleSelected={this.handleSelected}/>
-})}
-
-
-
-<span
-  className="thumbnail-container">
-  <img
-    onClick={onClick}
-    className={`thumbnail ${selected.selected === props.selected && 'is-selected'}`}
-    src={props.style.photos[0].thumbnail_url}
-    name={props.style.name}
-    ></img>
-</span>
-*/

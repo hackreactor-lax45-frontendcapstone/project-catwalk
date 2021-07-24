@@ -37,8 +37,7 @@
 
 .is-selected{
   box-sizing: border-box;
-  transform:scale(1.2);
-  transition:transform 0.5s;
+  border: green 2px solid;
 }
 
 .btn-more-styles {
