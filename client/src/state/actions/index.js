@@ -16,8 +16,6 @@ const actions = {
   selectQuantity,
   addToCart,
   setRelated,
-  setProductInfo,
-  setStyleInfo,
 };
 
 export default actions;

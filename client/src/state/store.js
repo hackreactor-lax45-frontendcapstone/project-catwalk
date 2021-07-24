@@ -4,6 +4,6 @@ import thunk from 'redux-thunk';
 
 export default createStore(
   reducers,
-  {},
+  {}, // initial state values set in specific reducer
   applyMiddleware(thunk)
 );
