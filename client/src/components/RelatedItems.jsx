@@ -2,7 +2,7 @@ import React from 'react';
 
 import RelatedProductsList from './RelatedItems/RelatedProductsList.jsx';
 
-export default props => {
+export default () => {
   return (
     <div id="body-related">
       <RelatedProductsList />
