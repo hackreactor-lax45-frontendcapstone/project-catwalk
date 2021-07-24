@@ -8,6 +8,7 @@ import quantity from './selectQuantity';
 import cart from './addToCart';
 import related from './setRelated';
 import productInfo from './setProductInfo';
+import styleInfo from './setStyleInfo';
 
 const allReducers = {
   productID,
@@ -18,6 +19,7 @@ const allReducers = {
   cart,
   related,
   productInfo,
+  styleInfo,
 };
 
 export default combineReducers(allReducers);

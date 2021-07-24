@@ -19,10 +19,13 @@ How to access state and actions in a different file
 */
 
 import setProductInfo from '../state/actions/setProductInfo.js';
+import setStyleInfo from '../state/actions/setStyleInfo.js';
 
 export default ({ product }) => {
 
-  setProductInfo(useDispatch(), product);
+  const dispatch = useDispatch();
+  setProductInfo(dispatch, product);
+  setStyleInfo(dispatch, product);
 
   return (
     <div id="app">
