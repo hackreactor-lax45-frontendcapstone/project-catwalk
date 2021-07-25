@@ -5,6 +5,9 @@ import '../../../dist/styles/overview/ImageGallery.css';
 import actions from '../../state/actions/index.js';
 import _ from 'lodash';
 
+const IMAGE_WIDTH = 140;
+const IMAGE_HEIGHT = 90;
+
 export default () => {
   const dispatch = useDispatch();
 
@@ -18,14 +21,12 @@ export default () => {
     };
   });
 
-  useEffect(() => {
+  if (state) {
     var gallery = document.getElementById('imagegallery-default-thumbnails-image');
     if (!_.isNil(gallery)) {
       gallery.scrollLeft = state.thumbnail.scrollLeft;
     }
-  });
 
-  if (state) {
     return (
       <div id="body-overview-imagegallery-default">
 
@@ -33,6 +34,7 @@ export default () => {
         <div id="imagegallery-default-main">
           <div id="imagegallery-default-main-button">
             <button
+              disabled={false}
               className="imagegallery-button"
               onClick={() => dispatch(
                 actions.selectThumbnail(
@@ -40,7 +42,7 @@ export default () => {
                   state.style.photos.length - 1,
                   document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
                 ))}
-            ></button>
+            >{'<'}</button>
             <button
               className="imagegallery-button"
               onClick={() => dispatch(
@@ -49,7 +51,7 @@ export default () => {
                   state.style.photos.length - 1,
                   document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
                 ))}
-            ></button>
+            >{'>'}</button>
           </div>
           <div id="imagegallery-default-main-image">
             <img
@@ -62,8 +64,20 @@ export default () => {
         {/* thumbnails div */}
         <div id="imagegallery-default-thumbnails">
           <div id="imagegallery-default-thumbnails-button">
-            <button className="imagegallery-button"></button>
-            <button className="imagegallery-button"></button>
+            <button
+              className="imagegallery-button"
+              onClick={() => {
+                var gallery = document.getElementById('imagegallery-default-thumbnails-image');
+                gallery.scrollLeft -= IMAGE_WIDTH;
+              }}
+            >{'<'}</button>
+            <button
+              className="imagegallery-button"
+              onClick={() => {
+                var gallery = document.getElementById('imagegallery-default-thumbnails-image');
+                gallery.scrollLeft += IMAGE_WIDTH;
+              }}
+            >{'>'}</button>
           </div>
           <div id="imagegallery-default-thumbnails-image">
             {_.map(state.style.photos, (photo, i) => {
