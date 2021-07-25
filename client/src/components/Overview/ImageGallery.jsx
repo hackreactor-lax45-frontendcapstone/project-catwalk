@@ -6,7 +6,6 @@ import actions from '../../state/actions/index.js';
 import _ from 'lodash';
 
 export default () => {
-
   const dispatch = useDispatch();
 
   const state = useSelector(state => {
@@ -28,28 +27,27 @@ export default () => {
           <div id="imagegallery-default-main-button">
             <button
               className="imagegallery-button"
-              onClick={() => {
-                var thumbnail = state.thumbnail - 1;
-                if (thumbnail >= 0) {
-                  dispatch(actions.selectThumbnail(thumbnail));
-                }
-              }}
+              onClick={() => dispatch(
+                actions.selectThumbnail(
+                  state.thumbnail.index - 1,
+                  state.style.photos.length - 1,
+                  document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
+                ))}
             ></button>
             <button
               className="imagegallery-button"
-              onClick={() => {
-                var thumbnail = state.thumbnail + 1;
-                var max = state.style.photos.length - 1;
-                if (thumbnail <= max) {
-                  dispatch(actions.selectThumbnail(thumbnail));
-                }
-              }}
+              onClick={() => dispatch(
+                actions.selectThumbnail(
+                  state.thumbnail.index + 1,
+                  state.style.photos.length - 1,
+                  document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
+                ))}
             ></button>
           </div>
           <div id="imagegallery-default-main-image">
             <img
               className="imagegallery-main"
-              src={state.style.photos[state.thumbnail].url}
+              src={state.style.photos[state.thumbnail.index].url}
             ></img>
           </div>
         </div>
@@ -65,9 +63,14 @@ export default () => {
               return <img
                 key={i}
                 id={`image-gallery-thumbnail-${i}`}
-                className={`imagegallery-thumbnail${state.thumbnail === i ? '-selected' : ''}`}
+                className={`imagegallery-thumbnail${state.thumbnail.index === i ? '-selected' : ''}`}
                 src={photo.thumbnail_url}
-                onClick={() => dispatch(actions.selectThumbnail(i))}
+                onClick={() => dispatch(
+                  actions.selectThumbnail(
+                    i,
+                    state.style.photos.length - 1,
+                    document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
+                  ))}
               ></img>;
             })}
           </div>
