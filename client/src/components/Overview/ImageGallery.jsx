@@ -34,8 +34,8 @@ export default () => {
         <div id="imagegallery-default-main">
           <div id="imagegallery-default-main-button">
             <button
-              disabled={false}
-              className="imagegallery-button"
+              disabled={state.thumbnail.index === 0}
+              className={`imagegallery-button${state.thumbnail.index === 0 ? '-disabled' : ''}`}
               onClick={() => dispatch(
                 actions.selectThumbnail(
                   state.thumbnail.index - 1,
@@ -44,7 +44,8 @@ export default () => {
                 ))}
             >{'<'}</button>
             <button
-              className="imagegallery-button"
+              disabled={state.thumbnail.index === state.style.photos.length - 1}
+              className={`imagegallery-button${state.thumbnail.index === state.style.photos.length - 1 ? '-disabled' : ''}`}
               onClick={() => dispatch(
                 actions.selectThumbnail(
                   state.thumbnail.index + 1,
@@ -65,14 +66,14 @@ export default () => {
         <div id="imagegallery-default-thumbnails">
           <div id="imagegallery-default-thumbnails-button">
             <button
-              className="imagegallery-button"
+              className='imagegallery-button'
               onClick={() => {
                 var gallery = document.getElementById('imagegallery-default-thumbnails-image');
                 gallery.scrollLeft -= IMAGE_WIDTH;
               }}
             >{'<'}</button>
             <button
-              className="imagegallery-button"
+              className='imagegallery-button'
               onClick={() => {
                 var gallery = document.getElementById('imagegallery-default-thumbnails-image');
                 gallery.scrollLeft += IMAGE_WIDTH;

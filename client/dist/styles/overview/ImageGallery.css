@@ -18,6 +18,17 @@
   opacity: 0.6;
 }
 
+.imagegallery-button-disabled {
+  height: 80%;
+  width: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0.2;
+  background-color: gray;
+  border: none;
+  pointer-events: auto;
+}
+
 /* image class */
 .imagegallery-main {
   max-height: 284.71px;
