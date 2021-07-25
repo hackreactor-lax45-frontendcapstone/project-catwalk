@@ -18,6 +18,13 @@ export default () => {
     };
   });
 
+  useEffect(() => {
+    var gallery = document.getElementById('imagegallery-default-thumbnails-image');
+    if (!_.isNil(gallery)) {
+      gallery.scrollLeft = state.thumbnail.scrollLeft;
+    }
+  });
+
   if (state) {
     return (
       <div id="body-overview-imagegallery-default">
@@ -31,7 +38,7 @@ export default () => {
                 actions.selectThumbnail(
                   state.thumbnail.index - 1,
                   state.style.photos.length - 1,
-                  document.getElementById('imagegallery-default-thumbnails-image').offsetWidth,
+                  document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
                 ))}
             ></button>
             <button
@@ -59,21 +66,20 @@ export default () => {
             <button className="imagegallery-button"></button>
           </div>
           <div id="imagegallery-default-thumbnails-image">
-              {_.map(state.style.photos, (photo, i) => {
-                return <div key={i} className={'thumbnail-div'}>
-                  <img
-                    className={'imagegallery-thumbnail'}
-                    src={photo.thumbnail_url}
-                    onClick={() => dispatch(
-                      actions.selectThumbnail(
-                        i,
-                        state.style.photos.length - 1,
-                        document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
-                      ))}
-                  ></img>
-                </div>
-              })}
-
+            {_.map(state.style.photos, (photo, i) => {
+              return <div key={i} className={'thumbnail-div'}>
+                <img
+                  className={'imagegallery-thumbnail'}
+                  src={photo.thumbnail_url}
+                  onClick={() => dispatch(
+                    actions.selectThumbnail(
+                      i,
+                      state.style.photos.length - 1,
+                      document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
+                    ))}
+                ></img>
+              </div>;
+            })}
           </div>
         </div>
       </div>
