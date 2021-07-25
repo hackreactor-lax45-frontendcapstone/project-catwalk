@@ -31,7 +31,7 @@ export default () => {
                 actions.selectThumbnail(
                   state.thumbnail.index - 1,
                   state.style.photos.length - 1,
-                  document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
+                  document.getElementById('imagegallery-default-thumbnails-image').offsetWidth,
                 ))}
             ></button>
             <button
@@ -59,20 +59,21 @@ export default () => {
             <button className="imagegallery-button"></button>
           </div>
           <div id="imagegallery-default-thumbnails-image">
-            {_.map(state.style.photos, (photo, i) => {
-              return <img
-                key={i}
-                id={`image-gallery-thumbnail-${i}`}
-                className={`imagegallery-thumbnail${state.thumbnail.index === i ? '-selected' : ''}`}
-                src={photo.thumbnail_url}
-                onClick={() => dispatch(
-                  actions.selectThumbnail(
-                    i,
-                    state.style.photos.length - 1,
-                    document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
-                  ))}
-              ></img>;
-            })}
+              {_.map(state.style.photos, (photo, i) => {
+                return <div key={i} className={'thumbnail-div'}>
+                  <img
+                    className={'imagegallery-thumbnail'}
+                    src={photo.thumbnail_url}
+                    onClick={() => dispatch(
+                      actions.selectThumbnail(
+                        i,
+                        state.style.photos.length - 1,
+                        document.getElementById('imagegallery-default-thumbnails-image').offsetWidth
+                      ))}
+                  ></img>
+                </div>
+              })}
+
           </div>
         </div>
       </div>
