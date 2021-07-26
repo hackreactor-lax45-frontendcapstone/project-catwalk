@@ -2,26 +2,22 @@
   display: flex;
   flex-direction: column;
   max-height: 41%;
-  background-color: #b0bbbf;
+  height: auto;
 }
-
+/* ========= TITLE ========= */
 .selection-title {
   background-color: transparent;
   align-self: center;
 }
 
+/* ========= THUMBNAILS ========= */
 .style-thumbnails {
   display: flex;
   flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   flex: 1;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
 
 .thumbnail-container {
   position: relative;
@@ -29,12 +25,14 @@
 }
 
 .thumbnail {
+  /* clip-path: circle(50% at 50% 50%); */
   box-sizing: border-box;
   object-fit: cover;
   width: 100%;
-  height: 100px;
   cursor: pointer;
 }
+
+/* ========= THUMBNAIL CHECKBOX ========= */
 
 input[type="checkbox"][id^="cb"] {
   display: none;
@@ -53,11 +51,11 @@ input[type="checkbox"][id^="cb"]:checked {
 }
 
 input[type="checkbox"][id^="cb"] + label {
-position: absolute;
-height: 100%;
-width: 100%;
-left: 0;
-top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 :checked + label::before {
@@ -66,15 +64,23 @@ top: 0;
   transform: scale(1);
 }
 
+label {
+  height: 10%;
+}
+
+/* ========= BUTTONS ========= */
+
 .btn-more-styles {
   align-self: center;
-  width: 100%;
+  align-content: center;
+  width: 5%;
 }
 
 button {
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
+  border-radius: 50%;
   cursor:pointer;
   outline:none;
 }
@@ -82,3 +88,8 @@ button {
 button:hover {
   color: ivory;
 }
+
+/* ::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+} */
