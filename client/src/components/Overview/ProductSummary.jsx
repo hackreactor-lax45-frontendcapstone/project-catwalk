@@ -11,7 +11,7 @@ const ProductSummary = () => {
       return undefined;
     }
     return {
-      price: state.product.styleInfo.results[state.style],
+      price: state.product.styleInfo.results[state.style]
     };
   });
 
@@ -32,7 +32,7 @@ const ProductSummary = () => {
         <div id="body-overview-price">${styleInfo.price.original_price} USD</div>
       </div>
     );
-  } else if (styleInfo && !styleInfo.price.sale_price) {
+  } else if (styleInfo && styleInfo.price.sale_price) {
     return (
       <div id="body-overview-productsummary">
         <div id="body-overview-starrating">
