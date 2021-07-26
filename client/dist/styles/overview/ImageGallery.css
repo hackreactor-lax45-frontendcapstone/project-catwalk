@@ -3,7 +3,8 @@
 ========================================= */
 
 /* ========== Classes ========== */
-.imagegallery-button {
+.imagegallery-button,
+.imagegallery-thumbnail-button {
   height: 80%;
   width: 20px;
   margin-top: auto;
@@ -14,11 +15,13 @@
   pointer-events: auto;
 }
 
-.imagegallery-button:hover {
+.imagegallery-button:hover,
+.imagegallery-thumbnail-button:hover {
   opacity: 0.6;
 }
 
-.imagegallery-button-disabled {
+.imagegallery-button-disabled,
+.imagegallery-thumbnail-button-disabled {
   height: 80%;
   width: 20px;
   margin-top: auto;
@@ -31,6 +34,7 @@
 
 /* image class */
 .imagegallery-main {
+  min-height: 284.71px;
   max-height: 284.71px;
   max-width: 100%;
 }
@@ -96,7 +100,7 @@
   box-sizing: border-box;
 }
 
-.thumbnail-div {
+.imagegallery-thumbnail-container {
   display: flex;
   justify-content: center;
   height: 90px;
@@ -104,7 +108,7 @@
   min-width: 140px;
 }
 
-.imagegallery-thumbnail {
+.imagegallery-thumbnail-image {
   margin: auto;
   box-sizing: border-box;
   border: none;
