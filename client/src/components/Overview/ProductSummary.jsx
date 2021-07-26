@@ -46,7 +46,7 @@ const ProductSummary = () => {
         <div id="body-overview-category">{productInfo.category}</div>
         <div id="body-overview-name">{productInfo.name}</div>
         <div id="body-overview-oldprice">${styleInfo.price.original_price} USD</div>
-        <div id="body-overview-saleprice">${styleInfo.price.original_price - styleInfo.price.sale_price} USD</div>
+        <div id="body-overview-saleprice">${styleInfo.price.sale_price} USD</div>
       </div>
     );
   } else {
