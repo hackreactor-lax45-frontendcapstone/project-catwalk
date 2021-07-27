@@ -130,8 +130,11 @@
   flex: 1;
 }
 
-#col- {
+#col-2 {
   margin-left: 5px;
 }
 
+#col-2:hover {
+  color: yellow;
+}
 
