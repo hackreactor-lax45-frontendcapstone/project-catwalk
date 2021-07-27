@@ -22,7 +22,7 @@ const THUMBNAIL_BUTTON_ENABLED = 'imagegallery-thumbnail-button';
 ============================================ */
 const getGallery = () => document.getElementById('imagegallery-default-thumbnails-image');
 
-const updateThumnailGallery = (direction) => {
+const updateThumbnailGallery = (direction) => {
   var gallery = getGallery();
 
   var previousScrollLeft = gallery.scrollLeft;
@@ -104,13 +104,13 @@ export default ({ state }) => {
           <button
             className='imagegallery-thumbnail-button-disabled'
             id='imagegallery-thumbnail-button-left'
-            onClick={() => updateThumnailGallery(-1)}>
+            onClick={() => updateThumbnailGallery(-1)}>
             {ARROW_LEFT}
           </button>
           <button
             className='imagegallery-thumbnail-button'
             id='imagegallery-thumbnail-button-right'
-            onClick={() => updateThumnailGallery(1)}>
+            onClick={() => updateThumbnailGallery(1)}>
             {ARROW_RIGHT}
           </button>
         </div>
