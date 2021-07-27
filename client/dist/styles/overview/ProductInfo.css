@@ -66,10 +66,17 @@
   margin: 0px 0px 10px 0px;
 }
 
-#body-overview-price {
+#body-overview-price, #body-overview-saleprice, #body-overview-oldprice {
   font-size: 80%;
 }
 
+#body-overview-oldprice {
+  text-decoration: line-through;
+}
+
+#body-overview-saleprice {
+  color: red
+}
 
 /* product description */
 #body-overview-bottom {
