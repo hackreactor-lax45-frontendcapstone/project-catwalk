@@ -8,13 +8,12 @@ body {
 
 #app {
   min-width: 50%;
-  max-width: 80%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 #app-header {
-  top: 0;
   position: sticky;
   text-align: center;
   margin-left: auto;
@@ -22,10 +21,11 @@ body {
   background-color: rgb(77, 77, 250);
   height: 80px;
   z-index: 10;
+  top: 0;
 }
 
 #app-body {
-  height: 100em;
+  height: 1000px;
 }
 
 /*
@@ -34,13 +34,16 @@ Overview
 #body-overview {
   display: flex;
   flex-direction: column;
+  height: 600px;
+  background: coral;
 }
 
 #body-overview-top {
   display: flex;
   justify-content: flex-start;
-  box-sizing: border-box;
+  height: 450px;
   max-height: 450px;
+  margin-top: 25px;
 }
 
 #body-overview-top-left {
@@ -53,7 +56,7 @@ Overview
 #body-overview-top-right {
   flex-grow: 1;
   max-width: 45%;
-  padding: 0 5px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -61,7 +64,8 @@ Overview
   display: flex;
   justify-content: flex-start;
   box-sizing: border-box;
-  height: 120px;
+  height: 150px;
+  margin: 0;
 }
 
 #body-overview-bottom-left {
