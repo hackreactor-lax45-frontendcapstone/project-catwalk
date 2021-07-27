@@ -1,13 +1,42 @@
 #body-related {
+  text-align: center;
   display: flex;
   flex-direction: row;
 }
 
-.related-thumbnail {
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#related-image-container {
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 150px;
+}
+
+.related-image-thumbnail {
+  min-width: 120px;
+  height: 100%;
+  margin: 10px;
   display: inline-block;
-  background-color: black;
-  width: 150px;
-  height: auto;
-  min-height: 150px;
+  line-height: 150px;
   background-position: center;
+}
+
+.prev, .next {
+  width: 5%;
+  padding: 0;
+  height: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+  color: black;
+  transition: 0.6s ease;
 }
