@@ -4,7 +4,6 @@
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 10px;
-  background-color: rgb(65, 203, 245);
   flex-basis: 80%;
   flex-direction: column
 }
@@ -29,7 +28,7 @@
   left: 0;
   white-space: nowrap;
   overflow: hidden;
-  width: 0%;
+  width: 65%;
 }
 
 .stars-outer::before {
@@ -53,11 +52,12 @@
 }
 
 #body-overview-count:hover {
-  color:rgb(241, 241, 75)
+  color:rgb(241, 241, 75);
+  cursor: pointer;
 }
 
 #body-overview-category {
-  font-size: 80%
+  font-size: 80%;
 }
 
 #body-overview-name {
@@ -88,11 +88,11 @@
 
 #body-overview-bottom-left {
   display: flex;
-  flex: 2;
+  flex: 3;
 }
 
 #body-overview-bottom-right {
-  flex: 1;
+  flex: 2;
 }
 
 #body-overview-main {
@@ -109,7 +109,7 @@
 #body-overview-description {
   margin-top: 5px;
   align-items: center;
-  padding-right: 20%;
+  padding-right: 10%;
   white-space: normal;
   font-size: 80%;
   overflow: auto;
@@ -120,18 +120,21 @@
 
 #body-overview-share {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
   flex-direction: row;
 }
 
-#col-1, #col-3, #twitter, #facebook, #instagram {
-  flex: 1
+#col-1, #col-2, #col-3, #col-4, #col-5 {
+  flex: 1;
 }
 
-#twitter:hover, #facebook:hover, #instagram:hover {
-  color:rgb(241, 241, 75)
+#col-2 {
+  margin-left: 5px;
 }
 
+#col-2:hover {
+  color: yellow;
+}
 
