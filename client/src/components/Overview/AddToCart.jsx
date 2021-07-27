@@ -1,42 +1,116 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SizeRenderEntry from './SizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
 import sampleData from './sampleData.js';
 
-class AddToCart extends React.Component {
-  constructor(props) {
-    super(props);
+import '../../../dist/styles/overview/AddToCart.css';
 
-    this.state = {
-      selectedStyleData: sampleData,
-      currentSkus: {},
-      currentSelectSize: '',
-      currentSelectQty: ''
+import { useSelector, useDispatch } from "react-redux";
+import SetSelectSize from "../../state/actions/selectSize.js"
+import SetSelectQty from "../../state/actions/selectQuantity.js"
+import setToCart from '../../state/actions/addToCart.js'
+
+const AddToCart = () => {
+
+  const dispatch = useDispatch();
+
+
+  const style = useSelector(state => {
+    if (!state.product.styleInfo.results) {
+      return undefined;
     }
-    this.handleChange = this.handleChange.bind(this);
+    return state.product.styleInfo.results;
+  });
+  const selected = useSelector(state => {
+    if (!style) {
+      return undefined;
+    }
+    return style[state.style];
+  });
+
+
+
+  //getting current size from global state
+  const currentSize = useSelector(state => {
+   return state.size
+  })
+  //getting current qty from global state
+  const currentQty = useSelector(state => {
+  return state.quantity
+ })
+
+
+
+
+//this handler function should update global state of [size, qty, skus#]
+  const handleChange = (event) => {
+    if (event.target.value === "outofstock") {
+      updateIsSizeSelected("false")
+      return null;
+
+    } else {
+      updateStockStatus("false")
+      updateIsSizeSelected("true")
+      var selectedStyle = JSON.parse(event.target.value)
+        dispatch(SetSelectSize(selectedStyle.size))
+        dispatch(SetSelectQty(selectedStyle.quantity))
+    }
   }
 
-  handleChange = (event) =>
-    this.setState({currentSelectQty: event.target.value})
+  //local state to keep track of selected quantity, stock status, size selection status
+  var [qty,updateQty] = useState(0)
+  var [isOutofStock,updateStockStatus] = useState('false')
+  var [isSizeSelected,updateIsSizeSelected] = useState('false')
 
-  render() {
+
+  const handleSelectQty = (event) => {
+    updateQty(event.target.value)
+  }
+
+  //this function is not completed
+  const buttonHandlerNoSelected = () => {
+    //If the default ‘Select Size’ is currently selected: Clicking this button should open the size dropdown,
+    //and a message should appear above the dropdown stating “Please select size”.
+  }
+
+  const buttonHandler = () => {
+    dispatch(setToCart(style, selected,currentSize, qty))
+  }
+
+  const renderCartButton = function() {
+    //if there's no stock, hide button
+    if (isOutofStock === 'true') {
+      updateIsSizeSelected('true')
+      return <div></div>
+    } else if (isSizeSelected === 'false') {
+      return <button className="addtocart-button" onClick={buttonHandlerNoSelected} >Add to Cart</button>
+    } else {
+      return <button className="addtocart-button" onClick={buttonHandler} >Add to Cart</button>
+    }
+  }
+
+
+  if(style && selected) {
     return (
       <div id="body-overview-addtocart">
-      AddToCart
-      <div>
-        <SizeRenderEntry list={this.state.selectedStyleData} handleChange={this.handleChange} />
+        <div id="dropdowns">
+          <div>
+            <SizeRenderEntry selected={selected} handleChange={handleChange} updateStockStatus={updateStockStatus}/>
+          </div>
+          <div>
+            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty}/>
+          </div>
+        </div>
+        {renderCartButton(qty)}
       </div>
-
-      <div>
-        <QtyRenderEntry qty={this.state.currentSelectQty}/>
-      </div>
-
-      <button>Add to Cart </button>
-
-    </div>
     )
+  } else {
+    return <div>still loading...</div>
   }
+
 }
 
+
 export default AddToCart;
+
 

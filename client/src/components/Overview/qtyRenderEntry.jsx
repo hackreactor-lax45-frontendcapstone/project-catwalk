@@ -1,42 +1,27 @@
 import React from 'react';
 
 var qtyRenderEntry = function(props) {
+  //run for-loop to display qty from 1 to current qty or max 15
+  var qtyArray = [];
+    for (var i = 1; i <= props.qty && i <= 15; i++) {
+      qtyArray.push(i);
+    }
 
-  // var skus = [];
-  // var qtyandSize = [];
-  // for (const [key, value] of Object.entries(props.list.results[0].skus)) {
-  //   skus.push({key});
-  //   qtyandSize.push(value);
-  // }
-
-  // // create an array that contains objects list --> ex) [{key:[skus#], size: "9", quantity: "12"},{},{}...{}]
-  // var final = [];
-  // for (var i = 0; i < skus.length; i++) {
-  //   var newobj = Object.assign(skus[i], qtyandSize[i])
-  //   final.push(newobj)
-  // }
-
-  // //if there's no remaining stock, the dropdown become inactive and read 'OUT OF STOCK"
-  // if (final.length === 0) {
-  //   console.log(final.length)
-  //   return <select disabled="outofstock">
-  //     <option>OUT OF STOCK</option>
-  //   </select>
-  // }
-
-  // else {
-
+  if (props.qty === "0") {
     return (
-
       <select>
-        <option value="uarefat">{props.qty}</option>
+        <option> - </option>
       </select>
     )
+
+  } else {
+    return (
+      <select onChange ={props.handleSelectQty}>
+        {qtyArray.map((elm,i) => (<option key={i} value={elm}> {elm} </option>))}
+      </select>
+    )
+  }
+
  }
 
-
-
-
 export default qtyRenderEntry;
-
-
