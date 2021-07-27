@@ -15,14 +15,14 @@ const ProductSummary = () => {
     };
   });
 
-  const priceHelper = (style) => {
-    if (style.sale_price === null) {
-      return (<div id="body-overview-price">${style.original_price} USD</div>);
+  const priceHelper = (price) => {
+    if (price.sale_price === null) {
+      return (<div id="body-overview-price">${price.original_price} USD</div>);
     } else {
       return (
         <div>
-          <div id="body-overview-oldprice">${style.original_price} USD</div>
-          <div id="body-overview-saleprice">${style.sale_price} USD</div>
+          <div id="body-overview-oldprice">${price.original_price} USD</div>
+          <div id="body-overview-saleprice">${price.sale_price} USD</div>
         </div>
       );
     }
