@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import SizeRenderEntry from './SizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
-import sampleData from './sampleData.js';
 
 import '../../../dist/styles/overview/AddToCart.css';
 
