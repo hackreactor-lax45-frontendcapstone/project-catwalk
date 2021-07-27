@@ -13,6 +13,16 @@ export default (dispatch, productID) => {
       return response.data;
     })
     .then(related => {
+      var relatedProducts = _.map(related, (product, i) => {
+        return axios({
+          url: `${AtelierAPI.url}/products/${product}`,
+          method: 'get',
+          headers: AtelierAPI.headers,
+        })
+          .then(response => response.data)
+          .catch(err => { throw err; });
+      });
+
       var relatedStyles = _.map(related, (product, i) => {
         return axios({
           url: `${AtelierAPI.url}/products/${product}/styles`,
@@ -23,14 +33,18 @@ export default (dispatch, productID) => {
           .catch(err => { throw err; });
       });
 
-      Promise.all(relatedStyles)
-        .then(styles => {
+      Promise.all(relatedProducts.concat(relatedStyles))
+        .then(info => {
+          let productInfo = info.slice(0, info.length / 2);
+          let styleInfo = info.slice(info.length / 2);
+
           dispatch({
             type: 'SET_RELATED',
             payload: {
               returned: true,
-              products: related,
-              styles: styles,
+              ids: related,
+              products: productInfo,
+              styles: styleInfo,
             }
           });
         })

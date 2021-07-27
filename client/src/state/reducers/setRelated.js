@@ -2,6 +2,7 @@ import Redux from 'redux';
 
 const initialState = {
   returned: false,
+  ids: [],
   products: [],
   styles: [],
 };
@@ -11,6 +12,7 @@ const reducer = (state = initialState, action) => {
   case 'SET_RELATED':
     return {
       returned: action.payload.returned,
+      ids: action.payload.ids,
       products: action.payload.products,
       styles: action.payload.styles,
     };

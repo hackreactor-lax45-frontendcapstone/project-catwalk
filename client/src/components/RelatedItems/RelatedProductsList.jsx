@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import '../../../dist/styles/relatedItems/Related-Products.css';
 
+import ProductSummary from './ProductSummary.jsx';
+
 import AtelierAPI from '../../lib/atelierAPI.js';
 import axios from 'axios';
 
@@ -36,23 +38,22 @@ export default props => {
         {'<'}
       </button>
       <div id="related-products-container">
-        {_.map(related.styles, (style, i) => {
+        {_.map(related.ids, (id, i) => {
+          let product = {
+            productInfo: related.products[i],
+            styleInfo: related.styles[i],
+          };
           return (
             <div key={i} className='related-products-card'>
               <div
                 className="related-products-image-thumbnail"
                 style={{
-                  backgroundImage: `url(${style.results[0].photos[0].thumbnail_url})`,
+                  backgroundImage: `url(${product.styleInfo.results[0].photos[0].thumbnail_url})`,
                   backgroundRepeat: 'no-repeat',
                   position: 'relative',
                 }}>
               </div>
-              <div className='related-products-info'>
-                <div>Category</div>
-                <div>Name</div>
-                <div>Price</div>
-                <div>Star Rating (# Reviews)</div>
-              </div>
+              <ProductSummary product={product}/>
             </div>
           );
         })}
