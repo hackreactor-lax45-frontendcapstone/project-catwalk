@@ -11,7 +11,6 @@ body {
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgb(236, 81, 81);
 }
 
 #app-header {
@@ -26,7 +25,6 @@ body {
 }
 
 #app-body {
-  background-color: rgb(52, 128, 52);
   height: 100em;
 }
 
@@ -36,48 +34,41 @@ Overview
 #body-overview {
   display: flex;
   flex-direction: column;
-  background-color: rgb(224, 224, 84);
 }
 
 #body-overview-top {
   display: flex;
-  background-color: orange;
   justify-content: flex-start;
-  margin: 5px;
-  max-height: 400px;
+  box-sizing: border-box;
+  max-height: 450px;
 }
 
 #body-overview-top-left {
   display: flex;
-  background-color: rgb(180, 58, 180);
-  margin: 5px;
   width: 55%;
-  height: 400px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #body-overview-top-right {
-  background-color: rgb(180, 58, 180);
-  margin: 5px;
   flex-grow: 1;
   max-width: 45%;
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 
 #body-overview-bottom {
   display: flex;
-  background-color: pink;
   justify-content: flex-start;
-  margin: 5px;
+  box-sizing: border-box;
   height: 120px;
 }
 
 #body-overview-bottom-left {
-  background-color: rgb(65, 203, 245);
-  margin: 5px;
+  box-sizing: border-box;
   width: 70%;
 }
 
 #body-overview-bottom-right {
-  background-color: rgb(65, 203, 245);
-  margin: 5px;
   flex-grow: 1;
 }
