@@ -37,7 +37,7 @@ const ProductSummary = () => {
               <div className="stars-inner"></div>
             </div>
           </div>
-          <div id="body-overview-count">Read all insert number reviews</div>
+          <div id="body-overview-count">Read all 20 reviews</div>
         </div>
         <div id="body-overview-category">{state.productInfo.category}</div>
         <div id="body-overview-name">{state.productInfo.name}</div>
