@@ -3,6 +3,7 @@ import Redux from 'redux';
 const initialState = {
   returned: false,
   products: [],
+  styles: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const reducer = (state = initialState, action) => {
     return {
       returned: action.payload.returned,
       products: action.payload.products,
+      styles: action.payload.styles,
     };
   default:
     return state;

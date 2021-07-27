@@ -1,5 +1,13 @@
 #body-related {
-  background-color: red;
-  opacity: 0.2;
-  color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+.related-thumbnail {
+  display: inline-block;
+  background-color: black;
+  width: 150px;
+  height: auto;
+  min-height: 150px;
+  background-position: center;
 }
