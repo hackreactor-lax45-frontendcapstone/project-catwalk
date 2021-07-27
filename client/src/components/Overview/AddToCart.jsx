@@ -28,17 +28,9 @@ const AddToCart = () => {
   });
 
 
-
-  //getting current size from global state
-  const currentSize = useSelector(state => {
-   return state.size
-  })
-  //getting current qty from global state
-  const currentQty = useSelector(state => {
-  return state.quantity
- })
-
-
+  const currentProduct = useSelector(state => {return state.product})
+  const currentSize = useSelector(state => {return state.size})
+  const currentQty = useSelector(state => {return state.quantity})
 
 
 //this handler function should update global state of [size, qty, skus#]
@@ -73,7 +65,7 @@ const AddToCart = () => {
   }
 
   const buttonHandler = () => {
-    dispatch(setToCart(style, selected,currentSize, qty))
+    dispatch(setToCart(currentProduct["productID"], selected["style_id"],currentSize, qty))
   }
 
   const renderCartButton = function() {

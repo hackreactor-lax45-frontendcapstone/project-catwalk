@@ -1,6 +1,6 @@
 import Redux from 'redux';
 
-const initialState = 'whatsizeisthis';
+const initialState = '';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
