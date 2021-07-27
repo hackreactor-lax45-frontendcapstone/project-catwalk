@@ -1,6 +1,10 @@
-export default thumbnailIndex => {
+export default (index, max, galleryWidth) => {
   return {
     type: 'SELECT_THUMBNAIL',
-    payload: thumbnailIndex
+    payload: {
+      index,
+      max,
+      galleryWidth,
+    }
   };
 };
