@@ -10,7 +10,7 @@ import _ from 'lodash';
 const IMAGE_WIDTH = 140;
 
 const scroll = (direction) => {
-  let el = document.getElementById('related-image-container');
+  let el = document.getElementById('related-products-container');
   let pos = el.scrollLeft + direction * IMAGE_WIDTH;
   el.scrollTo({
     top: 0,
@@ -27,30 +27,38 @@ export default props => {
     return (<div>Loading...</div>);
   }
   return (
-    <div id='wrapper'>
+    <div id='related-products'>
       <button
-        className="prev"
+        className='related-products-button'
         onClick={() => {
           scroll(-1);
         }}>
         {'<'}
       </button>
-      <div className="related-image-container" id="related-image-container">
+      <div id="related-products-container">
         {_.map(related.styles, (style, i) => {
           return (
-            <div
-              key={i}
-              style={{
-                backgroundImage: `url(${style.results[0].photos[0].thumbnail_url})`,
-                backgroundRepeat: 'no-repeat',
-                position: 'relative',
-              }} className="related-image-thumbnail">
+            <div key={i} className='related-products-card'>
+              <div
+                className="related-products-image-thumbnail"
+                style={{
+                  backgroundImage: `url(${style.results[0].photos[0].thumbnail_url})`,
+                  backgroundRepeat: 'no-repeat',
+                  position: 'relative',
+                }}>
+              </div>
+              <div className='related-products-info'>
+                <div>Category</div>
+                <div>Name</div>
+                <div>Price</div>
+                <div>Star Rating (# Reviews)</div>
+              </div>
             </div>
           );
         })}
       </div>
       <button
-        className="next"
+        className='related-products-button'
         onClick={() => {
           scroll(1);
         }}>
