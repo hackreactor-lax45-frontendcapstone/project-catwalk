@@ -153,52 +153,7 @@ var sampleData =
                     "url": "https://images.unsplash.com/photo-1430390456011-25ac9244999c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
                 }
             ],
-            "skus": {
-                "483700": {
-                    "quantity": 14,
-                    "size": "7"
-                },
-                "483701": {
-                    "quantity": 25,
-                    "size": "7.5"
-                },
-                "483702": {
-                    "quantity": 9,
-                    "size": "8"
-                },
-                "483703": {
-                    "quantity": 2,
-                    "size": "8.5"
-                },
-                "483704": {
-                    "quantity": 18,
-                    "size": "9"
-                },
-                "483705": {
-                    "quantity": 12,
-                    "size": "9.5"
-                },
-                "483706": {
-                    "quantity": 10,
-                    "size": "10"
-                },
-                "483707": {
-                    "quantity": 18,
-                    "size": "10.5"
-                },
-                "483708": {
-                    "quantity": 11,
-                    "size": "11"
-                },
-                "483709": {
-                    "quantity": 35,
-                    "size": "11.5"
-                },
-                "483710": {
-                    "quantity": 25,
-                    "size": "12"
-                }
-            }
+            "skus": {}
         },
         {
             "style_id": 83585,
