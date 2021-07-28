@@ -15,8 +15,11 @@ var qtyRenderEntry = function(props) {
     )
 
   } else {
+    var selectInitial = 'Quantity';
+
     return (
-      <select onChange ={props.handleSelectQty}>
+      <select id="dropdown-qty" onChange ={props.handleSelectQty}>
+        <option> {selectInitial}</option>
         {qtyArray.map((elm,i) => (<option key={i} value={elm}> {elm} </option>))}
       </select>
     )

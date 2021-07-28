@@ -10,7 +10,7 @@
   margin-top: auto;
   margin-bottom: auto;
   opacity: 0.1;
-  background-color: gray;
+  background-color: #a2a77f;
   border: none;
   pointer-events: auto;
 }
@@ -27,7 +27,7 @@
   margin-top: auto;
   margin-bottom: auto;
   opacity: 0.2;
-  background-color: gray;
+  background-color: #a2a77f;
   border: none;
   pointer-events: auto;
 }
