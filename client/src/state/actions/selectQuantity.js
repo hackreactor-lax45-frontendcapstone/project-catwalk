@@ -1,6 +1,8 @@
-export default quantity => {
-  return {
-    type: 'SELECT_QUANTITY',
-    payload: quantity
-  };
+export default (quantity) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'SELECT_QUANTITY',
+      payload: quantity
+    })
+  }
 };
