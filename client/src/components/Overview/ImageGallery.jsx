@@ -5,7 +5,6 @@ import DefaultView from './ImageGallery-Default.jsx';
 import ExpandedView from './ImageGallery-Expanded.jsx';
 
 export default () => {
-
   const state = useSelector(state => {
     if (_.isNil(state.product.styleInfo.results)) {
       return undefined;
