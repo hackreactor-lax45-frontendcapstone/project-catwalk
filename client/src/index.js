@@ -9,7 +9,7 @@ const rootElement = document.getElementById('page');
 
 ReactDOM.render(
   <Provider store={store}>
-    <App product={16060}/>
+    <App />
   </Provider>,
   rootElement
 );

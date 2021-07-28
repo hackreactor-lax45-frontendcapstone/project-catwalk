@@ -10,11 +10,15 @@ import Footer from './Footer.jsx';
 
 import actions from '../state/actions/index.js';
 
-export default ({ product }) => {
+export default () => {
+
+  const product = useSelector(state => state.product.productID) || 16060;
 
   const dispatch = useDispatch();
-  actions.selectProduct(dispatch, product);
-  actions.setRelated(dispatch, product);
+  useEffect(() => {
+    actions.selectProduct(dispatch, product);
+    actions.setRelated(dispatch, product);
+  }, [product]);
 
   return (
     <div id="app">
