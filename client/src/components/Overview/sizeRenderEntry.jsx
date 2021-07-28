@@ -26,10 +26,10 @@ var SizeRenderEntry = function(props) {
   }
 
   else {
-    var selectInitial = 'SELECT SIZE';
+    var selectInitial = 'Size';
 
     return (
-      <select  onChange={props.handleChange}>
+      <select  id="dropdown-size" onChange={props.handleChange}>
         <option value="outofstock" > {selectInitial}</option>
         {final.map(elem => {
           return <option key={elem.key} value={JSON.stringify(elem)} > {elem.size} </option>

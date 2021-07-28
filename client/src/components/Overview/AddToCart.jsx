@@ -1,6 +1,6 @@
 /* eslint-disable semi */
 import React, {useState} from 'react';
-import SizeRenderEntry from './SizeRenderEntry.jsx';
+import SizeRenderEntry from './sizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
 
 import '../../../dist/styles/overview/AddToCart.css';
@@ -90,7 +90,7 @@ const AddToCart = () => {
       </div>
     )
   } else {
-    return <div>still loading...</div>
+    return <div>Loading...</div>
   }
 
 }

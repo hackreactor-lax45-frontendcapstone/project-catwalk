@@ -1,34 +1,44 @@
 /* product info */
 #body-overview-addtocart {
   display: flex;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin: 10px;
-  background-color: rgb(65, 203, 245);
-  flex-basis: 80%;
   flex-direction: column
 }
 
 #dropdowns {
   display: flex;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  margin: 10px;
-  flex-basis: 80%;
-  flex-direction: row
+  flex-direction: row;
+  justify-content: center;
 }
 
+#dropdown-size {
+  margin-right: 5px;
+}
 
+#dropdown-qty {
+  margin-left: 5px;
+}
+
+#dropdown-size,
+#dropdown-qty {
+  border: 1px solid #002e2c;
+  border-radius: 2px;
+  background-color: #eff1c5;
+  width: 100px;
+}
 
 .addtocart-button {
-  position: relative;
-  background-color: #3949ab;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20 px;
-  outline: 0;
-  box-shadow: 0px 2px 2px lightgray;
+  width: 60%;
+  height: 30px;
+  margin: 20px auto;
+  background-color: #035e7b;
+  border-radius: 2px;
   cursor: pointer;
-
+  outline: 0;
+  color: #eff1c5;
 }
+
+.addtocart-button:hover {
+  color: #002e2c;
+}
+
 

@@ -21,6 +21,7 @@
   white-space: nowrap;
   overflow-x: hidden;
   overflow-y: hidden;
+  justify-content: space-evenly;
 }
 
 .related-products-image-thumbnail {
@@ -32,16 +33,25 @@
 }
 
 .related-products-button {
-  width: 5%;
+  /* display: none; */
+  opacity: 0.1;
+  transition: 0.1s;
+  width: 2%;
   padding: 0;
   height: 100%;
   margin: 0;
   cursor: pointer;
-  color: black;
+  color: #002e2c;
   transition: 0.6s ease;
+  background-color: #e3e7af;
+  border-radius: 2px;
+}
+
+.related-products-button:hover {
+  opacity: 0.6;
 }
 
 .related-products-card {
-  border: 1px black solid;
+  border: 1px #002e2c solid;
   margin-right: 10px;
 }

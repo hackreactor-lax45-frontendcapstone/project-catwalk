@@ -20,13 +20,14 @@ export default ({ product }) => {
     <div id="app">
       <div id="app-header">
         <Header />
+        <div id="announcements"></div>
       </div>
       <div id="app-body">
         <Overview />
         <RelatedItems />
-        <QuestionAnswer />
+        {/* <QuestionAnswer />
         <RatingsReviews />
-        <Footer />
+        <Footer /> */}
       </div>
     </div>
   );

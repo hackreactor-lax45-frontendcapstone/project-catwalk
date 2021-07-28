@@ -10,9 +10,10 @@
   margin-top: auto;
   margin-bottom: auto;
   opacity: 0.1;
-  background-color: gray;
+  background-color: #a2a77f;
   border: none;
   pointer-events: auto;
+  border-radius: 2px;
 }
 
 .imagegallery-button:hover,
@@ -27,7 +28,7 @@
   margin-top: auto;
   margin-bottom: auto;
   opacity: 0.2;
-  background-color: gray;
+  background-color: #a2a77f;
   border: none;
   pointer-events: auto;
 }
@@ -50,7 +51,7 @@
 
 /* ~~~~~~~~~~~~~~ Main ~~~~~~~~~~~~~ */
 #imagegallery-default-main {
-  background-color: black;
+  background-color: #eff1c5;
   height: 80%;
   max-height: 80%;
   display: flex;
@@ -86,7 +87,7 @@
 /* ~~~~~~~~~~~~~~ Thumbnails ~~~~~~~~~~~~~ */
 #imagegallery-default-thumbnails {
   position: relative;
-  background-color: black;
+  background-color: #eff1c5;
   box-sizing: border-box;
 }
 
