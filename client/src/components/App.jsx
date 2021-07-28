@@ -8,26 +8,13 @@ import QuestionAnswer from './QuestionAnswer.jsx';
 import RatingsReviews from './RatingsReviews.jsx';
 import Footer from './Footer.jsx';
 
-/*
-How to access state and actions in a different file
-  import { useSelector, useDispatch } from 'react-redux';
-  import actions from '../state/actions/index.js';
+import actions from '../state/actions/index.js';
 
-  const state = useSelector(state => state);
-  OR
-  const thumbnail = useSelector(state => state.thumbnail);
+export default ({ product }) => {
 
   const dispatch = useDispatch();
-  var styleIndex = 0;
-  // onClick={() => dispatch(actions.selectStyle(styleIndex))}
-*/
-
-import selectProduct from '../state/actions/selectProduct.js';
-
-export default ({ productID }) => {
-
-  const dispatch = useDispatch();
-  selectProduct(dispatch, productID);
+  actions.selectProduct(dispatch, product);
+  actions.setRelated(dispatch, product);
 
   return (
     <div id="app">
