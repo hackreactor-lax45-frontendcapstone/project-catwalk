@@ -86,6 +86,7 @@ label {
   border-radius: 50%;
   cursor:pointer;
   outline:none;
+  color: #002e2c;
 }
 
 .btn-more-styles {

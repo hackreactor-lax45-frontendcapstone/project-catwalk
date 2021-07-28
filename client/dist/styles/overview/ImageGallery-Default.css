@@ -13,6 +13,7 @@
   background-color: #a2a77f;
   border: none;
   pointer-events: auto;
+  border-radius: 2px;
 }
 
 .imagegallery-button:hover,

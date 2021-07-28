@@ -25,9 +25,9 @@ export default ({ product }) => {
       <div id="app-body">
         <Overview />
         <RelatedItems />
-        <QuestionAnswer />
+        {/* <QuestionAnswer />
         <RatingsReviews />
-        <Footer />
+        <Footer /> */}
       </div>
     </div>
   );

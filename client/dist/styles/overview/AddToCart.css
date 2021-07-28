@@ -20,6 +20,8 @@
 
 #dropdown-size,
 #dropdown-qty {
+  border: 1px solid #002e2c;
+  border-radius: 2px;
   background-color: #eff1c5;
   width: 100px;
 }
@@ -29,6 +31,7 @@
   height: 30px;
   margin: 20px auto;
   background-color: #035e7b;
+  border-radius: 2px;
   cursor: pointer;
   outline: 0;
   color: #eff1c5;

@@ -8,6 +8,7 @@
 
 #announcements {
   height: 40px;
+  border-radius: 2px;
   background-color: #002e2c;
 }
 
