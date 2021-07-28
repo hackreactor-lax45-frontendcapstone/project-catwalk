@@ -34,8 +34,10 @@
     "moment": "^2.29.1",
     "node": "^16.5.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
+    "react-select": "^4.3.1",
     "redux-thunk": "^2.3.0",
     "sass": "^1.35.2",
     "style-loader": "^3.2.1"

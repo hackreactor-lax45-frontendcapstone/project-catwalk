@@ -7,12 +7,16 @@ var qtyRenderEntry = function(props) {
       qtyArray.push(i);
     }
 
-  if (props.qty === "0") {
+  //if it's outofstock disable the qty dropdown
+
+  //if the sizeSelection is false
+  if (props.isSizeSelected === 'false') {
     return (
       <select>
         <option> - </option>
       </select>
     )
+
 
   } else {
     return (

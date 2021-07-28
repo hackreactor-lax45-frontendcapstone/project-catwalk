@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import SizeRenderEntry from './SizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
-
+import ReactBootstrap from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Navbar from 'react-bootstrap/Navbar';
 import '../../../dist/styles/overview/AddToCart.css';
 
 import { useSelector, useDispatch } from "react-redux";
@@ -62,6 +64,11 @@ const AddToCart = () => {
   const buttonHandlerNoSelected = () => {
     //If the default ‘Select Size’ is currently selected: Clicking this button should open the size dropdown,
     //and a message should appear above the dropdown stating “Please select size”.
+    if (isSizeSelected === 'false') {
+      return null
+    } else {
+      return <div>please select size</div>
+    }
   }
 
   const buttonHandler = () => {
@@ -89,15 +96,18 @@ const AddToCart = () => {
             <SizeRenderEntry selected={selected} handleChange={handleChange} updateStockStatus={updateStockStatus}/>
           </div>
           <div>
-            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty}/>
+            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty} isSizeSelected={isSizeSelected}/>
           </div>
         </div>
         {renderCartButton(qty)}
-      </div>
+
+    </div>
     )
+
   } else {
     return <div>still loading...</div>
   }
+
 
 }
 
