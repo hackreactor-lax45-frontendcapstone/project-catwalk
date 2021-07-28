@@ -8,3 +8,11 @@
   height: auto;
   background-position: center;
 }
+
+#imagegallery-expanded-close {
+  cursor: pointer;
+  text-align: right;
+  color: white;
+  padding-top: 2px;
+  padding-right: 5px;
+}

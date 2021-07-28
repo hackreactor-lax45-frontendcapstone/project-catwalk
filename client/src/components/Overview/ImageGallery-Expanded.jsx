@@ -15,21 +15,25 @@ export default ({ state }) => {
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
         position: 'relative',
       }}
-      onMouseMove={((e) => {
-        const el = document.getElementById('imagegallery-expanded-main');
-        var box = e.target.getBoundingClientRect();
+      // onMouseMove={((e) => {
+      //   const el = document.getElementById('imagegallery-expanded-main');
+      //   var box = e.target.getBoundingClientRect();
 
-        var mouseX = e.clientX - box.left;
-        var mouseY = e.clientY - box.top;
-        var xPercent = (mouseX / box.width) * 100;
-        var yPercent = (mouseY / box.height) * 100;
+      //   var mouseX = e.clientX - box.left;
+      //   var mouseY = e.clientY - box.top;
+      //   var xPercent = (mouseX / box.width) * 100;
+      //   var yPercent = (mouseY / box.height) * 100;
 
-        el.style.backgroundPositionX = xPercent + '%';
-        el.style.backgroundPositionY = yPercent + '%';
-      })}
-      onClick={() => dispatch(actions.defaultView())}>
+      //   el.style.backgroundPositionX = xPercent + '%';
+      //   el.style.backgroundPositionY = yPercent + '%';
+      // })}
+      onClick={() => dispatch(actions.selectView())}>
+      <div id='imagegallery-expanded-close' onClick={() => {
+        dispatch(actions.zoomView());
+      }}>{'X'}</div>
     </div>
   );
 };

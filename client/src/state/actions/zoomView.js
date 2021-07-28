@@ -1,5 +1,5 @@
 export default () => {
   return {
-    type: 'DEFAULT_VIEW',
+    type: 'ZOOM_VIEW',
   };
 };

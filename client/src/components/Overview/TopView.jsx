@@ -14,11 +14,11 @@ export default () => {
     return {
       style: state.product.styleInfo.results[state.style],
       thumbnail: state.thumbnail,
-      defaultView: state.defaultView,
+      view: state.view,
     };
   });
 
-  if (!state.defaultView) {
+  if (!state.view.default) {
     return (
       <div id="body-overview-top">
         <ExpandedView state={state}/>

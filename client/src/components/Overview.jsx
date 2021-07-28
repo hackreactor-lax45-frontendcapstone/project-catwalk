@@ -6,15 +6,6 @@ import ProductShare from './Overview/ProductShare.jsx';
 import TopView from './Overview/TopView.jsx';
 
 export default () => {
-
-  const state = useSelector(state => {
-    return {
-      style: state.product.styleInfo.results[state.style],
-      thumbnail: state.thumbnail,
-      defaultView: state.defaultView,
-    };
-  });
-
   return (
     <div id="body-overview">
       <TopView />

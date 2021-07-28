@@ -95,7 +95,7 @@ export default ({ state }) => {
           <img
             className="imagegallery-main"
             src={state.style.photos[state.thumbnail.index].url}
-            onClick={() => dispatch(actions.defaultView())} />
+            onClick={() => dispatch(actions.selectView())} />
         </div>
       </div>
 
