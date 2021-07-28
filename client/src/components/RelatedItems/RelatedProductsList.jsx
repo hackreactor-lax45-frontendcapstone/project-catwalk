@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../../dist/styles/relatedItems/Related-Products.css';
 
 import ProductSummary from './ProductSummary.jsx';
+import actions from '../../state/actions/index.js';
 
 import AtelierAPI from '../../lib/atelierAPI.js';
 import axios from 'axios';
@@ -23,6 +24,7 @@ const scroll = (direction) => {
 
 export default props => {
 
+  const dispatch = useDispatch();
   const related = useSelector(state => state.related);
 
   if (!related.returned) {
@@ -44,7 +46,13 @@ export default props => {
             styleInfo: related.styles[i],
           };
           return (
-            <div key={i} className='related-products-card'>
+            <div
+              key={i}
+              className='related-products-card'
+              onClick={() => {
+                actions.selectProduct(dispatch, product.productInfo.id);
+                actions.setRelated(dispatch, product.productInfo.id);
+              }}>
               <div
                 className="related-products-image-thumbnail"
                 style={{
