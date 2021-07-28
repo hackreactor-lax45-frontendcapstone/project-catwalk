@@ -13,7 +13,7 @@
 }
 
 #related-products-container {
-  margin: 10px 0;
+  margin: 10px 0 10px 10px;
   vertical-align: middle;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
   white-space: nowrap;
   overflow-x: hidden;
   overflow-y: hidden;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 
 .related-products-image-thumbnail {
@@ -36,6 +36,7 @@
   /* display: none; */
   opacity: 0.1;
   transition: 0.1s;
+  min-width: 20px;
   width: 2%;
   padding: 0;
   height: 100%;
