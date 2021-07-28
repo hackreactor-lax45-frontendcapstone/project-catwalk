@@ -50,7 +50,7 @@
 
 /* ~~~~~~~~~~~~~~ Main ~~~~~~~~~~~~~ */
 #imagegallery-default-main {
-  background-color: black;
+  background-color: #eff1c5;
   height: 80%;
   max-height: 80%;
   display: flex;
@@ -86,7 +86,7 @@
 /* ~~~~~~~~~~~~~~ Thumbnails ~~~~~~~~~~~~~ */
 #imagegallery-default-thumbnails {
   position: relative;
-  background-color: black;
+  background-color: #eff1c5;
   box-sizing: border-box;
 }
 
