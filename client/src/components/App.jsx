@@ -18,6 +18,7 @@ export default () => {
   useEffect(() => {
     actions.selectProduct(dispatch, product);
     actions.setRelated(dispatch, product);
+    actions.setReviews(dispatch, product);
   }, [product]);
 
   return (
