@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../../dist/styles/overview/ImageGallery-Expanded.css';
 import actions from '../../state/actions/index.js';
 
+const ARROW_LEFT = '<';
+const ARROW_RIGHT = '>';
+
 const zoomPan = e => {
   const el = document.getElementById('imagegallery-expanded-main-in');
   var box = e.target.getBoundingClientRect();
@@ -17,6 +20,14 @@ const zoomPan = e => {
   el.style.backgroundPositionY = yPercent + '%';
 };
 
+const dispatchThumbnail = (dispatch, direction, state) => {
+  dispatch(
+    actions.selectZoomedThumbnail(
+      state.thumbnail.index + direction,
+      state.style.photos.length - 1,
+      0
+    ));
+};
 
 export default ({ state }) => {
 
@@ -41,22 +52,38 @@ export default ({ state }) => {
   }
 
   return (
-    <div
-      id={`imagegallery-expanded-main-${divId}`}
-      style={styleObj}
-      onMouseMove={e => mouseFunction(e) }
-      onClick={() => {
-        if (!state.view.default) {
-          const el = document.getElementById(`imagegallery-expanded-main-${divId}`);
-          el.style.backgroundPosition = '50% 50%';
-          dispatch(actions.zoomView());
-        }
-      }}>
+    <div id="imagegallery-expanded-main">
+      <button
+        className="imagegallery-expanded-main-button"
+        onClick={() => dispatchThumbnail(dispatch, -1, state)}>
+        {ARROW_LEFT}
+      </button>
       <div
-        id='imagegallery-expanded-close'
-        onClick={() => dispatch(actions.selectView())}>
-        {'X'}
+        id={`imagegallery-expanded-main-${divId}`}
+        style={styleObj}
+        onMouseMove={e => mouseFunction(e) }
+        onClick={() => {
+          if (!state.view.default) {
+            const el = document.getElementById(`imagegallery-expanded-main-${divId}`);
+            el.style.backgroundPosition = '50% 50%';
+            dispatch(actions.zoomView());
+          }
+        }}>
+        <div
+          id='imagegallery-expanded-close'
+          onClick={() => dispatch(actions.selectView())}>
+          {'X'}
+        </div>
       </div>
+      <button
+        className="imagegallery-expanded-main-button"
+        onClick={() => dispatchThumbnail(dispatch, 1, state)}>
+        {ARROW_RIGHT}
+      </button>
     </div>
+
   );
 };
+
+
+

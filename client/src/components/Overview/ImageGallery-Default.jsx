@@ -54,7 +54,7 @@ const updateThumbnailGallery = (direction) => {
 
 const dispatchThumbnail = (dispatch, direction, state) => {
   dispatch(
-    actions.selectThumbnail(
+    actions.selectDefaultThumbnail(
       state.thumbnail.index + direction,
       state.style.photos.length - 1,
       getGallery().offsetWidth
@@ -73,30 +73,33 @@ export default ({ state }) => {
     gallery.scrollLeft = state.thumbnail.scrollLeft;
   }
 
+  var backgroundImage = state.style.photos[state.thumbnail.index].url;
   return (
     <div id="body-overview-imagegallery-default">
-
       <div id="imagegallery-default-main">
-        <div id="imagegallery-default-main-button">
-          <button
-            disabled={state.thumbnail.index === 0}
-            className={'imagegallery-button' + (state.thumbnail.index === 0 ? '-disabled' : '')}
-            onClick={() => dispatchThumbnail(dispatch, -1, state)}>
-            {ARROW_LEFT}
-          </button>
-          <button
-            disabled={state.thumbnail.index === state.style.photos.length - 1}
-            className={'imagegallery-button' + (state.thumbnail.index < (state.style.photos.length - 1) ? '' : '-disabled')}
-            onClick={() => dispatchThumbnail(dispatch, 1, state)}>
-            {ARROW_RIGHT}
-          </button>
+        <button
+          disabled={state.thumbnail.index === 0}
+          className={'imagegallery-button' + (state.thumbnail.index === 0 ? '-disabled' : '')}
+          onClick={() => dispatchThumbnail(dispatch, -1, state)}>
+          {ARROW_LEFT}
+        </button>
+        <div
+          id="imagegallery-default-main-image"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            position: 'relative',
+          }}
+          onClick={() => dispatch(actions.selectView())}>
         </div>
-        <div id="imagegallery-default-main-image">
-          <img
-            className="imagegallery-main"
-            src={state.style.photos[state.thumbnail.index].url}
-            onClick={() => dispatch(actions.selectView())} />
-        </div>
+        <button
+          disabled={state.thumbnail.index === state.style.photos.length - 1}
+          className={'imagegallery-button' + (state.thumbnail.index < (state.style.photos.length - 1) ? '' : '-disabled')}
+          onClick={() => dispatchThumbnail(dispatch, 1, state)}>
+          {ARROW_RIGHT}
+        </button>
       </div>
 
       <div id="imagegallery-default-thumbnails">

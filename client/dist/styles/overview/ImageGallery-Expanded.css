@@ -2,8 +2,34 @@
         Image Gallery Expanded
 ========================================= */
 
+.imagegallery-expanded-main-button {
+  height: 100%;
+  width: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0.1;
+  background-color: #a2a77f;
+  border: none;
+  pointer-events: auto;
+  border-radius: 2px;
+}
+
+.imagegallery-expanded-main-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+
+#imagegallery-expanded-main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 #imagegallery-expanded-main-in,
 #imagegallery-expanded-main-out {
+  min-height: 100%;
+  max-width: 100%;
   background-color: black;
   width: 1000px;
   height: auto;
@@ -19,8 +45,9 @@
 }
 
 #imagegallery-expanded-close {
+  width: 10px;
   cursor: pointer;
-  text-align: right;
+  float: right;
   color: white;
   padding-top: 2px;
   padding-right: 5px;
