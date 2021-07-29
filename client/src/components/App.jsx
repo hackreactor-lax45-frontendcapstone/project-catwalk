@@ -8,10 +8,7 @@ import QuestionAnswer from './QuestionAnswer.jsx';
 import RatingsReviews from './RatingsReviews.jsx';
 import Footer from './Footer.jsx';
 
-
-// How to access state and actions in a different file
-//   import { useSelector, useDispatch } from 'react-redux';
-//   import actions from '../state/actions/index.js';
+import actions from '../state/actions/index.js';
 
 export default () => {
 
@@ -27,13 +24,14 @@ export default () => {
     <div id="app">
       <div id="app-header">
         <Header />
+        <div id="announcements"></div>
       </div>
       <div id="app-body">
         <Overview />
         <RelatedItems />
-        <QuestionAnswer />
+        {/* <QuestionAnswer />
         <RatingsReviews />
-        <Footer />
+        <Footer /> */}
       </div>
     </div>
   );

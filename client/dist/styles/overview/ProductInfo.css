@@ -1,20 +1,18 @@
 /* product info */
 #body-overview-productsummary {
   display: flex;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin: 10px;
-  flex-basis: 80%;
-  flex-direction: column
+  flex-direction: column;
+  height: 40%;
 }
 
 #body-overview-starrating {
   display: flex;
   flex-direction: row;
+  align-self: center;
 }
 
 #body-overview-stars {
-  flex: 1
+  flex: 1;
 }
 
 .stars-outer {
@@ -34,40 +32,42 @@
 .stars-outer::before {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  color: rgb(219, 216, 216);
+  font-weight: 700;
+  color: #dbd8d8;
 }
 
 .stars-inner::before {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  color: rgb(241, 241, 75);
+  font-weight: 700;
+  color: #035e7b;
 }
 
 #body-overview-count {
   flex: 1;
-  font-size: 70%;
-  margin: 3px;
+  font-size: 60%;
+  margin: auto;
 }
 
 #body-overview-count:hover {
-  color:rgb(241, 241, 75);
+  color:#035e7b;
   cursor: pointer;
 }
 
 #body-overview-category {
   font-size: 80%;
+  margin-top: 40px;
 }
 
 #body-overview-name {
   font-weight: bold;
-  font-size: 180%;
-  margin: 0px 0px 10px 0px;
+  font-size: 25px;
 }
 
 #body-overview-price, #body-overview-saleprice, #body-overview-oldprice {
   font-size: 80%;
+  align-self: center;
+  margin-top: 10px;
 }
 
 #body-overview-oldprice {
@@ -75,7 +75,12 @@
 }
 
 #body-overview-saleprice {
-  color: red
+  color: #cc3030
+}
+
+#body-overview-category,
+#body-overview-name {
+  align-self: center;
 }
 
 /* product description */
@@ -83,7 +88,6 @@
  display: flex;
  flex-direction: row;
  justify-content: space-between;
- margin: 10px;
 }
 
 #body-overview-bottom-left {
@@ -99,11 +103,13 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: center;
 }
 
 #body-overview-slogan {
   font-weight: bold;
-  font-size: 80%
+  font-size: 18px;
+  margin: 10px 0 10px 0;
 }
 
 #body-overview-description {

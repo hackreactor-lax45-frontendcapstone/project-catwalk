@@ -1,17 +1,10 @@
-import React from 'react';
+/* eslint-disable semi */
+import React, {useState} from 'react';
 import SizeRenderEntry from './sizeRenderEntry.jsx';
-import sampleData from './sampleData.js';
+import QtyRenderEntry from './qtyRenderEntry.jsx';
 
-class AddToCart extends React.Component {
-  constructor(props) {
-    super(props);
+import '../../../dist/styles/overview/AddToCart.css';
 
-<<<<<<< HEAD
-    this.state = {
-      data: sampleData,
-      currentSkus: {}
-    };
-=======
 import { useSelector, useDispatch } from 'react-redux';
 import SetSelectSize from '../../state/actions/selectSize.js'
 import SetSelectQty from '../../state/actions/selectQuantity.js'
@@ -75,34 +68,28 @@ const AddToCart = () => {
     } else {
       return <button className='addtocart-button' onClick={buttonHandler} >Add to Cart</button>
     }
->>>>>>> 50987daf4837b48f9a2e178339dc55754a2d0c41
   }
 
-  render() {
+  if (state) {
+    let { style, selected, currentProduct, currentSize, currentQty } = state;
+
     return (
-      <div id="body-overview-addtocart">
-      AddToCart
-        <div>
-          <select>
-            <SizeRenderEntry list={this.state.data} />
-          </select>
+      <div id='body-overview-addtocart'>
+        <div id='dropdowns'>
+          <div>
+            <SizeRenderEntry selected={selected} handleChange={handleChange} updateStockStatus={updateStockStatus}/>
+          </div>
+          <div>
+            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty}/>
+          </div>
         </div>
-        <div>
-          <select>
-            <option> Quantity Selector </option>
-          </select>
-        </div>
-        <button>Add to Cart </button>
+        {renderCartButton(qty)}
       </div>
-    );
+    )
+  } else {
+    return <div>Loading...</div>
   }
+
 }
 
 export default AddToCart;
-
-// <select>
-//           <option value="small">S</option>
-//           <option value="medium">M</option>
-//           <option value="large">L</option>
-//           <option value="xlarge">XL</option>
-//         </select>

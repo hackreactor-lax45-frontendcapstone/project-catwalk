@@ -16,6 +16,7 @@ export default (props) => (
           icon.children[1].attributes[1].value="#002e2c";
         }}/>
       </FacebookShareButton>
+      Share
     </div>
 
     <div className="icons" id="col-3">
@@ -30,6 +31,7 @@ export default (props) => (
           icon.children[1].attributes[1].value="#002e2c";
         }}/>
       </TwitterShareButton>
+      Tweet
     </div>
 
     <div className="icons" id="col-4">
@@ -44,6 +46,7 @@ export default (props) => (
           icon.children[1].attributes[1].value="#002e2c";
         }}/>
       </PinterestShareButton>
+      Pin it
     </div>
 
     <div id="col-5"></div>

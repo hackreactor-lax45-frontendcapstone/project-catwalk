@@ -7,8 +7,6 @@ import App from './components/App.jsx';
 
 const rootElement = document.getElementById('page');
 
-import selectProduct from './state/actions/selectProduct';
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

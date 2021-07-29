@@ -1,16 +1,15 @@
 import React from 'react';
 
 var SizeRenderEntry = function(props) {
-  //create list in array
 
   var skus = [];
   var qtyandSize = [];
-
-  for (const [key, value] of Object.entries(props.list.results[0].skus)) {
+  for (const [key, value] of Object.entries(props.selected.skus)) {
     skus.push({key});
     qtyandSize.push(value);
   }
 
+  // create an array that contains objects list --> ex) [{key:[skus#], size: "9", quantity: "12"},{},{}...{}]
   var final = [];
   for (var i = 0; i < skus.length; i++) {
     var newobj = Object.assign(skus[i], qtyandSize[i]);
@@ -42,5 +41,4 @@ var SizeRenderEntry = function(props) {
 
 
 export default SizeRenderEntry;
-
 

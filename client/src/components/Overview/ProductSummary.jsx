@@ -14,12 +14,12 @@ const ProductSummary = () => {
 
   const priceHelper = (price) => {
     if (price.sale_price === null) {
-      return (<div id="body-overview-price">${price.original_price} USD</div>);
+      return (<div id="body-overview-price">${price.original_price}</div>);
     } else {
       return (
         <div>
-          <div id="body-overview-oldprice">${price.original_price} USD</div>
-          <div id="body-overview-saleprice">${price.sale_price} USD</div>
+          <div id="body-overview-oldprice">${price.original_price}</div>
+          <div id="body-overview-saleprice">${price.sale_price}</div>
         </div>
       );
     }
