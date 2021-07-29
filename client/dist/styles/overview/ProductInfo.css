@@ -140,9 +140,6 @@
   margin-left: 5px;
 }
 
-#facebook:hover,
-#twitter:hover,
-#pinterest:hover {
-  color: yellow;
+.icons {
+  color: #002e2c;
 }
-

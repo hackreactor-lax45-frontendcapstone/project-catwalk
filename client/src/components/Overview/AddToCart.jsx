@@ -15,9 +15,6 @@ const AddToCart = () => {
   const dispatch = useDispatch();
 
   const state = useSelector(state => {
-    if (!state.product.styleInfo.results) {
-      return undefined;
-    }
     return {
       style: state.product.styleInfo.results,
       selected: state.product.styleInfo.results[state.style],
