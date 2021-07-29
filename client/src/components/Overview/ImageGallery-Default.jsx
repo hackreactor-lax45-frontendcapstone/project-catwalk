@@ -113,26 +113,23 @@ export default ({ state }) => {
         <div id="imagegallery-default-thumbnails-image">
           {_.map(state.style.photos, (photo, i) => {
             return (
-              <div key={i} className={'imagegallery-thumbnail-container'}>
-                <img
-                  className={'imagegallery-thumbnail-image'}
-                  src={photo.thumbnail_url}
-                  onClick={() => {
-                    dispatch(
-                      actions.selectDefaultThumbnail(
-                        i,
-                        state.style.photos.length - 1,
-                        getGallery().offsetWidth));
-                  }} />
-                {/* <input
-                  className=""
-                  type="checkbox"
-                  value={i}
-                  onChange={() => {}}
-                  checked={true}
-                  id={`cb${i}`}
-                ></input>
-                <label htmlFor={`cb${i}`}></label> */}
+              <div
+                key={i}
+                className={'imagegallery-thumbnail-image'}
+                // className={'imagegallery-thumbnail-container'}
+                style={{
+                  backgroundImage: `url(${photo.thumbnail_url}`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                }}
+                onClick={() => {
+                  dispatch(
+                    actions.selectDefaultThumbnail(
+                      i,
+                      state.style.photos.length - 1,
+                      getGallery().offsetWidth));
+                }}>
               </div>);
           })}
         </div>

@@ -100,19 +100,13 @@
   box-sizing: border-box;
 }
 
-.imagegallery-thumbnail-container {
+.imagegallery-thumbnail-image {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   height: 90px;
   max-width: 140px;
   min-width: 140px;
-}
-
-.imagegallery-thumbnail-image {
-  margin: auto;
-  box-sizing: border-box;
-  border: none;
-  height: 100%;
 }
 
 .imagegallery-thumbnail-selected {
