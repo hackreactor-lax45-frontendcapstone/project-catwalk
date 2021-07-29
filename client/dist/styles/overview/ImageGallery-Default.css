@@ -100,6 +100,13 @@
   box-sizing: border-box;
 }
 
+input[type="icheckbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
 .imagegallery-thumbnail-image {
   box-sizing: border-box;
   display: flex;
@@ -109,10 +116,6 @@
   min-width: 140px;
 }
 
-.imagegallery-thumbnail-selected {
-  box-sizing: border-box;
-  border: green 2px solid;
-}
 
 #imagegallery-default-thumbnails-button {
   position: absolute;

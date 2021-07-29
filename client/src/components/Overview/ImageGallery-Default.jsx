@@ -116,7 +116,6 @@ export default ({ state }) => {
               <div
                 key={i}
                 className={'imagegallery-thumbnail-image'}
-                // className={'imagegallery-thumbnail-container'}
                 style={{
                   backgroundImage: `url(${photo.thumbnail_url}`,
                   backgroundRepeat: 'no-repeat',
@@ -130,7 +129,16 @@ export default ({ state }) => {
                       state.style.photos.length - 1,
                       getGallery().offsetWidth));
                 }}>
-              </div>);
+                <input
+                  className={'imagegallery-thumbnail-checkbox' + (state.thumbnail.index === i ? '-selected' : '')}
+                  type='icheckbox'
+                  // hidden={state.thumbnail.index !== i}
+                  checked={state.thumbnail.index === i}
+                  onChange={() => {}}
+                  id={`imagegallery-thumbnail-cb${i}`}/>
+                <label htmlFor={`imagegallery-thumbnail-cb${i}`}></label>
+              </div>
+            );
           })}
         </div>
 
