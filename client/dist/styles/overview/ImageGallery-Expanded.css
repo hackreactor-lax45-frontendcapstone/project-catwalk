@@ -2,11 +2,20 @@
         Image Gallery Expanded
 ========================================= */
 
-#imagegallery-expanded-main {
+#imagegallery-expanded-main-in,
+#imagegallery-expanded-main-out {
   background-color: black;
   width: 1000px;
   height: auto;
   background-position: center;
+}
+
+#imagegallery-expanded-main-out {
+  cursor: zoom-in;
+}
+
+#imagegallery-expanded-main-in {
+  cursor: zoom-out;
 }
 
 #imagegallery-expanded-close {

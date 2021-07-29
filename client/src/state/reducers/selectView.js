@@ -1,11 +1,13 @@
 import Redux from 'redux';
 
-const initialState = { default: true, zoomed: false };
+const initialState = {
+  default: true, zoomed: false
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SELECT_VIEW':
-    let viewObject = {
+    var viewObject = {
       default: !state.default,
       zoomed: state.zoomed,
     };
@@ -14,10 +16,14 @@ const reducer = (state = initialState, action) => {
     }
     return viewObject;
   case 'ZOOM_VIEW':
-    return {
+    var viewObject = {
       default: state.default,
       zoomed: !state.zoomed,
     };
+    if (viewObject.default) {
+      viewObject.zoomed = false;
+    }
+    return viewObject;
   default:
     return state;
   }
