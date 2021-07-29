@@ -22,33 +22,26 @@ const StyleSelector = () => {
   });
 
   if (styles) {
-
     const handleClick = (e) => {
       let thmb = document.getElementsByClassName('style-thumbnails');
 
       if (e.target.id === 'down') {
         thmb[0].scrollBy({
-          top:70,
+          top:100,
           behavior: 'smooth'
         })
-        if (thmb[0].scrollTop !== 0) {
-          thmb[0].classList.remove('hidden');
-        }
       } else if (e.target.id === 'up') {
           thmb[0].scrollBy({
-            top:-70,
+            top:-100,
             behavior: 'smooth'
           })
-          if (thmb[0].scrollTop === 0) {
-            thmb[0].classList.add('hidden');
-          }
       }
     }
 
     return (
       <div id="body-overview-styleselector">
         <div className="selection-title">{selected.name}</div>
-        <button onClick={handleClick} className="btn-more-styles up hidden">{
+        <button onClick={handleClick} className="btn-more-styles">{
           <svg
             id="up"
             xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +78,7 @@ const StyleSelector = () => {
             </span>
           })}
         </div>
-          <button onClick={handleClick} className="btn-more-styles down">{
+          <button onClick={handleClick} className="btn-more-styles">{
             <svg
               id="down"
               xmlns="http://www.w3.org/2000/svg"

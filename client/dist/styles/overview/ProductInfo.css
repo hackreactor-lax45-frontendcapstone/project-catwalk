@@ -1,18 +1,20 @@
 /* product info */
 #body-overview-productsummary {
   display: flex;
-  flex-direction: column;
-  height: 40%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
+  flex-basis: 80%;
+  flex-direction: column
 }
 
 #body-overview-starrating {
   display: flex;
   flex-direction: row;
-  align-self: center;
 }
 
 #body-overview-stars {
-  flex: 1;
+  flex: 1
 }
 
 .stars-outer {
@@ -32,42 +34,40 @@
 .stars-outer::before {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
-  font-weight: 700;
-  color: #dbd8d8;
+  font-weight: 900;
+  color: rgb(219, 216, 216);
 }
 
 .stars-inner::before {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
-  font-weight: 700;
-  color: #035e7b;
+  font-weight: 900;
+  color: rgb(241, 241, 75);
 }
 
 #body-overview-count {
   flex: 1;
-  font-size: 60%;
-  margin: auto;
+  font-size: 70%;
+  margin: 3px;
 }
 
 #body-overview-count:hover {
-  color:#035e7b;
+  color:rgb(241, 241, 75);
   cursor: pointer;
 }
 
 #body-overview-category {
   font-size: 80%;
-  margin-top: 40px;
 }
 
 #body-overview-name {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 180%;
+  margin: 0px 0px 10px 0px;
 }
 
 #body-overview-price, #body-overview-saleprice, #body-overview-oldprice {
   font-size: 80%;
-  align-self: center;
-  margin-top: 10px;
 }
 
 #body-overview-oldprice {
@@ -75,12 +75,7 @@
 }
 
 #body-overview-saleprice {
-  color: #cc3030
-}
-
-#body-overview-category,
-#body-overview-name {
-  align-self: center;
+  color: red
 }
 
 /* product description */
@@ -88,6 +83,7 @@
  display: flex;
  flex-direction: row;
  justify-content: space-between;
+ margin: 10px;
 }
 
 #body-overview-bottom-left {
@@ -103,13 +99,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
 }
 
 #body-overview-slogan {
   font-weight: bold;
-  font-size: 18px;
-  margin: 10px 0 10px 0;
+  font-size: 80%
 }
 
 #body-overview-description {
@@ -140,9 +134,7 @@
   margin-left: 5px;
 }
 
-#facebook:hover,
-#twitter:hover,
-#pinterest:hover {
+#col-2:hover {
   color: yellow;
 }
 
