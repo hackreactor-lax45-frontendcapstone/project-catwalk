@@ -100,16 +100,21 @@
   box-sizing: border-box;
 }
 
-input[type="icheckbox"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+/*
+*/
+.imagegallery-thumbnail-container {
+  position: relative;
+  margin: 2px 0 0 5.5px;
+  width: 140px;
 }
+
+/*
+*/
 
 .imagegallery-thumbnail-image {
   box-sizing: border-box;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   height: 90px;
   max-width: 140px;

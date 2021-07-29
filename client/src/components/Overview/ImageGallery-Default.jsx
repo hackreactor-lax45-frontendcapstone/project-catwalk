@@ -5,6 +5,7 @@ import '../../../dist/styles/overview/ImageGallery-Default.css';
 import actions from '../../state/actions/index.js';
 import _ from 'lodash';
 
+
 /* ============================================
                   Constants
 ============================================ */
@@ -129,14 +130,17 @@ export default ({ state }) => {
                       state.style.photos.length - 1,
                       getGallery().offsetWidth));
                 }}>
-                <input
-                  className={'imagegallery-thumbnail-checkbox' + (state.thumbnail.index === i ? '-selected' : '')}
-                  type='icheckbox'
-                  // hidden={state.thumbnail.index !== i}
-                  checked={state.thumbnail.index === i}
-                  onChange={() => {}}
-                  id={`imagegallery-thumbnail-cb${i}`}/>
-                <label htmlFor={`imagegallery-thumbnail-cb${i}`}></label>
+                <span key={i} className="imagegallery-thumbnail-container">
+                  <input
+                    className={`cb ${state.thumbnail.index === i && 'is-selected'}`}
+                    onChange={() => {}}
+                    type="checkbox"
+                    value={i}
+                    checked={state.thumbnail.index === i && true}
+                    id={`cb${i}`}
+                  ></input>
+                  <label htmlFor={`cb${i}`}></label>
+                </span>
               </div>
             );
           })}
