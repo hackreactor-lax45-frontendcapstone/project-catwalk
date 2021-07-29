@@ -23,8 +23,9 @@ const AddToCart = () => {
       selected: state.product.styleInfo.results[state.style],
       currentProduct: state.product,
       currentSize: state.size,
-      currentQty: state.quantity,
+      currentQty: state.quantity
     }
+
   })
 
   //local state to keep track of selected quantity, stock status, size selection status
@@ -57,6 +58,7 @@ const AddToCart = () => {
     //and a message should appear above the dropdown stating “Please select size”.
   }
 
+
   const buttonHandler = () => {
     dispatch(setToCart(currentProduct['productID'], selected['style_id'],currentSize, qty))
   }
@@ -83,7 +85,7 @@ const AddToCart = () => {
             <SizeRenderEntry selected={selected} handleChange={handleChange} updateStockStatus={updateStockStatus}/>
           </div>
           <div>
-            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty}/>
+            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty} isSizeSelected={isSizeSelected}/>
           </div>
         </div>
         {renderCartButton(qty)}
