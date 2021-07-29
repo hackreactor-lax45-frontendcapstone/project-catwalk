@@ -33,15 +33,16 @@ export default ({ product }) => {
 
   return (
     <div id='related-products-info'>
+      <div>
+        <div id="related-products-category">{product.productInfo.category}</div>
+        <div id="related-products-name">{product.productInfo.name}</div>
+        {priceHelper(price)}
+      </div>
       <div id="related-products-star">
         <div className="related-products-star-outer">
           <div className="related-products-star-inner" style={{ width: `${rating}%` }}></div>
         </div>
       </div>
-      <div id="related-products-count">{`Read all ${reviews} reviews`}</div>
-      <div id="related-products-category">{product.productInfo.category}</div>
-      <div id="related-products-name">{product.productInfo.name}</div>
-      {priceHelper(price)}
     </div>
   );
 };
