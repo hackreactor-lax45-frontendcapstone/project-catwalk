@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import '../../../dist/styles/overview/ImageGallery-Expanded.css';
 import actions from '../../state/actions/index.js';
+import _ from 'lodash';
 
 const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
@@ -54,7 +55,8 @@ export default ({ state }) => {
   return (
     <div id="imagegallery-expanded-main">
       <button
-        className="imagegallery-expanded-main-button"
+        disabled={divId === 'in'}
+        className={'imagegallery-expanded-main-button' + (divId === 'in' ? '-disabled' : '')}
         onClick={() => dispatchThumbnail(dispatch, -1, state)}>
         {ARROW_LEFT}
       </button>
@@ -72,11 +74,36 @@ export default ({ state }) => {
         <div
           id='imagegallery-expanded-close'
           onClick={() => dispatch(actions.selectView())}>
-          {'X'}
+          <span
+            id='image-gallery-expanded-close-x'
+            onMouseMove={e => e.stopPropagation()}>
+            {'X'}
+          </span>
+        </div>
+        <div id='imagegallery-expanded-thumbnail'>
+          {_.map(state.style.photos, (photo, i) => {
+            return (
+              <div
+                hidden={divId === 'in'}
+                key={i}
+                className={'image-gallery-expanded-thumbnail-indicator' + (state.thumbnail.index === i ? '-selected' : '')}
+                onMouseMove={e => e.stopPropagation()}
+                onClick={e => {
+                  e.stopPropagation();
+                  dispatch(
+                    actions.selectDefaultThumbnail(
+                      i,
+                      state.style.photos.length - 1,
+                      0));
+                }}>
+              </div>
+            );
+          })}
         </div>
       </div>
       <button
-        className="imagegallery-expanded-main-button"
+        disabled={divId === 'in'}
+        className={'imagegallery-expanded-main-button' + (divId === 'in' ? '-disabled' : '')}
         onClick={() => dispatchThumbnail(dispatch, 1, state)}>
         {ARROW_RIGHT}
       </button>
