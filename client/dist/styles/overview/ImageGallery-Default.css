@@ -82,6 +82,8 @@
 
 /* ~~~~~~~~~~~~~~ Thumbnails ~~~~~~~~~~~~~ */
 #imagegallery-default-thumbnails {
+  display: flex;
+  flex-direction: row;
   position: relative;
   background-color: #eff1c5;
   box-sizing: border-box;

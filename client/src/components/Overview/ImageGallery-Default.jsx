@@ -103,36 +103,46 @@ export default ({ state }) => {
       </div>
 
       <div id="imagegallery-default-thumbnails">
-        <div id="imagegallery-default-thumbnails-button">
-          <button
-            className='imagegallery-thumbnail-button-disabled'
-            id='imagegallery-thumbnail-button-left'
-            onClick={() => updateThumbnailGallery(-1)}>
-            {ARROW_LEFT}
-          </button>
-          <button
-            className='imagegallery-thumbnail-button'
-            id='imagegallery-thumbnail-button-right'
-            onClick={() => updateThumbnailGallery(1)}>
-            {ARROW_RIGHT}
-          </button>
-        </div>
+        <button
+          className='imagegallery-thumbnail-button-disabled'
+          id='imagegallery-thumbnail-button-left'
+          onClick={() => updateThumbnailGallery(-1)}>
+          {ARROW_LEFT}
+        </button>
+
         <div id="imagegallery-default-thumbnails-image">
           {_.map(state.style.photos, (photo, i) => {
-            return <div key={i} className={'imagegallery-thumbnail-container'}>
-              <img
-                className={'imagegallery-thumbnail-image'}
-                src={photo.thumbnail_url}
-                onClick={() => {
-                  dispatch(
-                    actions.selectThumbnail(
-                      i,
-                      state.style.photos.length - 1,
-                      getGallery().offsetWidth));
-                }} />
-            </div>;
+            return (
+              <div key={i} className={'imagegallery-thumbnail-container'}>
+                <img
+                  className={'imagegallery-thumbnail-image'}
+                  src={photo.thumbnail_url}
+                  onClick={() => {
+                    dispatch(
+                      actions.selectDefaultThumbnail(
+                        i,
+                        state.style.photos.length - 1,
+                        getGallery().offsetWidth));
+                  }} />
+                {/* <input
+                  className=""
+                  type="checkbox"
+                  value={i}
+                  onChange={() => {}}
+                  checked={true}
+                  id={`cb${i}`}
+                ></input>
+                <label htmlFor={`cb${i}`}></label> */}
+              </div>);
           })}
         </div>
+
+        <button
+          className='imagegallery-thumbnail-button'
+          id='imagegallery-thumbnail-button-right'
+          onClick={() => updateThumbnailGallery(1)}>
+          {ARROW_RIGHT}
+        </button>
       </div>
     </div>
   );
