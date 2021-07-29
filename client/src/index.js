@@ -11,7 +11,7 @@ import selectProduct from './state/actions/selectProduct';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App productID={16060}/>
+    <App />
   </Provider>,
   rootElement
 );
