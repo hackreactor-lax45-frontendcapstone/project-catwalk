@@ -75,6 +75,7 @@ input[type="checkbox"][id^="cb"] + label {
 
 label {
   height: 10%;
+  pointer-events: none;
 }
 
 /* ========= BUTTONS ========= */
