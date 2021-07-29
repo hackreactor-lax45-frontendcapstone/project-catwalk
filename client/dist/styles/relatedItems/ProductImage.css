@@ -1,0 +1,33 @@
+.related-products-image-thumbnail {
+  display: flex;
+  flex-grow: 1;
+  min-width: 140px;
+  min-height: 220px;
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.related-products-image-modalopen::before {
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: white;
+  text-shadow: black 0 0 10px;
+}
+
+.related-products-image-modalopen {
+  margin: 5px 5px 0 0;
+  float: right;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 0 5px 0 0;
+}
+
+.related-products-image-modalopen:hover:before {
+  cursor: help;
+  color: yellow;
+}

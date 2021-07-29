@@ -24,17 +24,6 @@
   justify-content: flex-start;
 }
 
-.related-products-image-thumbnail {
-  display: flex;
-  flex-grow: 1;
-  min-width: 140px;
-  min-height: 220px;
-  display: inline-block;
-  background-position: center;
-  background-size: cover;
-  border-radius: 5px 5px 0 0;
-}
-
 .related-products-button {
   /* display: none; */
   opacity: 0.1;
@@ -53,10 +42,4 @@
 
 .related-products-button:hover {
   opacity: 0.6;
-}
-
-.related-products-card {
-  margin-right: 10px;
-  display: flex;
-  flex-direction: column;
 }

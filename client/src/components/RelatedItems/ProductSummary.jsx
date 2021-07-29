@@ -1,8 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import { useSelector } from 'react-redux';
-
-import '../../../dist/styles/relatedItems/Related-Cards.css';
+import '../../../dist/styles/relatedItems/ProductSummary.css';
 
 const priceHelper = (price) => {
   if (price.sale_price === null) {
