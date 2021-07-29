@@ -1,14 +1,37 @@
 import React from 'react';
+import axios from 'axios';
+import AtelierAPI from '../lib/atelierAPI.js';
 
 const ClickTracker = (props) => {
+
   const handleInteraction = (e) => {
-    console.log('element: ', e.target.localName);
-    console.log('time: ', new Date().toLocaleTimeString());
+    let module;
+
     e.nativeEvent.path.forEach(element => {
-      console.log(element.id);
+      if (element.id === 'body-overview') {
+        module = 'Overview';
+      } else if (element.id === 'body-related') {
+        module = 'Related Items & Comparison';
+      } else if (element.id === 'body-questions') {
+        module = 'Questions & Answers';
+      } else if (element.id === 'body-ratings') {
+        module = 'Ratings & Reviews';
+      }
+    });
+
+    axios({
+      method: 'post',
+      url: `${AtelierAPI.url}/interactions`,
+      headers: AtelierAPI.headers,
+      data: {
+        element: e.target.localName,
+        widget: module,
+        time: new Date().toLocaleTimeString()
+      }
     })
-    // console.log(e.nativeEvent.path.slice(0, 5));
-  }
+      .then(res => console.log(res.status))
+      .catch(err => console.error(err));
+  };
 
   return (
     <div>
