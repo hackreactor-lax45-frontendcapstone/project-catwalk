@@ -16,7 +16,7 @@ export default ({ product }) => {
       <div
         className='related-products-image-modalopen'
         onClick={e => {
-          dispatch(actions.modalView());
+          dispatch(actions.modalView(product.productInfo));
           e.stopPropagation();
         }}>
       </div>

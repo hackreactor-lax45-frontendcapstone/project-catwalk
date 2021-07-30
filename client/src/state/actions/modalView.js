@@ -1,3 +1,4 @@
-export default () => ({
-  type: 'MODAL_VIEW'
+export default compare => ({
+  type: 'MODAL_VIEW',
+  payload: compare,
 });

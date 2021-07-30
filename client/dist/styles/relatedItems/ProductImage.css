@@ -32,7 +32,12 @@
   color: yellow;
 }
 
-
+.related-products-modal-container {
+  display: 'flex';
+  height: 350px;
+  min-width: 100%;
+  width: 100%;
+}
 
 .related-products-modal {
   opacity: 0.75;
@@ -50,7 +55,46 @@
   background-color: white;
   border: 1px black solid;
   min-width: 500px;
-  width: 500px;
-  height: 250px;
+  width: 600px;
   max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#related-products-modal-table {
+  margin: 10px auto;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.related-mid,
+.related-th-mid {
+  width: 20%;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+}
+
+.related-th {
+  width: 40%;
+}
+
+.related-td {
+  padding: 5px 0;
+}
+
+.related-header,
+.related-tr {
+  border-bottom: 1px black solid;
+}
+
+.related-tr:last-child {
+  border-bottom: none;
+}
+
+.related-th,
+.related-th-mid {
+  padding: 10px 0;
+  background-color: white;
+  position: sticky;
+  top: 0;
 }

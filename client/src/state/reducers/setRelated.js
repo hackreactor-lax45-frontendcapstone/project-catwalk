@@ -6,6 +6,7 @@ const initialState = {
   products: [],
   styles: [],
   modal: false,
+  compare: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,12 +18,21 @@ const reducer = (state = initialState, action) => {
       products: action.payload.products,
       styles: action.payload.styles,
       modal: false,
+      compare: {},
     };
   case 'MODAL_VIEW':
-    return {
-      ...state,
+    var stateObj = {
+      returned: state.returned,
+      ids: state.ids,
+      products: state.products,
+      styles: state.styles,
       modal: !state.modal,
+      compare: action.payload,
+    };
+    if (!stateObj.modal) {
+      stateObj.compare = {};
     }
+    return stateObj;
   default:
     return state;
   }
