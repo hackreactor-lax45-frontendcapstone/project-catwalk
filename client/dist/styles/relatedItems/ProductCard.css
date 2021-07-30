@@ -1,17 +1,10 @@
-.related-products-card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  height: 95%;
-  max-width: 140px;
-}
-
 .related-products-card {
-  margin: 10px 0 10px 10px;
+  padding: 10px 0 10px 10px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .related-outfit-add {

@@ -9,64 +9,6 @@
   border-radius: 5px 5px 0 0;
 }
 
-.related-products-image-modalopen::before {
-  content: "\f005";
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  color: white;
-  text-shadow: black 0 0 10px;
-}
-
-.related-products-image-modalopen {
-  margin: 5px 5px 0 0;
-  float: right;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  border-radius: 0 5px 0 0;
-}
-
-.related-products-image-modalopen:hover:before {
-  cursor: help;
-  color: yellow;
-}
-
-.related-products-modal-container {
-  display: 'flex';
-  height: 350px;
-  min-width: 100%;
-  width: 100%;
-}
-
-.related-products-modal {
-  opacity: 0.75;
-  background-color: white;
-  border-radius: 2px;
-  z-index: 9;
-  width: 100%;
-}
-
-#related-products-modal-panel {
-  z-index: 12;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  border: 1px black solid;
-  min-width: 500px;
-  width: 600px;
-  max-height: 250px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-#related-products-modal-table {
-  margin: 10px auto;
-  width: 90%;
-  border-collapse: collapse;
-}
-
 .related-mid,
 .related-th-mid {
   width: 20%;

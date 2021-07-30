@@ -50,9 +50,9 @@ export default props => {
             </div>
           );
         })}
+        <CompareModal />
       </div>
       <RelatedProductButton direction={1}/>
-      <CompareModal />
     </div>
   );
 };
