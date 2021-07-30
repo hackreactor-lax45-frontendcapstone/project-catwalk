@@ -2,6 +2,6 @@ import React from 'react';
 
 export default props => {
   return (
-    <div>RatingBreakdown</div>
+    <div className="rating-breakdown">RatingBreakdown</div>
   );
 };

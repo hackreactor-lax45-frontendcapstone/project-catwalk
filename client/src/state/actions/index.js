@@ -5,8 +5,11 @@ import selectSize from './selectSize';
 import selectQuantity from './selectQuantity';
 import addToCart from './addToCart';
 import setRelated from './setRelated';
-import setViews from './setViews'
+import setViews from './setViews';
 import selectOutfits from './selectOutfits';
+import getQuestions from './getQuestions';
+import getAnswers from './getAnswers';
+import setReviews from './setReviews';
 
 const actions = {
   selectProduct,
@@ -18,6 +21,9 @@ const actions = {
   setRelated,
   setViews,
   selectOutfits,
+  getQuestions,
+  getAnswers,
+  setReviews,
 };
 
 export default actions;
