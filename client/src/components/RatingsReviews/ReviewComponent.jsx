@@ -19,20 +19,22 @@ const ReviewComponent = () => {
     }
   };
 
-  let ratings = 0;
-  let count = 0;
-  const starRatings = reviews.reviews.ratings;
-  for (var key in eachRating) {
-    count += Number(eachRating[key]);
-    ratings += (Number(key) * Number(eachRating[key]));
-  }
-  let starPercentage = (ratings / count) / 5 * 100;
-  // console.log(starPercentage);
-  if ((starPercentage % 5) < 2.5) {
-    starPercentage -= (starPercentage % 5);
-  } else {
-    starPercentage += (5 - (starPercentage % 5));
-  }
+  const getWidth = (ratingsData) => {
+    let ratings = 0;
+    let count = 0;
+    for (var key in ratingsData) {
+      count += Number(ratingsData[key]);
+      ratings += (Number(key) * Number(ratingsData[key]));
+    }
+    let starPercentage = (ratings / count) / 5 * 100;
+    if ((starPercentage % 5) < 2.5) {
+      starPercentage -= (starPercentage % 5);
+    } else {
+      starPercentage += (5 - (starPercentage % 5));
+    }
+    return starPercentage;
+  };
+
 
   if (!reviews.reviews.results) {
     return (<div>Loading...</div>);
@@ -46,9 +48,9 @@ const ReviewComponent = () => {
           <div key={review.review_id}>
             <div className="review-component-top">
 
-              <div id="related-products-star">
-                <div className="related-products-star-outer">
-                  <div className="related-products-star-inner" style={{ width: `${starPercentage}%` }}></div>
+              <div id="review-tile-star">
+                <div className="review-tile-star-outer">
+                  <div className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></div>
                 </div>
               </div>
               <div>{review.reviewer_name}</div>
@@ -66,9 +68,6 @@ const ReviewComponent = () => {
                 <div className="helpful-col-1">Was this review helpful?</div>
                 <div className="helpful-col-2">Yes ({review.helpfulness})</div>
                 <div className="helpful-col-3">No (#)</div>
-              </div>
-
-              <div className="review-component-thumbnail">
               </div>
 
             </div>
