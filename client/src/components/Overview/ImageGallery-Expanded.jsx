@@ -23,7 +23,7 @@ const zoomPan = e => {
 
 const dispatchThumbnail = (dispatch, direction, state) => {
   dispatch(
-    actions.selectZoomedThumbnail(
+    actions.selectThumbnail.expandedView(
       state.thumbnail.index + direction,
       state.style.photos.length - 1,
       0
@@ -68,12 +68,12 @@ export default ({ state }) => {
           if (!state.view.default) {
             const el = document.getElementById(`imagegallery-expanded-main-${divId}`);
             el.style.backgroundPosition = '50% 50%';
-            dispatch(actions.zoomView());
+            dispatch(actions.setViews.zoomView());
           }
         }}>
         <div
           id='imagegallery-expanded-close'
-          onClick={() => dispatch(actions.selectView())}>
+          onClick={() => dispatch(actions.setViews.defaultView())}>
           <span
             id='image-gallery-expanded-close-x'
             onMouseMove={e => e.stopPropagation()}>
@@ -91,7 +91,7 @@ export default ({ state }) => {
                 onClick={e => {
                   e.stopPropagation();
                   dispatch(
-                    actions.selectDefaultThumbnail(
+                    actions.selectThumbnail.defaultView(
                       i,
                       state.style.photos.length - 1,
                       0));

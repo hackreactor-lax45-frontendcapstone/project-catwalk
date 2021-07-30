@@ -7,7 +7,7 @@ import size from './selectSize';
 import quantity from './selectQuantity';
 import cart from './addToCart';
 import related from './setRelated';
-import view from './selectView';
+import view from './setViews';
 
 const allReducers = {
   product, // object { productID: 16060, productInfo: { /products/:product_id }, styleInfo: { /products/:product_id/styles } }

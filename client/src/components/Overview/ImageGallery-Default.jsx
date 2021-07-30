@@ -55,7 +55,7 @@ const updateThumbnailGallery = (direction) => {
 
 const dispatchThumbnail = (dispatch, direction, state) => {
   dispatch(
-    actions.selectDefaultThumbnail(
+    actions.selectThumbnail.defaultView(
       state.thumbnail.index + direction,
       state.style.photos.length - 1,
       getGallery().offsetWidth
@@ -93,7 +93,7 @@ export default ({ state }) => {
             backgroundPosition: 'center',
             position: 'relative',
           }}
-          onClick={() => dispatch(actions.selectView())}>
+          onClick={() => dispatch(actions.setViews.defaultView())}>
         </div>
         <button
           disabled={state.thumbnail.index === state.style.photos.length - 1}
@@ -125,7 +125,7 @@ export default ({ state }) => {
                 }}
                 onClick={() => {
                   dispatch(
-                    actions.selectDefaultThumbnail(
+                    actions.selectThumbnail.defaultView(
                       i,
                       state.style.photos.length - 1,
                       getGallery().offsetWidth));
