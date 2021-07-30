@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
+
 var SizeRenderEntry = function(props) {
 
   var skus = [];
@@ -15,30 +15,34 @@ var SizeRenderEntry = function(props) {
     var newobj = Object.assign(skus[i], qtyandSize[i]);
     final.push(newobj);
   }
-  console.log(final)
+
+
+
   //if there's no remaining stock, the dropdown become inactive and read 'OUT OF STOCK"
   if (final.length === 0) {
-    console.log(final.length)
-    props.updateStockStatus("true")
-    return <select disabled="outofstock">
-      <option>OUT OF STOCK</option>
-    </select>
-  }
-
-  else {
-    var selectInitial = 'SELECT SIZE';
-
     return (
-      <select onChange={props.handleChange}>
-      <option value="outofstock" > {selectInitial}</option>
-      {final.map(elem => {
-        return <option key={elem.key} value={JSON.stringify(elem)} > {elem.size} </option>
-      })}
-    </select>
-    )
+      <select disabled="outofstock" id="dropdown-size">
+        <option>OUT OF STOCK</option>
+      </select>
+    );
+  } else {
+    var selectInitial = 'Size';
+    var sizeNotSelected ={
+      key: "0",
+      quantity: 0,
+      size: ''
+    }
+    return (
+      <select id='dropdown-size' onChange={props.handleChange}>
+        <option value={JSON.stringify(sizeNotSelected)} > {selectInitial}</option>
+        {final.map(elem => {
+          return (<option key={elem.key} value={JSON.stringify(elem)} > {elem.size} </option>);
+        })}
+      </select>
+    );
   }
+};
 
-}
 
 
 export default SizeRenderEntry;

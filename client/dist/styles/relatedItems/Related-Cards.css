@@ -1,0 +1,64 @@
+.related-products-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto 0;
+}
+
+#body-overview-starrating {
+  display: flex;
+  flex-direction: row;
+}
+
+#body-overview-stars {
+  flex: 1
+}
+
+.related-products-star-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.related-products-star-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
+
+.related-products-star-outer::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.related-products-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
+
+#related-products-price, #related-products-saleprice {
+  font-size: 100%;
+
+}
+
+.related-products-count,
+.related-products-category,
+.related-products-name,
+#related-products-oldprice {
+  font-size: 80%;
+}
+
+#related-products-oldprice {
+  text-decoration: line-through;
+}
+
+#related-products-saleprice {
+  color: red
+}

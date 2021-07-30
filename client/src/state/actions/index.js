@@ -6,7 +6,6 @@ import selectQuantity from './selectQuantity';
 import addToCart from './addToCart';
 import setRelated from './setRelated';
 import defaultView from './defaultView';
-
 const actions = {
   selectProduct,
   selectStyle,
