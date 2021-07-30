@@ -46,7 +46,7 @@ const ReviewComponent = () => {
       {reviews.reviews.results.map(review => {
         return (
           <div key={review.review_id}>
-            <div className="review-component-top">
+            <div className="review-tile-top">
 
               <div id="review-tile-star">
                 <div className="review-tile-star-outer">
