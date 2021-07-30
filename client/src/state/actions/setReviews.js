@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import AtelierApi from '../../lib/atelierAPI';
+import AtelierAPI from '../../lib/atelierAPI';
 import axios from 'axios';
 
 export default (dispatch, productId) => {
@@ -9,7 +9,7 @@ export default (dispatch, productId) => {
     headers: AtelierAPI.headers,
     params: {
       count: 2,
-      sort: relevant,
+      sort: 'relevant',
       product_id: productId
     }
   });
