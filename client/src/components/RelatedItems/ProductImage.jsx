@@ -1,10 +1,15 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import '../../../dist/styles/relatedItems/ProductImage.css';
-import actions from '../../state/actions/index.js';
+import ModalElement from './ModalElement.jsx';
+import OutfitElement from './OutfitElement.jsx';
 
-export default ({ product }) => {
-  const dispatch = useDispatch();
+export default ({ product, isModal }) => {
+  if (isModal) {
+    var actionElement = <ModalElement product={product}/>;
+  } else {
+    var actionElement = <OutfitElement product={product}/>;
+  }
+
   return (
     <div
       className="related-products-image-thumbnail"
@@ -13,13 +18,7 @@ export default ({ product }) => {
         backgroundRepeat: 'no-repeat',
         position: 'relative',
       }}>
-      <div
-        className='related-products-image-modalopen'
-        onClick={e => {
-          dispatch(actions.setViews.modalView(product.productInfo));
-          e.stopPropagation();
-        }}>
-      </div>
+      {actionElement}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import _ from 'lodash';
 import '../../../dist/styles/relatedItems/RelatedProductsList.css';
 import ProductCard from './ProductCard.jsx';
 import CompareModal from './CompareModal.jsx';
+import ModalElement from './ModalElement.jsx';
 
 const IMAGE_WIDTH = 140;
 const ARROW_LEFT = '<';
@@ -31,7 +32,6 @@ const RelatedProductButton = ({ direction }) => {
 };
 
 export default props => {
-  const dispatch = useDispatch();
   const related = useSelector(state => state.related);
   return (
     <div className='related-gallery-container'>
@@ -43,10 +43,12 @@ export default props => {
               key={i}
               id="related-products-card-container"
               className='related-container'>
-              <ProductCard product={{
-                productInfo: related.products[i],
-                styleInfo: related.styles[i],
-              }}/>
+              <ProductCard
+                product={{
+                  productInfo: related.products[i],
+                  styleInfo: related.styles[i],
+                }}
+                isModal={true}/>
             </div>
           );
         })}
