@@ -10,7 +10,7 @@ import Footer from './Footer.jsx';
 
 import actions from '../state/actions/index.js';
 
-export default () => {
+export default (props) => {
 
   const product = useSelector(state => state.product.productID) || 16060;
 
@@ -21,7 +21,7 @@ export default () => {
   }, [product]);
 
   return (
-    <div id="app">
+    <div onClick={props.handleInteraction} id="app">
       <div id="app-header">
         <Header />
         <div id="announcements"></div>
