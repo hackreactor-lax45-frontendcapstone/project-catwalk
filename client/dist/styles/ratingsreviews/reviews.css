@@ -86,3 +86,38 @@
 .review-component-thumbnail {
 
 }
+
+
+/* ===========Review Thumbnail Pic======== */
+
+.review-tile-star {
+
+}
+
+.review-tile-star-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.review-tile-star-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
+
+.review-tile-star-outer::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.review-tile-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
