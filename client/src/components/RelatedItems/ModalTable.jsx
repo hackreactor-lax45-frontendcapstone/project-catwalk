@@ -4,9 +4,6 @@ import _ from 'lodash';
 const CHECK_MARK = '✓';
 
 const ModalRow = ({ product, compare, feature }) => {
-  console.log('product: ', product);
-  console.log('compare: ', compare);
-  console.log('feature: ', feature);
   return (
     <tr className='related-tr'>
       <td className='related-td'>{product[feature] ? product[feature] : ''}</td>
