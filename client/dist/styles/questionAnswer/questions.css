@@ -1,0 +1,64 @@
+#body-questions {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  background-color: pink;
+}
+/* ========= TOP ========= */
+#question-top {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  background-color: blue;
+  border-style: solid;
+  border-color:violet;
+}
+
+/* ========= MIDDLE ========= */
+#question-middle {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  background-color: green;
+  border-style: solid;
+  border-color:firebrick;
+}
+/* ========= BOTTOM ========= */
+#question-bottom {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  background-color: yellow;
+}
+
+/* ========= BUTTONS ========= */
+/*
+.btn-more-styles {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  border-radius: 50%;
+  cursor:pointer;
+  outline:none;
+  color: #002e2c;
+}
+
+.btn-more-styles {
+  align-self: center;
+  align-content: center;
+  width: 5%;
+  height: 11px;
+}
+
+
+.btn-more-styles:hover {
+  color: #035e7b;
+}
+
+.hidden {
+  display: none;
+}
+/* ::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+} */

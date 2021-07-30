@@ -29,8 +29,8 @@ export default (props) => {
       <div id="app-body">
         <Overview />
         <RelatedItems />
-        {/* <QuestionAnswer />
-        <RatingsReviews />
+        <QuestionAnswer />
+        {/* <RatingsReviews />
         <Footer /> */}
       </div>
     </div>
