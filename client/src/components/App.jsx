@@ -30,8 +30,13 @@ export default (props) => {
         <Overview />
         <RelatedItems />
         <QuestionAnswer />
+<<<<<<< HEAD
         {/* <RatingsReviews />
         <Footer /> */}
+=======
+        <RatingsReviews />
+        {/* <Footer /> */}
+>>>>>>> main
       </div>
     </div>
   );
