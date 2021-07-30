@@ -36,7 +36,7 @@ export default () => {
     <div className='related-gallery-container'>
       <OutfitButton direction={-1}/>
       <div className='related-outfits-gallery' id='related-outfits-gallery'>
-        <AddOutfitCard />
+        <AddOutfitCard isModal={false}/>
       </div>
       <OutfitButton direction={1}/>
     </div>
