@@ -9,4 +9,10 @@ const defaultView = () => {
   };
 };
 
-export default { modalView, defaultView };
+const zoomView = () => {
+  return {
+    type: 'ZOOM_VIEW',
+  };
+};
+
+export default { modalView, defaultView, zoomView };

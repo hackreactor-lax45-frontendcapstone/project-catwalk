@@ -63,12 +63,12 @@ const StyleSelector = () => {
             <img
               src={style.photos[0].thumbnail_url}
               className="thumbnail"
-            ></img>
-            <input
-              className={`cb ${selected.name === style.name && 'is-selected'}`}
               onClick={() => {
                 dispatch(actions.selectStyle(i));
               }}
+            ></img>
+            <input
+              className={`cb ${selected.name === style.name && 'is-selected'}`}
               onChange={e => {}}
               name={style.name}
               type="checkbox"

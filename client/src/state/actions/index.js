@@ -21,6 +21,3 @@ const actions = {
 };
 
 export default actions;
-
-// defaultView,
-// modalView,
