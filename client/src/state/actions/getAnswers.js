@@ -14,8 +14,8 @@ export default (dispatch, questionID, page, count) => {
     .then(info => {
       dispatch({
         type: 'GET_ANSWERS',
-        payload: answers: info.data
-      })
+        payload: info.data
+      });
     })
     .catch(err => console.error(err));
-}
+};
