@@ -36,7 +36,7 @@ export default props => {
   return (
     <div className='related-gallery-container'>
       <RelatedProductButton direction={-1}/>
-      <div className='related-gallery' id='related-products-gallery'>
+      <div className='related-products-gallery' id='related-products-gallery'>
         {_.map(related.ids, (id, i) => {
           return (
             <div

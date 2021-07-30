@@ -7,7 +7,27 @@
   box-sizing: border-box;
 }
 
-.related-outfit-add {
-  z-index: 20;
+.related-products-card-container {
+  max-width: 140px;
+  position: relative;
 }
 
+.related-outfit-add {
+  padding: 0;
+  margin: 10px 0 10px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 320px;
+  min-width: 100%;
+  z-index: 20;
+  background-color: white;
+  opacity: 0.8;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.related-outfit-add-circle {
+  line-height: 220px;
+  font-size: 100px;
+}

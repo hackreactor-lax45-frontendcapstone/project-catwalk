@@ -35,7 +35,7 @@ export default () => {
   return (
     <div className='related-gallery-container'>
       <OutfitButton direction={-1}/>
-      <div className='related-gallery' id='related-outfits-gallery'>
+      <div className='related-outfits-gallery' id='related-outfits-gallery'>
         <AddOutfitCard />
       </div>
       <OutfitButton direction={1}/>
