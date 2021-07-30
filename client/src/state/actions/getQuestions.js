@@ -13,6 +13,7 @@ export default (dispatch, productID, page, count) => {
     }
   })
     .then(info => {
+      console.log(info)
       dispatch({
         type: 'GET_QUESTIONS',
         payload: info.data
