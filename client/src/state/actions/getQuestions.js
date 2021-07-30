@@ -15,8 +15,8 @@ export default (dispatch, productID, page, count) => {
     .then(info => {
       dispatch({
         type: 'GET_QUESTIONS',
-        payload: questions: info.data
-      })
+        payload: info.data
+      });
     })
     .catch(err => console.error(err));
-}
+};
