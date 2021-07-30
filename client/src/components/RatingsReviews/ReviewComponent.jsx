@@ -53,9 +53,11 @@ const ReviewComponent = () => {
                   <div className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></div>
                 </div>
               </div>
-              <div>{review.reviewer_name}</div>
-              <div>VERIFIED USER</div>
-              <div>{moment(review.date).format('MMMM DD, YYYY')}</div>
+              <div className="review-user-info">
+                <div>{review.reviewer_name}</div>
+                <div>VERIFIED USER</div>
+                <div>{moment(review.date).format('MMMM DD, YYYY')}</div>
+              </div>
             </div>
 
             <div className="review-component-body">
@@ -69,6 +71,8 @@ const ReviewComponent = () => {
                 <div className="helpful-col-2">Yes ({review.helpfulness})</div>
                 <div className="helpful-col-3">No (#)</div>
               </div>
+
+
 
             </div>
           </div>

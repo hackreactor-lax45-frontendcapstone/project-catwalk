@@ -45,6 +45,7 @@ export default () => {
           <ReviewsList />
           <div id="review-buttons">
             <WriteNewReview />
+            <button>More Reviews</button>
           </div>
         </div>
 
