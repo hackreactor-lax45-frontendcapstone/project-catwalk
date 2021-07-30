@@ -6,7 +6,6 @@ import selectQuantity from './selectQuantity';
 import addToCart from './addToCart';
 import setRelated from './setRelated';
 import defaultView from './defaultView';
-import setReviews from './setReviews';
 
 const actions = {
   selectProduct,
@@ -17,7 +16,6 @@ const actions = {
   addToCart,
   setRelated,
   defaultView,
-  setReviews,
 };
 
 export default actions;

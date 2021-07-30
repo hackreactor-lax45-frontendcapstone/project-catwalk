@@ -2,7 +2,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
-import { FcCheckmark } from "react-icons/fc";
 
 const ReviewComponent = () => {
   const reviews = useSelector((state) => {
@@ -20,6 +19,20 @@ const ReviewComponent = () => {
     }
   };
 
+  let ratings = 0;
+  let count = 0;
+  const starRatings = reviews.reviews.ratings;
+  for (var key in eachRating) {
+    count += Number(eachRating[key]);
+    ratings += (Number(key) * Number(eachRating[key]));
+  }
+  let starPercentage = (ratings / count) / 5 * 100;
+  // console.log(starPercentage);
+  if ((starPercentage % 5) < 2.5) {
+    starPercentage -= (starPercentage % 5);
+  } else {
+    starPercentage += (5 - (starPercentage % 5));
+  }
 
   if (!reviews.reviews.results) {
     return (<div>Loading...</div>);
@@ -32,7 +45,12 @@ const ReviewComponent = () => {
         return (
           <div key={review.review_id}>
             <div className="review-component-top">
-            <div className="body-overview-stars">STAR RATINGS</div>
+
+              <div id="related-products-star">
+                <div className="related-products-star-outer">
+                  <div className="related-products-star-inner" style={{ width: `${starPercentage}%` }}></div>
+                </div>
+              </div>
               <div>{review.reviewer_name}</div>
               <div>VERIFIED USER</div>
               <div>{moment(review.date).format('MMMM DD, YYYY')}</div>

@@ -6,7 +6,7 @@
   margin: 10px 0;
 }
 
-/* ====================================== */
+/* ============Review-top============= */
 #review-top {
  background-color: rgb(82, 104, 4);
  display: flex;
@@ -36,20 +36,13 @@
   background-color: green;
 }
 
-/* ====================================== */
+/* ============Review-Bottom============== */
 
 #review-bottom {
   display: flex;
   flex-direction: row;
   background-color: blanchedalmond;
   height: 70%;
-}
-
-#review-bottom-left {
-  background-color: rgb(180, 104, 23);
-  display: flex;
-  flex-direction: column;
-  flex: 1
 }
 
 #review-bottom-right {
@@ -65,7 +58,7 @@
   flex-direction: row;
 }
 
-
+/* ===========Review Tile============== */
 
 .review-component-top {
   display: flex;

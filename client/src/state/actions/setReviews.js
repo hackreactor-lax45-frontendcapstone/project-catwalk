@@ -2,14 +2,15 @@
 import AtelierAPI from '../../lib/atelierAPI';
 import axios from 'axios';
 
-export default (dispatch, productId) => {
+export default (dispatch, productId, pageNumber, countNumber, sortMethod) => {
   var reviewsQuery = axios({
     url: `${AtelierAPI.url}/reviews/`,
     method: 'get',
     headers: AtelierAPI.headers,
     params: {
-      count: 2,
-      sort: 'relevant',
+      page: pageNumber,
+      count: countNumber,
+      sort: sortMethod,
       product_id: productId
     }
   });
