@@ -31,3 +31,26 @@
   cursor: help;
   color: yellow;
 }
+
+
+
+.related-products-modal {
+  opacity: 0.75;
+  background-color: white;
+  border-radius: 2px;
+  z-index: 9;
+  width: 100%;
+}
+
+#related-products-modal-panel {
+  z-index: 12;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 1px black solid;
+  min-width: 500px;
+  width: 500px;
+  height: 250px;
+  max-height: 250px;
+}

@@ -5,6 +5,7 @@ const initialState = {
   ids: [],
   products: [],
   styles: [],
+  modal: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,7 +16,13 @@ const reducer = (state = initialState, action) => {
       ids: action.payload.ids,
       products: action.payload.products,
       styles: action.payload.styles,
+      modal: false,
     };
+  case 'MODAL_VIEW':
+    return {
+      ...state,
+      modal: !state.modal,
+    }
   default:
     return state;
   }

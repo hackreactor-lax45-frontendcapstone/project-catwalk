@@ -6,6 +6,7 @@ import selectQuantity from './selectQuantity';
 import addToCart from './addToCart';
 import setRelated from './setRelated';
 import defaultView from './defaultView';
+import modalView from './modalView';
 
 const actions = {
   selectProduct,
@@ -16,6 +17,7 @@ const actions = {
   addToCart,
   setRelated,
   defaultView,
+  modalView,
 };
 
 export default actions;

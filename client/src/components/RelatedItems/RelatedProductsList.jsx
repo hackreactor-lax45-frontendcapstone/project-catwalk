@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import '../../../dist/styles/relatedItems/RelatedProductsList.css';
 import ProductCard from './ProductCard.jsx';
+import CompareModal from './CompareModal.jsx';
 
 const IMAGE_WIDTH = 140;
 const ARROW_LEFT = '<';
@@ -33,16 +34,19 @@ export default props => {
   const dispatch = useDispatch();
   const related = useSelector(state => state.related);
   return (
-    <div id='related-products'>
-      <RelatedProductButton direction={-1}/>
-      <div id="related-products-container">
-        {_.map(related.ids, (id, i) => <ProductCard key={i} product={{
-          productInfo: related.products[i],
-          styleInfo: related.styles[i],
-        }}/>
-        )}
+    <div id='body-related'>
+      <div className='related-products'>
+        <RelatedProductButton direction={-1}/>
+        <div id="related-products-container">
+          {_.map(related.ids, (id, i) => <ProductCard key={i} product={{
+            productInfo: related.products[i],
+            styleInfo: related.styles[i],
+          }}/>
+          )}
+        </div>
+        <RelatedProductButton direction={1}/>
       </div>
-      <RelatedProductButton direction={1}/>
+      <CompareModal />
     </div>
   );
 };

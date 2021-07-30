@@ -2,14 +2,18 @@
   text-align: center;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
-#related-products {
+.related-products {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   height: 350px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #related-products-container {

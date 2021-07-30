@@ -1,7 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import '../../../dist/styles/relatedItems/ProductImage.css';
+import actions from '../../state/actions/index.js';
 
 export default ({ product }) => {
+  const dispatch = useDispatch();
   return (
     <div
       className="related-products-image-thumbnail"
@@ -12,7 +15,10 @@ export default ({ product }) => {
       }}>
       <div
         className='related-products-image-modalopen'
-        onClick={e => e.stopPropagation()}>
+        onClick={e => {
+          dispatch(actions.modalView());
+          e.stopPropagation();
+        }}>
       </div>
     </div>
   );
