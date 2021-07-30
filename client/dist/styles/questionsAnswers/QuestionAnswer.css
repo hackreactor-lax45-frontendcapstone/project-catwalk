@@ -30,35 +30,3 @@
   height: 40%;
   background-color: yellow;
 }
-
-/* ========= BUTTONS ========= */
-/*
-.btn-more-styles {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  border-radius: 50%;
-  cursor:pointer;
-  outline:none;
-  color: #002e2c;
-}
-
-.btn-more-styles {
-  align-self: center;
-  align-content: center;
-  width: 5%;
-  height: 11px;
-}
-
-
-.btn-more-styles:hover {
-  color: #035e7b;
-}
-
-.hidden {
-  display: none;
-}
-/* ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-} */
