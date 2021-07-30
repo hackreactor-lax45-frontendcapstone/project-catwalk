@@ -21,7 +21,7 @@ export default () => {
         <span
           style={{cursor: 'pointer', float: 'right', padding: '5px 5px 0 0'}}
           onClick={e => {
-            dispatch(actions.modalView());
+            dispatch(actions.setViews.modalView());
             e.stopPropagation();
           }}>
           {'X'}

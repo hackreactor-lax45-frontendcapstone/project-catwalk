@@ -29,7 +29,7 @@ export default ({ state }) => {
         el.style.backgroundPositionX = xPercent + '%';
         el.style.backgroundPositionY = yPercent + '%';
       })}
-      onClick={() => dispatch(actions.defaultView())}>
+      onClick={() => dispatch(actions.setViews.defaultView())}>
     </div>
   );
 };

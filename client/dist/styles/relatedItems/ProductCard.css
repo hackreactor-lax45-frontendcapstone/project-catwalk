@@ -1,7 +1,20 @@
-.related-products-card {
-  cursor: pointer;
-  margin-right: 10px;
+.related-products-card-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 95%;
+  max-width: 140px;
+}
+
+.related-products-card {
+  margin: 10px 0 10px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.related-outfit-add {
+  z-index: 20;
 }
 
