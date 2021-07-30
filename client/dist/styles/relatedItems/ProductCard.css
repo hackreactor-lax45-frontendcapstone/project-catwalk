@@ -8,26 +8,32 @@
 }
 
 .related-products-card-container {
-  max-width: 140px;
+  max-width: 150px;
   position: relative;
+  height: 100%;
 }
 
 .related-outfit-add {
+  margin-left: 10px;
+  margin-top: 10px;
+  max-height: 330px;
+  width: 140px;
+  max-width: 140px;
+  margin-right: 10px;
   padding: 0;
-  margin: 10px 0 10px 10px;
   position: absolute;
   top: 0;
   left: 0;
-  max-height: 320px;
-  min-width: 100%;
   z-index: 20;
   background-color: white;
   opacity: 0.8;
-  border: 1px solid white;
   border-radius: 4px;
 }
 
 .related-outfit-add-circle {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
   line-height: 220px;
   font-size: 100px;
 }

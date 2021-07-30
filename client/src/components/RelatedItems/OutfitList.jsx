@@ -10,7 +10,7 @@ const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
 
 const scroll = (direction) => {
-  let el = document.getElementById('related-outfits-container');
+  let el = document.getElementById('related-outfits-gallery');
   let pos = el.scrollLeft + direction * IMAGE_WIDTH;
   el.scrollTo({
     top: 0,
@@ -37,6 +37,11 @@ export default () => {
       <OutfitButton direction={-1}/>
       <div className='related-outfits-gallery' id='related-outfits-gallery'>
         <AddOutfitCard isModal={false}/>
+        {_.map(related.outfits, (outfit, i) => <ProductCard
+          key={i}
+          product={outfit}
+          isModal={false}/>
+        )}
       </div>
       <OutfitButton direction={1}/>
     </div>

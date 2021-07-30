@@ -37,8 +37,11 @@ const reducer = (state = initialState, action) => {
     }
     return stateObj;
   case 'ADD_OUTFIT':
-    state.outfits.push(action.payload);
-    return state;
+    let existingOutfits = state.outfits;
+    existingOutfits.push(action.payload);
+    return { ...state,
+      outfits: existingOutfits,
+    }
   case 'REMOVE_OUTFIT':
     state.outfits.splice(action.payload, 1);
     return state;

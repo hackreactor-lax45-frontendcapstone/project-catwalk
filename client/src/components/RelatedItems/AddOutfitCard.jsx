@@ -17,23 +17,20 @@ export default ({ isModal }) => {
     };
   });
 
+
   return (
-    <div>
-      <div className='related-gallery'>
-        <div className='related-products-card-container'>
-          <ProductCard product={product} isModal={isModal}/>
-          <div
-            className='related-products-card related-outfit-add'
-            onClick={e => {
-              dispatch(actions.selectOutfits.addOutfit(product));
-              e.stopPropagation();
-            }}>
-            <span
-              className='related-outfit-add-circle'>
-              {ADD_ICON}
-            </span>
-          </div>
-        </div>
+    <div className='related-products-card-container'>
+      <ProductCard product={product} isModal={isModal}/>
+      <div
+        className='related-products-card related-outfit-add'
+        onClick={e => {
+          dispatch(actions.selectOutfits.addOutfit(product));
+          e.stopPropagation();
+        }}>
+        <span
+          className='related-outfit-add-circle'>
+          {ADD_ICON}
+        </span>
       </div>
     </div>
   );
