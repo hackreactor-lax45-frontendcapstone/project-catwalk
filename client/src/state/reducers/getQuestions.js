@@ -1,7 +1,7 @@
 import Redux from 'redux';
 
 const initialState = {
-  "product_id": "5",
+  "product_id": "",
   "results": [{
         "question_id": undefined,
         "question_body": '',
@@ -24,7 +24,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_QUESTION':
+    case 'GET_QUESTIONS':
       return action.payload;
     default:
       return state;
