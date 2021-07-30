@@ -15,8 +15,8 @@ const QuestionAnswer = () => {
 
   const product = useSelector(state => state.product.productID);
 
-  useEffect({
-    actions.questionsAnswers(dispatch, product, 1, 2);
+  useEffect(() => {
+    actions.getQuestions(dispatch, product, 1, 2);
   }, [product]);
 
   return (
