@@ -1,0 +1,96 @@
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  height: 80px;
+}
+
+#announcements {
+  height: 40px;
+  border-radius: 2px;
+  background-color: #002e2c;
+}
+
+.search-bar {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #eff1c5;
+  border-radius: 30px;
+  transition: 0.5s;
+  box-shadow: 0 0 0 1px #002e2c;
+  overflow: hidden;
+  cursor: pointer;
+  top: 25px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.search-bar.active {
+  width: 180px;
+}
+
+.icon {
+  position: absolute;
+  height: 16px;
+  top: 7px;
+  left: 7px;
+}
+
+.search-bar .input {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar .input input {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: #eff1c5;
+}
+
+.clear {
+  position: absolute;
+  transform: translate(-50%);
+  width: 10px;
+  height: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear::before {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 10px;
+  background: #035e7b;
+  transform: rotate(45deg);
+}
+
+.clear::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 10px;
+  background: #035e7b;
+  transform: rotate(315deg);
+}
+
+#company-logo {
+  position: absolute;
+  left: 0;
+  margin-left: 30px;
+}
