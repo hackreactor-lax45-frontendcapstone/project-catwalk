@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import '../../../dist/styles/relatedItems/Related-Products.css';
-
-import ProductSummary from './ProductSummary.jsx';
-
-import AtelierAPI from '../../lib/atelierAPI.js';
-import axios from 'axios';
-
 import _ from 'lodash';
+import '../../../dist/styles/relatedItems/RelatedProductsList.css';
+import ProductCard from './ProductCard.jsx';
+import CompareModal from './CompareModal.jsx';
 
 const IMAGE_WIDTH = 140;
+const ARROW_LEFT = '<';
+const ARROW_RIGHT = '>';
 
 const scroll = (direction) => {
-  let el = document.getElementById('related-products-container');
+  let el = document.getElementById('related-products-gallery');
   let pos = el.scrollLeft + direction * IMAGE_WIDTH;
   el.scrollTo({
     top: 0,
@@ -21,50 +19,40 @@ const scroll = (direction) => {
   });
 };
 
-export default props => {
-
-  const related = useSelector(state => state.related);
-
-  if (!related.returned) {
-    return (<div>Loading...</div>);
-  }
+const RelatedProductButton = ({ direction }) => {
+  let arrow = direction < 0 ? ARROW_LEFT : ARROW_RIGHT;
   return (
-    <div id='related-products'>
-      <button
-        className='related-products-button'
-        onClick={() => {
-          scroll(-1);
-        }}>
-        {'<'}
-      </button>
-      <div id="related-products-container">
+    <button
+      className='related-button'
+      onClick={() => scroll(direction)}>
+      {arrow}
+    </button>
+  );
+};
+
+export default props => {
+  const dispatch = useDispatch();
+  const related = useSelector(state => state.related);
+  return (
+    <div className='related-gallery-container'>
+      <RelatedProductButton direction={-1}/>
+      <div className='related-gallery' id='related-products-gallery'>
         {_.map(related.ids, (id, i) => {
-          let product = {
-            productInfo: related.products[i],
-            styleInfo: related.styles[i],
-          };
           return (
-            <div key={i} className='related-products-card'>
-              <div
-                className="related-products-image-thumbnail"
-                style={{
-                  backgroundImage: `url(${product.styleInfo.results[0].photos[0].thumbnail_url})`,
-                  backgroundRepeat: 'no-repeat',
-                  position: 'relative',
-                }}>
-              </div>
-              <ProductSummary product={product}/>
+            <div
+              key={i}
+              id="related-products-card-container"
+              className='related-container'>
+              <ProductCard product={{
+                productInfo: related.products[i],
+                styleInfo: related.styles[i],
+              }}/>
             </div>
           );
         })}
+        <CompareModal />
       </div>
-      <button
-        className='related-products-button'
-        onClick={() => {
-          scroll(1);
-        }}>
-        {'>'}
-      </button>
+      <RelatedProductButton direction={1}/>
     </div>
   );
 };

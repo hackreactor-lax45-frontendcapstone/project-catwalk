@@ -2,9 +2,86 @@
         Image Gallery Expanded
 ========================================= */
 
+.imagegallery-expanded-main-button,
+.imagegallery-expanded-main-button-disabled {
+  height: 100%;
+  width: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0.1;
+  background-color: #a2a77f;
+  border: none;
+  pointer-events: auto;
+  border-radius: 2px;
+}
+
+.imagegallery-expanded-main-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 #imagegallery-expanded-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+#imagegallery-expanded-main-in,
+#imagegallery-expanded-main-out {
+  position: relative;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  max-width: 100%;
   background-color: black;
   width: 1000px;
   height: auto;
   background-position: center;
+}
+
+#imagegallery-expanded-main-out {
+  cursor: zoom-in;
+}
+
+#imagegallery-expanded-main-in {
+  cursor: zoom-out;
+}
+
+#image-gallery-expanded-close-x {
+  pointer-events: auto;
+}
+
+#imagegallery-expanded-close {
+  pointer-events: none;
+  text-align: right;
+  cursor: pointer;
+  float: right;
+  color: white;
+  padding-top: 2px;
+  padding-right: 5px;
+}
+
+#imagegallery-expanded-thumbnail {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.image-gallery-expanded-thumbnail-indicator,
+.image-gallery-expanded-thumbnail-indicator-selected {
+  background-color: rgb(113, 112, 112);
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 5px 5px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.image-gallery-expanded-thumbnail-indicator-selected {
+  border: 3px solid white;
 }
