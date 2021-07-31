@@ -25,7 +25,9 @@ const ReviewComponent = () => {
   const isVerifiedUser = () => {
     var randomBoolean = [true, false];
     var index = Math.floor(Math.random() * 2);
+    console.log(index);
     if (randomBoolean[index]) {
+
       return (
         <div>Verified User</div>
       );
@@ -85,8 +87,6 @@ const ReviewComponent = () => {
                 <div className="helpful-col-2">Yes ({review.helpfulness})</div>
                 <div className="helpful-col-3">No (#)</div>
               </div>
-
-
 
             </div>
           </div>

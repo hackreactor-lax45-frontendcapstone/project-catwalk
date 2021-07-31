@@ -1,23 +1,18 @@
-import React, { useEffect } from 'redux';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../state/actions/index.js';
 
-const LoadMoreReviews = () => {
+const LoadMoreReviews = (props) => {
+  // let dispatch = useDispatch();
 
-  let dispatch = useDispatch();
-  const product = useSelector(state => {
-    return {
-      productId: state.product.productID
-
-    }
-  }
+  // }
 
   // actions.setReviews(dispatch, productID, page, 2, 'relevant');
 
-  if (product.reviews.results)
+  // if (product.reviews.results)
   return (
     <div>
-      <button onClick={() => console.log('clicked')}> More Reviews</button>
+      <button > More Reviews</button>
     </div>
   );
 };

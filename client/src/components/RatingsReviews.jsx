@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import KeywordSearch from './RatingsReviews/KeywordSearch.jsx';
 import ProductBreakdown from './RatingsReviews/ProductBreakdown.jsx';
 import RatingBreakdown from './RatingsReviews/RatingBreakdown.jsx';
-import ReviewsList from './RatingsReviews/ReviewsList.jsx';
+import ReviewComponent from './RatingsReviews/ReviewComponent.jsx';
 import SortOptions from './RatingsReviews/SortOptions.jsx';
 import WriteNewReview from './RatingsReviews/WriteNewReview.jsx';
+import LoadMoreReviews from './RatingsReviews/LoadMoreReviews.jsx';
+import ReviewList from './RatingsReviews/ReviewList.jsx';
 import '../../dist/styles/ratingsreviews/reviews.css';
 import '../../dist/styles/ratingsreviews/ratings.css';
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,6 +22,9 @@ export default () => {
     actions.setReviews(dispatch, product, 1, 2, 'relevant');
   }, [product]);
 
+  if (!product) {
+    return (<div>Loading...</div>);
+  }
   return (
     <div id="body-reviews">
       <div id="review-top">
@@ -42,11 +47,8 @@ export default () => {
         </div>
 
         <div id="review-bottom-right">
-          <ReviewsList />
-          <div id="review-buttons">
-            <WriteNewReview />
-            <button>More Reviews</button>
-          </div>
+          <ReviewList productId={product} />
+
         </div>
 
       </div>
