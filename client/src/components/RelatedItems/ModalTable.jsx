@@ -1,5 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
+import '../../../dist/styles/relatedItems/ModalTable.css';
+
 
 const CHECK_MARK = '✓';
 
