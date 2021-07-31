@@ -6,7 +6,7 @@
   flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px #002e2c solid;
+  /* border: 1px #002e2c solid; */
   border-top: none;
   box-sizing: border-box;
   border-radius: 0 0 5px 5px;

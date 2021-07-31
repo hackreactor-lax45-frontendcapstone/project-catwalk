@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
+import '../../../../dist/styles/relatedItems/OutfitCard.css';
 import actions from '../../../state/actions/index.js';
 
 export default ({ product }) => {
@@ -9,7 +9,8 @@ export default ({ product }) => {
     <div
       className='related-products-image-outfitremove'
       onClick={e => {
-        dispatch(actions.setViews.modalView(product.productInfo));
+        dispatch(actions.selectOutfits.removeOutfit(product));
+        console.log('remove!');
         e.stopPropagation();
       }}>
     </div>

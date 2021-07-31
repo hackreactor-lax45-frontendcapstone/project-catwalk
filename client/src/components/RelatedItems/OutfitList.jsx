@@ -8,7 +8,11 @@ import AddOutfitCard from './Outfit/AddOutfitCard.jsx';
 const IMAGE_WIDTH = 140;
 const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
+const OUTFIT_ACTION = 'remove';
 
+/* =============================================
+             Helper Functions
+============================================= */
 const scroll = (direction) => {
   let el = document.getElementById('related-outfits-gallery');
   let pos = el.scrollLeft + direction * IMAGE_WIDTH;
@@ -30,12 +34,15 @@ const OutfitButton = ({ direction }) => {
   );
 };
 
+/* =============================================
+             Outfits
+============================================= */
 const Outfits = outfits => {
   return _.map(outfits, (outfit, i) =>
     <div key={i} className='related-products-card-container'>
       <ProductCard
         product={outfit}
-        isModal={false}/>
+        action={OUTFIT_ACTION}/>
     </div>
   );
 };
@@ -68,12 +75,15 @@ const AddOutfitCheck = () => {
   }
   return (
     <div className='related-outfits-gallery' id='related-outfits-gallery'>
-      <AddOutfitCard isModal={false}/>
+      <AddOutfitCard action={''}/>
       {Outfits(state.related.outfits)}
     </div>
   );
 };
 
+/* =============================================
+             Component
+============================================= */
 export default () => {
   return (
     <div className='related-gallery-container'>

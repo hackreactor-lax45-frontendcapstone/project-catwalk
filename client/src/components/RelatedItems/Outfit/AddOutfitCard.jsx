@@ -6,7 +6,7 @@ import actions from '../../../state/actions/index.js';
 
 const ADD_ICON = '+';
 
-export default ({ isModal }) => {
+export default ({ action }) => {
 
   const dispatch = useDispatch();
   let product = useSelector(state => {
@@ -18,7 +18,7 @@ export default ({ isModal }) => {
 
   return (
     <div className='related-products-card-container'>
-      <ProductCard product={product} isModal={isModal}/>
+      <ProductCard product={product} action={action}/>
       <div
         className='related-products-card related-outfit-add'
         onClick={e => {

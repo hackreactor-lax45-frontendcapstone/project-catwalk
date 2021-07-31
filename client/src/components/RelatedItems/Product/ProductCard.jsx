@@ -5,7 +5,7 @@ import ProductImage from './ProductImage.jsx';
 import '../../../../dist/styles/relatedItems/ProductCard.css';
 import actions from '../../../state/actions/index.js';
 
-export default ({ product, isModal }) => {
+export default ({ product, action }) => {
   const dispatch = useDispatch();
   return (
     <div
@@ -14,7 +14,7 @@ export default ({ product, isModal }) => {
         actions.selectProduct(dispatch, product.productInfo.id);
         actions.setRelated(dispatch, product.productInfo.id);
       }}>
-      <ProductImage product={product} isModal={isModal}/>
+      <ProductImage product={product} action={action}/>
       <ProductSummary product={product}/>
     </div>
   );

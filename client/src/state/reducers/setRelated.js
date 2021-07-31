@@ -1,4 +1,5 @@
 import Redux from 'redux';
+import _ from 'lodash';
 
 const initialState = {
   returned: false,
@@ -39,12 +40,22 @@ const reducer = (state = initialState, action) => {
   case 'ADD_OUTFIT':
     let existingOutfits = state.outfits;
     existingOutfits.unshift(action.payload);
-    return { ...state,
+    return {
+      ...state,
       outfits: existingOutfits,
     }
   case 'REMOVE_OUTFIT':
-    state.outfits.splice(action.payload, 1);
-    return state;
+    let outfits = state.outfits.slice();
+    var index = _.each(state.outfits, (outfit, i) => {
+      if (action.payload.productInfo.id === outfit.productInfo.id) {
+        return i;
+      }
+    });
+    outfits.splice(index, 1);
+    return {
+      ...state,
+      outfits
+    };
   default:
     return state;
   }

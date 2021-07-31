@@ -8,6 +8,7 @@ import CompareModal from './Compare/CompareModal.jsx';
 const IMAGE_WIDTH = 140;
 const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
+const COMPARE_ACTION = 'compare';
 
 const scroll = (direction) => {
   let el = document.getElementById('related-products-gallery');
@@ -47,7 +48,7 @@ export default props => {
                   productInfo: related.products[i],
                   styleInfo: related.styles[i],
                 }}
-                isModal={true}/>
+                action={COMPARE_ACTION}/>
             </div>
           );
         })}

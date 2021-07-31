@@ -3,11 +3,13 @@ import '../../../../dist/styles/relatedItems/ProductImage.css';
 import CompareAction from '../Compare/CompareAction.jsx';
 import OutfitAction from '../Outfit/OutfitAction.jsx';
 
-export default ({ product, isModal }) => {
-  if (isModal) {
+export default ({ product, action }) => {
+  if (action === 'compare') {
     var actionElement = <CompareAction product={product}/>;
-  } else {
+  } else if (action === 'remove') {
     var actionElement = <OutfitAction product={product}/>;
+  } else {
+    var actionElement = <></>;
   }
 
   return (
