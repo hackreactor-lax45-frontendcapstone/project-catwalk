@@ -47,7 +47,9 @@ Overview
 #body-overview {
   display: flex;
   flex-direction: column;
-  height: 600px;
+  flex: 1;
+  height: 800px;
+  justify-content: space-between;
   /* background: coral; */
 }
 
@@ -55,14 +57,13 @@ Overview
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  height: 450px;
-  max-height: 450px;
+  height: 60%;
   margin-top: 25px;
 }
 
 #body-overview-top-left {
   display: flex;
-  width: 51.5%;
+  width: 70%;
   padding: 0;
   margin-right: 2.5px;
 }
