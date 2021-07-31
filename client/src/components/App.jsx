@@ -24,7 +24,6 @@ export default (props) => {
     <div onClick={props.handleInteraction} id="app">
       <div id="app-header">
         <Header />
-        <div id="announcements"></div>
       </div>
       <div id="app-body">
         <Overview />
