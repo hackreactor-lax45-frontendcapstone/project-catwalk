@@ -19,7 +19,7 @@ export default () => {
     <div style={{display: 'flex', height: '350px', width: '100%'}}>
       <div
         style={{display: (state.related.modal ? 'inline' : 'none')}}
-        className='rrelated-gallery related-products-modal'>
+        className='related-products related-products-modal'>
         <span
           style={{cursor: 'pointer', float: 'right', padding: '5px 5px 0 0'}}
           onClick={e => {

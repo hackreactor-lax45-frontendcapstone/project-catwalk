@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
       styles: action.payload.styles,
       modal: false,
       compare: {},
-      outfits: [],
+      outfits: state.outfits,
     };
   case 'MODAL_VIEW':
     var stateObj = {
@@ -38,7 +38,7 @@ const reducer = (state = initialState, action) => {
     return stateObj;
   case 'ADD_OUTFIT':
     let existingOutfits = state.outfits;
-    existingOutfits.push(action.payload);
+    existingOutfits.unshift(action.payload);
     return { ...state,
       outfits: existingOutfits,
     }

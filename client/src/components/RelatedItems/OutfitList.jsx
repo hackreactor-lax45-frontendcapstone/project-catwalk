@@ -30,19 +30,53 @@ const OutfitButton = ({ direction }) => {
   );
 };
 
+const Outfits = outfits => {
+  return _.map(outfits, (outfit, i) => <ProductCard
+    key={i}
+    product={outfit}
+    isModal={false}/>
+  );
+};
+
+const AddOutfitCheck = () => {
+  let state = useSelector(state => {
+    return {
+      product: {
+        productInfo: state.product.productInfo,
+        styleInfo: state.product.styleInfo,
+      },
+      related: state.related,
+    };
+  });
+
+  var productInOutfits = false;
+  _.forEach(state.related.outfits, outfit => {
+    if (outfit.productInfo.id === state.product.productInfo.id) {
+      productInOutfits = true;
+      return;
+    }
+  });
+
+  if (productInOutfits) {
+    return (
+      <div className='related-outfits-gallery' id='related-outfits-gallery'>
+        {Outfits(state.related.outfits)}
+      </div>
+    );
+  }
+  return (
+    <div className='related-outfits-gallery' id='related-outfits-gallery'>
+      <AddOutfitCard isModal={false}/>
+      {Outfits(state.related.outfits)}
+    </div>
+  );
+};
+
 export default () => {
-  let related = useSelector(state => state.related);
   return (
     <div className='related-gallery-container'>
       <OutfitButton direction={-1}/>
-      <div className='related-outfits-gallery' id='related-outfits-gallery'>
-        <AddOutfitCard isModal={false}/>
-        {_.map(related.outfits, (outfit, i) => <ProductCard
-          key={i}
-          product={outfit}
-          isModal={false}/>
-        )}
-      </div>
+      <AddOutfitCheck />
       <OutfitButton direction={1}/>
     </div>
   );

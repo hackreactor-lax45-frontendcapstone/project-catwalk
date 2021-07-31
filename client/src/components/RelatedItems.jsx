@@ -5,12 +5,12 @@ import OutfitList from './RelatedItems/OutfitList.jsx';
 export default () => {
   return (
     <div className='body-related'>
-      <div className='body-related-products-container'>
-        <RelatedProductsList />
-      </div>
-      <div className='body-related-outfits-container'>
-        <OutfitList />
-      </div>
+      <span>Related Items</span>
+      <RelatedProductsList />
+      <span>Your Outfit</span>
+      <OutfitList />
     </div>
   );
 };
+
+{/* <div className='body-related-outfits-container'></div> */}

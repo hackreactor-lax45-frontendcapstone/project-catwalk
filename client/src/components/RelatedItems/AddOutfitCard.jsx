@@ -17,7 +17,6 @@ export default ({ isModal }) => {
     };
   });
 
-
   return (
     <div className='related-products-card-container'>
       <ProductCard product={product} isModal={isModal}/>

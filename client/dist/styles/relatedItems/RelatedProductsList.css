@@ -1,36 +1,20 @@
-.body-related-products-container,
-.body-related-outfits-container {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.related-gallery {
-  height: 100%;
-}
-
 .related-gallery-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-grow: 1;
-  width: 100%;
 }
 
 .related-outfits-gallery,
 .related-products-gallery {
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
+  flex: 1;
   justify-content: flex-start;
   white-space: nowrap;
   overflow-x: hidden;
   overflow-y: hidden;
-  min-width: 100%;
   height: 350px;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 .related-button {
@@ -40,7 +24,7 @@
   min-width: 20px;
   width: 2%;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   cursor: pointer;
   color: #002e2c;

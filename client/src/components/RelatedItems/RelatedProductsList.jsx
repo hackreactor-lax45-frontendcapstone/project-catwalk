@@ -42,7 +42,7 @@ export default props => {
             <div
               key={i}
               id="related-products-card-container"
-              className='related-container'>
+              className='related-products'>
               <ProductCard
                 product={{
                   productInfo: related.products[i],
