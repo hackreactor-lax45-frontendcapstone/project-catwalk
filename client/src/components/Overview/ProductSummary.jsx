@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import axios from 'axios';
 import AtelierApi from '../../lib/atelierAPI.js';
@@ -12,14 +13,23 @@ const ProductSummary = () => {
     };
   });
 
+  // to be removed at a later date when metadata available
+  if (Math.random() > 0.5) {
+    state.price.sale_price = (parseFloat(state.price.original_price) * 0.9).toFixed(2).toString();
+  }
+
   const priceHelper = (price) => {
     if (price.sale_price === null) {
-      return (<div id="body-overview-price">${price.original_price}</div>);
+      return (
+        <div id='body-overview-price-container'>
+          <div id="body-overview-price">${price.original_price} USD</div>
+        </div>
+      );
     } else {
       return (
-        <div>
+        <div id='body-overview-price-container'>
           <div id="body-overview-oldprice">${price.original_price}</div>
-          <div id="body-overview-saleprice">${price.sale_price}</div>
+          <div id="body-overview-saleprice">${price.sale_price} USD</div>
         </div>
       );
     }
@@ -27,18 +37,16 @@ const ProductSummary = () => {
 
   return (
     <div id="body-overview-productsummary">
-      <div id="body-overview-starrating">
-        <div id="body-overview-star">
-          <div className="stars-outer">
-            <div className="stars-inner"></div>
-          </div>
+      <div id="body-overview-star">
+        <div className="stars-outer">
+          <div className="stars-inner"></div>
         </div>
-        <div id="body-overview-count">Read all 20 reviews</div>
+        <div id="body-overview-count">{`  Read all ${20} reviews`}</div>
       </div>
+
       <div id="body-overview-category">{state.productInfo.category}</div>
       <div id="body-overview-name">{state.productInfo.name}</div>
       {priceHelper(state.price)}
-      <hr></hr>
     </div>
   );
 

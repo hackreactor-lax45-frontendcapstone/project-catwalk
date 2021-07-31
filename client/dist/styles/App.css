@@ -69,7 +69,10 @@ Overview
 }
 
 #body-overview-top-right {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
   max-width: 48.5%;
   padding: 0;
   margin-left: 2.5px;

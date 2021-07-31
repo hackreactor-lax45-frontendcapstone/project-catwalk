@@ -7,6 +7,7 @@ import ExpandedView from './ImageGallery-Expanded.jsx';
 import ProductSummary from './ProductSummary.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
+import ProductShare from './ProductShare.jsx';
 
 export default () => {
 
@@ -35,6 +36,7 @@ export default () => {
         <ProductSummary />
         <StyleSelector />
         <AddToCart />
+        <ProductShare />
       </div>
     </div>
   );
