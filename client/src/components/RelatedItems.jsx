@@ -5,12 +5,10 @@ import OutfitList from './RelatedItems/OutfitList.jsx';
 export default () => {
   return (
     <div className='body-related'>
-      <span>Related Items</span>
+      <span id='body-related-products-title'>Related Items</span>
       <RelatedProductsList />
-      <span>Your Outfit</span>
+      <span id='body-related-outfits-title'>Your Outfit</span>
       <OutfitList />
     </div>
   );
 };
-
-{/* <div className='body-related-outfits-container'></div> */}

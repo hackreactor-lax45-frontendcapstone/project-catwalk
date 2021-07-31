@@ -1,3 +1,17 @@
+.body-related {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#body-related-products-title,
+#body-related-outfits-title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
 .related-gallery-container {
   display: flex;
   flex-direction: row;
@@ -5,6 +19,7 @@
   position: relative;
   top: 0;
   left: 0;
+  margin-bottom: 10px;
 }
 
 .related-outfits-gallery,
