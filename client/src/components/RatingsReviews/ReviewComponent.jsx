@@ -11,6 +11,26 @@ const ReviewComponent = () => {
     };
   });
 
+  const show60ch = (summary) => {
+    if (summary.length > 60) {
+      return (
+        <div>
+          <div className="review-summary">{summary.slice(0, 61)}</div>
+          <div>Show More</div>
+        </div>
+      );
+    }
+    return <div className="review-summary">{summary}</div>;
+  };
+  const show250ch = (body) => {
+    if (body.length > 250) {
+      return (
+        <div className="review-body">{body.slice(0, 251)}</div>
+      );
+    }
+    return <div className="review-body">{body}</div>;
+  };
+
   const isRecommended = (boolean) => {
     if (boolean) {
       return (
@@ -51,16 +71,17 @@ const ReviewComponent = () => {
   };
 
 
-  if (!reviews.reviews.results) {
-    return (<div>Loading...</div>);
-  }
+  // if (!reviews.reviews.results) {
+  //   return (<div>Loading...</div>);
+  // }
 
   return (
 
     <div className="review-component">
-      {reviews.reviews.results.map(review => {
+      {reviews.reviews.results.map((review, index) => {
         return (
-          <div key={review.review_id}>
+          // <div key={review.review_id}>
+          <div key={index}>
             <div className="review-tile-top">
 
               <div id="review-tile-star">
@@ -77,9 +98,10 @@ const ReviewComponent = () => {
             </div>
 
             <div className="review-component-body">
-
-              <div className="review-summary">{review.summary}</div>
-              <div className="review-body">{review.body}</div>
+              {/* {show60ch(review.summary)}
+              {show250ch(review.body)} */}
+              {show60ch('mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm')}
+              {show250ch("mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm")}
               <div className="review-recommend">{isRecommended(review.recommend)}</div>
 
               <div className="review-component-helpful">

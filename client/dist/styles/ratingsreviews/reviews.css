@@ -71,8 +71,8 @@
   justify-content: flex-end;
 }
 
-.review-component-body {
-
+.review-summary {
+  font-weight: bold;
 }
 
 /* ===========Helpful================ */
