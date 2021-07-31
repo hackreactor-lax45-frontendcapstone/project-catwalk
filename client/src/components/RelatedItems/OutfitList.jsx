@@ -31,10 +31,12 @@ const OutfitButton = ({ direction }) => {
 };
 
 const Outfits = outfits => {
-  return _.map(outfits, (outfit, i) => <ProductCard
-    key={i}
-    product={outfit}
-    isModal={false}/>
+  return _.map(outfits, (outfit, i) =>
+    <div key={i} className='related-products-card-container'>
+      <ProductCard
+        product={outfit}
+        isModal={false}/>
+    </div>
   );
 };
 

@@ -12,6 +12,7 @@
   border-radius: 0 0 5px 5px;
   background-color: white;
   opacity: 0.7;
+  font-size: 20px;
 }
 
 #related-products-star {
@@ -40,6 +41,7 @@
 
 .related-products-star-outer::before {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-size: 100%;
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: rgb(219, 216, 216);
@@ -50,6 +52,7 @@
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #035e7b;
+  font-size: 100%;
 }
 
 #related-products-oldprice,
