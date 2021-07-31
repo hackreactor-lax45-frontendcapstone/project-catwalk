@@ -35,7 +35,7 @@ export default ({ product, compare }) => {
   let features = [...featureSet];
 
   return (
-    <table id='related-products-modal-table'>
+    <table id='related-products-table'>
       <thead>
         <tr className=' related-header'>
           <th className='related-th'>{product.name}</th>

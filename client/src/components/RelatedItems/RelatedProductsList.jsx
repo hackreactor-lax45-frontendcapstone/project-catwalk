@@ -35,6 +35,7 @@ export default props => {
   const related = useSelector(state => state.related);
   return (
     <div className='related-gallery-container'>
+      <CompareModal />
       <RelatedProductButton direction={-1}/>
       <div className='related-products-gallery' id='related-products-gallery'>
         {_.map(related.ids, (id, i) => {
@@ -52,7 +53,6 @@ export default props => {
             </div>
           );
         })}
-        <CompareModal />
       </div>
       <RelatedProductButton direction={1}/>
     </div>
