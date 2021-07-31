@@ -5,7 +5,7 @@ import _ from 'lodash';
 import ProductCard from './Product/ProductCard.jsx';
 import AddOutfitCard from './Outfit/AddOutfitCard.jsx';
 
-const IMAGE_WIDTH = 140;
+const IMAGE_WIDTH = 250;
 const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
 const OUTFIT_ACTION = 'remove';

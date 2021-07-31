@@ -5,7 +5,7 @@ import '../../../dist/styles/relatedItems/RelatedProductsList.css';
 import ProductCard from './Product/ProductCard.jsx';
 import CompareModal from './Compare/CompareModal.jsx';
 
-const IMAGE_WIDTH = 140;
+const IMAGE_WIDTH = 250;
 const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
 const COMPARE_ACTION = 'compare';
