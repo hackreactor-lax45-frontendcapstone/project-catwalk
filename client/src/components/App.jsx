@@ -22,9 +22,7 @@ export default (props) => {
 
   return (
     <div onClick={props.handleInteraction} id="app">
-      <div id="app-header">
-        <Header />
-      </div>
+      <Header />
       <div id="app-body">
         <Overview />
         <RelatedItems />

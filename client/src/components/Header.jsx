@@ -3,6 +3,7 @@ import '../../dist/styles/Header.css';
 import { useSelector } from 'react-redux';
 
 export default () => {
+  // let announcement = 'Flash deals availabel now only! Code hackreactor for 30% off!';
   let announcement = useSelector(state => state.announcement);
   if (announcement) {
     var announcementElement = <div id="announcements">{announcement}</div>;
@@ -11,8 +12,8 @@ export default () => {
   }
 
   return (
-    <div>
-      <div id="header">
+    <div id="app-header">
+      <div id='header'>
         <h1 id="company-logo">Catwalk</h1>
         <div className="search-bar">
           <div className="icon" onClick={() => {

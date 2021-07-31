@@ -1,9 +1,22 @@
+#app-header {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  min-height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 #header {
   display: flex;
   flex-direction: row;
+  flex: 1;
   justify-content: center;
   align-content: center;
   height: 80px;
+  min-height: 80px;
   background-color: #002e2c;
   color: #eff1c5;
 }
@@ -16,10 +29,12 @@
 }
 
 #announcements {
-  margin-top: 10px;
+  text-align: center;
+  line-height: 40px;
   height: 40px;
   border-radius: 2px;
   background-color: #002e2c;
+  color: #eff1c5;
 }
 
 .search-bar {
