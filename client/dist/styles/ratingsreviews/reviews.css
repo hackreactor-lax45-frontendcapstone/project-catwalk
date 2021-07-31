@@ -66,8 +66,9 @@
 }
 
 .review-user-info {
-  display: column;
+  display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 
 .review-component-body {
@@ -95,8 +96,9 @@
 
 /* ===========Review Thumbnail Pic======== */
 
-.review-tile-star {
-
+#review-tile-star {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .review-tile-star-outer {

@@ -14,7 +14,20 @@ const ReviewComponent = () => {
   const isRecommended = (boolean) => {
     if (boolean) {
       return (
-        <div>USER RECOMMENDS!</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check2-circle" viewBox="0 0 16 16">
+          <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+          <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+        </svg>
+      );
+    }
+  };
+
+  const isVerifiedUser = () => {
+    var randomBoolean = [true, false];
+    var index = Math.floor(Math.random() * 2);
+    if (randomBoolean[index]) {
+      return (
+        <div>Verified User</div>
       );
     }
   };
@@ -53,9 +66,10 @@ const ReviewComponent = () => {
                   <div className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></div>
                 </div>
               </div>
+
               <div className="review-user-info">
                 <div>{review.reviewer_name}</div>
-                <div>VERIFIED USER</div>
+                {isVerifiedUser()}
                 <div>{moment(review.date).format('MMMM DD, YYYY')}</div>
               </div>
             </div>
