@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 import '../../../../dist/styles/relatedItems/ModalTable.css';
 
-
 const CHECK_MARK = '✓';
 
 const ModalRow = ({ product, compare, feature }) => {

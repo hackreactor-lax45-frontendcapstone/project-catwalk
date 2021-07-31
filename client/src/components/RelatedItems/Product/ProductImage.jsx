@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../../../dist/styles/relatedItems/ProductImage.css';
-import ModalElement from '../Compare/ModalElement.jsx';
-import OutfitElement from '../Outfit/OutfitElement.jsx';
+import CompareAction from '../Compare/CompareAction.jsx';
+import OutfitAction from '../Outfit/OutfitAction.jsx';
 
 export default ({ product, isModal }) => {
   if (isModal) {
-    var actionElement = <ModalElement product={product}/>;
+    var actionElement = <CompareAction product={product}/>;
   } else {
-    var actionElement = <OutfitElement product={product}/>;
+    var actionElement = <OutfitAction product={product}/>;
   }
 
   return (

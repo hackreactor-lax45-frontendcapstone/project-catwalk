@@ -42,6 +42,7 @@
   height: 100%;
   background-color: white;
   opacity: 0.5;
+  box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0.9);
 }
 
 #related-products-table-container {

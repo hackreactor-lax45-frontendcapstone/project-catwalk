@@ -9,7 +9,7 @@ export default ({ product }) => {
     <div
       className='related-products-image-outfitremove'
       onClick={e => {
-        // dispatch(actions.setViews.modalView(product.productInfo));
+        dispatch(actions.setViews.modalView(product.productInfo));
         e.stopPropagation();
       }}>
     </div>
