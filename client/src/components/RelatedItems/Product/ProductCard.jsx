@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import ProductSummary from './ProductSummary.jsx';
 import ProductImage from './ProductImage.jsx';
-import '../../../dist/styles/relatedItems/ProductCard.css';
-import actions from '../../state/actions/index.js';
+import '../../../../dist/styles/relatedItems/ProductCard.css';
+import actions from '../../../state/actions/index.js';
 
 export default ({ product, isModal }) => {
   const dispatch = useDispatch();

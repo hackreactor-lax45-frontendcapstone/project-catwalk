@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from '../../state/actions/index.js';
+import actions from '../../../state/actions/index.js';
 import ModalTable from './ModalTable.jsx';
 
-import '../../../dist/styles/relatedItems/CompareModal.css';
+import '../../../../dist/styles/relatedItems/CompareModal.css';
 
 export default () => {
   const state = useSelector(state => {

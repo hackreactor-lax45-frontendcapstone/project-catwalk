@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import _ from 'lodash';
 
-import ProductCard from './ProductCard.jsx';
-import AddOutfitCard from './AddOutfitCard.jsx';
+import ProductCard from './Product/ProductCard.jsx';
+import AddOutfitCard from './Outfit/AddOutfitCard.jsx';
 
 const IMAGE_WIDTH = 140;
 const ARROW_LEFT = '<';

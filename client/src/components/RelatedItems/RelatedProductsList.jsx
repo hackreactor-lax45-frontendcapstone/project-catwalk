@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import '../../../dist/styles/relatedItems/RelatedProductsList.css';
-import ProductCard from './ProductCard.jsx';
-import CompareModal from './CompareModal.jsx';
-import ModalElement from './ModalElement.jsx';
+import ProductCard from './Product/ProductCard.jsx';
+import CompareModal from './Compare/CompareModal.jsx';
 
 const IMAGE_WIDTH = 140;
 const ARROW_LEFT = '<';

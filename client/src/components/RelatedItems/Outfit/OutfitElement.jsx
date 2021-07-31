@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import actions from '../../state/actions/index.js';
+import actions from '../../../state/actions/index.js';
 
 export default ({ product }) => {
   const dispatch = useDispatch();

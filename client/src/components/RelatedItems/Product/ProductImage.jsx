@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../../dist/styles/relatedItems/ProductImage.css';
-import ModalElement from './ModalElement.jsx';
-import OutfitElement from './OutfitElement.jsx';
+import '../../../../dist/styles/relatedItems/ProductImage.css';
+import ModalElement from '../Compare/ModalElement.jsx';
+import OutfitElement from '../Outfit/OutfitElement.jsx';
 
 export default ({ product, isModal }) => {
   if (isModal) {

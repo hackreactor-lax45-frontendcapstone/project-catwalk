@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import ProductCard from './ProductCard.jsx';
-
-import actions from '../../state/actions/index.js';
+import ProductCard from '../Product/ProductCard.jsx';
+import actions from '../../../state/actions/index.js';
 
 const ADD_ICON = '+';
 
