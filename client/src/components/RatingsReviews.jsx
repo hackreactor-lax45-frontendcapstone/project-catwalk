@@ -5,7 +5,6 @@ import ProductBreakdown from './RatingsReviews/ProductBreakdown.jsx';
 import RatingBreakdown from './RatingsReviews/RatingBreakdown.jsx';
 import ReviewComponent from './RatingsReviews/ReviewComponent.jsx';
 import SortOptions from './RatingsReviews/SortOptions.jsx';
-import WriteNewReview from './RatingsReviews/WriteNewReview.jsx';
 import ReviewList from './RatingsReviews/ReviewList.jsx';
 import '../../dist/styles/ratingsreviews/reviews.css';
 import '../../dist/styles/ratingsreviews/ratings.css';
@@ -33,9 +32,8 @@ export default (props) => {
           <ProductBreakdown />
         </div>
 
-        <div id="review-bottom-right">
-          <ReviewList productId={props.productId} />
-        </div>
+        <ReviewList productId={props.productId} />
+
       </div>
     </div>
   );

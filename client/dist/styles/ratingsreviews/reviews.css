@@ -45,20 +45,40 @@
   height: 70%;
 }
 
-#review-bottom-right {
-  background-color: rgb(200, 227, 245);
+.review-bottom-right {
   display: flex;
   flex-direction: column;
   flex: 3
 }
 
-#review-buttons {
-  background-color: rgb(33, 80, 235);
+.review-list {
+  background-color: rgb(219, 190, 247);
+  height: 90%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+/* ===========Review Buttons============== */
+
+.review-buttons {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.more-reviews-button, .write-reviews-button {
+  margin: 5px;
 }
 
 /* ===========Review Tile============== */
+
+.review-component {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+}
 
 .review-tile-top {
   display: flex;
