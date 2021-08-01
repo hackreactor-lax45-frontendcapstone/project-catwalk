@@ -6,8 +6,8 @@
   font-size: 20px;
   max-height: 222.2px
 }
-/* ========= TITLE ========= */
 
+/* ========= TITLE ========= */
 .selection-title {
   align-self: center;
   font-size: 100%;
@@ -15,7 +15,6 @@
 }
 
 /* ========= THUMBNAILS ========= */
-
 .style-thumbnails {
   display: flex;
   flex-direction: row;
@@ -49,7 +48,6 @@
 }
 
 /* ========= THUMBNAIL CHECKBOX ========= */
-
 input[type="checkbox"][id^="cb"] {
   display: none;
   position: absolute;
@@ -86,7 +84,6 @@ label {
 }
 
 /* ========= BUTTONS ========= */
-
 .btn-more-styles {
   background-color: Transparent;
   background-repeat:no-repeat;
@@ -103,7 +100,6 @@ label {
   width: 5%;
   height: 11px;
 }
-
 
 .btn-more-styles:hover {
   color: #035e7b;

@@ -81,26 +81,6 @@ const StyleSelector = () => {
               <label htmlFor={`cb${i}`}></label>
             </div>
           );
-
-          // return <span key={i} className="thumbnail-container">
-          //   <img
-          //     src={style.photos[0].thumbnail_url}
-          //     className="thumbnail"
-          //     onClick={() => {
-          //       dispatch(actions.selectStyle(i));
-          //     }}
-          //   ></img>
-          //   <input
-          //     className={`cb ${selected.name === style.name && 'is-selected'}`}
-          //     onChange={e => {}}
-          //     name={style.name}
-          //     type="checkbox"
-          //     value={i}
-          //     checked={selected.name === style.name && true}
-          //     id={`cb${i}`}
-          //   ></input>
-          //   <label htmlFor={`cb${i}`}></label>
-          // </span>
         })}
       </div>
       <button onClick={handleClick} className="btn-more-styles down">{
