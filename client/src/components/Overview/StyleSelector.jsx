@@ -69,6 +69,16 @@ const StyleSelector = () => {
               onClick={() => {
                 dispatch(actions.selectStyle(i));
               }}>
+              <input
+                className={`cb ${selected.name === style.name && 'is-selected'}`}
+                onChange={e => {}}
+                name={style.name}
+                type="checkbox"
+                value={i}
+                checked={selected.name === style.name && true}
+                id={`cb${i}`}
+              ></input>
+              <label htmlFor={`cb${i}`}></label>
             </div>
           );
 

@@ -34,16 +34,14 @@
   aspect-ratio: 1 / 1;
   min-width: 21%;
   max-width: 21%;
-  margin-bottom: 4%;
-  margin-right: 2%;
-  margin-left: 2px;
+  margin: 0 2% 4% 2px;
   background-repeat: none;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  padding: 1px;
   cursor: pointer;
+  transform:scale(0.9, 0.9);
 }
 
 .thumbnail:hover {
