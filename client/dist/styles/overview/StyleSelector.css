@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   font-size: 20px;
+  max-height: 222.2px
 }
 /* ========= TITLE ========= */
 
@@ -20,27 +21,33 @@
   flex-direction: row;
   overflow: hidden;
   flex-wrap: wrap;
-  flex: 1 0 21%;
   width: 100%;
-  height: 70px;
+  max-height: 222.2px;
   justify-content: space-between;
   align-self: center;
-}
-
-
-.thumbnail-container {
-  position: relative;
-  margin: 0 10px;
-  width: 100%;
-  height: 70px;
+  padding: 5px;
 }
 
 .thumbnail {
-  clip-path: circle(50% at 50% 50%);
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  min-width: 21%;
+  max-width: 21%;
+  margin-bottom: 4%;
+  margin-right: 2%;
+  margin-left: 2px;
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  padding: 1px;
   cursor: pointer;
+}
+
+.thumbnail:hover {
+  transform:scale(0.8, 0.8);
 }
 
 /* ========= THUMBNAIL CHECKBOX ========= */
@@ -107,7 +114,3 @@ label {
 .hidden {
   display: none;
 }
-/* ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-} */
