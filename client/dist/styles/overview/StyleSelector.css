@@ -1,48 +1,53 @@
 #body-overview-styleselector {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  height: 40%;
+  justify-content: flex-start;
+  font-size: 20px;
+  max-height: 222.2px
 }
-/* ========= TITLE ========= */
 
+/* ========= TITLE ========= */
 .selection-title {
-  background-color: transparent;
   align-self: center;
-  font-size: 12px;
-  height: 26.5px;
+  font-size: 100%;
+  height: 30px;
 }
 
 /* ========= THUMBNAILS ========= */
-
 .style-thumbnails {
   display: flex;
   flex-direction: row;
   overflow: hidden;
   flex-wrap: wrap;
   width: 100%;
-  height: 70px;
-  justify-content: space-between;
+  max-height: 222.2px;
+  justify-content: flex-start;
   align-self: center;
-}
-
-
-.thumbnail-container {
-  position: relative;
-  margin: 0 10px;
-  width: 70px;
-  height: 70px;
+  padding: 5px;
 }
 
 .thumbnail {
-  clip-path: circle(50% at 50% 50%);
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  min-width: 22%;
+  max-width: 22%;
+  margin: 0 2% 4% 2px;
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   cursor: pointer;
+  transform:scale(0.9, 0.9);
+}
+
+.thumbnail:hover {
+  transform:scale(0.8, 0.8);
 }
 
 /* ========= THUMBNAIL CHECKBOX ========= */
-
 input[type="checkbox"][id^="cb"] {
   display: none;
   position: absolute;
@@ -79,7 +84,6 @@ label {
 }
 
 /* ========= BUTTONS ========= */
-
 .btn-more-styles {
   background-color: Transparent;
   background-repeat:no-repeat;
@@ -97,7 +101,6 @@ label {
   height: 11px;
 }
 
-
 .btn-more-styles:hover {
   color: #035e7b;
 }
@@ -105,7 +108,3 @@ label {
 .hidden {
   display: none;
 }
-/* ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-} */

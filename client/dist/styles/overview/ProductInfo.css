@@ -2,20 +2,37 @@
 #body-overview-productsummary {
   display: flex;
   flex-direction: column;
-  height: 40%;
+  flex-shrink: 1;
+  font-size: 20px;
 }
 
-#body-overview-starrating {
+/* ===================================
+              Stars
+=================================== */
+#body-overview-star {
   display: flex;
   flex-direction: row;
-  align-self: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  height: 40px;
 }
 
-#body-overview-stars {
-  flex: 1;
+#body-overview-count {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  font-size: 80%;
+  padding-left: 10px;
+}
+
+#body-overview-count:hover {
+  color:#035e7b;
+  cursor: pointer;
 }
 
 .stars-outer {
+  margin: auto 0;
   position: relative;
   display: inline-block;
 }
@@ -43,44 +60,43 @@
   color: #035e7b;
 }
 
-#body-overview-count {
-  flex: 1;
-  font-size: 60%;
-  margin: auto;
-}
-
-#body-overview-count:hover {
-  color:#035e7b;
-  cursor: pointer;
+/* ===================================
+              Summary
+=================================== */
+#body-overview-price,
+#body-overview-saleprice,
+#body-overview-oldprice,
+#body-overview-category,
+#body-overview-name {
+  text-align: left;
+  padding-left: 20px
 }
 
 #body-overview-category {
-  font-size: 80%;
-  margin-top: 40px;
+  font-size: 100%;
+  color: rgb(75, 75, 75);
 }
 
 #body-overview-name {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 150%;
+  float: left;
+  margin-bottom: 10px;
 }
 
-#body-overview-price, #body-overview-saleprice, #body-overview-oldprice {
-  font-size: 80%;
-  align-self: center;
-  margin-top: 10px;
+#body-overview-price-container {
+  min-height: 45px;
+  margin-bottom: 20px;
 }
 
 #body-overview-oldprice {
+  color: gray;
+  font-size: 80%;
   text-decoration: line-through;
 }
 
 #body-overview-saleprice {
   color: #cc3030
-}
-
-#body-overview-category,
-#body-overview-name {
-  align-self: center;
 }
 
 /* product description */
@@ -91,6 +107,7 @@
 }
 
 #body-overview-bottom-left {
+  margin-left: 20px;
   display: flex;
   flex: 3;
 }
@@ -121,26 +138,29 @@
   overflow: auto;
 }
 
-
 /* share icons */
-
 #body-overview-share {
+  margin: 0 auto;
   display: flex;
+  flex-direction: row;
+  flex: 1;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
-  flex-direction: row;
-}
-
-#col-1, #col-2, #col-3, #col-4, #col-5 {
-  flex: 1;
-}
-
-#col-2 {
-  margin-left: 5px;
+  max-height: 80px;
+  max-width: 80%;
 }
 
 .icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 45px;
   color: #002e2c;
+  width: 80px;
+}
+
+.share-text {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
 }
