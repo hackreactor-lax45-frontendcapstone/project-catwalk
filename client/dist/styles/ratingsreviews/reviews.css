@@ -83,12 +83,16 @@
 .review-tile-top {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .review-user-info {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+}
+
+.review-verified, .reviewer-name, .review-date {
+  margin-left: 10px;
 }
 
 .review-summary {
