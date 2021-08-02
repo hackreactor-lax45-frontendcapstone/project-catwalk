@@ -11,9 +11,12 @@ import SearchQuestions from './QuestionAnswer/SearchQuestions.jsx';
 import '../../dist/styles/questionsAnswers/QuestionAnswer.css';
 
 const QuestionAnswer = () => {
+<<<<<<< HEAD
   return (
+=======
+    return (
+>>>>>>> main
     <div id="body-questions">
-      <SearchQuestions />
       <AddQuestion />
       <QuestionsList />
       <MoreQuestions />
