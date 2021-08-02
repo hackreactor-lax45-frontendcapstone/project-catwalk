@@ -1,9 +1,18 @@
-/*
-Import any required packages:
+import { create, act } from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-const package = require('package_url');
- */
+import ImageGalleryDefault from '../client/src/components/Overview/ImageGallery-Default.jsx';
 
-it('Confirms that Jest works', () => {
-  expect(2).toEqual(2);
+describe('Image Gallery (Default)', () => {
+
+  beforeEach(() => {
+    wrapper = shallow(<ImageGalleryDefault />);
+  });
+
+  it('Confirms that Jest works', () => {
+    expect(2).toEqual(2);
+  });
+
+
+
 });
