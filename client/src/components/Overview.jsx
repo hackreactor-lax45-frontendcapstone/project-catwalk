@@ -1,25 +1,14 @@
 import React from 'react';
-
-import ImageGallery from './Overview/ImageGallery.jsx';
-import ProductSummary from './Overview/ProductSummary.jsx';
-import StyleSelector from './Overview/StyleSelector.jsx';
-import AddToCart from './Overview/AddToCart.jsx';
+import { useSelector, useDispatch } from 'react-redux';
 import ProductDescription from './Overview/ProductDescription.jsx';
 import ProductShare from './Overview/ProductShare.jsx';
+
+import TopView from './Overview/TopView.jsx';
 
 export default () => {
   return (
     <div id="body-overview">
-      <div id="body-overview-top">
-        <div id="body-overview-top-left">
-          <ImageGallery />
-        </div>
-        <div id="body-overview-top-right">
-          <ProductSummary />
-          <StyleSelector />
-          <AddToCart />
-        </div>
-      </div>
+      <TopView />
       <div id="body-overview-bottom">
         <div id="body-overview-bottom-left">
           <ProductDescription />

@@ -2,6 +2,10 @@ import React from 'react';
 
 export default props => {
   return (
-    <div>WriteNewReview</div>
+    <div>
+      <button>
+        Write New Review
+      </button>
+    </div>
   );
 };

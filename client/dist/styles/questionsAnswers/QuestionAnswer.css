@@ -1,0 +1,49 @@
+/* #body-questions {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  background-color: pink;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+/* ========= TOP ========= */
+#question-top {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  background-color: blue;
+  border-style: solid;
+  border-color:violet;
+}
+/* ========= MIDDLE ========= */
+#question-middle {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  background-color: green;
+  border-style: solid;
+  border-color:firebrick;
+}
+/* ========= BOTTOM ========= */
+#question-bottom {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  background-color: yellow;
+}
+
+/* ========= SEARCH_BAR ========= */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#qa-more-button.disable {
+  visibility: hidden;
+  pointer-events: none;
+}

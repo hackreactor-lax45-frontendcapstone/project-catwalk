@@ -2,8 +2,6 @@
 import React, {useState} from 'react';
 import SizeRenderEntry from './sizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
-import ReactBootstrap from 'react-bootstrap';
-import Dropdown from 'react-bootstrap/Dropdown';
 import '../../../dist/styles/overview/AddToCart.css';
 
 import { useSelector, useDispatch } from 'react-redux';

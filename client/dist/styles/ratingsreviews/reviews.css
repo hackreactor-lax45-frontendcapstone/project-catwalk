@@ -1,0 +1,123 @@
+#body-reviews {
+  display: flex;
+  background-color: rgb(126, 240, 234);
+  flex-direction: column;
+  height: 500px;
+  margin: 10px 0;
+}
+
+/* ============Review-top============= */
+#review-top {
+ background-color: rgb(82, 104, 4);
+ display: flex;
+ flex-direction: row;
+ height: 20%;
+}
+
+#review-top-left {
+ font-size: 25px;
+ background-color: rgb(173, 216, 55);
+ text-align: center;
+ flex: 1;
+}
+
+#review-top-right {
+ background-color: rgb(37, 107, 19);
+ display: flex;
+ flex-direction: column;
+ flex: 3;
+}
+
+#review-right-top {
+  background-color: rgb(32, 68, 8);
+}
+
+#review-right-bottom {
+  background-color: green;
+}
+
+/* ============Review-Bottom============== */
+
+#review-bottom {
+  display: flex;
+  flex-direction: row;
+  background-color: blanchedalmond;
+  height: 70%;
+}
+
+#review-bottom-right {
+  background-color: rgb(100, 67, 6);
+  display: flex;
+  flex-direction: column;
+  flex: 3
+}
+
+#review-buttons {
+  background-color: rgb(173, 121, 24);
+  display: flex;
+  flex-direction: row;
+}
+
+/* ===========Review Tile============== */
+
+.review-component-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-component-body {
+
+}
+
+/* ===========Helpful================ */
+
+.review-component-helpful {
+  display: flex;
+  flex-direction: row;
+}
+
+.helpful-col-2, .helpful-col-3 {
+  margin-left: 10px;
+}
+
+
+/* ===========Review Thumbnail Pic======== */
+
+.review-component-thumbnail {
+
+}
+
+
+/* ===========Review Thumbnail Pic======== */
+
+.review-tile-star {
+
+}
+
+.review-tile-star-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.review-tile-star-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
+
+.review-tile-star-outer::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.review-tile-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
