@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import QuestionComponent from './QuestionComponent.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
 import { useState } from 'react';
-
+import '../../../dist/styles/questionsAnswers/QuestionAnswer.css';
 export default props => {
 
 
@@ -44,10 +44,11 @@ export default props => {
     if (questionCount < questionTotal - 2) {
       setquestionCount(questionCount + 2);
     //if the question count reaches max or total questions
-    } else if (questionCount >= questionTotal - 2 || questionTotal < 2) {
+    } else if (questionCount >= questionTotal - 2) {
       setquestionCount(questionCount + 2);
       const moreQuestionButton = document.querySelector('#qa-more-button')
       moreQuestionButton.classList.add('disable')
+      console.log(moreQuestionButton)
     }
   };
 
@@ -68,7 +69,7 @@ export default props => {
         )})}
       </div>
       <div id='question-list-bottom'>
-        <button id='qa-more-button' onClick={getMoreQuestions}>More Questions</button>
+        <button id='qa-more-button' className={questionTotal <= 2 && 'disable'} onClick={getMoreQuestions}>More Questions</button>
       </div>
     </div>
     )
