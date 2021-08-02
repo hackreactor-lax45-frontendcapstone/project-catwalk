@@ -67,6 +67,11 @@
   margin-right: 10px;
 }
 
+.more-reviews-button.disable {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .more-reviews-button, .write-reviews-button {
   margin: 5px;
 }
