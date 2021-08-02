@@ -11,9 +11,8 @@ import SearchQuestions from './QuestionAnswer/SearchQuestions.jsx';
 // import '../../dist/styles/questionsAnswers/QuestionAnswer.css';
 
 const QuestionAnswer = () => {
-  return (
+    return (
     <div id="body-questions">
-      <SearchQuestions />
       <AddQuestion />
       <QuestionsList />
       <MoreQuestions />

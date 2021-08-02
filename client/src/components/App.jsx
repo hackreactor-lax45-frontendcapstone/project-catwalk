@@ -19,7 +19,7 @@ export default (props) => {
     actions.selectProduct(dispatch, product);
     actions.setRelated(dispatch, product);
     actions.setReviews(dispatch, product, 1, 2, 'relevant');
-    actions.getQuestions(dispatch, product, 1, 4);
+    actions.getQuestions(dispatch, product, 1, 100);
   }, [product]);
 
   return (
