@@ -99,11 +99,14 @@
   color: #cc3030
 }
 
-/* product description */
+/* ====================================
+ Product description
+==================================== */
 #body-overview-bottom {
  display: flex;
  flex-direction: row;
  justify-content: space-between;
+ font-size: 20px;
 }
 
 #body-overview-bottom-left {
@@ -119,13 +122,14 @@
 #body-overview-main {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
   justify-content: center;
 }
 
 #body-overview-slogan {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 100%;
   margin: 10px 0 10px 0;
 }
 
@@ -138,7 +142,9 @@
   overflow: auto;
 }
 
-/* share icons */
+/* ====================================
+ Share icons
+==================================== */
 #body-overview-share {
   margin: 0 auto;
   display: flex;

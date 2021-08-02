@@ -1,0 +1,50 @@
+#body-overview-features-container {
+  display: flex;
+  flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+  width: 80%;
+  min-height: 20%;
+  height: 20%;
+  max-height: 80%;
+}
+
+#features-table {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: auto;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 20%;
+  max-height: 80%;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+tbody#features-tbody {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+tr.features-row {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+td.features-col {
+  width: 50%;
+}
+
+td.features-firstcol {
+  border-right: 1px solid black;
+}
+
+tr.features-row:last-child {
+  border-bottom: none;
+}
