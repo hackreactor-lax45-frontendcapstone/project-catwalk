@@ -6,7 +6,6 @@ export default props => {
   return (
     <div>
       <div>QuestionsList</div>
-      <QuestionComponent />
     </div>
   );
 };

@@ -13,6 +13,7 @@ export default props => {
 
   const question = props.question;
   const answers = useSelector(state => state.answers[question.question_id]);
+  const product = useSelector(state => state.product.productId)
 
   if (answers) {
   return (
