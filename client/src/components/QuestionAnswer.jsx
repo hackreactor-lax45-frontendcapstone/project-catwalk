@@ -8,7 +8,7 @@ import MoreQuestions from './QuestionAnswer/MoreQuestions.jsx';
 import QuestionsList from './QuestionAnswer/QuestionsList.jsx';
 // import QuestionComponent from './QuestionAnswer/QuestionComponent.jsx';
 import SearchQuestions from './QuestionAnswer/SearchQuestions.jsx';
-import '../../dist/styles/questionsAnswers/QuestionAnswer.css';
+// import '../../dist/styles/questionsAnswers/QuestionAnswer.css';
 
 const QuestionAnswer = () => {
     return (

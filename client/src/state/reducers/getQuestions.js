@@ -3,7 +3,7 @@ import Redux from 'redux';
 const initialState = {
   "product_id": "",
   "results": [{
-        "question_id": undefined,
+        "question_id": 0,
         "question_body": '',
         "question_date": '',
         "asker_name": '',
