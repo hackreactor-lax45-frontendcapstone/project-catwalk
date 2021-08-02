@@ -110,13 +110,9 @@
 }
 
 #body-overview-bottom-left {
+  display: flex;
   margin-left: 20px;
   display: flex;
-  flex: 3;
-}
-
-#body-overview-bottom-right {
-  flex: 2;
 }
 
 #body-overview-main {

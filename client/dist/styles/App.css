@@ -76,11 +76,14 @@ Overview
   max-width: 48.5%;
   padding: 0;
   margin-left: 2.5px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #body-overview-bottom {
   display: flex;
+  flex: 1;
+  flex-direction: row;
   justify-content: flex-start;
   box-sizing: border-box;
   height: 150px;
@@ -88,13 +91,18 @@ Overview
 }
 
 #body-overview-bottom-left {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
   box-sizing: border-box;
   width: 70%;
+  max-width: 60%;
 }
 
 #body-overview-bottom-right {
+  max-width: 48.5%;
   display: flex;
+  flex: 0.35;
   flex-direction: column;
-  flex: 1;
   justify-content: center;
 }
