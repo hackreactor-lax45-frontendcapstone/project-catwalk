@@ -11,6 +11,16 @@ const ReviewComponent = () => {
     };
   });
 
+  const renderShowMoreButton = (body, index) => {
+    if (body.length > 250) {
+      return (<div id={`show-more-${index}`} onClick={() => {
+        document.getElementById(`review-body-${index}`).hidden = true;
+        document.getElementById(`show-more-${index}`).hidden = true;
+        document.getElementById(`review-fullbody-${index}`).hidden = false;
+      }}>Show More</div>);
+    }
+  };
+
   const isRecommended = (boolean) => {
     if (boolean) {
       return (
@@ -58,30 +68,24 @@ const ReviewComponent = () => {
           <div key={index}>
             <div className="review-tile-top">
 
-              <div id="review-tile-star">
-                <div className="review-tile-star-outer">
-                  <div className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></div>
-                </div>
-              </div>
+              <span id="review-tile-star">
+                <span className="review-tile-star-outer">
+                  <span className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></span>
+                </span>
+              </span>
 
-              <div className="review-user-info">
-                <div className="reviewer-name">{review.reviewer_name}</div>
+              <span className="review-user-info">
+                <span className="reviewer-name">{review.reviewer_name}</span>
                 {isVerifiedUser()}
-                <div className="review-date">{moment(review.date).format('MMMM DD, YYYY')}</div>
-              </div>
+                <span className="review-date">{moment(review.date).format('MMMM DD, YYYY')}</span>
+              </span>
             </div>
 
             <div className="review-component-body">
             <div className="review-summary">{review.summary}</div>
-            <div id={`review-body-${index}`}>{'mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm'.slice(0, 251)}</div>
-            <div id={`show-more-${index}`} onClick={() => {
-              const reviewBody = document.querySelector(`#review-body-${index}`);
-              reviewBody.classList.add('disable');
-              const showMoreBtn = document.querySelector(`#show-more-${index}`);
-              showMoreBtn.classList.add('disable');
-              document.getElementById(`review-fullbody-${index}`).hidden = false;
-            }}>Show More</div>
-            <div id={`review-fullbody-${index}`} hidden>{'mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm'}</div>
+            <div id={`review-body-${index}`}>{review.body.slice(0, 251)}</div>
+            {renderShowMoreButton(review.body, index)}
+            <div id={`review-fullbody-${index}`} hidden>{review.body}</div>
 
               <div className="review-recommend">{isRecommended(review.recommend)}</div>
 

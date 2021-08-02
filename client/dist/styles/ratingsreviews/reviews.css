@@ -104,18 +104,6 @@
   font-weight: bold;
 }
 
-/* ===========Review body======== */
-
-[id^="review-body-"].disable {
-  visibility: hidden;
-  pointer-events: none;
-}
-
-[id^="show-more-"].disable {
-  visibility: hidden;
-  pointer-events: none;
-}
-
 /* ===========Helpful================ */
 
 .review-component-helpful {
