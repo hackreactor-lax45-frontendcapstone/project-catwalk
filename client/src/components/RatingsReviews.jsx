@@ -10,7 +10,11 @@ import '../../dist/styles/ratingsreviews/reviews.css';
 import '../../dist/styles/ratingsreviews/ratings.css';
 import actions from '../state/actions';
 
+<<<<<<< HEAD
 export default (props) => {
+=======
+export default () => {
+>>>>>>> main
   return (
     <div id="body-reviews">
       <div id="review-top">
