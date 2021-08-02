@@ -42,7 +42,7 @@ export default props => {
   const [questionCount, setquestionCount] = useState(4);
   const getMoreQuestions = () => {
     if (questionCount < questionTotal - 2) {
-      setquestionCount(questionCount + 2 );
+      setquestionCount(questionCount + 2);
     //if the question count reaches max or total questions
     } else if (questionCount >= questionTotal - 2 || questionTotal < 2) {
       setquestionCount(questionCount + 2);
@@ -56,21 +56,18 @@ export default props => {
 
   return (
     <div id='question-list'>
-      <div>
+      <div id='question-list-top'>
       <SearchQuestions
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}/>
       </div>
-      {filteredQuestions.map((question, i) => {
-      return (
-        <div>
-          <div>Question #{i}</div>
-          <div>Q: {question.question_body}</div>
-          <div>name: {question.asker_name} helpfulness: {question.question_helpfulness}</div>
-          <br></br>
-        </div>
-      )})}
-      <div>
+      <div id='question-list-mid'>
+        {filteredQuestions.map((question, i) => {
+          return (
+            <QuestionComponent question={question} key={i} />
+        )})}
+      </div>
+      <div id='question-list-bottom'>
         <button id='qa-more-button' onClick={getMoreQuestions}>More Questions</button>
       </div>
     </div>
