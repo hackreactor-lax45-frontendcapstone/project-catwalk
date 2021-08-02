@@ -11,18 +11,6 @@ const ReviewComponent = () => {
     };
   });
 
-  const showOnly250ch = (body) => {
-    if (body.length > 250) {
-      return (
-        <div className="review-body">
-        {body.slice(0, 251)}...
-        <div>Show More</div>
-        </div>
-      );
-    }
-
-  };
-
   const isRecommended = (boolean) => {
     if (boolean) {
       return (
@@ -40,7 +28,6 @@ const ReviewComponent = () => {
   const isVerifiedUser = () => {
     var randomBoolean = [true, false];
     var index = Math.floor(Math.random() * 2);
-    console.log(index);
     if (randomBoolean[index]) {
       return (
         <div className="review-verified">Verified User</div>
@@ -65,11 +52,9 @@ const ReviewComponent = () => {
   };
 
   return (
-
     <div className="review-component">
       {reviews.reviews.results.map((review, index) => {
         return (
-          // <div key={review.review_id}>
           <div key={index}>
             <div className="review-tile-top">
 
@@ -88,11 +73,16 @@ const ReviewComponent = () => {
 
             <div className="review-component-body">
             <div className="review-summary">{review.summary}</div>
-              {/* {showOnly250ch(review.body)} */}
+            <div id={`review-body-${index}`}>{'mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm'.slice(0, 251)}</div>
+            <div id={`show-more-${index}`} onClick={() => {
+              const reviewBody = document.querySelector(`#review-body-${index}`);
+              reviewBody.classList.add('disable');
+              const showMoreBtn = document.querySelector(`#show-more-${index}`);
+              showMoreBtn.classList.add('disable');
+              document.getElementById(`review-fullbody-${index}`).hidden = false;
+            }}>Show More</div>
+            <div id={`review-fullbody-${index}`} hidden>{'mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm'}</div>
 
-              {showOnly250ch('mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmmm')}
-
-              {/* <div></div> */}
               <div className="review-recommend">{isRecommended(review.recommend)}</div>
 
               <div className="review-component-helpful">
@@ -105,8 +95,7 @@ const ReviewComponent = () => {
           </div>
         );
       })}
-
-    </div>
+      </div>
   );
 };
 
