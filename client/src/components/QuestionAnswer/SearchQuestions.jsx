@@ -13,7 +13,7 @@ const SearchBar = ({ searchQuery, setSearchQuery}) => {
         onInput={e => setSearchQuery(e.target.value)}
         type="text"
         id="question-search"
-        placeholder="Search questions"
+        placeholder="Have a question? Search for answers…"
         name="s"
         />
       <button type="submit">Search</button>
