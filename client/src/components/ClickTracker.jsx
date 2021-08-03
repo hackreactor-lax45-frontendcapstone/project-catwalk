@@ -14,8 +14,10 @@ const ClickTracker = (props) => {
         module = 'Related Items & Comparison';
       } else if (element.id === 'body-questions') {
         module = 'Questions & Answers';
-      } else if (element.id === 'body-ratings') {
+      } else if (element.id === 'body-reviews') {
         module = 'Ratings & Reviews';
+      } else if (element.id === 'app-header') {
+        module = 'Header'
       }
     });
 
