@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 export default (dispatch, productID) => {
 
-  axios({
+  return axios({
     url: `${AtelierAPI.url}/products/${productID}/related`,
     method: 'get',
     headers: AtelierAPI.headers,
@@ -13,6 +13,7 @@ export default (dispatch, productID) => {
       return response.data;
     })
     .then(related => {
+
       var relatedProducts = _.map(related, (product, i) => {
         return axios({
           url: `${AtelierAPI.url}/products/${product}`,
@@ -33,7 +34,7 @@ export default (dispatch, productID) => {
           .catch(err => { throw err; });
       });
 
-      Promise.all(relatedProducts.concat(relatedStyles))
+      return Promise.all(relatedProducts.concat(relatedStyles))
         .then(info => {
           let productInfo = info.slice(0, info.length / 2);
           let styleInfo = info.slice(info.length / 2);

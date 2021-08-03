@@ -14,7 +14,7 @@ export default (dispatch, productID) => {
     headers: AtelierAPI.headers,
   });
 
-  Promise.all([
+  return Promise.all([
     productQuery,
     styleQuery,
   ])
