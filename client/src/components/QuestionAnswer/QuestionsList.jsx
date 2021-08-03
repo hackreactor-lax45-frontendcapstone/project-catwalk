@@ -50,7 +50,7 @@ export default props => {
       setquestionCount(questionCount + 2);
       const moreQuestionButton = document.querySelector('#qa-more-button')
       moreQuestionButton.classList.add('disable')
-      console.log(moreQuestionButton)
+
     }
   };
 
