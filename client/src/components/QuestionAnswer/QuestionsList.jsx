@@ -15,11 +15,11 @@ export default props => {
   //***********************SEARCH_BAR ******************************//
   const filterQuestions = (questions, query) => {
     if (!query) {
-        return questions;
+      return questions;
     }
     return questions.filter((question) => {
-        const postName = question.question_body.toLowerCase();
-        return postName.includes(query);
+      const postName = question.question_body.toLowerCase();
+      return postName.includes(query);
     });
   };
   const { search } = window.location;
