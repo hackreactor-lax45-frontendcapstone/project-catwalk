@@ -15,11 +15,11 @@ export default props => {
   //***********************SEARCH_BAR ******************************//
   const filterQuestions = (questions, query) => {
     if (!query || query.length < 3) {
-        return questions;
+      return questions;
     }
     return questions.filter((question) => {
-        const postName = question.question_body.toLowerCase();
-        return postName.includes(query);
+      const postName = question.question_body.toLowerCase();
+      return postName.includes(query);
     });
   };
   const { search } = window.location;
@@ -50,7 +50,6 @@ export default props => {
       setquestionCount(questionCount + 2);
       const moreQuestionButton = document.querySelector('#qa-more-button')
       moreQuestionButton.classList.add('disable')
-
     }
   };
 
@@ -74,6 +73,6 @@ export default props => {
         <button id='qa-more-button' className={questionTotal <= 2 && 'disable'} onClick={getMoreQuestions}>More Questions</button>
       </div>
     </div>
-    )
+  )
 
 };
