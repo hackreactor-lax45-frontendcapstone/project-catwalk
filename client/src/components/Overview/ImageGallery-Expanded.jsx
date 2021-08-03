@@ -10,13 +10,11 @@ const ARROW_RIGHT = '>';
 
 const zoomPan = e => {
   const el = document.getElementById('imagegallery-expanded-main-in');
+  if (_.isNil(el)) { el = { style: {backgroundPositionX: 0, backgroundPositionY: 0 }}; }
+
   var box = e.target.getBoundingClientRect();
-
-  var mouseX = e.clientX - box.left;
-  var mouseY = e.clientY - box.top;
-  var xPercent = (mouseX / box.width) * 100;
-  var yPercent = (mouseY / box.height) * 100;
-
+  var xPercent = ((e.clientX - box.left) / box.width) * 100;
+  var yPercent = ((e.clientY - box.top) / box.height) * 100;
   el.style.backgroundPositionX = xPercent + '%';
   el.style.backgroundPositionY = yPercent + '%';
 };
@@ -56,6 +54,7 @@ export default ({ state }) => {
     <div id="imagegallery-expanded-main">
       <button
         disabled={divId === 'in'}
+        id='imagegallery-expanded-main-button-left'
         className={'imagegallery-expanded-main-button' + (divId === 'in' ? '-disabled' : '')}
         onClick={() => dispatchThumbnail(dispatch, -1, state)}>
         {ARROW_LEFT}
@@ -66,7 +65,8 @@ export default ({ state }) => {
         onMouseMove={e => mouseFunction(e) }
         onClick={() => {
           if (!state.view.default) {
-            const el = document.getElementById(`imagegallery-expanded-main-${divId}`);
+            let el = document.getElementById(`imagegallery-expanded-main-${divId}`);
+            if (_.isNil(el)) { el = { style: { backgroundPosition: 0 } }; }
             el.style.backgroundPosition = '50% 50%';
             dispatch(actions.setViews.zoomView());
           }
@@ -86,6 +86,7 @@ export default ({ state }) => {
               <div
                 hidden={divId === 'in'}
                 key={i}
+                id={`image-gallery-expanded-thumbnail-indicator-${i}`}
                 className={'image-gallery-expanded-thumbnail-indicator' + (state.thumbnail.index === i ? '-selected' : '')}
                 onMouseMove={e => e.stopPropagation()}
                 onClick={e => {
@@ -103,6 +104,7 @@ export default ({ state }) => {
       </div>
       <button
         disabled={divId === 'in'}
+        id='imagegallery-expanded-main-button-right'
         className={'imagegallery-expanded-main-button' + (divId === 'in' ? '-disabled' : '')}
         onClick={() => dispatchThumbnail(dispatch, 1, state)}>
         {ARROW_RIGHT}
@@ -111,6 +113,3 @@ export default ({ state }) => {
 
   );
 };
-
-
-
