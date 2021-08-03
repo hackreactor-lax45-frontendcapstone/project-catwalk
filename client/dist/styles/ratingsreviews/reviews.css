@@ -106,13 +106,9 @@
 
 /* ===========Helpful================ */
 
-.review-component-helpful {
-  display: flex;
-  flex-direction: row;
-}
-
-.helpful-col-2, .helpful-col-3 {
-  margin-left: 10px;
+#helpful-yes:hover, #helpful-no:hover {
+  color:#035e7b;
+  cursor: pointer;
 }
 
 

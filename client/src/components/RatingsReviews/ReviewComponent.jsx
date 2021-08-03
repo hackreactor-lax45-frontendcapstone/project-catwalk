@@ -96,24 +96,37 @@ const ReviewComponent = (props) => {
               <div className="review-recommend">{isRecommended(review.recommend)}</div>
 
               <div className="review-component-helpful">
-                <div className="helpful-col-1">Was this review helpful?</div>
-                <div className="helpful-col-2" onClick={() => {
-                      axios(`${AtelierAPI.url}/reviews/${review.review_id}/helpful`, {
-                        method: 'put',
-                        headers: AtelierAPI.headers,
-                        data: {
-                          helpfulness: review.helpfulness + 1
-                        }
-                      })
-                      .then(() => {
-                        actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
-                      })
-                      .catch(err=> console.log(err));
-                }}
-                      >{`Yes (${review.helpfulness})`}</div>
-                <div className="helpful-col-3" onClick={() => {
+                <span className="helpful-col-1">Was this review helpful?</span>
+                <span id="helpful-yes" onClick={() => {
+                  axios(`${AtelierAPI.url}/reviews/${review.review_id}/helpful`, {
+                    method: 'put',
+                    headers: AtelierAPI.headers,
+                    data: {
+                      helpfulness: review.helpfulness + 1
+                    }
+                    })
+                    .then(() => {
+                      actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
+                      document.getElementById('helpful-yes').hidden = true;
+                      document.getElementById('helpful-yes-count').hidden = false;
+                      document.getElementById('helpful-no').hidden = true;
+                      document.getElementById('helpful-no-count').hidden = false;
+                    })
+                    .catch(err=> console.log(err));
+                  }}
+                >{`    Yes (${review.helpfulness})`}</span>
+                <span id='helpful-yes-count' hidden>{`    Yes (${review.helpfulness})`}</span>
+
+                <span id="helpful-no" onClick={() => {
                   incrementCount(noClickCount + 1);
-                }}>{`No (${noClickCount})`}</div>
+                  document.getElementById('helpful-yes').hidden = true;
+                  document.getElementById('helpful-yes-count').hidden = false;
+                  document.getElementById('helpful-no').hidden = true;
+                  document.getElementById('helpful-no-count').hidden = false;
+                }}>{`   No (${noClickCount})`}</span>
+
+                <span id='helpful-no-count' hidden>{`    No (${noClickCount})`}</span>
+
               </div>
 
             </div>
