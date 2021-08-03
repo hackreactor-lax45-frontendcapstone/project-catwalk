@@ -2,39 +2,42 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
+import actions from '../../state/actions';
 
 import '../../../dist/styles/questionsAnswers/AddQuestion.css';
 
 export default props => {
+  const dispatch = useDispatch();
   const product = useSelector(state => state.product);
+  console.log(product);
+  const handleModal = () => {
+    const modalBox = document.querySelector('#qa-question-modal');
+    const overlay = document.querySelector('#question-modal-overlay');
+
+    if (modalBox.classList.contains('active') && overlay.classList.contains('active')) {
+      modalBox.classList.remove('active');
+      overlay.classList.remove('active');
+    } else {
+      modalBox.classList.add('active');
+      overlay.classList.add('active');
+    }
+  };
 
   return (
     <div>
-      <button onClick={(e) => {
-        const modalBox = document.querySelector('#qa-question-modal');
-        const overlay = document.querySelector('#question-modal-overlay');
-
-        modalBox.classList.add('active');
-        overlay.classList.add('active');
-      }}>Ask A Question</button>
+      <button onClick={handleModal}>Ask A Question</button>
       <div id="qa-question-modal" className="question-modal">
         <div className="question-modal-header">
           <div>
             <div className="question-modal-title">Ask Your Question</div>
             <div className="question-modal-subtitle">{product.productInfo.name}</div>
           </div>
-          <button onClick={() => {
-            const modalBox = document.querySelector('#qa-question-modal');
-            const overlay = document.querySelector('#question-modal-overlay');
-
-            modalBox.classList.remove('active');
-            overlay.classList.remove('active');
-
-          }}className="question-modal-close">&times;</button>
+          <button onClick={handleModal}className="question-modal-close">&times;</button>
         </div>
         <div className="question-modal-body">
           <form onSubmit={(e) => {
             e.preventDefault();
+            handleModal();
             const formData = new FormData(e.target);
             const data = {};
             formData.forEach((value, property) => data[property] = value);
@@ -49,6 +52,9 @@ export default props => {
                 product_id: product.productID
               }
             })
+              .then(res => {
+                actions.getQuestions(dispatch, product.productID, 1, 4);
+              })
               .catch(err => console.error(err))
           }} id="question-modal-form">
             <label htmlFor="question-modal-question">Your Question * </label>
@@ -84,13 +90,7 @@ export default props => {
           </form>
         </div>
       </div>
-      <div onClick={() => {
-        const modalBox = document.querySelector('#qa-question-modal');
-        const overlay = document.querySelector('#question-modal-overlay');
-
-        modalBox.classList.remove('active');
-        overlay.classList.remove('active');
-      }} id="question-modal-overlay"></div>
+      <div onClick={handleModal} id="question-modal-overlay"></div>
     </div>
   );
 };
