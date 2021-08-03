@@ -6,35 +6,37 @@ import AtelierAPI from '../../lib/atelierAPI.js';
 import '../../../dist/styles/questionsAnswers/AddAnswer.css';
 
 export default props => {
+  const dispatch = useDispatch();
   const product = useSelector(state => state.product.productInfo.name);
+
+  const handleModal = () => {
+    const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
+    const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
+
+    if (modalBox.classList.contains('active') && overlay.classList.contains('active')) {
+      modalBox.classList.remove('active');
+      overlay.classList.remove('active');
+
+      const inputs = document.querySelectorAll('.answer-input');
+      inputs.forEach(node => {
+        node.value = '';
+      });
+    } else {
+      modalBox.classList.add('active');
+      overlay.classList.add('active');
+    }
+  }
 
   return (
     <span id="qa-add-answer">
-      <div onClick={(e) => {
-        const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
-        const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
-
-        modalBox.classList.add('active');
-        overlay.classList.add('active');
-      }}>Add Answer</div>
+      <div onClick={handleModal}>Add Answer</div>
       <div id={`qa-answer-modal${props.i}`} className="answer-modal">
         <div className="answer-modal-header">
           <div>
           <div className="answer-modal-title">Submit your Answer!</div>
           <div className="answer-modal-subtitle">{`${product}: ${props.q}`}</div>
           </div>
-          <button onClick={() => {
-            const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
-            const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
-
-            modalBox.classList.remove('active');
-            overlay.classList.remove('active');
-
-            const inputs = document.querySelectorAll('.answer-input');
-            inputs.forEach(node => {
-              node.value = '';
-            });
-          }} className="answer-modal-close">&times;</button>
+          <button onClick={handleModal} className="answer-modal-close">&times;</button>
         </div>
         <div className="answer-modal-body">
           <form className="answer-modal-form" onSubmit={(e) => {
@@ -94,15 +96,7 @@ export default props => {
           </form>
         </div>
       </div>
-      <div onClick={() => {
-        const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
-        const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
-
-        modalBox.classList.remove('active');
-        overlay.classList.remove('active');
-
-        document.querySelectorAll('.answer-input').value = '';
-      }} id={`answer-modal-overlay${props.i}`}></div>
+      <div onClick={handleModal} id={`answer-modal-overlay${props.i}`}></div>
     </span>
   );
 };
