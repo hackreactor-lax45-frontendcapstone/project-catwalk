@@ -70,8 +70,9 @@ const ReviewComponent = (props) => {
   return (
     <div className="review-component">
       {reviews.reviews.results.map((review, index) => {
+
         return (
-          <div key={index}>
+          <div className="review-component-tile" key={index}>
             <div className="review-tile-top">
 
               <span id="review-tile-star">
@@ -109,7 +110,7 @@ const ReviewComponent = (props) => {
 
               <div className="review-component-helpful">
                 <span className="helpful-col-1">Was this review helpful?</span>
-                <span id="helpful-yes" onClick={() => {
+                <span id={`helpful-yes-${index}` }onClick={() => {
                   axios(`${AtelierAPI.url}/reviews/${review.review_id}/helpful`, {
                     method: 'put',
                     headers: AtelierAPI.headers,
@@ -119,25 +120,25 @@ const ReviewComponent = (props) => {
                     })
                     .then(() => {
                       actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
-                      document.getElementById('helpful-yes').hidden = true;
-                      document.getElementById('helpful-yes-count').hidden = false;
-                      document.getElementById('helpful-no').hidden = true;
-                      document.getElementById('helpful-no-count').hidden = false;
+                      document.getElementById(`helpful-yes-${index}`).hidden = true;
+                      document.getElementById(`helpful-yes-count-${index}`).hidden = false;
+                      document.getElementById(`helpful-no-${index}`).hidden = true;
+                      document.getElementById(`helpful-no-count-${index}`).hidden = false;
                     })
                     .catch(err=> console.log(err));
                   }}
                 >{`    Yes (${review.helpfulness})`}</span>
-                <span id='helpful-yes-count' hidden>{`    Yes (${review.helpfulness})`}</span>
+                <span id={`helpful-yes-count-${index}`} hidden>{`    Yes (${review.helpfulness})`}</span>
 
-                <span id="helpful-no" onClick={() => {
+                <span id={`helpful-no-${index}`} onClick={() => {
                   incrementCount(noClickCount + 1);
-                  document.getElementById('helpful-yes').hidden = true;
-                  document.getElementById('helpful-yes-count').hidden = false;
-                  document.getElementById('helpful-no').hidden = true;
-                  document.getElementById('helpful-no-count').hidden = false;
+                  document.getElementById(`helpful-yes-${index}`).hidden = true;
+                  document.getElementById(`helpful-yes-count-${index}`).hidden = false;
+                  document.getElementById(`helpful-no-${index}`).hidden = true;
+                  document.getElementById(`helpful-no-count-${index}`).hidden = false;
                 }}>{`   No (${noClickCount})`}</span>
 
-                <span id='helpful-no-count' hidden>{`    No (${noClickCount})`}</span>
+                <span id={`helpful-no-count-${index}`} hidden>{`    No (${noClickCount})`}</span>
 
               </div>
 

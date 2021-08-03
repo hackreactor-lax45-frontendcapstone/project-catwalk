@@ -1,8 +1,7 @@
 #body-reviews {
   display: flex;
-  background-color: rgb(126, 240, 234);
   flex-direction: column;
-  height: 500px;
+  height: 400px;
   margin: 10px 0;
 }
 
@@ -16,7 +15,6 @@
 
 #review-top-left {
  font-size: 25px;
- background-color: rgb(173, 216, 55);
  text-align: center;
  flex: 1;
 }
@@ -41,7 +39,6 @@
 #review-bottom {
   display: flex;
   flex-direction: row;
-  background-color: blanchedalmond;
   height: 70%;
 }
 
@@ -52,8 +49,6 @@
 }
 
 .review-list {
-  background-color: rgb(219, 190, 247);
-  height: 90%;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -81,8 +76,13 @@
 .review-component {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
+}
 
+.review-component-tile {
+  border: 1px #002e2c solid;
+  margin-bottom: 5px;
+  padding: 3px;
 }
 
 .review-tile-top {
@@ -106,7 +106,7 @@
 
 /* ===========Helpful================ */
 
-#helpful-yes:hover, #helpful-no:hover {
+span[id^="helpful-yes-"]:hover, span[id^="helpful-no-"]:hover {
   color:#035e7b;
   cursor: pointer;
 }
@@ -138,6 +138,7 @@ img[id^="thumbnail-"] {
   max-width: 100px;
   min-width: 100px;
   margin: 5px;
+  cursor: pointer;
 }
 
 
