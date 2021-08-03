@@ -97,14 +97,29 @@ const ReviewComponent = (props) => {
             <div className="review-thumbnails">
               {review.photos.map((photo, index) => {
                 return (
-                  <div key={`t-${index}`}className="thumbnail-container">
+                  <div key={`t-${index}`} className="thumbnail-container">
                     <img src={photo.url}
-                    id={`thumbnail-${photo.id}`}>
+                    id={`thumbnail-${photo.id}`} onClick={() => {
+                      const modal = document.getElementById('thumbnail-modal');
+                      modal.style.display = 'block';
+                    }}>
                     </img>
+                  <div id="thumbnail-modal" className="thumbnail-modal">
+                    <div className="thumbnail-modal-content">
+                      <div onClick={() => {
+                        const modal = document.getElementById('thumbnail-modal');
+                      modal.style.display = 'none';
+                    }}
+                      id="close-thumbnail-modal">
+                        &times;</div>
+                      <img src={photo.url}></img>
+                    </div>
+                  </div>
                   </div>
                 );
               })}
             </div>
+
 
               <div className="review-recommend">{isRecommended(review.recommend)}</div>
 
