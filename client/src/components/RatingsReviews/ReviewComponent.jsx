@@ -100,14 +100,14 @@ const ReviewComponent = (props) => {
                   <div key={`t-${index}`} className="thumbnail-container">
                     <img src={photo.url}
                     id={`thumbnail-${index}`} onClick={() => {
-                      const modal = document.getElementById(`thumbnail-modal-${index}`);
+                      const modal = document.getElementById(`thumbnail-modal-${review.review_id}-${index}`);
                       modal.style.display = 'block';
                     }}>
                     </img>
-                  <div id={`thumbnail-modal-${index}`} className="thumbnail-modal">
+                  <div id={`thumbnail-modal-${review.review_id}-${index}`} className="thumbnail-modal">
                     <div className="thumbnail-modal-content">
                       <div onClick={() => {
-                        const modal = document.getElementById(`thumbnail-modal-${index}`);
+                        const modal = document.getElementById(`thumbnail-modal-${review.review_id}-${index}`);
                       modal.style.display = 'none';
                     }}
                       id="close-thumbnail-modal">
