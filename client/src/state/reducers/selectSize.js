@@ -3,8 +3,7 @@ import Redux from 'redux';
 const initialState = {
   size: '',
   qty: 0,
-  isSizeSelected: false,
-  isOutofStock: false
+  isSizeSelected: false
 };
 
 const reducer = (state = initialState, action) => {

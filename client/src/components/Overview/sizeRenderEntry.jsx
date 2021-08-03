@@ -20,6 +20,7 @@ var SizeRenderEntry = function(props) {
 
   //if there's no remaining stock, the dropdown become inactive and read 'OUT OF STOCK"
   if (final.length === 0) {
+    props.setIsOutofStock(true)
     return (
       <select disabled="outofstock" id="dropdown-size">
         <option>OUT OF STOCK</option>
