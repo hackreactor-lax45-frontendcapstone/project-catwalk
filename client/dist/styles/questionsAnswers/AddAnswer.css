@@ -64,7 +64,7 @@
   pointer-events: all;
 }
 
-#answer-modal-form {
+.answer-modal-form {
   display: flex;
   flex-direction: column;
 }
@@ -79,7 +79,7 @@
   font-style: italic;
 }
 
-#answer-modal-submit {
+.answer-modal-submit {
   display: flex;
   align-self: center;
   justify-content: center;
@@ -90,12 +90,12 @@
   color: #eff1c5;
 }
 
-#answer-modal-submit:hover {
+.answer-modal-submit:hover {
   color: #002e2c;
 }
 
-#answer-modal-form input,
-#answer-modal-form textarea {
+#qa-answer-modal input,
+#qa-answer-modal textarea {
   background-color: #eff1c5;
   border-color: #002e2c;
   border-width: 2px;
@@ -103,8 +103,8 @@
   border-style: solid;
 }
 
-#answer-modal-form input:focus,
-#answer-modal-form textarea:focus {
+.answer-modal-form input:focus,
+.answer-modal-form textarea:focus {
   outline: none !important;
   border-color: #035e7b;
   box-shadow: 0 0 4px #035e7b;
@@ -119,7 +119,7 @@
   transform: scale(1.2);
 }
 
-#answer-modal-form input::placeholder {
+.answer-modal-form input::placeholder {
   color: #035e7b;
   opacity: 0.5;
 }

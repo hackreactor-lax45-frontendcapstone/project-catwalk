@@ -21,7 +21,7 @@ export default props => {
         <div className="answer-modal-header">
           <div>
           <div className="answer-modal-title">Submit your Answer!</div>
-          <div className="answer-modal-subtitle">{`${product}`}</div>
+          <div className="answer-modal-subtitle">{`${product}: ${props.i}`}</div>
           </div>
           <button onClick={() => {
             const modalBox = document.querySelector('#qa-answer-modal');
@@ -30,10 +30,14 @@ export default props => {
             modalBox.classList.remove('active');
             overlay.classList.remove('active');
 
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(node => {
+              node.value = '';
+            });
           }} className="answer-modal-close">&times;</button>
         </div>
         <div className="answer-modal-body">
-          <form id="answer-modal-form" onSubmit={(e) => {
+          <form className="answer-modal-form" onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
             const data = {};
@@ -56,7 +60,7 @@ export default props => {
             <textarea
               type="text"
               id={`answer-modal-answer${props.i}`}
-              className="answer-modal-textarea"
+              className="answer-modal-textarea answer-input"
               name="body"
               required
               maxLength="1000"
@@ -66,6 +70,7 @@ export default props => {
             <input
               type="text"
               id={`answer-modal-nickname${props.i}`}
+              className="answer-input"
               name="name"
               required
               maxLength="60"
@@ -76,15 +81,16 @@ export default props => {
             <input
               type="email"
               id={`answer-modal-email${props.i}`}
+              className="answer-input"
               name="email"
               required
               maxLength="60"
               placeholder="Example: jack@email.com"
               ></input>
             <div className="answer-modal-disclaimer">For authentication reasons, you will not be emailed</div>
-            {/* <label>Upload Photos</label> */}
-            {/* <input type="file" name="photos"></input> */}
-            <button id="answer-modal-submit" type="submit">Submit</button>
+            <label>Upload Photos</label>
+            <input className="answer-input" type="file" name="photos" multiple></input>
+            <button className="answer-modal-submit" type="submit">Submit</button>
           </form>
         </div>
       </div>
@@ -94,6 +100,8 @@ export default props => {
 
         modalBox.classList.remove('active');
         overlay.classList.remove('active');
+
+        document.querySelectorAll('.answer-input').value = '';
       }} id="answer-modal-overlay"></div>
     </span>
   );
