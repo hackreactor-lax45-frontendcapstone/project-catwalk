@@ -113,9 +113,31 @@
 
 
 /* ===========Review Thumbnail Pic======== */
+.review-thumbnails {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: center;
+  box-sizing: border-box;
+  margin: 5px;
+  justify-content: flex-start;
+}
 
-.review-component-thumbnail {
+.thumbnail-container {
+  /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  width: 140px;
+}
 
+img[id^="thumbnail-"] {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  height: 90px;
+  max-width: 100px;
+  min-width: 100px;
+  margin: 5px;
 }
 
 

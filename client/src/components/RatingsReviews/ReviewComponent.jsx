@@ -93,6 +93,18 @@ const ReviewComponent = (props) => {
             {renderShowMoreButton(review.body, index)}
             <div id={`review-fullbody-${index}`} hidden>{review.body}</div>
 
+            <div className="review-thumbnails">
+              {review.photos.map((photo, index) => {
+                return (
+                  <div key={`t-${index}`}className="thumbnail-container">
+                    <img src={photo.url}
+                    id={`thumbnail-${photo.id}`}>
+                    </img>
+                  </div>
+                );
+              })}
+            </div>
+
               <div className="review-recommend">{isRecommended(review.recommend)}</div>
 
               <div className="review-component-helpful">
