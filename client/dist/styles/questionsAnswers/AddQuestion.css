@@ -1,0 +1,125 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#qa-question-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 2px solid #002e2c;
+  border-radius: 8px;
+  z-index: 20;
+  background-color: #eff1c5;
+  width: 500px;
+  max-width: 60%;
+  color: #002e2c;
+}
+
+#qa-question-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.question-modal-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #002e2c;
+}
+
+.question-modal-header .question-modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.question-modal-header .question-modal-close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.question-modal-body {
+  padding: 10px;
+}
+
+#question-modal-overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 46, 44, .6);
+  pointer-events: none;
+}
+
+#question-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#question-modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-modal-textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.question-modal-disclaimer {
+  font-size: 10px;
+  font-style: italic;
+}
+
+#question-modal-submit {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 33.3%;
+  border-color: #035e7b;
+  border-radius: 4px;
+  background-color: #035e7b;
+  color: #eff1c5;
+}
+
+#question-modal-submit:hover {
+  color: #002e2c;
+}
+
+#question-modal-form input,
+#question-modal-form textarea {
+  background-color: #eff1c5;
+  border-color: #002e2c;
+  border-width: 2px;
+  border-radius: 4px;
+  border-style: solid;
+}
+
+#question-modal-form input:focus,
+#question-modal-form textarea:focus {
+  outline: none !important;
+  border-color: #035e7b;
+  box-shadow: 0 0 4px #035e7b;
+}
+
+.question-modal-close {
+  color: #035e7b;
+  transition: all .1s ease-in-out;
+}
+
+.question-modal-close:hover {
+  transform: scale(1.2);
+}
+
+#question-modal-form input::placeholder {
+  color: #035e7b;
+  opacity: 0.5;
+}
