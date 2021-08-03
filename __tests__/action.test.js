@@ -49,4 +49,14 @@ describe('Actions', () => {
       .catch(err => expect(err).toEqual('THIS_SHOULD_NOT_RUN'));
   });
 
+  it('selectOutfits - expects to receive select outfits action', () => {
+    let outfit = { product: 16060 };
+    store.dispatch(Actions.selectOutfits.addOutfit(outfit));
+    expect(store.getActions()[0].payload).toEqual(outfit);
+
+    let index = 0;
+    store.dispatch(Actions.selectOutfits.removeOutfit(index));
+    expect(store.getActions()[1].payload).toEqual(index);
+  });
+
 });

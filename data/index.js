@@ -2741,4 +2741,4 @@ export default {
       }
     }
   }
-}
+};
