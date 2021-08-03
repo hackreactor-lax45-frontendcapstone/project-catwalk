@@ -14,7 +14,7 @@ export default props => {
 
   //***********************SEARCH_BAR ******************************//
   const filterQuestions = (questions, query) => {
-    if (!query) {
+    if (!query || query.length < 3) {
         return questions;
     }
     return questions.filter((question) => {
@@ -25,6 +25,8 @@ export default props => {
   const { search } = window.location;
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
+
+
   //*******************************************************************//
 
 
@@ -60,7 +62,7 @@ export default props => {
       <div id='question-list-top'>
       <SearchQuestions
         searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}/>
+        setSearchQuery = {setSearchQuery} />
       </div>
       <div id='question-list-mid'>
         {filteredQuestions.map((question, i) => {
