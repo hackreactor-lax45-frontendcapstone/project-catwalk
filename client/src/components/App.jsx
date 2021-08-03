@@ -12,7 +12,7 @@ import actions from '../state/actions/index.js';
 
 export default (props) => {
 
-  const product = useSelector(state => state.product.productID) || 16062;
+  const product = useSelector(state => state.product.productID) || 16065;
 
   const dispatch = useDispatch();
   useEffect(() => {
