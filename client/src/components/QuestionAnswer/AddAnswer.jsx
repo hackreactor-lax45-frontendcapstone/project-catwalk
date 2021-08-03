@@ -33,12 +33,11 @@ export default props => {
           }} className="answer-modal-close">&times;</button>
         </div>
         <div className="answer-modal-body">
-          <form onSubmit={(e) => {
+          <form id="answer-modal-form" onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
             const data = {};
             formData.forEach((value, property) => data[property] = value);
-            console.log(data);
 
             axios(`${AtelierAPI.url}/qa/questions/${props.i}/answers`, {
               method: 'post',
@@ -72,7 +71,7 @@ export default props => {
               maxLength="60"
               placeholder="Example: jack543!"
             ></input>
-            <div>For privacy reasons, do not use your full name or email address</div>
+            <div className="answer-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
             <label htmlFor={`answer-modal-email${props.i}`}></label>
             <input
               type="email"
@@ -82,10 +81,10 @@ export default props => {
               maxLength="60"
               placeholder="Example: jack@email.com"
               ></input>
-            <div>For authentication reasons, you will not be emailed</div>
+            <div className="answer-modal-disclaimer">For authentication reasons, you will not be emailed</div>
             {/* <label>Upload Photos</label> */}
             {/* <input type="file" name="photos"></input> */}
-            <button type="submit">Submit</button>
+            <button id="answer-modal-submit" type="submit">Submit</button>
           </form>
         </div>
       </div>

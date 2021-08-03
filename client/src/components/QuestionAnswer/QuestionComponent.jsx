@@ -17,8 +17,6 @@ export default props => {
   const answers = useSelector(state => state.answers[question.question_id]);
   const product = useSelector(state => state.product.productId);
 
-  const q = question.question_id;
-
   if (answers) {
   return (
     <div id="qa-individual">
@@ -99,7 +97,7 @@ export default props => {
               .catch(err => console.error(err));
               e.target.innerHTML = 'Reported';
           }}>Report</span> */}
-          <AddAnswer i={q}/>
+          <AddAnswer i={question.question_id} q={question.question_body}/>
         </span>
       </div>
     </div>
