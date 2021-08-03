@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-#qa-answer-modal {
+div[id^="qa-answer-modal"] {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -17,7 +17,7 @@
   color: #002e2c;
 }
 
-#qa-answer-modal.active {
+div[id^="qa-answer-modal"].active {
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -47,7 +47,7 @@
   padding: 10px;
 }
 
-#answer-modal-overlay {
+div[id^="answer-modal-overlay"] {
   position: fixed;
   opacity: 0;
   transition: 200ms ease-in-out;
@@ -59,7 +59,7 @@
   pointer-events: none;
 }
 
-#answer-modal-overlay.active {
+div[id^="answer-modal-overlay"].active {
   opacity: 1;
   pointer-events: all;
 }
@@ -94,8 +94,8 @@
   color: #002e2c;
 }
 
-#qa-answer-modal input,
-#qa-answer-modal textarea {
+div[id^="qa-answer-modal"] input,
+div[id^="qa-answer-modal"] textarea {
   background-color: #eff1c5;
   border-color: #002e2c;
   border-width: 2px;

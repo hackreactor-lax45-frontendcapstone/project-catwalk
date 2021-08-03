@@ -11,21 +11,21 @@ export default props => {
   return (
     <span id="qa-add-answer">
       <div onClick={(e) => {
-        const modalBox = document.querySelector('#qa-answer-modal');
-        const overlay = document.querySelector('#answer-modal-overlay');
+        const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
+        const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
 
         modalBox.classList.add('active');
         overlay.classList.add('active');
       }}>Add Answer</div>
-      <div id="qa-answer-modal" className="answer-modal">
+      <div id={`qa-answer-modal${props.i}`} className="answer-modal">
         <div className="answer-modal-header">
           <div>
           <div className="answer-modal-title">Submit your Answer!</div>
-          <div className="answer-modal-subtitle">{`${product}: ${props.i}`}</div>
+          <div className="answer-modal-subtitle">{`${product}: ${props.q}`}</div>
           </div>
           <button onClick={() => {
-            const modalBox = document.querySelector('#qa-answer-modal');
-            const overlay = document.querySelector('#answer-modal-overlay');
+            const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
+            const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
 
             modalBox.classList.remove('active');
             overlay.classList.remove('active');
@@ -95,14 +95,14 @@ export default props => {
         </div>
       </div>
       <div onClick={() => {
-        const modalBox = document.querySelector('#qa-answer-modal');
-        const overlay = document.querySelector('#answer-modal-overlay');
+        const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
+        const overlay = document.querySelector(`#answer-modal-overlay${props.i}`);
 
         modalBox.classList.remove('active');
         overlay.classList.remove('active');
 
         document.querySelectorAll('.answer-input').value = '';
-      }} id="answer-modal-overlay"></div>
+      }} id={`answer-modal-overlay${props.i}`}></div>
     </span>
   );
 };
