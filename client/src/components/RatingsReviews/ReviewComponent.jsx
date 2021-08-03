@@ -1,16 +1,21 @@
 /* eslint-disable indent */
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import actions from '../../state/actions/index.js';
+import axios from 'axios';
+import AtelierAPI from '../../lib/atelierAPI.js';
 
-const ReviewComponent = () => {
+const ReviewComponent = (props) => {
+  const dispatch = useDispatch();
   const reviews = useSelector((state) => {
     return {
       reviews: state.reviews.reviewInfo,
       metadata: state.reviews.metadataInfo
     };
   });
+
+  const [noClickCount, incrementCount] = useState(0);
 
   const renderShowMoreButton = (body, index) => {
     if (body.length > 250) {
@@ -92,8 +97,23 @@ const ReviewComponent = () => {
 
               <div className="review-component-helpful">
                 <div className="helpful-col-1">Was this review helpful?</div>
-                <div className="helpful-col-2">Yes ({review.helpfulness})</div>
-                <div className="helpful-col-3">No (#)</div>
+                <div className="helpful-col-2" onClick={() => {
+                      axios(`${AtelierAPI.url}/reviews/${review.review_id}/helpful`, {
+                        method: 'put',
+                        headers: AtelierAPI.headers,
+                        data: {
+                          helpfulness: review.helpfulness + 1
+                        }
+                      })
+                      .then(() => {
+                        actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
+                      })
+                      .catch(err=> console.log(err));
+                }}
+                      >{`Yes (${review.helpfulness})`}</div>
+                <div className="helpful-col-3" onClick={() => {
+                  incrementCount(noClickCount + 1);
+                }}>{`No (${noClickCount})`}</div>
               </div>
 
             </div>
