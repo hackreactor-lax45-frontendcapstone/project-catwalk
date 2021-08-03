@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import React, { useState } from 'react';
 import ReviewComponent from './ReviewComponent.jsx';
+import AddAReview from './AddAReview.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../state/actions/index.js';
 
@@ -33,9 +34,7 @@ const ReviewList = (props) => {
             }
           }
         }} >More Reviews</button>
-        <button className="write-reviews-button">
-          Write New Review
-        </button>
+          <AddAReview />
 
       </div>
     </div>
