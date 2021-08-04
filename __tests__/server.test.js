@@ -62,7 +62,6 @@ describe('Products endpoint', () => {
 
 });
 
-
 describe('Reviews endpoint', () => {
 
   const reviewsData = mockData.reviews;
@@ -75,6 +74,42 @@ describe('Reviews endpoint', () => {
       .then(response => {
         let data = response.body;
         expect(data.product.toString()).toEqual(reviewsData.list.product);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('GET /api/reviews/meta', done => {
+    request(app)
+      .get('/api/reviews/meta')
+      .query({ product_id: PRODUCT })
+      .expect(200)
+      .then(response => {
+        let data = response.body;
+        expect(data.product_id.toString()).toEqual(reviewsData.meta.product_id);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('POST /api/reviews/meta', done => {
+    request(app)
+      .post('/api/reviews/review')
+      .send({
+        'product_id': 16060,
+        'rating': 4,
+        'summary': 'This is good',
+        'body': '',
+        'recommend': true,
+        'name': 'Anonymous',
+        'email': 'anonymous@gmail.com',
+        'photos': ['image.png'],
+        'characteristics': { '53854': 5 }
+      })
+      .expect(201)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual('Created');
       })
       .catch(err => console.error(err))
       .finally(() => done());

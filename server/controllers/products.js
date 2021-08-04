@@ -5,7 +5,7 @@ const URL = API.products;
 const HEADERS = API.headers;
 
 /*
-    /api/products/
+    /api/products
 */
 module.exports = {
   list: (req, res) => {
@@ -18,7 +18,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(response.status).json('Unable to retrieve products from \'/products/list\'');
+        res.status(404).json('Unable to retrieve products from \'/products/list\'');
       });
   },
   product: (req, res) => {
@@ -31,7 +31,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(response.status).json('Unable to retrieve products from \'/products/:product_id\'');
+        res.status(404).json('Unable to retrieve products from \'/products/:product_id\'');
       });
   },
   styles: (req, res) => {
@@ -44,7 +44,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(response.status).json('Unable to retrieve products from \'/products/:product_id/styles\'');
+        res.status(404).json('Unable to retrieve products from \'/products/:product_id/styles\'');
       });
   },
   related: (req, res) => {
@@ -57,7 +57,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(response.status).json('Unable to retrieve products from \'/products/:product_id/related\'');
+        res.status(404).json('Unable to retrieve products from \'/products/:product_id/related\'');
       });
   },
 };
