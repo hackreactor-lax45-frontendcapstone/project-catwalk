@@ -14,6 +14,7 @@ export default props => {
   const question = props.question;
   const answers = useSelector(state => state.answers[question.question_id]);
   const product = useSelector(state => state.product.productID);
+  console.log(product);
 
   const isSeller = () => {
     const options = [true, false];
@@ -29,14 +30,14 @@ export default props => {
           <div id="qa-answer">
             {answers.results.map((answer, i) => {
               return (
-                <div key={answer.answer_id}>
+                <div className="qa-in-answer" key={answer.answer_id}>
                   <div id="qa-answer-body">{i === 0 ? `A: ${answer.body}` : `${answer.body}`}</div>
                   <div id="qa-answer-info">
                     <span id="qa-answer-user">{`by ${answer.answerer_name} ${isSeller() ? 'Seller' : ''}, `}</span>
                     <span id="qa-answer-date">{`${moment(answer.date).format('MMMM, DD YYYY')} | `}</span>
                     <span id="qa-answer-help">
                       <span>Helpful? </span>
-                      <span onClick={() => {
+                      <span className="qa-answer-yes" onClick={() => {
                         axios(`${AtelierAPI.url}/qa/answers/${answer.answer_id}/helpful`, {
                           method: 'put',
                           headers: AtelierAPI.headers,
@@ -57,14 +58,16 @@ export default props => {
                           reported: true
                         }
                       })
-                        .then(res => actions.getAnswers(dispatch, question.question_id, 1, Object.keys(question.answers).length))
-                        .catch(err => console.error(err));
+                        .then(res => {
+                          actions.getAnswers(dispatch, question.question_id, 1, Object.keys(question.answers).length)
+                        })
+                          .catch(err => console.error(err));
                     }}>Report</span>
                   </div>
                 </div>
               )
             })}
-            <div onClick={(e) => {
+            <div className={Object.keys(question.answers).length <= 2 ? 'see-more-hidden' : ''} onClick={(e) => {
               if (e.target.innerHTML === 'See More Answers') {
                 actions.getAnswers(dispatch, question.question_id, 1, Object.keys(question.answers).length);
                 e.target.innerHTML = 'Collapse Answers';
