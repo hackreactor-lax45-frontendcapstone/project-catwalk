@@ -3,6 +3,9 @@ const router = express.Router();
 
 const reviews = require('../controllers/reviews');
 
+/*
+    /api/reviews
+*/
 router
   .get('/', reviews.list)
   .get('/meta', reviews.meta);

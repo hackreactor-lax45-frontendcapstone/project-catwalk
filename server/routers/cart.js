@@ -3,6 +3,9 @@ const router = express.Router();
 
 const cart = require('../controllers/cart');
 
+/*
+    /api/cart
+*/
 router
   .get('/', cart.list);
 

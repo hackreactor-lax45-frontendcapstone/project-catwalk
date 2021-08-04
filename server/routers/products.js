@@ -3,6 +3,9 @@ const router = express.Router();
 
 const products = require('../controllers/products');
 
+/*
+    /api/products
+*/
 router
   .get('/', products.list)
   .get('/product', products.product)

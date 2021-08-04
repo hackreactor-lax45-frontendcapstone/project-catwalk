@@ -3,6 +3,9 @@ const router = express.Router();
 
 const questions = require('../controllers/questions');
 
+/*
+    /api/questions
+*/
 router
   .get('/', questions.list)
   .get('/answers', questions.answers);

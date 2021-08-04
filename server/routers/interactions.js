@@ -3,6 +3,9 @@ const router = express.Router();
 
 const interactions = require('../controllers/interactions');
 
+/*
+    /api/interactions
+*/
 router
   .post('/', interactions.add);
 
