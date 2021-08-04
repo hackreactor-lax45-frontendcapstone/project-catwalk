@@ -112,16 +112,16 @@ const AddAReview = () => {
               <label>
                 Yes
                 <input type='radio'
-                       value='Yes'
-                       checked={radio === 'Yes'}
-                       onChange={(e)=>{setRadio(e.target.value)}}/>
+                  value='Yes'
+                  checked={radio === 'Yes'}
+                  onChange={(e)=>{ setRadio(e.target.value); }}/>
               </label>
               <label>
                 No
                 <input type='radio'
-                       value='No'
-                       checked={radio === 'No'}
-                       onChange={(e)=>{setRadio(e.target.value)}}/>
+                  value='No'
+                  checked={radio === 'No'}
+                  onChange={(e)=>{ setRadio(e.target.value); }}/>
               </label>
             </div>
 
