@@ -12,3 +12,6 @@ bundle.js
 
 #coverage
 coverage/
+
+#deployment
+*.pem

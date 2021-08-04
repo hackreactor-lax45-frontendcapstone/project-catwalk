@@ -8,8 +8,8 @@ const products = require('../controllers/products');
 */
 router
   .get('/list', products.list)
-  .get('/product/:product_id', products.product)
-  .get('/styles/:product_id', products.styles)
-  .get('/related/:product_id', products.related);
+  .get('/:product_id', products.product)
+  .get('/:product_id/styles', products.styles)
+  .get('/:product_id/related', products.related);
 
 module.exports = router;
