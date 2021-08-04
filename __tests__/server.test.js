@@ -92,9 +92,9 @@ describe('Reviews endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/reviews/meta', done => {
+  it('POST /api/reviews/create', done => {
     request(app)
-      .post('/api/reviews/review')
+      .post('/api/reviews/create')
       .send({
         'product_id': 16060,
         'rating': 4,
@@ -110,6 +110,32 @@ describe('Reviews endpoint', () => {
       .then(response => {
         let data = response.body;
         expect(data).toEqual('Created');
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('PUT /api/reviews/helpful', done => {
+    request(app)
+      .put('/api/reviews/helpful')
+      .query({ review_id: 289100 })
+      .expect(204)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual({});
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('PUT /api/reviews/report', done => {
+    request(app)
+      .put('/api/reviews/report')
+      .query({ review_id: 288110 })
+      .expect(204)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual({});
       })
       .catch(err => console.error(err))
       .finally(() => done());

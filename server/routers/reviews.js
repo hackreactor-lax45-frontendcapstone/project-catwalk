@@ -11,7 +11,7 @@ router
   .get('/meta', reviews.meta);
 
 router
-  .post('/review', reviews.create);
+  .post('/create', reviews.create);
 
 router
   .put('/helpful', reviews.helpful)

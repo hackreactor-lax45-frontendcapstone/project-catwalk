@@ -19,7 +19,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/reviews/list\'');
+        res.status(404).json('Unable to retrieve reviews from \'/reviews/list\'');
       });
   },
   meta: (req, res) => {
@@ -33,7 +33,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/reviews/meta\'');
+        res.status(404).json('Unable to retrieve review metadata from \'/reviews/meta\'');
       });
   },
   create: (req, res) => {
@@ -44,17 +44,36 @@ module.exports = {
       headers: HEADERS,
     })
       .then(response => {
-        console.log(response.status);
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/reviews/meta\'');
+        res.status(404).json('Unable to create new post at \'/reviews\'');
       });
   },
   helpful: (req, res) => {
-    res.status(200).json('r/helpful');
+    axios({
+      url: `${URL}/${req.query.review_id}/helpful`,
+      method: 'put',
+      headers: HEADERS,
+    })
+      .then(response => {
+        res.status(response.status).json(response.data);
+      })
+      .catch(err => {
+        res.status(404).json('Unable to mark review helpful from \'/reviews/:id/helpful\'');
+      });
   },
   report: (req, res) => {
-    res.status(200).json('r/report');
+    axios({
+      url: `${URL}/${req.query.review_id}/report`,
+      method: 'put',
+      headers: HEADERS,
+    })
+      .then(response => {
+        res.status(response.status).json(response.data);
+      })
+      .catch(err => {
+        res.status(404).json('Unable to report view from \'/reviews/:id/report\'');
+      });
   },
 };
