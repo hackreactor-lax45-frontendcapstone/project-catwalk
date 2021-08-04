@@ -9,4 +9,4 @@ router
   .get('/styles', products.styles)
   .get('/related', products.related);
 
-export default router;
+module.exports = router;

@@ -14,4 +14,4 @@ router
   .put('/helpful', reviews.helpful)
   .put('/report', reviews.report);
 
-export default router;
+module.exports = router;

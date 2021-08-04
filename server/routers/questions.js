@@ -16,7 +16,7 @@ router
   .put('/q/report', questions.question.report);
 
 router
-  .put('/a/helpful', quetsions.answer.helpful)
+  .put('/a/helpful', questions.answer.helpful)
   .put('/a/report', questions.answer.report);
 
-export default router;
+module.exports = router;

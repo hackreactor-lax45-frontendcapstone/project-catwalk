@@ -14,4 +14,4 @@ router
   .use('/cart', cart)
   .use('/interactions', interactions);
 
-export default router;
+module.exports = router;

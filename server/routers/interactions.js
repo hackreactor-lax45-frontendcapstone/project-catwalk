@@ -6,4 +6,4 @@ const interactions = require('../controllers/interactions');
 router
   .post('/', interactions.add);
 
-export default router;
+module.exports = router;
