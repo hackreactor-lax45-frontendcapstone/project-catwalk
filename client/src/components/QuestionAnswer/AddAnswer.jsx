@@ -65,6 +65,9 @@ export default props => {
               className="answer-modal-textarea answer-input"
               name="body"
               required
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must enter the following: Your Answer');
+              }}
               maxLength="1000"
             ></textarea>
             <div id="answer-text-feedback">{}</div>
@@ -75,6 +78,9 @@ export default props => {
               className="answer-input"
               name="name"
               required
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must enter the following: Your Nickname');
+              }}
               maxLength="60"
               placeholder="Example: jack543!"
             ></input>
@@ -86,6 +92,12 @@ export default props => {
               className="answer-input"
               name="email"
               required
+              onInvalid={(e) => {
+                const checkValidity = e.target.validity;
+                checkValidity.valueMissing
+                ? e.target.setCustomValidity('You must enter the following: Your Email')
+                : e.target.setCustomValidity('Invalid Email Address');
+              }}
               maxLength="60"
               placeholder="Example: jack@email.com"
               ></input>
