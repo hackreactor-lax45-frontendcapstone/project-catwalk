@@ -11,6 +11,7 @@ import view from './setViews';
 import questions from './getQuestions';
 import answers from './getAnswers';
 import reviews from './setReviews';
+import filters from './selectFilters.js';
 
 const allReducers = {
   product, // object { productID: 16060, productInfo: { /products/:product_id }, styleInfo: { /products/:product_id/styles } }
@@ -23,7 +24,9 @@ const allReducers = {
   view, // object { default: (true = default view), zoomed: (false = expanded view) }
   questions, // boject
   answers,
-  reviews
+  reviews, //reviewInfo: { /reviews/}, metadataInfo: {/reviews/meta}
+  filters, // object with rating keys { 1: false}
+
 };
 
 export default combineReducers(allReducers);

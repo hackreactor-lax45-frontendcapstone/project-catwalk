@@ -16,7 +16,9 @@ const ReviewComponent = () => {
     };
   });
 
+  // const [filters, setFilters] = useState({ 1: false, 2: false, 3: false, 4: false, 5: false });
   const [noClickCount, incrementCount] = useState(0);
+
 
   const renderShowMoreButton = (body, index) => {
     if (body.length > 250) {
@@ -67,6 +69,22 @@ const ReviewComponent = () => {
     }
     return starPercentage;
   };
+
+  // right now your Reviews are stored in reviews.reviews.results
+  //line 87, always map through the array that returned from filterReviews function
+
+  // const filteredQuestions = filterQuestions(slicedQuestionArray, searchQuery);
+  // const filteredReviews = filterReviews(statearray, global state);
+
+  // const filterReviews = (statearray) => {
+  //   if (state.filters === all false) {
+  //     return statearray;
+  //   } else {
+  //     stateArray.filter = > {
+  //       return (condition)
+  //     }
+  //   }
+  // }
 
   return (
     <div className="review-component">

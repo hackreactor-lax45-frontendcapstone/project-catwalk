@@ -86,7 +86,6 @@ const AddAReview = () => {
               required></input>
             <div className="reviews-modal-disclaimer">For authentication reasons, you will not be emailed</div>
 
-
             <label>Summary:</label>
             <textarea
               name="summary"
@@ -124,9 +123,6 @@ const AddAReview = () => {
                   onChange={(e)=>{ setRadio(e.target.value); }}/>
               </label>
             </div>
-
-
-
 
             <button>Submit</button>
           </form>
