@@ -29,7 +29,7 @@ export default props => {
 
   return (
     <span id="qa-add-answer">
-      <div onClick={handleModal}>Add Answer</div>
+      <div id="add-answer-link" onClick={handleModal}>Add Answer</div>
       <div id={`qa-answer-modal${props.i}`} className="answer-modal">
         <div className="answer-modal-header">
           <div>
@@ -68,7 +68,7 @@ export default props => {
               maxLength="1000"
             ></textarea>
             <div id="answer-text-feedback">{}</div>
-            <label htmlFor={`answer-modal-nickname${props.i}`}>What is your nickname? *</label>
+            <label htmlFor={`answer-modal-nickname${props.i}`} className="answer-label">What is your nickname? *</label>
             <input
               type="text"
               id={`answer-modal-nickname${props.i}`}
@@ -79,7 +79,7 @@ export default props => {
               placeholder="Example: jack543!"
             ></input>
             <div className="answer-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
-            <label htmlFor={`answer-modal-email${props.i}`}></label>
+            <label htmlFor={`answer-modal-email${props.i}`} className="answer-label">Your Email * </label>
             <input
               type="email"
               id={`answer-modal-email${props.i}`}
@@ -90,8 +90,8 @@ export default props => {
               placeholder="Example: jack@email.com"
               ></input>
             <div className="answer-modal-disclaimer">For authentication reasons, you will not be emailed</div>
-            <label>Upload Photos</label>
-            <input className="answer-input" type="file" name="photos" multiple></input>
+            <label htmlFor={`answer-modal-img${props.i}`} className="answer-custom-upload">Upload Photos</label>
+            <input id={`answer-modal-img${props.i}`} className="answer-input answer-modal-img" type="file" name="photos" multiple></input>
             <button className="answer-modal-submit" type="submit">Submit</button>
           </form>
         </div>
