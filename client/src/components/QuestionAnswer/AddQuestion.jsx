@@ -17,6 +17,11 @@ export default props => {
     if (modalBox.classList.contains('active') && overlay.classList.contains('active')) {
       modalBox.classList.remove('active');
       overlay.classList.remove('active');
+
+      const inputs = document.querySelectorAll('.question-input');
+      inputs.forEach(node => {
+        node.value = '';
+      });
     } else {
       modalBox.classList.add('active');
       overlay.classList.add('active');
@@ -61,9 +66,12 @@ export default props => {
             <textarea
               type="text"
               id="question-modal-question"
-              className="question-modal-textarea"
+              className="question-modal-textarea question-input"
               name="body"
               required
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must enter the following: Your Question');
+              }}
               maxLength="1000"
             ></textarea>
             <label htmlFor="question-modal-nickname" className="question-label">What is your nickname? * </label>
@@ -73,6 +81,9 @@ export default props => {
               className="question-input"
               name="name"
               required
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must enter the following: Your Nickname');
+              }}
               maxLength="60"
               placeholder="Example: jackson11!"
             ></input>
@@ -84,6 +95,12 @@ export default props => {
               className="question-input"
               name="email"
               required
+              onInvalid={(e) => {
+                const checkValidity = e.target.validity;
+                checkValidity.valueMissing
+                ? e.target.setCustomValidity('You must enter the following: Your Email')
+                : e.target.setCustomValidity('Invalid Email Address');
+              }}
               maxLength="60"
               placeholder="Why did you like the product or not?"
             ></input>
