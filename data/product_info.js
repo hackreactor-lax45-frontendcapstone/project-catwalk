@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "id": 16060,
   "campus": "hr-lax",
   "name": "Heir Force Ones",

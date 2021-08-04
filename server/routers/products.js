@@ -7,9 +7,9 @@ const products = require('../controllers/products');
     /api/products
 */
 router
-  .get('/', products.list)
-  .get('/product', products.product)
-  .get('/styles', products.styles)
-  .get('/related', products.related);
+  .get('/list', products.list)
+  .get('/product/:product_id', products.product)
+  .get('/styles/:product_id', products.styles)
+  .get('/related/:product_id', products.related);
 
 module.exports = router;

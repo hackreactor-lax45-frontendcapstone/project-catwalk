@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   product: {
     productID: 16060,
     productInfo: {

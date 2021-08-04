@@ -1,3 +1,4 @@
+"use strict";
 /*
  * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
  * This devtool is neither made for production nor for readable output files.
@@ -14,8 +15,7 @@
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar TOKEN = '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';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TOKEN);\n\n//# sourceURL=webpack://project-catwalk/./client/src/config/config.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar TOKEN = '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';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TOKEN);\n\n//# sourceURL=webpack://project-catwalk/./client/src/config/config.js?");
 
 /***/ })
 

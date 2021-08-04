@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     "product_id": "16060",
     "results": [
         {

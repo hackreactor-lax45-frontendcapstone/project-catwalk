@@ -1,16 +1,45 @@
 const { app } = require('../server/index');
 const request = require('supertest');
+const mockProduct = require('../data/');
+const PRODUCT = 16060;
 
-describe('Products endpoint', () => {
+describe.only('Products endpoint', () => {
 
-  it('GET /api/products', done => {
+  it('GET /api/products/list', done => {
     request(app)
-      .get('/api/products')
+      .get('/api/products/list')
       .expect(200)
       .then(response => {
-        expect(response.body).toEqual('p/list');
-        done();
-      });
+        let data = response.body;
+        expect(data.length).not.toEqual(0);
+        expect(data[0].id).toEqual(16056);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('GET /api/products/product/:product_id', done => {
+    request(app)
+      .get(`/api/products/product/${PRODUCT}`)
+      .expect(200)
+      .then(response => {
+        let data = response.body;
+        expect(data.id).toEqual(mockData.product.productID);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('GET /api/products/styles/:product_id', done => {
+    request(app)
+      .get(`/api/products/styles/${PRODUCT}`)
+      .expect(200)
+      .then(response => {
+        let data = response.body;
+        expect(data.id).toEqual(mockData.product.productID);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
   });
 
 });

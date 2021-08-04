@@ -4,7 +4,7 @@ const SERVER = 'https://app-hrsei-api.herokuapp.com/api/fec2';
 const CAMPUS = 'hr-lax';
 const BASE_URL = `${SERVER}/${CAMPUS}`;
 
-export default {
+module.exports = {
   products: `${BASE_URL}/products`,
   reviews: `${BASE_URL}/reviews`,
   questions: `${BASE_URL}/qa/questions`,
