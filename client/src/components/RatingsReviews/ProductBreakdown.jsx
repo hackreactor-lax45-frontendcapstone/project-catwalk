@@ -2,6 +2,6 @@ import React from 'react';
 
 export default props => {
   return (
-    <div>ProductBreakdown</div>
+    <div className="product-breakdown">ProductBreakdown</div>
   );
 };

@@ -8,6 +8,9 @@ import quantity from './selectQuantity';
 import cart from './addToCart';
 import related from './setRelated';
 import view from './setViews';
+import questions from './getQuestions';
+import answers from './getAnswers';
+import reviews from './setReviews';
 
 const allReducers = {
   product, // object { productID: 16060, productInfo: { /products/:product_id }, styleInfo: { /products/:product_id/styles } }
@@ -18,6 +21,9 @@ const allReducers = {
   cart, // array of objects, each object representing a purchased product/style/size/qty
   related, // array of product_ids
   view, // object { default: (true = default view), zoomed: (false = expanded view) }
+  questions, // boject
+  answers,
+  reviews
 };
 
 export default combineReducers(allReducers);
