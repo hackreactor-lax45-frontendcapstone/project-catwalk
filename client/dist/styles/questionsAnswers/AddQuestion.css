@@ -57,6 +57,7 @@
   bottom: 0;
   background-color: rgb(0, 46, 44, .6);
   pointer-events: none;
+  z-index: 11;
 }
 
 #question-modal-overlay.active {
@@ -88,10 +89,13 @@
   border-radius: 4px;
   background-color: #035e7b;
   color: #eff1c5;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all .1s ease-in-out;
 }
 
 #question-modal-submit:hover {
-  color: #002e2c;
+  transform: scale(.97);
 }
 
 #question-modal-form input,
@@ -101,6 +105,12 @@
   border-width: 2px;
   border-radius: 4px;
   border-style: solid;
+  transition: all .1s ease-in-out;
+}
+
+#question-modal-form input:hover,
+#question-modal-form textarea:hover {
+  transform: scale(.99);
 }
 
 #question-modal-form input:focus,
@@ -122,4 +132,29 @@
 #question-modal-form input::placeholder {
   color: #035e7b;
   opacity: 0.5;
+}
+
+.question-input {
+  margin-top: 2px;
+}
+
+.question-label {
+  margin-top: 10px;
+}
+
+.question-modal-subtitle {
+  color: #035e7b;
+}
+
+#add-question-btn {
+  background-color: #002e2c;
+  border: #002e2c;
+  border-radius: 4px;
+  color: #eff1c5;
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+}
+
+#add-question-btn:hover {
+  transform: scale(.97);
 }

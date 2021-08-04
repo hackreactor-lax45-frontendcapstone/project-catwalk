@@ -25,7 +25,7 @@ export default props => {
 
   return (
     <div>
-      <button onClick={handleModal}>Ask A Question</button>
+      <button id="add-question-btn" onClick={handleModal}>Ask A Question</button>
       <div id="qa-question-modal" className="question-modal">
         <div className="question-modal-header">
           <div>
@@ -57,7 +57,7 @@ export default props => {
               })
               .catch(err => console.error(err))
           }} id="question-modal-form">
-            <label htmlFor="question-modal-question">Your Question * </label>
+            <label htmlFor="question-modal-question" className="question-label">Your Question * </label>
             <textarea
               type="text"
               id="question-modal-question"
@@ -66,20 +66,22 @@ export default props => {
               required
               maxLength="1000"
             ></textarea>
-            <label htmlFor="question-modal-nickname">What is your nickname? * </label>
+            <label htmlFor="question-modal-nickname" className="question-label">What is your nickname? * </label>
             <input
               type="text"
               id="question-modal-nickname"
+              className="question-input"
               name="name"
               required
               maxLength="60"
               placeholder="Example: jackson11!"
             ></input>
             <div className="question-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
-            <label>Your email * </label>
+            <label htmlFor="question-modal-email" className="question-label">Your email * </label>
             <input
               type="email"
               id="question-modal-email"
+              className="question-input"
               name="email"
               required
               maxLength="60"
