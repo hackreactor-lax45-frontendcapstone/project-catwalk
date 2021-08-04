@@ -6,12 +6,13 @@ import actions from '../../state/actions/index.js';
 import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
 
-const ReviewComponent = (props) => {
+const ReviewComponent = () => {
   const dispatch = useDispatch();
   const reviews = useSelector((state) => {
     return {
       reviews: state.reviews.reviewInfo,
-      metadata: state.reviews.metadataInfo
+      metadata: state.reviews.metadataInfo,
+      productId: state.product.productID
     };
   });
 
@@ -134,7 +135,7 @@ const ReviewComponent = (props) => {
                     }
                     })
                     .then(() => {
-                      actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
+                      actions.setReviews(dispatch, reviews.productId, 1, reviews.reviews.results.length, 'relevant');
                       document.getElementById(`helpful-yes-${index}`).hidden = true;
                       document.getElementById(`helpful-yes-count-${index}`).hidden = false;
                       document.getElementById(`helpful-no-${index}`).hidden = true;

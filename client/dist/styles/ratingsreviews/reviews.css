@@ -245,7 +245,7 @@ img[id^="thumbnail-"] {
 
 /* ===========Write A Review fillable=============== */
 
-.review-fillable-stars-1::before, .review-form-stars-2::before,  .review-form-stars-3::before,  .review-form-stars-4::before,  .review-form-stars-5::before {
+.review-fillable-stars-1::before, .review-fillable-stars-2::before,  .review-fillable-stars-3::before,  .review-fillable-stars-4::before,  .review-fillable-stars-5::before {
   content: "\f005";
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
