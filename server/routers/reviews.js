@@ -7,7 +7,7 @@ const reviews = require('../controllers/reviews');
     /api/reviews
 */
 router
-  .get('/', reviews.list)
+  .get('/list', reviews.list)
   .get('/meta', reviews.meta);
 
 router

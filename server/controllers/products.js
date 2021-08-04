@@ -1,4 +1,3 @@
-const express = require('express');
 const axios = require('axios');
 
 const API = require('../lib/AtelierAPI');
@@ -19,7 +18,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(response.status).json('Unable to retrieve products from \'/products\'');
+        res.status(response.status).json('Unable to retrieve products from \'/products/list\'');
       });
   },
   product: (req, res) => {
