@@ -178,7 +178,7 @@ img[id^="thumbnail-"] {
 
  /* ===========Write a Review modal======== */
 
- #review-modal-content {
+ /* #review-modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -203,8 +203,8 @@ img[id^="thumbnail-"] {
   height: 100%;
   overflow: auto;
   background-color: white;
-  /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
-}
+  background-color: rgba(0,0,0,0.4); Black w/ opacity
+} */
 
 
 /* ===========Review Star ratings======== */
