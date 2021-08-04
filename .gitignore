@@ -2,11 +2,13 @@
 *DS_Store
 
 ## node
-node_modules
+node_modules/
 
 ## private keys
 config.js
 
 ## build
 bundle.js
-node_modules/
+
+#coverage
+coverage/
