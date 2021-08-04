@@ -6,16 +6,19 @@ import actions from '../../state/actions/index.js';
 import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
 
-const ReviewComponent = (props) => {
+const ReviewComponent = () => {
   const dispatch = useDispatch();
   const reviews = useSelector((state) => {
     return {
       reviews: state.reviews.reviewInfo,
-      metadata: state.reviews.metadataInfo
+      metadata: state.reviews.metadataInfo,
+      productId: state.product.productID
     };
   });
 
+  // const [filters, setFilters] = useState({ 1: false, 2: false, 3: false, 4: false, 5: false });
   const [noClickCount, incrementCount] = useState(0);
+
 
   const renderShowMoreButton = (body, index) => {
     if (body.length > 250) {
@@ -66,6 +69,22 @@ const ReviewComponent = (props) => {
     }
     return starPercentage;
   };
+
+  // right now your Reviews are stored in reviews.reviews.results
+  //line 87, always map through the array that returned from filterReviews function
+
+  // const filteredQuestions = filterQuestions(slicedQuestionArray, searchQuery);
+  // const filteredReviews = filterReviews(statearray, global state);
+
+  // const filterReviews = (statearray) => {
+  //   if (state.filters === all false) {
+  //     return statearray;
+  //   } else {
+  //     stateArray.filter = > {
+  //       return (condition)
+  //     }
+  //   }
+  // }
 
   return (
     <div className="review-component">
@@ -134,7 +153,7 @@ const ReviewComponent = (props) => {
                     }
                     })
                     .then(() => {
-                      actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
+                      actions.setReviews(dispatch, reviews.productId, 1, reviews.reviews.results.length, 'relevant');
                       document.getElementById(`helpful-yes-${index}`).hidden = true;
                       document.getElementById(`helpful-yes-count-${index}`).hidden = false;
                       document.getElementById(`helpful-no-${index}`).hidden = true;
