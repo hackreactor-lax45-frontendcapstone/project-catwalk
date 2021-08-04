@@ -1,3 +1,16 @@
 #qa-individual {
   background-color: cornflowerblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
+#qa-question-report.disabled,
+span[id^="qa-question-yes"].disabled {
+  pointer-events: none;
+}
+
+/* #qa-answer {
+  max-height: 110px;
+  overflow-y: auto;
+} */
