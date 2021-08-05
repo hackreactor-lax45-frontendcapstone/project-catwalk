@@ -1,0 +1,32 @@
+
+.related-mid,
+.related-th-mid {
+  width: 20%;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+}
+
+.related-th {
+  width: 40%;
+}
+
+.related-td {
+  padding: 5px 0;
+}
+
+.related-header,
+.related-tr {
+  border-bottom: 1px black solid;
+}
+
+.related-tr:last-child {
+  border-bottom: none;
+}
+
+.related-th,
+.related-th-mid {
+  padding: 10px 0;
+  background-color: white;
+  position: sticky;
+  top: 0;
+}
