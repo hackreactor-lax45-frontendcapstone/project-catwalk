@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx webpack --config ./webpack.config.js --mode development -w & live-server --open=./client/dist/ --port=8000",
     "start": "npx webpack --config ./webpack.config.js --mode development -w & nodemon ./server/index.js",
-    "test": "jest --coverage",
+    "test": "jest --coverage  --testPathIgnorePatterns=server.test.js",
     "test:image": "jest ./__tests__/overview-image-gallery.test.js",
     "test:action": "jest ./__tests__/action.test.js --coverage",
     "test:server": "jest ./__tests__/server.test.js"
