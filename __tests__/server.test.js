@@ -141,7 +141,7 @@ describe('Reviews endpoint', () => {
 
 });
 
-describe.only('Questions endpoint', () => {
+describe('Questions endpoint', () => {
 
   const questionsData = mockData.questions;
 

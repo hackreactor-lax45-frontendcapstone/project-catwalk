@@ -4,15 +4,15 @@ import { create, act } from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
 import actions from '../client/src/state/actions/index';
-import initialState from '../data/index';
 import DefaultView from '../client/src/components/Overview/ImageGallery-Default.jsx';
 import ExpandedView from '../client/src/components/Overview/ImageGallery-Expanded.jsx';
-import { newStore, imageGalleryState } from './createStore';
+import { newStore } from './createStore';
+import mockData from '../data/store';
 
 const state = {
-  style: initialState.product.styleInfo.results[initialState.style],
-  thumbnail: initialState.thumbnail,
-  view: initialState.view,
+  style: mockData.product.styleInfo.results[mockData.style],
+  thumbnail: mockData.thumbnail,
+  view: mockData.view,
 };
 
 describe('Image Gallery (Default) Main', () => {
