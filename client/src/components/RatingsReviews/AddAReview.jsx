@@ -2,137 +2,253 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
-import '../../../dist//styles/ratingsreviews/reviews.css';
+import '../../../dist//styles/ratingsreviews/WriteReview.css';
 
-const AddAReview = () => {
-  const product = useSelector((state) => {
-    return {
-      id: state.product.productID,
-      name: state.product.productInfo.name
-    };
-  });
+export default props => {
+  const dispatch = useDispatch();
 
-  const [radio, setRadio] = useState('Yes');
+  const handleModal = () => {
+    const modalBox = document.querySelector('#write-review-modal');
+    const overlay = document.querySelector('#review-modal-overlay');
 
+    if (modalBox.classList.contains('active') && overlay.classList.contains('active')) {
+      modalBox.classList.remove('active');
+      overlay.classList.remove('active');
+
+      // const inputs = document.querySelectorAll('.question-input');
+      // inputs.forEach(node => {
+      //   node.value = '';
+      // });
+    } else {
+      modalBox.classList.add('active');
+      overlay.classList.add('active');
+    }
+  };
+
+  const ratings = [1, 2, 3, 4, 5];
+  const rText = ['star - "Poor"', 'stars - "Fair"', 'stars - "Average"', 'stars - "Good"', 'stars - "Great"'];
+
+  const [radio, setRadio] = useState('yes');
 
   return (
-    <div>
-      <button className="write-reviews-button"
-        onClick={(e)=> {
-          const modal = document.getElementById('reviews-modal');
-          modal.style.display = 'block';
-        }}
-      >Write New Review</button>
-
-      <div id="reviews-modal">
-        <div id="reviews-modal-content">
-
+    <div id="write-review">
+      <button id="write-review-btn" onClick={handleModal}>Write A Review</button>
+      <div id="write-review-modal" className="write-review-modal">
+        <div className="review-modal-header">
           <div>
-            <span onClick={() => {
-              const modal = document.getElementById('reviews-modal');
-              modal.style.display = 'none';
-            }} id="close-reviews-modal">&times;</span>
+            <div className="review-modal-title">Write Your Review</div>
+            <div className="review-modal-subtitle">About the PRODUCT_NAME_HERE</div>
           </div>
-          <form
-          // onSubmit={(e) => {
-          //   e.preventDefault();
-            // const formData = new FormData(e.target);
-            // const data = {};
-            // formData.forEach((value, property) => data[property] = value);
+          <button onClick={handleModal} className="review-modal-close">&times;</button>
+        </div>
+        <div className="review-modal-body">
+          <form id="review-modal-form">
+            <div> Overall Rating *
+              {ratings.map((rating, i) => {
+                return <span onClick={(e) => {
+                  const allStars = document.querySelectorAll('.review-modal-stars');
+                  allStars.forEach(star => star.classList.remove('filled'));
 
-            // axios(`${AtelierAPI.url}/reviews`, {
-            //   method: 'post',
-            //   headers: AtelierAPI.headers,
-            //   data: {
-            //     // product_id: ,
-            //     // rating: ,
-            //     // summary: ,
-            //     // body: ,
-            //     // recommend: ,
-            //     // name: ,
-            //     // email: ,
-            //     // photo: ,
-            //     // character: {
+                  e.target.classList.add('filled');
+                  for (let s = 0; s < i; s++) {
+                    let star = document.querySelector(`#review-modal-star${s}`);
+                    star.classList.add('filled');
+                  }
 
-            //     // }
-            //   }
-            // });
-          // }}
-          >
-            <span id="review-form-stars">
-              <span className="review-fillable-stars-1">
-                <span className="review-fillable-stars-inner"></span>
-              </span>
-              <span className="review-fillable-stars-2"></span>
-              <span className="review-fillable-stars-3"></span>
-              <span className="review-fillable-stars-4"></span>
-              <span className="review-fillable-stars-5"></span>
-
-            </span>
-
-            <label>Name:</label>
-            <input
-              id="write-name"
-              placeholder="Example: jackson11!"
-              maxLength="60"
-              required
-            ></input>
-            <div className="reviews-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
-
-            <label>Email:</label>
-            <input
-              id="write-email"
-              placeholder="Example: jackson11@email.com" maxLength="60"
-              required></input>
-            <div className="reviews-modal-disclaimer">For authentication reasons, you will not be emailed</div>
-
-            <label>Summary:</label>
-            <textarea
-              name="summary"
-              id="write-summary"
-              placeholder="Best purchase ever!" maxLength="60"
-            ></textarea>
-
-            <label>Body:</label>
-            <textarea
-
-              id="write-body"
-              placeholder="Why did you like the product or not?"
-              name="body"
-              required
-              minLength="50"
-              maxLength="1000"
-            ></textarea>
-            <div className="reviews-modal-body-count">Minimum required characters left: [##]</div>
-
-            <div>
-              Do you recommend this product?: {radio}
-              <br></br>
-              <label>
-                Yes
-                <input type='radio'
-                  value='Yes'
-                  checked={radio === 'Yes'}
-                  onChange={(e)=>{ setRadio(e.target.value); }}/>
-              </label>
-              <label>
-                No
-                <input type='radio'
-                  value='No'
-                  checked={radio === 'No'}
-                  onChange={(e)=>{ setRadio(e.target.value); }}/>
-              </label>
+                  let ratingText = document.querySelector('#rating-text');
+                  ratingText.innerHTML = `${ratings[i]} ${rText[i]}`;
+                }} id={`review-modal-star${i}`} className="review-modal-stars" key={i}></span>
+              })}
+              <span id="rating-text"></span>
             </div>
 
-            <button>Submit</button>
+            <div id="review-modal-recommend">
+              <div>Do you recommend this product? * </div>
+              <span onClick={() => setRadio('yes')}>
+                <input
+                  type="radio"
+                  id="review-modal-yes"
+                  name="review-modal-rec"
+                  value="yes"
+                  checked={radio === 'yes' && true}
+                  onChange={() => {}}
+                ></input>
+                <label htmlFor="review-modal-yes"> Yes</label>
+              </span>
+              <span onClick={() => setRadio('no')}>
+                <input
+                  type="radio"
+                  id="review-modal-no"
+                  name="review-modal-rec"
+                  value="no"
+                  checked={radio === 'no' && true}
+                  onChange={() => {}}
+                ></input>
+                <label htmlFor="review-modal-no"> No</label>
+              </span>
+            </div>
+
+            <div>CHARACTERISTICS</div>
+
+            <label htmlFor="review-modal-summary"></label>
+            <input
+              type="text"
+              id="review-modal-summary"
+              className="review-input"
+              name="summary"
+              maxLength="60"
+              placeholder="Example: Best purchase ever!"
+            ></input>
+
+            <label id="REVIEW_BODY"></label>
+            <textarea></textarea>
+
+            <div>UPLOAD_PHOTOS</div>
+
+            <label id="NICKNAME"></label>
+            <input></input>
+
+            <label id="EMAIL"></label>
+            <input></input>
+
+            <button type="submit"></button>
           </form>
         </div>
       </div>
+      <div onClick={handleModal} id="review-modal-overlay"></div>
     </div>
+  )
+}
+
+// const AddAReview = () => {
+//   const product = useSelector((state) => {
+//     return {
+//       id: state.product.productID,
+//       name: state.product.productInfo.name
+//     };
+//   });
+
+//   const [radio, setRadio] = useState('Yes');
+
+
+//   return (
+//     <div>
+//       <button className="write-reviews-button"
+//         onClick={(e)=> {
+//           const modal = document.getElementById('reviews-modal');
+//           modal.style.display = 'block';
+//         }}
+//       >Write New Review</button>
+
+//       <div id="reviews-modal">
+//         <div id="reviews-modal-content">
+
+//           <div>
+//             <span onClick={() => {
+//               const modal = document.getElementById('reviews-modal');
+//               modal.style.display = 'none';
+//             }} id="close-reviews-modal">&times;</span>
+//           </div>
+//           <form
+//           // onSubmit={(e) => {
+//           //   e.preventDefault();
+//             // const formData = new FormData(e.target);
+//             // const data = {};
+//             // formData.forEach((value, property) => data[property] = value);
+
+//             // axios(`${AtelierAPI.url}/reviews`, {
+//             //   method: 'post',
+//             //   headers: AtelierAPI.headers,
+//             //   data: {
+//             //     // product_id: ,
+//             //     // rating: ,
+//             //     // summary: ,
+//             //     // body: ,
+//             //     // recommend: ,
+//             //     // name: ,
+//             //     // email: ,
+//             //     // photo: ,
+//             //     // character: {
+
+//             //     // }
+//             //   }
+//             // });
+//           // }}
+//           >
+//             <span id="review-form-stars">
+//               <span className="review-fillable-stars-1">
+//                 <span className="review-fillable-stars-inner"></span>
+//               </span>
+//               <span className="review-fillable-stars-2"></span>
+//               <span className="review-fillable-stars-3"></span>
+//               <span className="review-fillable-stars-4"></span>
+//               <span className="review-fillable-stars-5"></span>
+
+//             </span>
+
+//             <label>Name:</label>
+//             <input
+//               id="write-name"
+//               placeholder="Example: jackson11!"
+//               maxLength="60"
+//               required
+//             ></input>
+//             <div className="reviews-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
+
+//             <label>Email:</label>
+//             <input
+//               id="write-email"
+//               placeholder="Example: jackson11@email.com" maxLength="60"
+//               required></input>
+//             <div className="reviews-modal-disclaimer">For authentication reasons, you will not be emailed</div>
+
+//             <label>Summary:</label>
+//             <textarea
+//               name="summary"
+//               id="write-summary"
+//               placeholder="Best purchase ever!" maxLength="60"
+//             ></textarea>
+
+//             <label>Body:</label>
+//             <textarea
+
+//               id="write-body"
+//               placeholder="Why did you like the product or not?"
+//               name="body"
+//               required
+//               minLength="50"
+//               maxLength="1000"
+//             ></textarea>
+//             <div className="reviews-modal-body-count">Minimum required characters left: [##]</div>
+
+//             <div>
+//               Do you recommend this product?: {radio}
+//               <br></br>
+//               <label>
+//                 Yes
+//                 <input type='radio'
+//                   value='Yes'
+//                   checked={radio === 'Yes'}
+//                   onChange={(e)=>{ setRadio(e.target.value); }}/>
+//               </label>
+//               <label>
+//                 No
+//                 <input type='radio'
+//                   value='No'
+//                   checked={radio === 'No'}
+//                   onChange={(e)=>{ setRadio(e.target.value); }}/>
+//               </label>
+//             </div>
+
+//             <button>Submit</button>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
 
 
 
-  );
-};
+//   );
+// };
 
-export default AddAReview;
+// export default AddAReview;
