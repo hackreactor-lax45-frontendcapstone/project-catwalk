@@ -1,5 +1,4 @@
 const axios = require('axios');
-
 const API = require('../lib/AtelierAPI');
 const URL = API.products;
 const HEADERS = API.headers;
