@@ -1,25 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import KeywordSearch from './RatingsReviews/KeywordSearch.jsx';
 import ProductBreakdown from './RatingsReviews/ProductBreakdown.jsx';
 import RatingBreakdown from './RatingsReviews/RatingBreakdown.jsx';
-import ReviewsList from './RatingsReviews/ReviewsList.jsx';
+import ReviewComponent from './RatingsReviews/ReviewComponent.jsx';
 import SortOptions from './RatingsReviews/SortOptions.jsx';
-import WriteNewReview from './RatingsReviews/WriteNewReview.jsx';
+import ReviewList from './RatingsReviews/ReviewList.jsx';
 import '../../dist/styles/ratingsreviews/reviews.css';
 import '../../dist/styles/ratingsreviews/ratings.css';
-import { useSelector, useDispatch } from 'react-redux';
 import actions from '../state/actions';
 
-export default () => {
-
-  const product = useSelector(state => state.product.productID) || 16060;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    actions.setReviews(dispatch, product, 1, 2, 'relevant');
-  }, [product]);
-
+export default (props) => {
   return (
     <div id="body-reviews">
       <div id="review-top">
@@ -41,18 +32,9 @@ export default () => {
           <ProductBreakdown />
         </div>
 
-        <div id="review-bottom-right">
-          <ReviewsList />
-          <div id="review-buttons">
-            <WriteNewReview />
-            <button>More Reviews</button>
-          </div>
-        </div>
+        <ReviewList productId={props.productId} />
 
       </div>
-
-
-
     </div>
   );
 };

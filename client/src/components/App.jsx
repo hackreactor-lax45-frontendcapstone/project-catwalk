@@ -18,6 +18,8 @@ export default (props) => {
   useEffect(() => {
     actions.selectProduct(dispatch, product);
     actions.setRelated(dispatch, product);
+    actions.setReviews(dispatch, product, 1, 2, 'relevant');
+    actions.getQuestions(dispatch, product, 1, 100);
   }, [product]);
 
   return (
@@ -30,7 +32,7 @@ export default (props) => {
         <Overview />
         <RelatedItems />
         <QuestionAnswer />
-        <RatingsReviews />
+        <RatingsReviews productId={product}/>
         {/* <Footer /> */}
       </div>
     </div>
