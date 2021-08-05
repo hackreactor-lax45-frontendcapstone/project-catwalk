@@ -11,11 +11,11 @@ const url = {
 }
 
 let config = {
-  baseUrl: BASE_URL,
+  baseURL: BASE_URL,
   headers: {
     'access-control-allow-origin': '*',
     'content-type': 'application/json',
   },
 }
 
-export default { url, config };
+module.exports = { url, config };
