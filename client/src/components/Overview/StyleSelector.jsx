@@ -40,7 +40,6 @@ const StyleSelector = () => {
         top: -70,
         behavior: 'smooth'
       });
-      console.log(scroll - 70);
       if (scroll - 70 === 0) upBtn.classList.add('hidden');
       if (h !== scroll) dwnBtn.classList.remove('hidden');
     }
