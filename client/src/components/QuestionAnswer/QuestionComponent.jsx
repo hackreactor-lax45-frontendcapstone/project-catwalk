@@ -8,13 +8,14 @@ import AtelierAPI from '../../lib/atelierAPI';
 
 import '../../../dist/styles/questionsAnswers/QuestionComponent.css';
 
+import AddAnswer from './AddAnswer.jsx';
+
 export default props => {
   const dispatch = useDispatch();
 
   const question = props.question;
   const answers = useSelector(state => state.answers[question.question_id]);
   const product = useSelector(state => state.product.productID);
-  console.log(product);
 
   const isSeller = () => {
     const options = [true, false];
@@ -108,7 +109,6 @@ export default props => {
                 .catch(err => console.error(err));
                 e.target.innerHTML = 'Reported';
                 e.target.classList.add('disabled');
-                console.log('clicked');
             }}>Report</span>
           </span>
         </div>

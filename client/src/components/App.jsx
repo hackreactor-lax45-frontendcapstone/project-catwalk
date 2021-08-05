@@ -12,7 +12,7 @@ import actions from '../state/actions/index.js';
 
 export default (props) => {
 
-  const product = useSelector(state => state.product.productID) || 16063;
+  const product = useSelector(state => state.product.productID) || 16060;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,7 +32,7 @@ export default (props) => {
         <Overview />
         <RelatedItems />
         <QuestionAnswer />
-        <RatingsReviews />
+        <RatingsReviews productId={product}/>
         {/* <Footer /> */}
       </div>
     </div>
