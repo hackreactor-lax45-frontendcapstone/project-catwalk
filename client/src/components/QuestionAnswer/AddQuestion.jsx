@@ -42,7 +42,6 @@ export default props => {
         <div className="question-modal-body">
           <form onSubmit={(e) => {
             e.preventDefault();
-            handleModal();
             const formData = new FormData(e.target);
             const data = {};
             formData.forEach((value, property) => data[property] = value);
@@ -59,6 +58,7 @@ export default props => {
             })
               .then(res => {
                 actions.getQuestions(dispatch, product.productID, 1, 4);
+                handleModal();
               })
               .catch(err => console.error(err))
           }} id="question-modal-form">
