@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import SizeRenderEntry from './sizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
 import '../../../dist/styles/overview/AddToCart.css';
-
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import SetSelectSize from '../../state/actions/selectSize.js'
 import SetSelectQty from '../../state/actions/selectQuantity.js'
@@ -27,7 +27,7 @@ const AddToCart = () => {
     }
   })
   const [isOutofStock, setIsOutofStock] = useState(false);
-
+  const [currentSkus, setcurrentSkus] = useState('');
 
   //this handler function should update global state of [size, qty, skus#]
   const handleChange = (event) => {
@@ -36,6 +36,8 @@ const AddToCart = () => {
       return null;
     } else {
       var selectedStyle = JSON.parse(event.target.value)
+      console.log('selectedStyle:', selectedStyle)
+      setcurrentSkus(selectedStyle.key)
       dispatch(SetSelectSize(selectedStyle.size, selectedStyle.quantity))
       dispatch(SetSelectQty(1))
 
@@ -45,7 +47,6 @@ const AddToCart = () => {
   const handleSelectQty = (event) => {
     dispatch(SetSelectQty(parseInt(event.target.value)))
   }
-
 
 
   if (state) {
@@ -69,14 +70,14 @@ const AddToCart = () => {
     alert("Please select size")
   }
 
-  //this is the function that size is selected and clicking the button [good condition]
+  //this is the function that size is selected and clicking the button
   const buttonHandler = () => {
     dispatch(setToCart(currentProduct['productID'], selected['style_id'],currentSize.size, selectedQty))
     axios(`${AtelierAPI.url}/cart`, {
       method: 'POST',
       headers: AtelierAPI.headers,
       data: {
-        sku_id: selectedStyle.key
+        sku_id: currentSkus
       }
     })
   }
