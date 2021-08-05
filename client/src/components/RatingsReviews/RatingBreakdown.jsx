@@ -39,15 +39,15 @@ const ratingsBreakdown = () => {
     return starPercentage;
   };
 
-  // const filterMessage = () => {
-  //   const filtersOn = [];
-  //   for (var keys in state) {
-  //     if (state[keys]) {
-  //       filtersOn.push(Number(keys));
-  //     }
-  //   }
-  //   console.log(filtersOn);
-  // };
+  const filterMessage = () => {
+    const filtersOn = [];
+    for (var keys in state) {
+      if (state[keys]) {
+        filtersOn.push(Number(keys));
+      }
+    }
+    console.log(filtersOn);
+  };
 
 
   return (
