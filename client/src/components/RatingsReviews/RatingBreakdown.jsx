@@ -8,31 +8,27 @@ const ratingsBreakdown = () => {
   const state = useSelector((state) => {
     return {
       filters: state.filters,
-      metadata: state.reviews.metadataInfo,
+      metadata: state.reviews.metadataInfo
     };
   });
 
-  let totalRecommended = Math.round(Number(state.metadata.recommended.true) / (Number(state.metadata.recommended.true) + Number(state.metadata.recommended.false)) * 100);
-
-  const getAverageRating = (metadataRatings) => {
+  const getAverageRating = () => {
     let ratings = 0;
     let count = 0;
-    for (var key in metadataRatings) {
-      count += Number(metadataRatings[key]);
-      ratings += (Number(key) * Number(metadataRatings[key]));
+    for (var key in state.metadata.ratings) {
+      count += Number(state.metadata.ratings[key]);
+      ratings += (Number(key) * Number(state.metadata.ratings[key]));
     }
     let averageRating = Math.round((ratings / count * 10)) / 10;
-    if (averageRating) {
-      return averageRating;
-    }
+    return averageRating;
   };
 
-  const getWidth = (metadataRatings) => {
+  const getWidth = () => {
     let ratings = 0;
     let count = 0;
-    for (var key in metadataRatings) {
-      count += Number(metadataRatings[key]);
-      ratings += (Number(key) * Number(metadataRatings[key]));
+    for (var key in state.metadata.ratings) {
+      count += Number(state.metadata.ratings[key]);
+      ratings += (Number(key) * Number(state.metadata.ratings[key]));
     }
     let starPercentage = (ratings / count) / 5 * 100;
     if ((starPercentage % 5) < 2.5) {
@@ -53,18 +49,18 @@ const ratingsBreakdown = () => {
   //   console.log(filtersOn);
   // };
 
+
   return (
     <div className="rating-breakdown">
       RatingBreakdown
-      <div>{getAverageRating(state.metadata.ratings)}</div>
+      <div>{getAverageRating()}</div>
 
       <span id="average-rating-star">
         <span className="average-rating-star-outer">
-          <span className="average-rating-star-inner" style={{ width: `${getWidth(state.metadata.ratings)}%`}}></span>
+          <span className="average-rating-star-inner" style={{ width: `${getWidth()}%`}}></span>
         </span>
       </span>
 
-      <div>{`${totalRecommended}% of reviews recommend this product`}</div>
       <div onClick={() => { (dispatch(actions.selectFilters(5))); }}>5 stars</div>
       <div onClick={() => { (dispatch(actions.selectFilters(4))); }}>4 stars</div>
       <div onClick={() => { (dispatch(actions.selectFilters(3))); }}>3 stars</div>

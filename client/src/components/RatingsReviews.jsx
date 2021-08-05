@@ -12,9 +12,9 @@ export default () => {
     <div id="body-reviews">
       <div id="review-top">
         <div id="review-top-left">
-          Ratings and Reviews
+          RATINGS AND REVIEW
         </div>
-        <div id="review-top-right">
+        <div id="review-top-right">SEARCH AND SORT
           <div id="review-right-top">
             <KeywordSearch />
           </div>
