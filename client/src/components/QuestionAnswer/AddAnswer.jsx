@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
 
+import actions from '../../state/actions';
+
 import '../../../dist/styles/questionsAnswers/AddAnswer.css';
 
 export default props => {
   const dispatch = useDispatch();
   const product = useSelector(state => state.product.productInfo.name);
+  const answers = useSelector(state => state.answers[props.i]);
 
   const handleModal = () => {
     const modalBox = document.querySelector(`#qa-answer-modal${props.i}`);
@@ -55,8 +58,8 @@ export default props => {
                 image: []
               }
             })
+              .then(res => handleModal())
               .catch(err => console.error(err));
-
           }}>
             <label htmlFor={`answer-modal-answer${props.i}`}>Your Answer *</label>
             <textarea
@@ -102,7 +105,37 @@ export default props => {
               ></input>
             <div className="answer-modal-disclaimer">For authentication reasons, you will not be emailed</div>
             <label htmlFor={`answer-modal-img${props.i}`} className="answer-custom-upload">Upload Photos</label>
-            <input id={`answer-modal-img${props.i}`} className="answer-input answer-modal-img" type="file" name="photos" multiple></input>
+            <input
+              id={`answer-modal-img${props.i}`}
+              className="answer-input answer-modal-img"
+              type="file"
+              name="photos"
+              multiple
+              accept="image/*"
+              onChange={(e) => {
+                if (Object.keys(e.target.files).length > 5) {
+                  console.log(e.target.validity);
+                }
+
+                const preview = document.querySelector('#answer-img-preview');
+                const file = e.target.files[0];
+                const reader = new FileReader();
+
+                reader.onload = () => {
+                  preview.height = 75;
+                  preview.width = 75;
+                  preview.src = reader.result;
+                }
+                if (file) {
+                  reader.readAsDataURL(file);
+                }
+
+              }}
+              onInvalid={(e) => {
+                e.target.setCustomValidity('Maximum 5 images allowed');
+              }}
+            ></input>
+            <img id="answer-img-preview"></img>
             <button className="answer-modal-submit" type="submit">Submit</button>
           </form>
         </div>

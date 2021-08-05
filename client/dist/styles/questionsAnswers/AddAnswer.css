@@ -181,3 +181,7 @@ div[id^="qa-answer-modal"] textarea {
 .answer-modal-subtitle {
   color: #035e7b;
 }
+
+#answer-img-preview {
+  object-fit: cover;
+}
