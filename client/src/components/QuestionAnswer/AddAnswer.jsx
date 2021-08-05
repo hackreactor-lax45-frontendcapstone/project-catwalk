@@ -127,9 +127,6 @@ export default props => {
                 }
 
               }}
-              onInvalid={(e) => {
-                e.target.setCustomValidity('Maximum 5 images allowed');
-              }}
             ></input>
             <img id="answer-img-preview"></img>
             <button className="answer-modal-submit" type="submit">Submit</button>
