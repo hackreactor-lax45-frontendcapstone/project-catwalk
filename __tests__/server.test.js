@@ -170,7 +170,7 @@ describe.only('Questions endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/qa/questions/q/ask', done => {
+  it('POST /api/qa/questions/ask', done => {
     request(app)
       .post('/api/qa/questions/ask')
       .send({
@@ -188,19 +188,43 @@ describe.only('Questions endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/qa/questions/:question_id/answer', done => {
+  it('POST /api/qa/questions/:question_id/answers', done => {
     request(app)
-      .post(`/api/qa/questions/${183362}/answer`)
+      .post(`/api/qa/questions/${183362}/answers`)
       .send({
         'body': 'A new question',
         'name': 'Anonymous',
         'email': 'anonymous@gmail.com',
-        'product_id': 16060,
+        'photos': ['image.png'],
       })
       .expect(201)
       .then(response => {
         let data = response.body;
         expect(data).toEqual('Created');
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('PUT /api/qa/questions/:question_id/helpful', done => {
+    request(app)
+      .put(`/api/qa/questions/${183362}/helpful`)
+      .expect(204)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual({});
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('PUT /api/qa/questions/:question_id/report', done => {
+    request(app)
+      .put(`/api/qa/questions/${183362}/report`)
+      .expect(204)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual({});
       })
       .catch(err => console.error(err))
       .finally(() => done());
