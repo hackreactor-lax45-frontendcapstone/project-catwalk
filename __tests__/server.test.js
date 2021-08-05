@@ -230,4 +230,28 @@ describe.only('Questions endpoint', () => {
       .finally(() => done());
   });
 
+  it('PUT /api/qa/questions/:answer_id/helpful', done => {
+    request(app)
+      .put(`/api/qa/questions/${1992081}/helpful`)
+      .expect(204)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual({});
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('PUT /api/qa/questions/:answer_id/report', done => {
+    request(app)
+      .put(`/api/qa/questions/${1992081}/report`)
+      .expect(204)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual({});
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
 });

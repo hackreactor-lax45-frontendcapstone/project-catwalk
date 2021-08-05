@@ -75,7 +75,7 @@ module.exports = {
           res.status(response.status).json(response.data);
         })
         .catch(err => {
-          res.status(404).json('Unable to mark review questions from \'/questions/:id/helpful\'');
+          res.status(404).json('Unable to mark question helpful from \'/questions/:id/helpful\'');
         });
     },
     report: (req, res) => {
@@ -88,7 +88,7 @@ module.exports = {
           res.status(response.status).json(response.data);
         })
         .catch(err => {
-          res.status(404).json('Unable to mark review questions from \'/questions/:id/report\'');
+          res.status(404).json('Unable to report question from \'/questions/:id/report\'');
         });
     },
   },
@@ -97,10 +97,30 @@ module.exports = {
   ====================== */
   answer: {
     helpful: (req, res) => {
-      res.status(200).json('a/helpful');
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.answer_id}/helpful`,
+        method: 'put',
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to mark answer helpful from \'/questions/:id/helpful\'');
+        });
     },
     report: (req, res) => {
-      res.status(200).json('a/report');
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.answer_id}/report`,
+        method: 'put',
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to report answer from \'/questions/:id/helpful\'');
+        });
     },
   }
 };
