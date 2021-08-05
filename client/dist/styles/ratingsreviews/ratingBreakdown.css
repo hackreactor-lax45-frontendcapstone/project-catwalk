@@ -1,0 +1,39 @@
+.rating-breakdown {
+
+}
+
+
+/* ==============star rating ================ */
+
+.average-rating-star {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.average-rating-star-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.average-rating-star-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
+
+.average-rating-star-outer::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.average-rating-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
