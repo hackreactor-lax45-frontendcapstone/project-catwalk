@@ -1,15 +1,25 @@
 import axios from 'axios';
-// import AtelierAPI from '../../lib/atelierAPI';
-import Server from '../../lib/Server';
+import { url, config } from '../../lib/Server';
 
 export default (dispatch, productID) => {
+  config.url = `${url.products}/${productID}`;
+  let productResponse = axios.get(
+    `${url.products}/${productID}`,
+    config
+  );
+
+  let stylesResponse = axios.get(
+    `${url.products}/${productID}/styles`,
+    config
+  );
+
   return Promise.all([
-    axios.get(`${Server.products}/${productID}`),
-    axios.get(`${Server.products}/${productID}/styles`),
+    ,
+    Server.instance.get(`${Server.URLs.products}/${productID}/styles`),
   ])
     .then(info => {
       let [productInfo, styleInfo] = info;
-      dispatch({
+      Server.instance({
         type: 'SELECT_PRODUCT',
         payload: {
           productID,

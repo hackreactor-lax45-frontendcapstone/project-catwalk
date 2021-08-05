@@ -1,23 +1,21 @@
-import axios from 'axios';
-// import AtelierAPI from '../../lib/atelierAPI';
-import Server from '../../lib/Server';
+import { url, config } from '../../lib/Server';
 import _ from 'lodash';
 
 export default (dispatch, productID) => {
 
-  return axios.get(`${Server.products}/${productID}/related`)
+  return Server.instance.get(`${Server.URLs.products}/${productID}/related`)
     .then(response => {
       return response.data;
     })
     .then(related => {
       var relatedProducts = _.map(related, (product, i) => {
-        return axios.get(`${Server.products}/${product}`)
+        return Server.instance.get(`${Server.URLs.products}/${product}`)
           .then(response => response.data)
           .catch(err => { throw err; });
       });
 
       var relatedStyles = _.map(related, (product, i) => {
-        return axios.get(`${Server.products}/${product}/styles`)
+        return Server.instance.get(`${Server.URLs.products}/${product}/styles`)
           .then(response => response.data)
           .catch(err => { throw err; });
       });

@@ -1,11 +1,21 @@
 const SERVER = 'localhost';
-const PORT = 3000;
-const BASE_URL = `${SERVER}:${PORT}/api`;
+const PORT = 8000;
+const BASE_URL = `http://${SERVER}:${PORT}/api`;
 
-export default {
-  products: `${BASE_URL}/products`,
-  review: `${BASE_URL}/reviews`,
-  questions: `${BASE_URL}/qa/questions`,
-  cart: `${BASE_URL}/cart`,
-  interactions: `${BASE_URL}/interactions`,
+const url = {
+  products: '/products',
+  review: '/reviews',
+  questions: '/qa/questions',
+  cart: '/cart',
+  interactions: '/interactions',
 }
+
+let config = {
+  baseUrl: BASE_URL,
+  headers: {
+    'access-control-allow-origin': '*',
+    'content-type': 'application/json',
+  },
+}
+
+export default { url, config };

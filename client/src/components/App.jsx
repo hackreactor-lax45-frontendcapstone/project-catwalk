@@ -18,8 +18,8 @@ export default (props) => {
   useEffect(() => {
     actions.selectProduct(dispatch, product);
     actions.setRelated(dispatch, product);
-    actions.setReviews(dispatch, product, 1, 2, 'relevant');
-    actions.getQuestions(dispatch, product, 1, 100);
+    // actions.setReviews(dispatch, product, 1, 2, 'relevant');
+    // actions.getQuestions(dispatch, product, 1, 100);
   }, [product]);
 
   return (
