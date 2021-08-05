@@ -9,8 +9,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use('/api', router);
 
-const listen = () => {
-  app.listen(port, () => console.log(`Connected on http://localhost:${port}`));
-};
+const server = app.listen(port, () => console.log(`Connected on http://localhost:${port}`));
 
-module.exports = { app, listen };
+module.exports = { app, server };

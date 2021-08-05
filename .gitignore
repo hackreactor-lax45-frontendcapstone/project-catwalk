@@ -7,8 +7,9 @@ node_modules/
 ## private keys
 config.js
 *.pem
+
 ## build
-bundle.js
+*bundle.js
 
 #coverage
 coverage/
