@@ -10,14 +10,17 @@ const ClickTracker = (props) => {
     e.nativeEvent.path.forEach(element => {
       if (element.id === 'body-overview') {
         module = 'Overview';
-      } else if (element.id === 'body-related') {
-        module = 'Related Items & Comparison';
       } else if (element.id === 'body-questions') {
         module = 'Questions & Answers';
-      } else if (element.id === 'body-ratings') {
+      } else if (element.id === 'body-reviews') {
         module = 'Ratings & Reviews';
-      }
-    });
+      } else if (element.id === 'app-header') {
+        module = 'Header';
+      } else if (element.id === 'app-footer') {
+        module = 'Footer';
+      } else if (element.className === 'body-related') {
+        module = 'Related Items & Comparison';
+      }});
 
     axios({
       method: 'post',
