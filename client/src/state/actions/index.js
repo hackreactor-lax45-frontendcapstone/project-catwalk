@@ -11,7 +11,7 @@ import getQuestions from './getQuestions';
 import getAnswers from './getAnswers';
 import setReviews from './setReviews';
 import selectFilters from './selectFilters';
-
+import selectSortOption from './selectSortOption';
 const actions = {
   selectProduct,
   selectStyle,
@@ -26,6 +26,7 @@ const actions = {
   getAnswers,
   setReviews,
   selectFilters,
+  selectSortOption,
 };
 
 export default actions;
