@@ -2,12 +2,6 @@
   box-sizing: border-box;
 }
 
-/* #add-answer-link {
-  cursor: pointer;
-  text-decoration: underline;
-  font-size: 14px;
-} */
-
 #write-review-modal {
   position: fixed;
   top: 50%;
@@ -63,6 +57,7 @@
   bottom: 0;
   background-color: rgb(0, 46, 44, .6);
   pointer-events: none;
+  z-index: 11;
 }
 
 #review-modal-overlay.active {
@@ -70,22 +65,23 @@
   pointer-events: all;
 }
 
-/* .answer-modal-form {
+#review-modal-form {
   display: flex;
   flex-direction: column;
-} */
+}
 
-/* .answer-modal-textarea {
+#review-modal-form textarea {
   width: 100%;
   height: 100px;
-} */
+}
 
-/* .answer-modal-disclaimer {
+.review-modal-disclaimer,
+#min-char-count {
   font-size: 10px;
   font-style: italic;
-} */
+}
 
-.review-modal-submit {
+#review-modal-submit {
   display: flex;
   align-self: center;
   justify-content: center;
@@ -96,89 +92,61 @@
   color: #eff1c5;
   cursor: pointer;
   margin-top: 10px;
+  transition: all .1s ease-in-out;
 }
 
-.review-modal-submit:hover {
-  color: #002e2c;
+#review-modal-submit:hover {
+  transform: scale(.97);
 }
 
-/* div[id^="qa-answer-modal"] input,
-div[id^="qa-answer-modal"] textarea {
+#review-modal-form input,
+#review-modal-form textarea {
   background-color: #eff1c5;
   border-color: #002e2c;
   border-width: 2px;
   border-radius: 4px;
   border-style: solid;
   transition: all .1s ease-in-out;
-} */
+}
 
-/* .answer-modal-form input:hover,
-.answer-modal-form textarea:hover {
+#review-modal-form input:hover,
+#review-modal-form textarea:hover {
   transform: scale(.99);
-} */
+}
 
-/* .answer-modal-form input:focus,
-.answer-modal-form textarea:focus {
+#review-modal-form input:focus,
+#review-modal-form textarea:focus {
   outline: none !important;
   border-color: #035e7b;
   box-shadow: 0 0 4px #035e7b;
-} */
-
-/* .answer-modal-close {
-  color: #035e7b;
-  transition: all .1s ease-in-out;
-} */
-
-/* .answer-modal-close:hover {
-  transform: scale(1.2);
-} */
-
-/* .answer-modal-form input::placeholder {
-  color: #035e7b;
-  opacity: 0.5;
-} */
-
-/* .answer-input.answer-modal-img {
-  border: none;
-  display: none;
-} */
-
-/* .answer-input.answer-modal-img:focus {
-  outline: none !important;
-  border-color: transparent;
-  box-shadow: none;
-} */
-
-/* .answer-custom-upload {
-  display: flex;
-  align-self: flex-start;
-  justify-content: center;
-  width: 25%;
-  border-color: #002e2c;
-  border-radius: 4px;
-  background-color: #002e2c;
-  color: #eff1c5;
-  cursor: pointer;
-  pointer-events: all;
-  transition: all .1s ease-in-out;
-  margin-top: 10px;
-} */
-
-/* .answer-custom-upload:hover {
-  transform: scale(.97);
 }
 
-.answer-input {
+.review-modal-close {
+  color: #035e7b;
+  transition: all .1s ease-in-out;
+}
+
+.review-modal-close:hover {
+  transform: scale(1.2);
+}
+
+#review-modal-form input::placeholder,
+#review-modal-form textarea::placeholder {
+  color: #035e7b;
+  opacity: 0.5;
+}
+
+.review-input {
   margin-top: 2px;
 }
 
-.answer-label {
+.review-label {
   margin-top: 10px;
 }
 
-.answer-modal-subtitle {
+.review-modal-subtitle {
   color: #035e7b;
-} */
+}
 
 #write-review-btn {
   background-color: #002e2c;

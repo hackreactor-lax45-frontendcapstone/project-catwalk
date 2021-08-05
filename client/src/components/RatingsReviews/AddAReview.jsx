@@ -30,6 +30,12 @@ export default props => {
 
   const [radio, setRadio] = useState('yes');
 
+  const charCount = (e) => {
+    const minCount = document.querySelector('#min-char-count');
+    let remaining = 50 - e.target.value.length;
+    minCount.innerHTML = remaining > 0 ? `Minimum required characters left: [${remaining}]` : 'Minimum reached';
+  }
+
   return (
     <div id="write-review">
       <button id="write-review-btn" onClick={handleModal}>Write A Review</button>
@@ -56,7 +62,7 @@ export default props => {
                   }
 
                   let ratingText = document.querySelector('#rating-text');
-                  ratingText.innerHTML = `${ratings[i]} ${rText[i]}`;
+                  ratingText.innerHTML = ` ${ratings[i]} ${rText[i]}`;
                 }} id={`review-modal-star${i}`} className="review-modal-stars" key={i}></span>
               })}
               <span id="rating-text"></span>
@@ -90,7 +96,7 @@ export default props => {
 
             <div>CHARACTERISTICS</div>
 
-            <label htmlFor="review-modal-summary"></label>
+            <label className="review-label" htmlFor="review-modal-summary">Review Summary</label>
             <input
               type="text"
               id="review-modal-summary"
@@ -100,18 +106,66 @@ export default props => {
               placeholder="Example: Best purchase ever!"
             ></input>
 
-            <label id="REVIEW_BODY"></label>
-            <textarea></textarea>
+            <label className="review-label" htmlFor="review-modal-textarea">Write Your Review * </label>
+            <textarea
+              type="text"
+              id="review-modal-textarea"
+              className="review-modal-body review-input"
+              name="body"
+              minLength="50"
+              maxLength="1000"
+              placeholder="Why did you like the product or not?"
+              required
+              onKeyUp={charCount}
+            ></textarea>
+            <div id="min-char-count">{'Minimum required characters left: [50]'}</div>
 
-            <div>UPLOAD_PHOTOS</div>
+            <label className="review-label" htmlFor="review-modal-img" className="review-custom-upload">Upload Photos</label>
+            <input
+              id="review-modal-img"
+              className="review-modal-img review-input"
+              type="file"
+              name="photos"
+              multiple
+              onChange={(e) => {
+                const preview = document.querySelector('#review-img-preview');
+                const file = e.target.files[0];
+                const reader = new FileReader();
 
-            <label id="NICKNAME"></label>
-            <input></input>
+                reader.onload = () => {
+                  preview.height = 75;
+                  preview.src = reader.result;
+                }
+                if (file) {
+                  reader.readAsDataURL(file);
+                }
+              }}
+            ></input>
+            <img id="review-img-preview"></img>
 
-            <label id="EMAIL"></label>
-            <input></input>
+            <label className="review-label" htmlFor="review-modal-name">What is your Nickname? * </label>
+            <input
+              id="review-modal-name"
+              className="review-input"
+              type="text"
+              name="nickname"
+              maxLength="60"
+              placeholder="Example: jackson11!"
+            ></input>
+            <div className="review-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
 
-            <button type="submit"></button>
+            <label className="review-label" htmlFor="review-modal-email">Your Email * </label>
+            <input
+              id="review-modal-email"
+              className="review-input"
+              type="text"
+              name="email"
+              maxLength="60"
+              placeholder="Example: jackson11@email.com"
+            ></input>
+            <div className="review-modal-disclaimer">For authentication reasons, you will not be emailed</div>
+
+            <button id="review-modal-submit" type="submit">Submit</button>
           </form>
         </div>
       </div>
