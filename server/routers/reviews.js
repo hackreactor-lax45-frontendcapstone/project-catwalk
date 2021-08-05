@@ -14,7 +14,7 @@ router
   .post('/create', reviews.create);
 
 router
-  .put('/helpful', reviews.helpful)
-  .put('/report', reviews.report);
+  .put('/:review_id/helpful', reviews.helpful)
+  .put('/:review_id/report', reviews.report);
 
 module.exports = router;

@@ -4,9 +4,9 @@ const API = require('../lib/AtelierAPI');
 const URL = API.products;
 const HEADERS = API.headers;
 
-/*
+/* ======================
     /api/products
-*/
+====================== */
 module.exports = {
   list: (req, res) => {
     axios({

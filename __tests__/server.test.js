@@ -115,10 +115,9 @@ describe('Reviews endpoint', () => {
       .finally(() => done());
   });
 
-  it('PUT /api/reviews/helpful', done => {
+  it('PUT /api/reviews/:review_id/helpful', done => {
     request(app)
-      .put('/api/reviews/helpful')
-      .query({ review_id: 289100 })
+      .put(`/api/reviews/${289100}/helpful`)
       .expect(204)
       .then(response => {
         let data = response.body;
@@ -128,14 +127,44 @@ describe('Reviews endpoint', () => {
       .finally(() => done());
   });
 
-  it('PUT /api/reviews/report', done => {
+  it('PUT /api/reviews/:review_id/report', done => {
     request(app)
-      .put('/api/reviews/report')
-      .query({ review_id: 288110 })
+      .put(`/api/reviews/${289100}/report`)
       .expect(204)
       .then(response => {
         let data = response.body;
         expect(data).toEqual({});
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+});
+
+describe.only('Questions endpoint', () => {
+
+  const questionsData = mockData.questions;
+
+  it('GET /api/questions/list', done => {
+    request(app)
+      .get('/api/questions/list')
+      .query({ product_id: PRODUCT })
+      .expect(200)
+      .then(response => {
+        let data = response.body;
+        expect(data.product_id.toString()).toEqual(questionsData.list.product_id);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('GET /api/questions/:question_id/answers', done => {
+    request(app)
+      .get(`/api/questions/${183362}/answers`)
+      .expect(200)
+      .then(response => {
+        let data = response.body;
+        expect(data.question.toString()).toEqual(questionsData.answers.question);
       })
       .catch(err => console.error(err))
       .finally(() => done());

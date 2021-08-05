@@ -4,9 +4,9 @@ const API = require('../lib/AtelierAPI');
 const URL = API.reviews;
 const HEADERS = API.headers;
 
-/*
+/* ======================
     /api/reviews
-*/
+====================== */
 module.exports = {
   list: (req, res) => {
     axios({
@@ -52,7 +52,7 @@ module.exports = {
   },
   helpful: (req, res) => {
     axios({
-      url: `${URL}/${req.query.review_id}/helpful`,
+      url: `${URL}/${req.params.review_id}/helpful`,
       method: 'put',
       headers: HEADERS,
     })
@@ -65,7 +65,7 @@ module.exports = {
   },
   report: (req, res) => {
     axios({
-      url: `${URL}/${req.query.review_id}/report`,
+      url: `${URL}/${req.params.review_id}/report`,
       method: 'put',
       headers: HEADERS,
     })
