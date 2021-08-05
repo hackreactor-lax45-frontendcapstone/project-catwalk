@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import '../../../dist/styles/relatedItems/RelatedProductsList.css';
-import ProductCard from './ProductCard.jsx';
-import CompareModal from './CompareModal.jsx';
+import ProductCard from './Product/ProductCard.jsx';
+import CompareModal from './Compare/CompareModal.jsx';
 
-const IMAGE_WIDTH = 140;
+const IMAGE_WIDTH = 250;
 const ARROW_LEFT = '<';
 const ARROW_RIGHT = '>';
+const COMPARE_ACTION = 'compare';
 
 const scroll = (direction) => {
   let el = document.getElementById('related-products-gallery');
@@ -31,26 +32,26 @@ const RelatedProductButton = ({ direction }) => {
 };
 
 export default props => {
-  const dispatch = useDispatch();
   const related = useSelector(state => state.related);
   return (
     <div className='related-gallery-container'>
+      <CompareModal />
       <RelatedProductButton direction={-1}/>
-      <div className='related-gallery' id='related-products-gallery'>
+      <div className='related-products-gallery' id='related-products-gallery'>
         {_.map(related.ids, (id, i) => {
           return (
             <div
               key={i}
-              id="related-products-card-container"
-              className='related-container'>
-              <ProductCard product={{
-                productInfo: related.products[i],
-                styleInfo: related.styles[i],
-              }}/>
+              className='related-products-card-container'>
+              <ProductCard
+                product={{
+                  productInfo: related.products[i],
+                  styleInfo: related.styles[i],
+                }}
+                action={COMPARE_ACTION}/>
             </div>
           );
         })}
-        <CompareModal />
       </div>
       <RelatedProductButton direction={1}/>
     </div>

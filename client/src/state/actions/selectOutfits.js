@@ -3,9 +3,9 @@ const addOutfit = outfit => ({
   payload: outfit,
 });
 
-const removeOutfit = outfitIndex => ({
+const removeOutfit = outfit => ({
   type: 'REMOVE_OUTFIT',
-  payload: outfitIndex,
+  payload: outfit,
 });
 
 export default { addOutfit, removeOutfit };
