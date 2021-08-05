@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import actions from '../../state/actions/index.js';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,7 +13,8 @@ export default props => {
   });
 
   const onChange = (e) => {
-    actions.setReviews(dispatch, state.productId, 1, 2, 'e.target.value');
+    actions.setReviews(dispatch, state.productId, 1, 2, e.target.value);
+    console.log('TARGET VALUE IS:', e.target.value)
   };
 
   return (

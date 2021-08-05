@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import KeywordSearch from './RatingsReviews/KeywordSearch.jsx';
 import ProductBreakdown from './RatingsReviews/ProductBreakdown.jsx';
@@ -10,6 +10,9 @@ import '../../dist/styles/ratingsreviews/ratings.css';
 import actions from '../state/actions';
 
 export default () => {
+
+  const [localLocalLocal, setLocal] = useState('relevant');
+
   return (
     <div id="body-reviews">
       <div id="review-top">

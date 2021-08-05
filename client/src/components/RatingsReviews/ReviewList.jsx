@@ -31,7 +31,7 @@ const ReviewList = () => {
 
         <button style={{display: (isRendered ? 'none' : 'inline')}} className="more-reviews-button" id="more-reviews-button" onClick={() => {
         if ((reviewCount - 2) <= totalReviews) {
-            actions.setReviews(dispatch, state.productId, 1, reviewCount, 'relevant');
+            actions.setReviews(dispatch, state.productId, 1, reviewCount, 'relevant'); //<---change by state
             setReviewCount(reviewCount + 2);
             if (reviewCount >= totalReviews) {
               const moreReviewsBtn = document.querySelector('#more-reviews-button');

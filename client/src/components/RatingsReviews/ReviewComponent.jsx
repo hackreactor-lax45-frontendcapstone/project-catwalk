@@ -12,11 +12,11 @@ const ReviewComponent = () => {
     return {
       reviews: state.reviews.reviewInfo,
       metadata: state.reviews.metadataInfo,
-      productId: state.product.productID
+      productId: state.product.productID,
+      filters: state.filters
     };
   });
 
-  // const [filters, setFilters] = useState({ 1: false, 2: false, 3: false, 4: false, 5: false });
   const [noClickCount, incrementCount] = useState(0);
 
 
@@ -70,25 +70,31 @@ const ReviewComponent = () => {
     return starPercentage;
   };
 
-  // right now your Reviews are stored in reviews.reviews.results
-  //line 87, always map through the array that returned from filterReviews function
-
-  // const filteredQuestions = filterQuestions(slicedQuestionArray, searchQuery);
-  // const filteredReviews = filterReviews(statearray, global state);
-
-  // const filterReviews = (statearray) => {
-  //   if (state.filters === all false) {
-  //     return statearray;
-  //   } else {
-  //     stateArray.filter = > {
-  //       return (condition)
-  //     }
-  //   }
-  // }
+  const filterReviews = (stateArray) => {
+    const filterOn = [];
+    const filteredReview = [];
+    for (var keys in reviews.filters) {
+      if (reviews.filters[keys]) {
+        filterOn.push(Number(keys));
+      }
+    }
+    if (filterOn.length === 0) {
+      return stateArray;
+    } else {
+      filterOn.forEach(filter => {
+        stateArray.forEach(review => {
+          if (review.rating === filter) {
+            filteredReview.push(review);
+          }
+        });
+      });
+      return filteredReview;
+    }
+  };
 
   return (
     <div className="review-component">
-      {reviews.reviews.results.map((review, index) => {
+      {filterReviews(reviews.reviews.results).map((review, index) => {
 
         return (
           <div className="review-component-tile" key={index}>
@@ -96,7 +102,7 @@ const ReviewComponent = () => {
 
               <span id="review-tile-star">
                 <span className="review-tile-star-outer">
-                  <span className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></span>
+                  <span className="review-tile-star-inner" style={{ width: `${review.rating / 5 * 100}%`}}>review.rating</span>
                 </span>
               </span>
 

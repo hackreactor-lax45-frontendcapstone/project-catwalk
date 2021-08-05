@@ -25,7 +25,7 @@ const actions = {
   getQuestions,
   getAnswers,
   setReviews,
-  selectFilters
+  selectFilters,
 };
 
 export default actions;
