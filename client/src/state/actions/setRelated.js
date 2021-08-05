@@ -1,35 +1,23 @@
-import AtelierAPI from '../../lib/atelierAPI';
 import axios from 'axios';
+// import AtelierAPI from '../../lib/atelierAPI';
+import Server from '../../lib/Server';
 import _ from 'lodash';
 
 export default (dispatch, productID) => {
 
-  return axios({
-    url: `${AtelierAPI.url}/products/${productID}/related`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-  })
+  return axios.get(`${Server.products}/${productID}/related`)
     .then(response => {
       return response.data;
     })
     .then(related => {
-
       var relatedProducts = _.map(related, (product, i) => {
-        return axios({
-          url: `${AtelierAPI.url}/products/${product}`,
-          method: 'get',
-          headers: AtelierAPI.headers,
-        })
+        return axios.get(`${Server.products}/${product}`)
           .then(response => response.data)
           .catch(err => { throw err; });
       });
 
       var relatedStyles = _.map(related, (product, i) => {
-        return axios({
-          url: `${AtelierAPI.url}/products/${product}/styles`,
-          method: 'get',
-          headers: AtelierAPI.headers,
-        })
+        return axios.get(`${Server.products}/${product}/styles`)
           .then(response => response.data)
           .catch(err => { throw err; });
       });

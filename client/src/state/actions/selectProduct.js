@@ -1,22 +1,11 @@
 import axios from 'axios';
-import AtelierAPI from '../../lib/atelierAPI';
+// import AtelierAPI from '../../lib/atelierAPI';
+import Server from '../../lib/Server';
 
 export default (dispatch, productID) => {
-  var productQuery = axios({
-    url: `${AtelierAPI.url}/products/${productID}`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-  });
-
-  var styleQuery = axios({
-    url: `${AtelierAPI.url}/products/${productID}/styles`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-  });
-
   return Promise.all([
-    productQuery,
-    styleQuery,
+    axios.get(`${Server.products}/${productID}`),
+    axios.get(`${Server.products}/${productID}/styles`),
   ])
     .then(info => {
       let [productInfo, styleInfo] = info;

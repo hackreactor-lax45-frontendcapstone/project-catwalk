@@ -4,7 +4,8 @@ import { create, act } from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
 import axios from 'axios';
-import AtelierAPI from '../client/src/lib/atelierAPI';
+// import AtelierAPI from '../client/src/lib/atelierAPI';
+import Server from '../client/src/lib/Server';
 import MockAdapter from 'axios-mock-adapter';
 
 import Actions from '../client/src/state/actions/index';
@@ -23,21 +24,21 @@ describe('Actions', () => {
   });
 
   it('selectProduct - expects store to receive select product action', () => {
-    mock.onGet(`${AtelierAPI.url}/products/${product}`).reply(200, {});
-    mock.onGet(`${AtelierAPI.url}/products/${product}/styles`).reply(200, {});
+    mock.onGet(`${Server.products}/${product}`).reply(200, {});
+    mock.onGet(`${Server.products}/${product}/styles`).reply(200, {});
     Actions.selectProduct(store.dispatch, product)
       .then(() => {
         expect(store.getActions()[0].type).toEqual('SELECT_PRODUCT');
       })
-      .catch(err => expect(err).toEqual('THIS_SHOULD_NOT_RUN'));
+      .catch(err => expect(err).toEqual('selectProduct - THIS_SHOULD_NOT_RUN'));
   });
 
   it('setRelated - expects store to receive set related action', () => {
-    mock.onGet(`${AtelierAPI.url}/products/${product}/related`).reply(200, [0, 1]);
-    mock.onGet(`${AtelierAPI.url}/products/${0}`).reply(200, { product: 0 });
-    mock.onGet(`${AtelierAPI.url}/products/${1}`).reply(200, { product: 1 });
-    mock.onGet(`${AtelierAPI.url}/products/${0}/styles`).reply(200, { style: 0 });
-    mock.onGet(`${AtelierAPI.url}/products/${1}/styles`).reply(200, { style: 1 });
+    mock.onGet(`${Server.products}/${product}/related`).reply(200, [0, 1]);
+    mock.onGet(`${Server.products}/${0}`).reply(200, { product: 0 });
+    mock.onGet(`${Server.products}/${1}`).reply(200, { product: 1 });
+    mock.onGet(`${Server.products}/${0}/styles`).reply(200, { style: 0 });
+    mock.onGet(`${Server.products}/${1}/styles`).reply(200, { style: 1 });
     Actions.setRelated(store.dispatch, product)
       .then(() => {
         let action = store.getActions()[0];
@@ -46,7 +47,7 @@ describe('Actions', () => {
         expect(action.payload.products).toEqual([{product: 0}, {product: 1}]);
         expect(action.payload.styles).toEqual([{style: 0}, {style: 1}]);
       })
-      .catch(err => expect(err).toEqual('THIS_SHOULD_NOT_RUN'));
+      .catch(err => expect(err).toEqual('setRelated - THIS_SHOULD_NOT_RUN'));
   });
 
   it('selectOutfits - expects to receive select outfits action', () => {
