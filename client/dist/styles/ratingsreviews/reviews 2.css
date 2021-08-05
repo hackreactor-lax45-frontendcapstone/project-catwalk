@@ -1,0 +1,260 @@
+#body-reviews {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: 10px 0;
+}
+
+/* ============Review-top============= */
+#review-top {
+ background-color: rgb(82, 104, 4);
+ display: flex;
+ flex-direction: row;
+ height: 20%;
+}
+
+#review-top-left {
+ font-size: 25px;
+ text-align: center;
+ flex: 1;
+}
+
+#review-top-right {
+ background-color: rgb(37, 107, 19);
+ display: flex;
+ flex-direction: column;
+ flex: 3;
+}
+
+#review-right-top {
+  background-color: rgb(32, 68, 8);
+}
+
+#review-right-bottom {
+  background-color: green;
+}
+
+/* ============Review-Bottom============== */
+
+#review-bottom {
+  display: flex;
+  flex-direction: row;
+  height: 70%;
+}
+
+.review-bottom-right {
+  display: flex;
+  flex-direction: column;
+  flex: 3
+}
+
+.review-list {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+/* ===========Review Buttons============== */
+
+.review-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.more-reviews-button.disable {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.more-reviews-button, .write-reviews-button {
+  margin: 5px;
+}
+
+/* ===========Review Tile============== */
+
+.review-component {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.review-component-tile {
+  border: 1px #002e2c solid;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+.review-tile-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.review-user-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-verified, .reviewer-name, .review-date {
+  margin-left: 10px;
+}
+
+.review-summary {
+  font-weight: bold;
+}
+
+/* ===========Helpful================ */
+
+span[id^="helpful-yes-"]:hover, span[id^="helpful-no-"]:hover {
+  color:#035e7b;
+  cursor: pointer;
+}
+
+
+/* ===========Review Thumbnails======== */
+.review-thumbnails {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: center;
+  box-sizing: border-box;
+  margin: 5px;
+  justify-content: flex-start;
+}
+
+.thumbnail-container {
+  /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  width: 140px;
+}
+
+img[id^="thumbnail-"] {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  height: 90px;
+  max-width: 100px;
+  min-width: 100px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.thumbnail-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black
+  /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+}
+
+.thumbnail-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+#close-thumbnail-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+ #close-thumbnail-modal:hover, #close-thumbnail-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+ }
+
+
+ /* ===========Write a Review modal======== */
+
+ #review-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+#close-reviews-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#reviews-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+}
+
+
+/* ===========Review Star ratings======== */
+
+#review-tile-star {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-tile-star-outer, .review-form-stars-1,  .review-form-stars-2,  .review-form-stars-3,  .review-form-stars-4,  .review-form-stars-5  {
+  position: relative;
+  display: inline-block;
+}
+
+.review-tile-star-inner, .review-fillable-stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
+
+.review-tile-star-outer::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.review-tile-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
+
+
+/* ===========Write A Review fillable=============== */
+
+.review-fillable-stars-1::before, .review-fillable-stars-2::before,  .review-fillable-stars-3::before,  .review-fillable-stars-4::before,  .review-fillable-stars-5::before {
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.review-fillable-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
