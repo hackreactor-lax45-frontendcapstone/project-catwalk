@@ -2,7 +2,6 @@ import axios from 'axios';
 import { url, config } from '../../lib/Server';
 
 export default (dispatch, productID) => {
-  console.log(config);
 
   let productResponse = axios.get(
     `${url.products}/${productID}`,
