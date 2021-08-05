@@ -1,5 +1,4 @@
 const TOKEN = require('../config/config.js');
-
 const SERVER = 'https://app-hrsei-api.herokuapp.com/api/fec2';
 const CAMPUS = 'hr-lax';
 const BASE_URL = `${SERVER}/${CAMPUS}`;
