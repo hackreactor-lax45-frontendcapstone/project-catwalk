@@ -10,7 +10,6 @@ export default ({ product }) => {
       className='related-products-image-outfitremove'
       onClick={e => {
         dispatch(actions.selectOutfits.removeOutfit(product));
-        console.log('remove!');
         e.stopPropagation();
       }}>
     </div>
