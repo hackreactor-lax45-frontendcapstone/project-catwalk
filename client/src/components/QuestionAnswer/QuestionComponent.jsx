@@ -8,12 +8,14 @@ import AtelierAPI from '../../lib/atelierAPI';
 
 import '../../../dist/styles/questionsAnswers/QuestionComponent.css';
 
+import AddAnswer from './AddAnswer.jsx';
+
 export default props => {
   const dispatch = useDispatch();
 
   const question = props.question;
   const answers = useSelector(state => state.answers[question.question_id]);
-  const product = useSelector(state => state.product.productId)
+  const product = useSelector(state => state.product.productId);
 
   if (answers) {
   return (
@@ -80,11 +82,11 @@ export default props => {
                 helpfulness: question.question_helpfulness + 1
               }
             })
-              .then(res => actions.getQuestions(dispatch, product, 1, 4))
+              .then(res => {})
               .catch(err => console.error(err));
           }}>Yes</span>
           <span>{`(${question.question_helpfulness}) | `}</span>
-          <span id="qa-question-report" onClick={(e) => {
+          {/* <span id="qa-question-report" onClick={(e) => {
             axios(`${AtelierAPI.url}/qa/questions/${question.question_id}/report`, {
               method: 'put',
               headers: AtelierAPI.headers,
@@ -94,7 +96,8 @@ export default props => {
             })
               .catch(err => console.error(err));
               e.target.innerHTML = 'Reported';
-          }}>Report</span>
+          }}>Report</span> */}
+          <AddAnswer i={question.question_id} q={question.question_body}/>
         </span>
       </div>
     </div>
