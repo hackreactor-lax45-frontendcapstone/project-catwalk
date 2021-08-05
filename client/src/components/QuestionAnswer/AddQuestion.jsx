@@ -9,7 +9,7 @@ import '../../../dist/styles/questionsAnswers/AddQuestion.css';
 export default props => {
   const dispatch = useDispatch();
   const product = useSelector(state => state.product);
-  console.log(product);
+
   const handleModal = () => {
     const modalBox = document.querySelector('#qa-question-modal');
     const overlay = document.querySelector('#question-modal-overlay');
