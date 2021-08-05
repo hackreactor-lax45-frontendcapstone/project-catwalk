@@ -17,6 +17,7 @@ export default props => {
   const answers = useSelector(state => state.answers[question.question_id]);
   const product = useSelector(state => state.product.productID);
 
+  // to be replaced when meta data available
   const isSeller = () => {
     const options = [true, false];
     let i = Math.floor(Math.random() * 2);
@@ -38,7 +39,7 @@ export default props => {
                     <span id="qa-answer-date">{`${moment(answer.date).format('MMMM, DD YYYY')} | `}</span>
                     <span id="qa-answer-help">
                       <span>Helpful? </span>
-                      <span className="qa-answer-yes" onClick={() => {
+                      <span className="qa-answer-yes" onClick={(e) => {
                         axios(`${AtelierAPI.url}/qa/answers/${answer.answer_id}/helpful`, {
                           method: 'put',
                           headers: AtelierAPI.headers,
@@ -48,6 +49,7 @@ export default props => {
                         })
                           .then(res => actions.getAnswers(dispatch, question.question_id, 1, answers.results.length))
                           .catch(err => console.error(err));
+                          e.target.classList.add('disabled');
                       }}>Yes</span>
                       <span>{`(${answer.helpfulness}) | `}</span>
                     </span>
