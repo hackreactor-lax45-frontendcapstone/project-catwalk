@@ -9,9 +9,9 @@
     "build-nowatch": "npx webpack --config ./webpack.config.js --mode development",
     "start": "npx webpack --config ./webpack.config.js --mode development -w & nodemon ./server/index.js",
     "test": "jest --coverage  --testPathIgnorePatterns=server.test.js",
-    "test:image": "jest ./__tests__/overview-image-gallery.test.js",
-    "test:action": "jest ./__tests__/action.test.js",
-    "test:server": "jest ./__tests__/server.test.js"
+    "test:image": "jest ./__tests__/overview-image-gallery.test.js --coverage",
+    "test:action": "jest ./__tests__/action.test.js --coverage",
+    "test:server": "jest ./__tests__/server.test.js --coverage"
   },
   "author": "fec-squad-hrlax45",
   "license": "MIT",
