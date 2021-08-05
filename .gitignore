@@ -16,3 +16,4 @@ coverage/
 #deployment
 *.pem
 login.sh
+package-lock.json
