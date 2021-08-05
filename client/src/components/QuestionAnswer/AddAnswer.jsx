@@ -113,10 +113,6 @@ export default props => {
               multiple
               accept="image/*"
               onChange={(e) => {
-                if (Object.keys(e.target.files).length > 5) {
-                  console.log(e.target.validity);
-                }
-
                 const preview = document.querySelector('#answer-img-preview');
                 const file = e.target.files[0];
                 const reader = new FileReader();
