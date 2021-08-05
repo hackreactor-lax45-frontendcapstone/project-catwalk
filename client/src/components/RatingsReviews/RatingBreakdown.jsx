@@ -48,7 +48,10 @@ const ratingsBreakdown = () => {
     }
     console.log(filtersOn);
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of cbd4c55 (Work in progress)
 
 
   return (
