@@ -18,32 +18,39 @@ const StyleSelector = () => {
   const styles = state.styles;
   const selected = state.selected;
 
+  let thmb = document.getElementsByClassName('style-thumbnails');
+  let upBtn = document.querySelector('.up');
+  let dwnBtn = document.querySelector('.down');
+
   const handleClick = (e) => {
-    let thmb = document.getElementsByClassName('style-thumbnails');
+
+    const h = thmb[0].scrollHeight - 140;
+    const scroll = thmb[0].scrollTop;
 
     if (e.target.id === 'down') {
       thmb[0].scrollBy({
         top: 70,
         behavior: 'smooth'
       });
-      if (thmb[0].scrollTop !== 0) {
-        thmb[0].classList.remove('hidden');
-      }
+      if (scroll === 0) upBtn.classList.remove('hidden');
+      if (h === scroll) dwnBtn.classList.add('hidden');
+
     } else if (e.target.id === 'up') {
       thmb[0].scrollBy({
         top: -70,
         behavior: 'smooth'
       });
-      if (thmb[0].scrollTop === 0) {
-        thmb[0].classList.add('hidden');
-      }
+      if (scroll - 70 === 0) upBtn.classList.add('hidden');
+      if (h !== scroll) dwnBtn.classList.remove('hidden');
     }
   };
 
   return (
     <div id="body-overview-styleselector">
       <div className="selection-title">{selected.name}</div>
-      <button onClick={handleClick} className="btn-more-styles up hidden">{
+      <button
+        onClick={handleClick}
+        className="btn-more-styles up hidden">{
         <svg
           id="up"
           xmlns="http://www.w3.org/2000/svg"
