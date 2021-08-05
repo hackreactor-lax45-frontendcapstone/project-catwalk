@@ -39,19 +39,15 @@ const ratingsBreakdown = () => {
     return starPercentage;
   };
 
-  const filterMessage = () => {
-    const filtersOn = [];
-    for (var keys in state) {
-      if (state[keys]) {
-        filtersOn.push(Number(keys));
-      }
-    }
-    console.log(filtersOn);
-  };
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of cbd4c55 (Work in progress)
+  // const filterMessage = () => {
+  //   const filtersOn = [];
+  //   for (var keys in state) {
+  //     if (state[keys]) {
+  //       filtersOn.push(Number(keys));
+  //     }
+  //   }
+  //   console.log(filtersOn);
+  // };
 
 
   return (
