@@ -70,7 +70,6 @@ export default props => {
               }}
               maxLength="1000"
             ></textarea>
-            <div id="answer-text-feedback">{}</div>
             <label htmlFor={`answer-modal-nickname${props.i}`} className="answer-label">What is your nickname? *</label>
             <input
               type="text"
