@@ -54,22 +54,6 @@ const ReviewComponent = () => {
     }
   };
 
-  const getWidth = (ratingsData) => {
-    let ratings = 0;
-    let count = 0;
-    for (var key in ratingsData) {
-      count += Number(ratingsData[key]);
-      ratings += (Number(key) * Number(ratingsData[key]));
-    }
-    let starPercentage = (ratings / count) / 5 * 100;
-    if ((starPercentage % 5) < 2.5) {
-      starPercentage -= (starPercentage % 5);
-    } else {
-      starPercentage += (5 - (starPercentage % 5));
-    }
-    return starPercentage;
-  };
-
   const filterReviews = (stateArray) => {
     const filterOn = [];
     const filteredReview = [];
@@ -102,7 +86,7 @@ const ReviewComponent = () => {
 
               <span id="review-tile-star">
                 <span className="review-tile-star-outer">
-                  <span className="review-tile-star-inner" style={{ width: `${review.rating / 5 * 100}%`}}>review.rating</span>
+                  <span className="review-tile-star-inner" style={{ width: `${review.rating / 5 * 100}%`}}></span>
                 </span>
               </span>
 
