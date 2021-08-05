@@ -145,9 +145,9 @@ describe.only('Questions endpoint', () => {
 
   const questionsData = mockData.questions;
 
-  it('GET /api/questions/list', done => {
+  it('GET /api/qa/questions/list', done => {
     request(app)
-      .get('/api/questions/list')
+      .get('/api/qa/questions/list')
       .query({ product_id: PRODUCT })
       .expect(200)
       .then(response => {
@@ -158,13 +158,49 @@ describe.only('Questions endpoint', () => {
       .finally(() => done());
   });
 
-  it('GET /api/questions/:question_id/answers', done => {
+  it('GET /api/qa/questions/:question_id/answers', done => {
     request(app)
-      .get(`/api/questions/${183362}/answers`)
+      .get(`/api/qa/questions/${183362}/answers`)
       .expect(200)
       .then(response => {
         let data = response.body;
         expect(data.question.toString()).toEqual(questionsData.answers.question);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('POST /api/qa/questions/q/ask', done => {
+    request(app)
+      .post('/api/qa/questions/ask')
+      .send({
+        'body': 'A new question',
+        'name': 'Anonymous',
+        'email': 'anonymous@gmail.com',
+        'product_id': 16060,
+      })
+      .expect(201)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual('Created');
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+  it('POST /api/qa/questions/:question_id/answer', done => {
+    request(app)
+      .post(`/api/qa/questions/${183362}/answer`)
+      .send({
+        'body': 'A new question',
+        'name': 'Anonymous',
+        'email': 'anonymous@gmail.com',
+        'product_id': 16060,
+      })
+      .expect(201)
+      .then(response => {
+        let data = response.body;
+        expect(data).toEqual('Created');
       })
       .catch(err => console.error(err))
       .finally(() => done());

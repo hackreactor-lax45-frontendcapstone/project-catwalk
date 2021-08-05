@@ -7,10 +7,13 @@ const questions = require('./questions');
 const cart = require('./cart');
 const interactions = require('./interactions');
 
+/* ======================
+    /api
+====================== */
 router
   .use('/products', products)
   .use('/reviews', reviews)
-  .use('/questions', questions)
+  .use('/qa/questions', questions)
   .use('/cart', cart)
   .use('/interactions', interactions);
 

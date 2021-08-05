@@ -4,22 +4,22 @@ const router = express.Router();
 const questions = require('../controllers/questions');
 
 /*
-    /api/questions
+    /api/qa/questions
 */
 router
   .get('/list', questions.list)
   .get('/:question_id/answers', questions.answers);
 
 router
-  .post('/q/ask', questions.question.ask)
-  .post('/q/answer', questions.question.answer);
+  .post('/ask', questions.question.ask)
+  .post('/:question_id/answer', questions.question.answer);
 
 router
-  .put('/q/helpful', questions.question.helpful)
-  .put('/q/report', questions.question.report);
+  .put('/q/:question_id/helpful', questions.question.helpful)
+  .put('/q/:question_id/report', questions.question.report);
 
 router
-  .put('/a/helpful', questions.answer.helpful)
-  .put('/a/report', questions.answer.report);
+  .put('/a/:answer_id/helpful', questions.answer.helpful)
+  .put('/a/:answer_id/report', questions.answer.report);
 
 module.exports = router;

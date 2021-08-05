@@ -7,7 +7,7 @@ const HEADERS = API.headers;
 
 module.exports = {
   /* ======================
-      /api/qa/questions
+      /api/questions
   ====================== */
   list: (req, res) => {
     axios({
@@ -20,7 +20,7 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(404).json('Unable to retrieve reviews from \'/reviews/list\'');
+        res.status(404).json('Unable to retrieve questions from \'/questions/list\'');
       });
   },
   answers: (req, res) => {
@@ -33,15 +33,40 @@ module.exports = {
         res.status(response.status).json(response.data);
       })
       .catch(err => {
-        res.status(404).json('Unable to retrieve reviews from \'/reviews/list\'');
+        res.status(404).json('Unable to retrieve answers from \'/question/:question_id/answers\'');
       });
   },
+  /* ======================
+      /api/questions/q
+  ====================== */
   question: {
     ask: (req, res) => {
-      res.status(200).json('q/ask');
+      axios({
+        url: `${QUESTIONS_URL}`,
+        method: 'post',
+        data: req.body,
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to ask a new question \'/questions\'');
+        });
     },
     answer: (req, res) => {
-      res.status(200).json('q/answer');
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
+        method: 'post',
+        data: req.body,
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to ask a new question \'/questions\'');
+        });
     },
     helpful: (req, res) => {
       res.status(200).json('q/helpful');
