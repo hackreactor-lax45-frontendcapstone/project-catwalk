@@ -21,24 +21,25 @@
   overflow: hidden;
   flex-wrap: wrap;
   width: 100%;
-  max-height: 222.2px;
-  justify-content: flex-start;
+  height: 70px;
   align-self: center;
-  padding: 5px;
+}
+
+
+.thumbnail-container {
+  display: flex;
+  position: relative;
+  margin: 0;
+  max-width: 25%;
+  height: 70px;
+  justify-content: center;
 }
 
 .thumbnail {
-  display: flex;
-  flex: 1;
-  aspect-ratio: 1 / 1;
-  min-width: 22%;
-  max-width: 22%;
-  margin: 0 2% 4% 2px;
-  background-repeat: none;
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  clip-path: circle(50% at 50% 50%);
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
   transition: 0.1s ease-in-out;
   transform:scale(0.9, 0.9);
@@ -70,7 +71,7 @@ input[type="checkbox"][id^="cb"] + label {
   position: absolute;
   height: 100%;
   width: 100%;
-  left: 0;
+  left: 30px;
   top: 0;
 }
 

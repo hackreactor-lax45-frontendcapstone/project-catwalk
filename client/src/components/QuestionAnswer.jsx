@@ -8,20 +8,11 @@ import MoreQuestions from './QuestionAnswer/MoreQuestions.jsx';
 import QuestionsList from './QuestionAnswer/QuestionsList.jsx';
 // import QuestionComponent from './QuestionAnswer/QuestionComponent.jsx';
 import SearchQuestions from './QuestionAnswer/SearchQuestions.jsx';
-import '../../dist/styles/questionsAnswers/QuestionAnswer.css';
+// import '../../dist/styles/questionsAnswers/QuestionAnswer.css';
 
 const QuestionAnswer = () => {
-  const dispatch = useDispatch();
-
-  const product = useSelector(state => state.product.productID) || 16060;
-
-  useEffect(() => {
-    actions.getQuestions(dispatch, product, 1, 2);
-  }, [product]);
-
-  return (
+    return (
     <div id="body-questions">
-      <SearchQuestions />
       <AddQuestion />
       <QuestionsList />
       <MoreQuestions />

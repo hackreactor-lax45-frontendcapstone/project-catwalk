@@ -6,7 +6,7 @@ node_modules
 
 ## private keys
 config.js
-
+*.pem
 ## build
 bundle.js
 node_modules/
