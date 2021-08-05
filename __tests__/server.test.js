@@ -255,3 +255,22 @@ describe('Questions endpoint', () => {
   });
 
 });
+
+// describe('Cart endpoint', () => {
+
+//   const cartData = mockData.cart;
+
+//   it('GET /api/qa/questions/list', done => {
+//     request(app)
+//       .get('/api/qa/questions/list')
+//       .query({ product_id: PRODUCT })
+//       .expect(200)
+//       .then(response => {
+//         let data = response.body;
+//         expect(data.product_id.toString()).toEqual(questionsData.list.product_id);
+//       })
+//       .catch(err => console.error(err))
+//       .finally(() => done());
+//   });
+
+// });
