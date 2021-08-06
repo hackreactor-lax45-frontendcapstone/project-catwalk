@@ -6,16 +6,19 @@ import actions from '../../state/actions/index.js';
 import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
 
-const ReviewComponent = (props) => {
+const ReviewComponent = () => {
   const dispatch = useDispatch();
   const reviews = useSelector((state) => {
     return {
       reviews: state.reviews.reviewInfo,
-      metadata: state.reviews.metadataInfo
+      metadata: state.reviews.metadataInfo,
+      productId: state.product.productID,
+      filters: state.filters
     };
   });
 
   const [noClickCount, incrementCount] = useState(0);
+
 
   const renderShowMoreButton = (body, index) => {
     if (body.length > 250) {
@@ -51,25 +54,31 @@ const ReviewComponent = (props) => {
     }
   };
 
-  const getWidth = (ratingsData) => {
-    let ratings = 0;
-    let count = 0;
-    for (var key in ratingsData) {
-      count += Number(ratingsData[key]);
-      ratings += (Number(key) * Number(ratingsData[key]));
+  const filterReviews = (stateArray) => {
+    const filterOn = [];
+    const filteredReview = [];
+    for (var keys in reviews.filters) {
+      if (reviews.filters[keys]) {
+        filterOn.push(Number(keys));
+      }
     }
-    let starPercentage = (ratings / count) / 5 * 100;
-    if ((starPercentage % 5) < 2.5) {
-      starPercentage -= (starPercentage % 5);
+    if (filterOn.length === 0) {
+      return stateArray;
     } else {
-      starPercentage += (5 - (starPercentage % 5));
+      filterOn.forEach(filter => {
+        stateArray.forEach(review => {
+          if (review.rating === filter) {
+            filteredReview.push(review);
+          }
+        });
+      });
+      return filteredReview;
     }
-    return starPercentage;
   };
 
   return (
     <div className="review-component">
-      {reviews.reviews.results.map((review, index) => {
+      {filterReviews(reviews.reviews.results).map((review, index) => {
 
         return (
           <div className="review-component-tile" key={index}>
@@ -77,7 +86,7 @@ const ReviewComponent = (props) => {
 
               <span id="review-tile-star">
                 <span className="review-tile-star-outer">
-                  <span className="review-tile-star-inner" style={{ width: `${getWidth(reviews.metadata.ratings)}%`}}></span>
+                  <span className="review-tile-star-inner" style={{ width: `${review.rating / 5 * 100}%`}}></span>
                 </span>
               </span>
 
@@ -134,13 +143,13 @@ const ReviewComponent = (props) => {
                     }
                     })
                     .then(() => {
-                      actions.setReviews(dispatch, props.productId, 1, reviews.reviews.results.length, 'relevant');
+                      actions.setReviews(dispatch, reviews.productId, 1, reviews.reviews.results.length, 'relevant');
                       document.getElementById(`helpful-yes-${index}`).hidden = true;
                       document.getElementById(`helpful-yes-count-${index}`).hidden = false;
                       document.getElementById(`helpful-no-${index}`).hidden = true;
                       document.getElementById(`helpful-no-count-${index}`).hidden = false;
                     })
-                    .catch(err=> console.log(err));
+                    .catch(err=> console.error(err));
                   }}
                 >{`    Yes (${review.helpfulness})`}</span>
                 <span id={`helpful-yes-count-${index}`} hidden>{`    Yes (${review.helpfulness})`}</span>

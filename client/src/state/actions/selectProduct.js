@@ -12,7 +12,6 @@ export default (dispatch, productID) => {
     `${url.products}/${productID}/styles`,
     config
   );
-
   return Promise.all([
     productResponse,
     stylesResponse,

@@ -182,12 +182,12 @@ img[id^="thumbnail-"] {
   justify-content: flex-end;
 }
 
-.review-tile-star-outer {
+.review-tile-star-outer, .review-form-stars-1,  .review-form-stars-2,  .review-form-stars-3,  .review-form-stars-4,  .review-form-stars-5  {
   position: relative;
   display: inline-block;
 }
 
-.review-tile-star-inner {
+.review-tile-star-inner, .review-fillable-stars-inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -211,3 +211,18 @@ img[id^="thumbnail-"] {
 }
 
 
+/* ===========Write A Review fillable=============== */
+
+.review-fillable-stars-1::before, .review-fillable-stars-2::before,  .review-fillable-stars-3::before,  .review-fillable-stars-4::before,  .review-fillable-stars-5::before {
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+.review-fillable-star-inner::before {
+  content: "\f005" "\f005" "\f005" "\f005" "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
