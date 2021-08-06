@@ -13,6 +13,8 @@ const url = {
 let config = {
   baseURL: BASE_URL,
   headers: {
+    'access-control-allow-headers: '*',
+    'access-control-allow-methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'access-control-allow-origin': '*',
     'content-type': 'application/json',
   },
