@@ -11,12 +11,13 @@ const url = {
 }
 
 let config = {
+  data: null,
   baseURL: BASE_URL,
   headers: {
-    'access-control-allow-headers: '*',
+    'access-control-allow-headers': '*',
     'access-control-allow-methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'access-control-allow-origin': '*',
-    'content-type': 'application/json;charset=utf-8',
+    'content-type': 'application/json;charset=utf-8 application/x-www-form-urlencoded',
   },
 }
 
