@@ -11,7 +11,6 @@ const url = {
 }
 
 let config = {
-  data: null,
   baseURL: BASE_URL,
   headers: {
     'access-control-allow-headers': '*',

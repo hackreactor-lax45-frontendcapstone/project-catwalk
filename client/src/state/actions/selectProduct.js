@@ -3,15 +3,9 @@ import { url, config } from '../../lib/Server';
 
 export default (dispatch, productID) => {
 
-  let productResponse = axios.get(
-    `${url.products}/${productID}`,
-    config
-  );
+  let productResponse = axios.get(`/api/${url.products}/${productID}`);
+  let stylesResponse = axios.get( `/api/${url.products}/${productID}/styles`);
 
-  let stylesResponse = axios.get(
-    `${url.products}/${productID}/styles`,
-    config
-  );
   return Promise.all([
     productResponse,
     stylesResponse,
