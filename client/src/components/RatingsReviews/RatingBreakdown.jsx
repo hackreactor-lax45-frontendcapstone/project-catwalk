@@ -124,7 +124,7 @@ const ratingsBreakdown = () => {
         </span>
       </span>
 
-      <svg width='300' height='200' >
+      <svg width='300' height='150' >
         <g className='container'>
           <text className='title' x='10' y='30'>{ratingsSum} Review Ratings</text>
           <g className='chart' transform='translate(100,60)'>

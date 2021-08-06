@@ -37,3 +37,20 @@
   font-weight: 900;
   color: #035e7b;
 }
+
+.product-characteristics {
+  padding: 8px 0px;
+}
+
+.characteristic-selections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 30px;
+  font-size: 12px;
+}
+
+.characteristic-name {
+  margin-left: 30px;
+  font-size: 14px;
+}
