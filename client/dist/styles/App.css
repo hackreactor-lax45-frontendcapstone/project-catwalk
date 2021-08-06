@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #eff1c5;
+  background-color: #f5edf0;
 }
 
 #page {
@@ -12,13 +12,13 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	background-color: #eff1c5;
+	background-color: #f5edf0;
 }
 
 ::-webkit-scrollbar
 {
 	width: 12px;
-	background-color: #eff1c5;
+	background-color: #f5edf0;
 }
 
 ::-webkit-scrollbar-thumb
@@ -26,7 +26,7 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	background-color: #a2a77f;
+	background-color: #886f68;
 }
 
 #app {

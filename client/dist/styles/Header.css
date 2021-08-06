@@ -17,8 +17,8 @@
   align-content: center;
   height: 80px;
   min-height: 80px;
-  background-color: #002e2c;
-  color: #eff1c5;
+  background-color: #3d2c2e;
+  color: #f5edf0;
 }
 
 #company-logo {
@@ -33,18 +33,18 @@
   line-height: 40px;
   height: 40px;
   border-radius: 2px;
-  background-color: #002e2c;
-  color: #eff1c5;
+  background-color: #3d2c2e;
+  color: #f5edf0;
 }
 
 .search-bar {
   position: relative;
   width: 30px;
   height: 30px;
-  background: #eff1c5;
+  background: #f5edf0;
   border-radius: 30px;
   transition: 0.5s;
-  box-shadow: 0 0 0 1px #eff1c5;
+  box-shadow: 0 0 0 1px #f5edf0;
   overflow: hidden;
   cursor: pointer;
   top: 25px;
@@ -61,11 +61,11 @@
   height: 16px;
   top: 7px;
   left: 7px;
-  color: #002e2c
+  color: #3d2c2e
 }
 
 #search-input {
-  background-color: #eff1c5;
+  background-color: #f5edf0;
 }
 .search-bar .input {
   position: relative;
@@ -85,7 +85,7 @@
   border: none;
   outline: none;
   padding: 0;
-  background-color: #002e2c;
+  background-color: #3d2c2e;
 }
 
 .clear {
@@ -105,7 +105,7 @@
   content: '';
   width: 1px;
   height: 10px;
-  background: #035e7b;
+  background: #424c55;
   transform: rotate(45deg);
 }
 
@@ -114,6 +114,6 @@
   content: '';
   width: 1px;
   height: 10px;
-  background: #035e7b;
+  background: #424c55;
   transform: rotate(315deg);
 }

@@ -149,7 +149,7 @@ const ReviewComponent = () => {
                       document.getElementById(`helpful-no-${index}`).hidden = true;
                       document.getElementById(`helpful-no-count-${index}`).hidden = false;
                     })
-                    .catch(err=> console.log(err));
+                    .catch(err=> console.error(err));
                   }}
                 >{`    Yes (${review.helpfulness})`}</span>
                 <span id={`helpful-yes-count-${index}`} hidden>{`    Yes (${review.helpfulness})`}</span>

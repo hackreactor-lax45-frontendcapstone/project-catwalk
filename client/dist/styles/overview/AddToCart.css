@@ -27,7 +27,7 @@
   font-size: 80%;
   width: 45%;
   height: 30px;
-  border: 1px solid #002e2c;
+  border: 1px solid #3d2c2e;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
@@ -39,16 +39,16 @@
   width: 80%;
   height: 40px;
   margin: 20px auto;
-  background-color: #002e2c;
+  background-color: #3d2c2e;
   border-radius: 2px;
   cursor: pointer;
   outline: 0;
-  color: #eff1c5;
+  color: #f5edf0;
 }
 
 .addtocart-button:hover {
-  background-color: #035e7b;
-  color: #eff1c5;
+  background-color: #424c55;
+  color: #f5edf0;
 }
 
 

@@ -33,7 +33,10 @@ export default props => {
             {answers.results.map((answer, i) => {
               return (
                 <div className="qa-in-answer" key={answer.answer_id}>
-                  <div id="qa-answer-body">{i === 0 ? `A: ${answer.body}` : `${answer.body}`}</div>
+                  <div
+                    id="qa-answer-body"
+                    className={i !== 0 ? 'more-answers' : ''}
+                  >{i === 0 ? `A: ${answer.body}` : `${answer.body}`}</div>
                   <div id="qa-answer-info">
                     <span id="qa-answer-user">{`by ${answer.answerer_name} ${isSeller() ? 'Seller' : ''}, `}</span>
                     <span id="qa-answer-date">{`${moment(answer.date).format('MMMM, DD YYYY')} | `}</span>
@@ -70,7 +73,8 @@ export default props => {
                 </div>
               )
             })}
-            <div className={Object.keys(question.answers).length <= 2 ? 'see-more-hidden' : ''} onClick={(e) => {
+            <div id="answer-see-more" className={Object.keys(question.answers).length <= 2? 'see-more-hidden' : ''}
+            onClick={(e) => {
               if (e.target.innerHTML === 'See More Answers') {
                 actions.getAnswers(dispatch, question.question_id, 1, Object.keys(question.answers).length);
                 e.target.innerHTML = 'Collapse Answers';
@@ -108,9 +112,11 @@ export default props => {
                   reported: true
                 }
               })
+                .then(res => {
+                  e.target.innerHTML = 'Reported';
+                  e.target.classList.add('disabled');
+                })
                 .catch(err => console.error(err));
-                e.target.innerHTML = 'Reported';
-                e.target.classList.add('disabled');
             }}>Report</span>
           </span>
           <AddAnswer i={question.question_id} q={question.question_body} />
