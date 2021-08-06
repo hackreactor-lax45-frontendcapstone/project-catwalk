@@ -38,6 +38,6 @@ export default (dispatch, productId, pageNumber, countNumber, sortMethod) => {
         }
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
 };
 

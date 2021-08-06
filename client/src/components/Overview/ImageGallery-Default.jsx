@@ -144,9 +144,9 @@ export default ({ state }) => {
                     type="checkbox"
                     value={i}
                     checked={state.thumbnail.index === i && true}
-                    id={`cb${i}`}
+                    id={`galleryCb${i}`}
                   ></input>
-                  <label htmlFor={`cb${i}`}></label>
+                  <label htmlFor={`galleryCb${i}`}></label>
                 </span>
               </div>
             );

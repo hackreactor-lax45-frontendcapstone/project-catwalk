@@ -11,7 +11,6 @@ export default (dispatch, productID) => {
     stylesResponse,
   ])
     .then(info => {
-      console.log(info);
       let [productInfo, styleInfo] = info;
       dispatch({
         type: 'SELECT_PRODUCT',
