@@ -12,12 +12,12 @@ export default (dispatch, productID) => {
     `${url.products}/${productID}/styles`,
     config
   );
-
   return Promise.all([
     productResponse,
     stylesResponse,
   ])
     .then(info => {
+      console.log(info);
       let [productInfo, styleInfo] = info;
       dispatch({
         type: 'SELECT_PRODUCT',

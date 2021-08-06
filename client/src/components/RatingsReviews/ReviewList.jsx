@@ -9,7 +9,8 @@ const ReviewList = () => {
   const state = useSelector(state => {
     return {
       metadata: state.reviews.metadataInfo,
-      productId: state.product.productID
+      productId: state.product.productID,
+      sortOption: state.sortOption
     };
   });
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const ReviewList = () => {
 
         <button style={{display: (isRendered ? 'none' : 'inline')}} className="more-reviews-button" id="more-reviews-button" onClick={() => {
         if ((reviewCount - 2) <= totalReviews) {
-            actions.setReviews(dispatch, state.productId, 1, reviewCount, 'relevant');
+            actions.setReviews(dispatch, state.productId, 1, reviewCount, state.sortOption);
             setReviewCount(reviewCount + 2);
             if (reviewCount >= totalReviews) {
               const moreReviewsBtn = document.querySelector('#more-reviews-button');

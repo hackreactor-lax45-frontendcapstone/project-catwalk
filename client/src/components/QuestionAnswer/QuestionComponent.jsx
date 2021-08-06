@@ -115,6 +115,7 @@ export default props => {
                 .catch(err => console.error(err));
             }}>Report</span>
           </span>
+          <AddAnswer i={question.question_id} q={question.question_body} />
         </div>
       </div>
     );

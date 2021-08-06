@@ -13,15 +13,17 @@ export default props => {
   });
 
   const onChange = (e) => {
-    actions.setReviews(dispatch, state.productId, 1, 2, 'e.target.value');
+    actions.setReviews(dispatch, state.productId, 1, 2, e.target.value);
+    dispatch(actions.selectSortOption(e.target.value));
+    //i need to reset the more review button click count (in global)
   };
 
   return (
-    <div>SortOptions
+    <div>Sort:
       <select id='review-sort-dropdown' onChange={onChange}>
+        <option value='relevant'> Relevant </option>
         <option value='helpful'> Helpful </option>
         <option value='newest'> Newest </option>
-        <option value='relevant'> Relevant </option>
       </select>
     </div>
   );
