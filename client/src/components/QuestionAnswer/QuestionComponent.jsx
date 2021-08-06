@@ -113,6 +113,7 @@ export default props => {
                 e.target.classList.add('disabled');
             }}>Report</span>
           </span>
+          <AddAnswer i={question.question_id} q={question.question_body} />
         </div>
       </div>
     );

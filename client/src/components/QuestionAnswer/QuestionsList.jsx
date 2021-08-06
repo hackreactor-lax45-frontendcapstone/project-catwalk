@@ -70,7 +70,7 @@ export default props => {
         )})}
       </div>
       <div id='question-list-bottom'>
-        <button id='qa-more-button' className={questionTotal <= 2 && 'disable'} onClick={getMoreQuestions}>More Questions</button>
+        <button id='qa-more-button' className={questionTotal <= 2 ? 'disable' : ''} onClick={getMoreQuestions}>More Questions</button>
       </div>
     </div>
   )
