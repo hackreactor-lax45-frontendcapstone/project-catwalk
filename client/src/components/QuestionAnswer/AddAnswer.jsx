@@ -58,7 +58,10 @@ export default props => {
                 image: []
               }
             })
-              .then(res => handleModal())
+              .then(res => {
+                actions.getAnswers(dispatch, props.i, 1, answers.results.length);
+                handleModal();
+              })
               .catch(err => console.error(err));
           }}>
             <label htmlFor={`answer-modal-answer${props.i}`}>Your Answer *</label>
