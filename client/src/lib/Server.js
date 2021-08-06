@@ -1,5 +1,5 @@
 const SERVER = 'localhost';
-const PORT = 8000;
+const PORT = 3000;
 const BASE_URL = `http://${SERVER}:${PORT}/api`;
 
 const url = {
