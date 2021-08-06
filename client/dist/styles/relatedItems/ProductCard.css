@@ -1,13 +1,45 @@
+.related-products-card-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  min-width: 250px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .related-products-card {
-  padding: 10px 0 10px 10px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  box-sizing: border-box;
+  flex: 0;
+  min-width: 95%;
+  max-width: 95%;
+  margin: 10px 0 10px 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
 }
 
 .related-outfit-add {
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 95%;
+  width: 100%;
+  margin-right: 10px;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 20;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 4px;
 }
 
+.related-outfit-add-circle {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  line-height: 220px;
+  font-size: 100px;
+}

@@ -1,4 +1,5 @@
 import Redux from 'redux';
+import _ from 'lodash';
 
 const initialState = {
   returned: false,
@@ -20,7 +21,7 @@ const reducer = (state = initialState, action) => {
       styles: action.payload.styles,
       modal: false,
       compare: {},
-      outfits: [],
+      outfits: state.outfits,
     };
   case 'MODAL_VIEW':
     var stateObj = {
@@ -37,11 +38,24 @@ const reducer = (state = initialState, action) => {
     }
     return stateObj;
   case 'ADD_OUTFIT':
-    state.outfits.push(action.payload);
-    return state;
+    let existingOutfits = state.outfits;
+    existingOutfits.unshift(action.payload);
+    return {
+      ...state,
+      outfits: existingOutfits,
+    }
   case 'REMOVE_OUTFIT':
-    state.outfits.splice(action.payload, 1);
-    return state;
+    let outfits = state.outfits.slice();
+    var index = _.each(state.outfits, (outfit, i) => {
+      if (action.payload.productInfo.id === outfit.productInfo.id) {
+        return i;
+      }
+    });
+    outfits.splice(index, 1);
+    return {
+      ...state,
+      outfits
+    };
   default:
     return state;
   }

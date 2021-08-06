@@ -20,17 +20,30 @@ const THUMBNAIL_BUTTON_ENABLED = 'imagegallery-thumbnail-button';
 /* ============================================
               Helper Functions
 ============================================ */
-const getGallery = () => document.getElementById('imagegallery-default-thumbnails-container');
+const getGallery = () => {
+  let element = document.getElementById('imagegallery-default-thumbnails-image');
+  if (_.isNil(element)) {
+    return {
+      scrolleLeft: 0,
+      offsetWidth: 0,
+    };
+  }
+  return element;
+};
 
 const updateThumbnailGallery = (direction) => {
-  var gallery = getGallery();
+  let gallery = getGallery();
 
   var previousScrollLeft = gallery.scrollLeft;
-  getGallery().scrollLeft += direction * (IMAGE_WIDTH + 1);
-  var scrollLeft = getGallery().scrollLeft;
+  gallery.scrollLeft += direction * (IMAGE_WIDTH + 1);
+  var scrollLeft = gallery.scrollLeft;
 
   var left = document.getElementById('imagegallery-thumbnail-button-left');
   var right = document.getElementById('imagegallery-thumbnail-button-right');
+
+  if (_.isNil(left)) { left = { classList: { remove: () => {}, add: () => {}}}; }
+  if (_.isNil(right)) { right = { classList: { remove: () => {}, add: () => {}}}; }
+
   if (direction < 0 && (previousScrollLeft - scrollLeft) < IMAGE_WIDTH) {
     left.disabled = true;
     right.disabled = false;
@@ -42,7 +55,7 @@ const updateThumbnailGallery = (direction) => {
     right.classList.remove(THUMBNAIL_BUTTON_ENABLED);
     right.classList.add(THUMBNAIL_BUTTON_DISABLED);
   } else {
-    getGallery().scrollLeft += direction;
+    gallery.scrollLeft += direction;
     left.disabled = false;
     right.disabled = false;
     left.classList.remove(THUMBNAIL_BUTTON_DISABLED);
@@ -67,6 +80,7 @@ const dispatchThumbnail = (dispatch, direction, state) => {
 ============================================ */
 
 export default ({ state }) => {
+
   const dispatch = useDispatch();
 
   var gallery = getGallery();
@@ -75,11 +89,13 @@ export default ({ state }) => {
   }
 
   var backgroundImage = state.style.photos[state.thumbnail.index].url;
+
   return (
     <div id="body-overview-imagegallery-default">
       <div id="imagegallery-default-main">
         <button
           disabled={state.thumbnail.index === 0}
+          id='imagegallery-button-left'
           className={'imagegallery-button' + (state.thumbnail.index === 0 ? '-disabled' : '')}
           onClick={() => dispatchThumbnail(dispatch, -1, state)}>
           {ARROW_LEFT}
@@ -90,6 +106,7 @@ export default ({ state }) => {
           onClick={() => dispatch(actions.setViews.defaultView())}>
         </div>
         <button
+          id='imagegallery-button-right'
           disabled={state.thumbnail.index === state.style.photos.length - 1}
           className={'imagegallery-button' + (state.thumbnail.index < (state.style.photos.length - 1) ? '' : '-disabled')}
           onClick={() => dispatchThumbnail(dispatch, 1, state)}>
@@ -110,6 +127,7 @@ export default ({ state }) => {
             return (
               <div
                 key={i}
+                id={`imagegallery-thumbnail-image-${i}`}
                 className={'imagegallery-thumbnail-image'}
                 style={{backgroundImage: `url(${photo.thumbnail_url}`}}
                 onClick={() => {
@@ -117,8 +135,7 @@ export default ({ state }) => {
                     actions.selectThumbnail.defaultView(
                       i,
                       state.style.photos.length - 1,
-                      getGallery().offsetWidth,
-                      IMAGE_WIDTH));
+                      gallery.offsetWidth));
                 }}>
                 <span key={i} className="imagegallery-thumbnail-container">
                   <input

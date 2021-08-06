@@ -1,0 +1,20 @@
+.related-products-image-outfitremove::before {
+  content: "X";
+  font-size: 20px;
+  color: white;
+  text-shadow:  0 0 5px black;
+}
+
+.related-products-image-outfitremove {
+  margin: 5px 5px 0 0;
+  float: right;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 0 5px 0 0;
+}
+
+.related-products-image-outfitremove:hover:before {
+  cursor: pointer;
+}
