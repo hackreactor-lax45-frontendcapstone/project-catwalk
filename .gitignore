@@ -1,5 +1,7 @@
 ## general computer stuff
 *DS_Store
+cached/
+coverage/
 
 ## node
 node_modules/
@@ -7,13 +9,7 @@ node_modules/
 ## private keys
 config.js
 *.pem
+login.sh
 
 ## build
 *bundle.js
-
-#coverage
-coverage/
-
-#deployment
-*.pem
-login.sh
