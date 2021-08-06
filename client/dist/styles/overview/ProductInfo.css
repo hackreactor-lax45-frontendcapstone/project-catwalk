@@ -27,7 +27,7 @@
 }
 
 #body-overview-count:hover {
-  color:#035e7b;
+  color:#424c55;
   cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
   font-weight: 700;
-  color: #035e7b;
+  color: #424c55;
 }
 
 /* ===================================
@@ -157,7 +157,7 @@
   flex-direction: column;
   justify-content: center;
   height: 45px;
-  color: #002e2c;
+  color: #3d2c2e;
   width: 80px;
 }
 

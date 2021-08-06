@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 40%;
-  overflow: hidden;
-  overflow-y: scroll;
+  align-items: center;
+  margin-top: 10px;
+  /* overflow: hidden;
+  overflow-y: scroll; */
 }
 /* ========= TOP ========= */
 #question-top {
@@ -45,4 +47,28 @@
 #qa-more-button.disable {
   visibility: hidden;
   pointer-events: none;
+}
+
+#question-list-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#question-list-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+#qa-more-button {
+  background-color: #3d2c2e;
+  border: #3d2c2e;
+  border-radius: 4px;
+  color: #f5edf0;
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+}
+
+#qa-more-button:hover {
+  transform: scale(.97);
 }
