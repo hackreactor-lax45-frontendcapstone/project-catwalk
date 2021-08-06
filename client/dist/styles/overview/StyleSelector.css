@@ -44,6 +44,8 @@
 
 /* ========= THUMBNAIL CHECKBOX ========= */
 
+
+input[type="checkbox"][id^="galleryCb"],
 input[type="checkbox"][id^="cb"] {
   display: none;
   position: absolute;
@@ -53,7 +55,8 @@ input[type="checkbox"][id^="cb"] {
   opacity: 0;
 }
 
-input[type="checkbox"][id^="cb"]:checked {
+input[type="checkbox"][id^="cb"]:checked,
+input[type="checkbox"][id^="galleryCb"]:checked {
   opacity: 1;
   content: "✓";
   background-color: grey;
@@ -68,7 +71,8 @@ input[type="checkbox"][id^="cb"] + label {
   top: 0;
 }
 
-:checked + label::before {
+input[type="checkbox"][id^="cb"]:checked + label::before,
+input[type="checkbox"][id^="galleryCb"]:checked + label::before {
   content: "✓";
   background-color: #a2a77f;
   transform: scale(1);
@@ -106,7 +110,3 @@ label {
 .hidden {
   visibility: hidden;
 }
-/* ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-} */

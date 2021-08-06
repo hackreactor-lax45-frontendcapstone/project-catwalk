@@ -32,7 +32,6 @@ const ClickTracker = (props) => {
         time: new Date().toLocaleTimeString()
       }
     })
-      .then(res => console.log(res.status))
       .catch(err => console.error(err));
   };
 

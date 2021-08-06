@@ -108,9 +108,11 @@ export default props => {
                   reported: true
                 }
               })
+                .then(res => {
+                  e.target.innerHTML = 'Reported';
+                  e.target.classList.add('disabled');
+                })
                 .catch(err => console.error(err));
-                e.target.innerHTML = 'Reported';
-                e.target.classList.add('disabled');
             }}>Report</span>
           </span>
         </div>

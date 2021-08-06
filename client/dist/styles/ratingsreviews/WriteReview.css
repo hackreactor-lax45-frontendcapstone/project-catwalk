@@ -175,11 +175,68 @@
   color: #035e7b;
 }
 
-input[type="radio"][id="review-modal-yes"],
-input[type="radio"][id="review-modal-no"] {
+/* input[type="radio"][id="review-modal-yes"],
+input[type="radio"][id="review-modal-no"],
+input[type="radio"][id^="radio-"] {
  visibility: hidden;
-}
+} */
 
 .review-modal-recommend label {
   pointer-events: all;
+}
+
+.review-input.review-modal-img {
+  border: none;
+  display: none;
+}
+
+.review-input.review-modal-img:focus {
+  outline: none !important;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.review-custom-upload {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  width: 25%;
+  border-color: #002e2c;
+  border-radius: 4px;
+  background-color: #002e2c;
+  color: #eff1c5;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all .1s ease-in-out;
+  margin-top: 10px;
+}
+
+.review-custom-upload:hover {
+  /* background-color: #035e7b; */
+  transform: scale(.97);
+}
+
+#review-file-input {
+  display: flex;
+  flex-direction: row;
+}
+
+#review-img-preview {
+  margin-left: 20px;
+}
+
+div[id^="review-radio"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 10px;
+  height: auto;
+}
+
+/* div[id^="review-char"] {
+  display: flex;
+} */
+
+#rating-text {
+  margin-left: 20px;
 }
