@@ -108,8 +108,9 @@ const ratingsBreakdown = () => {
     {BarGroup(d, barHeight)}
   </g>);
 
-
-
+  let trueValues = Number(state.metadata.recommended.true);
+  let falseValues = Number(state.metadata.recommended.false);
+  let recommendedPercentage = parseInt(trueValues / (trueValues + falseValues) * 100);
 
   return (
     <div className='rating-breakdown'>
@@ -126,7 +127,7 @@ const ratingsBreakdown = () => {
 
       <svg width='300' height='150' >
         <g className='container'>
-          <text className='title' x='10' y='30'>{ratingsSum} Review Ratings</text>
+          <text className="review-recommendation" x='10' y='30'>{`${recommendedPercentage}% of reviews recommend this product`}</text>
           <g className='chart' transform='translate(100,60)'>
             {barGroups}
           </g>
