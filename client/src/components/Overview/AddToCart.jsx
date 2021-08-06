@@ -36,7 +36,6 @@ const AddToCart = () => {
       return null;
     } else {
       var selectedStyle = JSON.parse(event.target.value)
-      console.log('selectedStyle:', selectedStyle)
       setcurrentSkus(selectedStyle.key)
       dispatch(SetSelectSize(selectedStyle.size, selectedStyle.quantity))
       dispatch(SetSelectQty(1))
