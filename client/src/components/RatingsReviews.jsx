@@ -1,25 +1,22 @@
 import React from 'react';
-
 import KeywordSearch from './RatingsReviews/KeywordSearch.jsx';
 import ProductBreakdown from './RatingsReviews/ProductBreakdown.jsx';
 import RatingBreakdown from './RatingsReviews/RatingBreakdown.jsx';
-import ReviewComponent from './RatingsReviews/ReviewComponent.jsx';
 import SortOptions from './RatingsReviews/SortOptions.jsx';
 import ReviewList from './RatingsReviews/ReviewList.jsx';
 import '../../dist/styles/ratingsreviews/reviews.css';
 import '../../dist/styles/ratingsreviews/ratings.css';
-import actions from '../state/actions';
 
-export default (props) => {
+export default () => {
   return (
     <div id="body-reviews">
       <div id="review-top">
         <div id="review-top-left">
-          RATINGS AND REVIEW
+          Ratings and Reviews
         </div>
-        <div id="review-top-right">SEARCH AND SORT
+        <div id="review-top-right">
           <div id="review-right-top">
-            <KeywordSearch />
+            {/* <KeywordSearch /> */}
           </div>
           <div id="review-right-bottom">
             <SortOptions />
@@ -31,9 +28,7 @@ export default (props) => {
           <RatingBreakdown />
           <ProductBreakdown />
         </div>
-
-        <ReviewList productId={props.productId} />
-
+        <ReviewList />
       </div>
     </div>
   );
