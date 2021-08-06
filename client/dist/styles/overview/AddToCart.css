@@ -24,7 +24,10 @@
 
 #dropdown-size,
 #dropdown-qty {
+  display: flex;
+  flex: 1;
   font-size: 80%;
+  min-width: 120px;
   width: 45%;
   height: 30px;
   border: 1px solid #3d2c2e;
