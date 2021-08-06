@@ -80,7 +80,7 @@
 }
 
 .review-component-tile {
-  border: 1px #002e2c solid;
+  border: 1px #3d2c2e solid;
   margin-bottom: 5px;
   padding: 3px;
 }
@@ -107,7 +107,7 @@
 /* ===========Helpful================ */
 
 span[id^="helpful-yes-"]:hover, span[id^="helpful-no-"]:hover {
-  color:#035e7b;
+  color:#424c55;
   cursor: pointer;
 }
 
@@ -207,7 +207,7 @@ img[id^="thumbnail-"] {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
-  color: #035e7b;
+  color: #424c55;
 }
 
 
