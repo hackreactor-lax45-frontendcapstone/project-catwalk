@@ -10,7 +10,7 @@ const SearchBar = ({ searchQuery, setSearchQuery}) => {
      </label>
         <input
         value={searchQuery}
-        onInput={e => setSearchQuery(e.target.value)}
+        onInput={e => setSearchQuery(e.target.value) }
         type="text"
         id="question-search"
         placeholder="Have a question? Search for answers…"

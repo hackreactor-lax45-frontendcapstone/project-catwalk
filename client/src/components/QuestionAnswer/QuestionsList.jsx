@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import QuestionComponent from './QuestionComponent.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
 import { useState } from 'react';
-
+import '../../../dist/styles/questionsAnswers/QuestionAnswer.css';
 export default props => {
 
 
@@ -14,7 +14,7 @@ export default props => {
 
   //***********************SEARCH_BAR ******************************//
   const filterQuestions = (questions, query) => {
-    if (!query) {
+    if (!query || query.length < 3) {
       return questions;
     }
     return questions.filter((question) => {
@@ -25,6 +25,8 @@ export default props => {
   const { search } = window.location;
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
+
+
   //*******************************************************************//
 
 
@@ -44,7 +46,7 @@ export default props => {
     if (questionCount < questionTotal - 2) {
       setquestionCount(questionCount + 2);
     //if the question count reaches max or total questions
-    } else if (questionCount >= questionTotal - 2 || questionTotal < 2) {
+    } else if (questionCount >= questionTotal - 2) {
       setquestionCount(questionCount + 2);
       const moreQuestionButton = document.querySelector('#qa-more-button')
       moreQuestionButton.classList.add('disable')
@@ -59,7 +61,7 @@ export default props => {
       <div id='question-list-top'>
       <SearchQuestions
         searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}/>
+        setSearchQuery = {setSearchQuery} />
       </div>
       <div id='question-list-mid'>
         {filteredQuestions.map((question, i) => {
@@ -68,9 +70,9 @@ export default props => {
         )})}
       </div>
       <div id='question-list-bottom'>
-        <button id='qa-more-button' onClick={getMoreQuestions}>More Questions</button>
+        <button id='qa-more-button' className={questionTotal <= 2 && 'disable'} onClick={getMoreQuestions}>More Questions</button>
       </div>
     </div>
-    )
+  )
 
 };

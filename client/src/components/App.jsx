@@ -32,7 +32,7 @@ export default (props) => {
         <Overview />
         <RelatedItems />
         <QuestionAnswer />
-        <RatingsReviews />
+        <RatingsReviews productId={product}/>
         {/* <Footer /> */}
       </div>
     </div>
