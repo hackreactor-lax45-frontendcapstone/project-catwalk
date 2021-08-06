@@ -117,7 +117,7 @@
 #question-modal-form textarea:focus {
   outline: none !important;
   border-color: #424c55;
-  box-shadow: 0 0 4px #424c55;
+  box-shadow: 0 0 5px #424c55;
 }
 
 .question-modal-close {

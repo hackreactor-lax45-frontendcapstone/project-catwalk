@@ -3,6 +3,7 @@
 }
 
 #add-answer-link {
+  margin-top: 5px;
   cursor: pointer;
   text-decoration: underline;
   font-size: 14px;
@@ -122,7 +123,7 @@ div[id^="qa-answer-modal"] textarea {
 .answer-modal-form textarea:focus {
   outline: none !important;
   border-color: #424c55;
-  box-shadow: 0 0 4px #424c55;
+  box-shadow: 0 0 5px #424c55;
 }
 
 .answer-modal-close {

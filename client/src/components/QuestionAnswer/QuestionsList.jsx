@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import QuestionComponent from './QuestionComponent.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
+import AddQuestion from './AddQuestion.jsx';
 import { useState } from 'react';
 import '../../../dist/styles/questionsAnswers/QuestionAnswer.css';
 export default props => {
@@ -62,6 +63,7 @@ export default props => {
       <SearchQuestions
         searchQuery={searchQuery}
         setSearchQuery = {setSearchQuery} />
+        <AddQuestion />
       </div>
       <div id='question-list-mid'>
         {filteredQuestions.map((question, i) => {
