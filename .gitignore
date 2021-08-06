@@ -2,11 +2,18 @@
 *DS_Store
 
 ## node
-node_modules
+node_modules/
 
 ## private keys
 config.js
 *.pem
+
 ## build
-bundle.js
-node_modules/
+*bundle.js
+
+#coverage
+coverage/
+
+#deployment
+*.pem
+login.sh
