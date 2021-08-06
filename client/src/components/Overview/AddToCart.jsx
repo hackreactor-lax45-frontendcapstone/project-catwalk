@@ -76,12 +76,8 @@ const AddToCart = () => {
     return (
       <div id='body-overview-addtocart'>
         <div id='dropdowns'>
-          <div>
-            <SizeRenderEntry selected={selected} handleChange={handleChange} updateStockStatus={updateStockStatus}/>
-          </div>
-          <div>
-            <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty}/>
-          </div>
+          <SizeRenderEntry selected={selected} handleChange={handleChange} updateStockStatus={updateStockStatus}/>
+          <QtyRenderEntry qty={currentQty} handleSelectQty={handleSelectQty}/>
         </div>
         {renderCartButton(qty)}
       </div>

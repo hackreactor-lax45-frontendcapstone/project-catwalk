@@ -1,22 +1,21 @@
 import axios from 'axios';
-import AtelierAPI from '../../lib/atelierAPI';
+import { url, config } from '../../lib/Server';
 
 export default (dispatch, productID) => {
-  var productQuery = axios({
-    url: `${AtelierAPI.url}/products/${productID}`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-  });
 
-  var styleQuery = axios({
-    url: `${AtelierAPI.url}/products/${productID}/styles`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-  });
+  let productResponse = axios.get(
+    `${url.products}/${productID}`,
+    config
+  );
 
-  Promise.all([
-    productQuery,
-    styleQuery,
+  let stylesResponse = axios.get(
+    `${url.products}/${productID}/styles`,
+    config
+  );
+
+  return Promise.all([
+    productResponse,
+    stylesResponse,
   ])
     .then(info => {
       let [productInfo, styleInfo] = info;

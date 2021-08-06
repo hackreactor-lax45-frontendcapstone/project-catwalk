@@ -1,15 +1,40 @@
+#app-header {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  min-height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 #header {
   display: flex;
   flex-direction: row;
+  flex: 1;
   justify-content: center;
   align-content: center;
   height: 80px;
+  min-height: 80px;
+  background-color: #002e2c;
+  color: #eff1c5;
+}
+
+#company-logo {
+  position: absolute;
+  left: 0;
+  line-height: 80px;
+  margin: auto 0 auto 30px;
 }
 
 #announcements {
+  text-align: center;
+  line-height: 40px;
   height: 40px;
   border-radius: 2px;
   background-color: #002e2c;
+  color: #eff1c5;
 }
 
 .search-bar {
@@ -19,7 +44,7 @@
   background: #eff1c5;
   border-radius: 30px;
   transition: 0.5s;
-  box-shadow: 0 0 0 1px #002e2c;
+  box-shadow: 0 0 0 1px #eff1c5;
   overflow: hidden;
   cursor: pointer;
   top: 25px;
@@ -36,8 +61,12 @@
   height: 16px;
   top: 7px;
   left: 7px;
+  color: #002e2c
 }
 
+#search-input {
+  background-color: #eff1c5;
+}
 .search-bar .input {
   position: relative;
   width: 150px;
@@ -56,7 +85,7 @@
   border: none;
   outline: none;
   padding: 0;
-  background-color: #eff1c5;
+  background-color: #002e2c;
 }
 
 .clear {
@@ -87,10 +116,4 @@
   height: 10px;
   background: #035e7b;
   transform: rotate(315deg);
-}
-
-#company-logo {
-  position: absolute;
-  left: 0;
-  margin-left: 30px;
 }
