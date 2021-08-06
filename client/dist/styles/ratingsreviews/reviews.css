@@ -7,7 +7,7 @@
 
 /* ============Review-top============= */
 #review-top {
- background-color: rgb(82, 104, 4);
+ /* background-color: rgb(82, 104, 4); */
  display: flex;
  flex-direction: row;
  height: 20%;
@@ -20,19 +20,19 @@
 }
 
 #review-top-right {
- background-color: rgb(37, 107, 19);
+ /* background-color: rgb(37, 107, 19); */
  display: flex;
  flex-direction: column;
  flex: 3;
 }
 
-#review-right-top {
+/* #review-right-top {
   background-color: rgb(32, 68, 8);
 }
 
 #review-right-bottom {
   background-color: green;
-}
+} */
 
 /* ============Review-Bottom============== */
 
@@ -67,9 +67,9 @@
   pointer-events: none;
 }
 
-.more-reviews-button, .write-reviews-button {
+/* .more-reviews-button, .write-reviews-button {
   margin: 5px;
-}
+} */
 
 /* ===========Review Tile============== */
 
@@ -224,5 +224,18 @@ img[id^="thumbnail-"] {
   content: "\f005" "\f005" "\f005" "\f005" "\f005";
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
-  color: #035e7b;
+  color: #424c55;
+}
+
+#more-reviews-button {
+  background-color: #3d2c2e;
+  border: #3d2c2e;
+  border-radius: 4px;
+  color: #f5edf0;
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+}
+
+#more-reviews-button:hover {
+  transform: scale(.97);
 }

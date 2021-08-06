@@ -14,7 +14,6 @@ const QuestionAnswer = () => {
     return (
     <div id="body-questions">
       <QuestionsList />
-      <MoreQuestions />
     </div>
   );
 };
