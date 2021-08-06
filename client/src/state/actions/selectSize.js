@@ -11,14 +11,3 @@ export default (size, qty) => {
     })
   }
 };
-
-
-
-// in another file
-
-// export default (isOutOfStock) => {
-//   dispatch({
-//     type: 'OUT_OF_STOCK',
-//     payload: isOutOfStock,
-//   })
-// }
