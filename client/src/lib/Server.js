@@ -3,11 +3,11 @@ const PORT = 3000;
 const BASE_URL = `http://${SERVER}:${PORT}/api`;
 
 const url = {
-  products: '/products',
-  review: '/reviews',
-  questions: '/qa/questions',
-  cart: '/cart',
-  interactions: '/interactions',
+  products: 'products',
+  review: 'reviews',
+  questions: 'qa/questions',
+  cart: 'cart',
+  interactions: 'interactions',
 }
 
 let config = {

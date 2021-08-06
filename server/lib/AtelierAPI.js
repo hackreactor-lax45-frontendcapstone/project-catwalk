@@ -6,6 +6,7 @@ let TOKEN;
 if (fs.existsSync(path.join(__dirname, config))) {
   TOKEN = require(config)
 } else {
+  console.error('Valid token not found!');
   TOKEN = require('../config/example.config.js')
 }
 
