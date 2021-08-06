@@ -19,7 +19,7 @@ export default props => {
   };
 
   return (
-    <div>SortOptions
+    <div>Sort:
       <select id='review-sort-dropdown' onChange={onChange}>
         <option value='relevant'> Relevant </option>
         <option value='helpful'> Helpful </option>
