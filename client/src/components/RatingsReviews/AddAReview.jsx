@@ -6,7 +6,7 @@ import '../../../dist//styles/ratingsreviews/WriteReview.css';
 
 export default props => {
   const dispatch = useDispatch();
-  const product = useSelector(state => state.product.productInfo.name);
+  const product = useSelector(state => state.product);
 
   const handleModal = () => {
     const modalBox = document.querySelector('#write-review-modal');
@@ -48,6 +48,8 @@ export default props => {
     minCount.innerHTML = remaining > 0 ? `Minimum required characters left: [${remaining}]` : 'Minimum reached';
   };
 
+  let starRating;
+
   return (
     <div id="write-review">
       <button id="write-review-btn" onClick={handleModal}>Write A Review</button>
@@ -55,12 +57,35 @@ export default props => {
         <div className="review-modal-header">
           <div>
             <div className="review-modal-title">Write Your Review</div>
-            <div className="review-modal-subtitle">About the {product}</div>
+            <div className="review-modal-subtitle">About the {product.productInfo.name}</div>
           </div>
           <button onClick={handleModal} className="review-modal-close">&times;</button>
         </div>
         <div className="review-modal-body">
-          <form id="review-modal-form">
+          <form id="review-modal-form" onSubmit={(e) => {
+            // e.preventDefault();
+            // const formData = new FormData(e.target);
+            // const data = {};
+            // formData.forEach((value, property) => data[property] = value);
+
+            // axios(`${AtelierAPI.url}/reviews`, {
+            //   method: 'post',
+            //   headers: AtelierAPI.headers,
+            //   data: {
+            //     product_id: product.product_id,
+            //     rating: starRating,
+            //     summary: data['summary'],
+            //     body: data['body'],
+            //     recommend: data['recommend'],
+            //     name: data['name'],
+            //     email: data['email'],
+            //     photos: [],
+            //     characteristics: {}
+            //   }
+            // })
+            //   .then(res => handleModal())
+            //   .catch(err => console.error(err));
+          }}>
             <div> Overall Rating *
               {ratings.map((rating, i) => {
                 return <span onClick={(e) => {
@@ -75,6 +100,7 @@ export default props => {
 
                   let ratingText = document.querySelector('#rating-text');
                   ratingText.innerHTML = `${ratings[i]} ${rText[i]}`;
+                  starRating = i+1;
                 }} id={`review-modal-star${i}`} className="review-modal-stars" key={i}></span>
               })}
               <span id="rating-text"></span>
@@ -86,8 +112,8 @@ export default props => {
                 <input
                   type="radio"
                   id="review-modal-yes"
-                  name="review-modal-rec"
-                  value="yes"
+                  name="recommend"
+                  value="true"
                   checked={radio === 'yes' && true}
                   onChange={() => {}}
                 ></input>
@@ -97,8 +123,8 @@ export default props => {
                 <input
                   type="radio"
                   id="review-modal-no"
-                  name="review-modal-rec"
-                  value="no"
+                  name="recommend"
+                  value="false"
                   checked={radio === 'no' && true}
                   onChange={() => {}}
                 ></input>
@@ -184,7 +210,7 @@ export default props => {
               id="review-modal-name"
               className="review-input"
               type="text"
-              name="nickname"
+              name="name"
               maxLength="60"
               placeholder="Example: jackson11!"
             ></input>
