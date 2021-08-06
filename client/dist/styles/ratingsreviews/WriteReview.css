@@ -1,0 +1,242 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#write-review-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 2px solid #002e2c;
+  border-radius: 8px;
+  z-index: 20;
+  background-color: #eff1c5;
+  width: 500px;
+  max-width: 60%;
+  color: #002e2c;
+}
+
+#write-review-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.review-modal-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #002e2c;
+}
+
+.review-modal-header .review-modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.review-modal-header .review-modal-close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.review-modal-body {
+  padding: 10px;
+}
+
+#review-modal-overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 46, 44, .6);
+  pointer-events: none;
+  z-index: 11;
+}
+
+#review-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#review-modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#review-modal-form textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.review-modal-disclaimer,
+#min-char-count {
+  font-size: 10px;
+  font-style: italic;
+}
+
+#review-modal-submit {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 33.3%;
+  border-color: #035e7b;
+  border-radius: 4px;
+  background-color: #035e7b;
+  color: #eff1c5;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all .1s ease-in-out;
+}
+
+#review-modal-submit:hover {
+  transform: scale(.97);
+}
+
+#review-modal-form input,
+#review-modal-form textarea {
+  background-color: #eff1c5;
+  border-color: #002e2c;
+  border-width: 2px;
+  border-radius: 4px;
+  border-style: solid;
+  transition: all .1s ease-in-out;
+}
+
+#review-modal-form input:hover,
+#review-modal-form textarea:hover {
+  transform: scale(.99);
+}
+
+#review-modal-form input:focus,
+#review-modal-form textarea:focus {
+  outline: none !important;
+  border-color: #035e7b;
+  box-shadow: 0 0 4px #035e7b;
+}
+
+.review-modal-close {
+  color: #035e7b;
+  transition: all .1s ease-in-out;
+}
+
+.review-modal-close:hover {
+  transform: scale(1.2);
+}
+
+#review-modal-form input::placeholder,
+#review-modal-form textarea::placeholder {
+  color: #035e7b;
+  opacity: 0.5;
+}
+
+.review-input {
+  margin-top: 2px;
+}
+
+.review-label {
+  margin-top: 10px;
+}
+
+.review-modal-subtitle {
+  color: #035e7b;
+}
+
+#write-review-btn {
+  background-color: #002e2c;
+  border: #002e2c;
+  border-radius: 4px;
+  color: #eff1c5;
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+}
+
+#write-review-btn:hover {
+  transform: scale(.97);
+}
+
+[id^="review-modal-star"]::before{
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: rgb(219, 216, 216);
+}
+
+[id^="review-modal-star"].filled::before {
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #035e7b;
+}
+
+/* input[type="radio"][id="review-modal-yes"],
+input[type="radio"][id="review-modal-no"],
+input[type="radio"][id^="radio-"] {
+ visibility: hidden;
+} */
+
+.review-modal-recommend label {
+  pointer-events: all;
+}
+
+.review-input.review-modal-img {
+  border: none;
+  display: none;
+}
+
+.review-input.review-modal-img:focus {
+  outline: none !important;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.review-custom-upload {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  width: 25%;
+  border-color: #002e2c;
+  border-radius: 4px;
+  background-color: #002e2c;
+  color: #eff1c5;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all .1s ease-in-out;
+  margin-top: 10px;
+}
+
+.review-custom-upload:hover {
+  /* background-color: #035e7b; */
+  transform: scale(.97);
+}
+
+#review-file-input {
+  display: flex;
+  flex-direction: row;
+}
+
+#review-img-preview {
+  margin-left: 20px;
+}
+
+div[id^="review-radio"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 10px;
+  height: auto;
+}
+
+/* div[id^="review-char"] {
+  display: flex;
+} */
+
+#rating-text {
+  margin-left: 20px;
+}
