@@ -5,7 +5,3 @@ export default props => {
     <div className="product-breakdown">ProductBreakdown</div>
   );
 };
-
-
-
-
