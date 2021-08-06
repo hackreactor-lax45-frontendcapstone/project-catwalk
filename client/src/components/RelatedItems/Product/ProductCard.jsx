@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import ProductSummary from './ProductSummary.jsx';
 import ProductImage from './ProductImage.jsx';
-import '../../../dist/styles/relatedItems/ProductCard.css';
-import actions from '../../state/actions/index.js';
+import '../../../../dist/styles/relatedItems/ProductCard.css';
+import actions from '../../../state/actions/index.js';
 
-export default ({ product }) => {
+export default ({ product, action }) => {
   const dispatch = useDispatch();
   return (
     <div
@@ -14,7 +14,7 @@ export default ({ product }) => {
         actions.selectProduct(dispatch, product.productInfo.id);
         actions.setRelated(dispatch, product.productInfo.id);
       }}>
-      <ProductImage product={product}/>
+      <ProductImage product={product} action={action}/>
       <ProductSummary product={product}/>
     </div>
   );

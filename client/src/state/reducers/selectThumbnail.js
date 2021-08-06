@@ -1,9 +1,6 @@
 import Redux from 'redux';
 
 // these are set in ImageGallery.css
-const IMAGE_WIDTH = 140;
-const IMAGE_HEIGHT = 90;
-const BUFFER = 0;
 
 const initialState = {
   index: 0,
@@ -13,7 +10,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SELECT_DEFAULT_THUMBNAIL':
-    var { index, max, galleryWidth } = action.payload;
+    var { index, max, galleryWidth, IMAGE_WIDTH } = action.payload;
     var oldIndex = state.index;
     if (index > max) {
       state.index = max;

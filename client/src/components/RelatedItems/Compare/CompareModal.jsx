@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from '../../state/actions/index.js';
+import actions from '../../../state/actions/index.js';
 import ModalTable from './ModalTable.jsx';
 
-import '../../../dist/styles/relatedItems/CompareModal.css';
+import '../../../../dist/styles/relatedItems/CompareModal.css';
 
 export default () => {
   const state = useSelector(state => {
@@ -13,15 +13,14 @@ export default () => {
       compare: state.related.compare,
     };
   });
-
   const dispatch = useDispatch();
   return (
-    <div style={{display: 'flex', height: '350px', width: '100%'}}>
-      <div
-        style={{display: (state.related.modal ? 'inline' : 'none')}}
-        className='rrelated-gallery related-products-modal'>
+    <div
+      style={{display: (state.related.modal ? 'inline' : 'none')}}
+      className='related-products-modal-overlay'>
+      <div className='related-products-modal-background'>
         <span
-          style={{cursor: 'pointer', float: 'right', padding: '5px 5px 0 0'}}
+          id='modal-close-button'
           onClick={e => {
             dispatch(actions.setViews.modalView());
             e.stopPropagation();
@@ -29,11 +28,11 @@ export default () => {
           {'X'}
         </span>
       </div>
-      <div
-        style={{display: (state.related.modal ? 'inline' : 'none')}}
-        id='related-products-modal-panel'>
+      <div id='related-products-table-container'>
         <ModalTable product={state.product} compare={state.compare}/>
       </div>
     </div>
   );
 };
+
+/*  */
