@@ -5,7 +5,6 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "npx webpack --config ./webpack.config.js --mode development -w & live-server --open=./client/dist/ --port=8000",
     "build-nowatch": "npx webpack --config ./webpack.config.js --mode development",
     "start": "npx webpack --config ./webpack.config.js --mode development -w & nodemon ./server/index.js",
     "test": "jest --coverage  --testPathIgnorePatterns=server.test.js",
