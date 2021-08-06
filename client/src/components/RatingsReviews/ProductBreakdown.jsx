@@ -2,10 +2,9 @@ import React from 'react';
 
 export default props => {
   return (
-    <div >Product Breakdown</div>
+    <div className="product-breakdown">ProductBreakdown</div>
   );
-
-  };
+};
 
 
 
