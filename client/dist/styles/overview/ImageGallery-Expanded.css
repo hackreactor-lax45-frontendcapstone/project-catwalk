@@ -25,6 +25,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  overflow: hidden;
 }
 
 #imagegallery-expanded-main-in,
@@ -44,10 +45,17 @@
 
 #imagegallery-expanded-main-out {
   cursor: zoom-in;
+  display: flex;
+  flex: 1;
 }
 
 #imagegallery-expanded-main-in {
+  position: relative;
+  /* transform: scale(2.5); */
   cursor: zoom-out;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 #image-gallery-expanded-close-x {

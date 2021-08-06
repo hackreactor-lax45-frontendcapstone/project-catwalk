@@ -12,8 +12,7 @@ import _ from 'lodash';
 
 const ARROW_RIGHT = '>';
 const ARROW_LEFT = '<';
-const IMAGE_WIDTH = 140;
-const IMAGE_HEIGHT = 90;
+const IMAGE_WIDTH = 200;
 
 const THUMBNAIL_BUTTON_DISABLED = 'imagegallery-thumbnail-button-disabled';
 const THUMBNAIL_BUTTON_ENABLED = 'imagegallery-thumbnail-button';
@@ -71,7 +70,8 @@ const dispatchThumbnail = (dispatch, direction, state) => {
     actions.selectThumbnail.defaultView(
       state.thumbnail.index + direction,
       state.style.photos.length - 1,
-      getGallery().offsetWidth
+      getGallery().offsetWidth,
+      IMAGE_WIDTH
     ));
 };
 
@@ -102,13 +102,7 @@ export default ({ state }) => {
         </button>
         <div
           id="imagegallery-default-main-image"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            position: 'relative',
-          }}
+          style={{backgroundImage: `url(${backgroundImage})`}}
           onClick={() => dispatch(actions.setViews.defaultView())}>
         </div>
         <button
@@ -128,19 +122,14 @@ export default ({ state }) => {
           {ARROW_LEFT}
         </button>
 
-        <div id="imagegallery-default-thumbnails-image">
+        <div id="imagegallery-default-thumbnails-container">
           {_.map(state.style.photos, (photo, i) => {
             return (
               <div
                 key={i}
                 id={`imagegallery-thumbnail-image-${i}`}
                 className={'imagegallery-thumbnail-image'}
-                style={{
-                  backgroundImage: `url(${photo.thumbnail_url}`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  backgroundPosition: 'center',
-                }}
+                style={{backgroundImage: `url(${photo.thumbnail_url}`}}
                 onClick={() => {
                   dispatch(
                     actions.selectThumbnail.defaultView(

@@ -12,7 +12,7 @@ import actions from '../state/actions/index.js';
 
 export default (props) => {
 
-  const product = useSelector(state => state.product.productID) || 16060;
+  const product = useSelector(state => state.product.productID) || 16065;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,10 +24,7 @@ export default (props) => {
 
   return (
     <div onClick={props.handleInteraction} id="app">
-      <div id="app-header">
-        <Header />
-        <div id="announcements"></div>
-      </div>
+      <Header />
       <div id="app-body">
         <Overview />
         <RelatedItems />
