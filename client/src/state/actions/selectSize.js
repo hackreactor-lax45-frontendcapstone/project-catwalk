@@ -1,13 +1,13 @@
-export default (size) => {
+export default (size, qty) => {
+  let sizeSelectedFlag = size === '' ? false : true;
   return (dispatch) => {
     dispatch({
       type: 'SELECT_SIZE',
-      payload: size
+      payload: {
+        size: size,
+        qty: qty,
+        isSizeSelected: sizeSelectedFlag,
+      }
     })
   }
 };
-
-// return {
-//   type: 'SELECT_SIZE',
-//   payload: size
-// };
