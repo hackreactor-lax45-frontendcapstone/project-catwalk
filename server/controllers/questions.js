@@ -33,19 +33,6 @@ module.exports = {
     Atelier.post(`${URL}/${req.params.question_id}/answers`, req.body)
       .then(response => res.status(response.status).json(response.data))
       .catch(err => res.status(404).json(ERROR_MESSAGES[3]));
-
-    // axios({
-    //   url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
-    //   method: 'post',
-    //   data: req.body,
-    //   headers: HEADERS,
-    // })
-    //   .then(response => {
-    //     res.status(response.status).json(response.data);
-    //   })
-    //   .catch(err => {
-    //     res.status(404).json('Unable to ask a new question \'/questions\'');
-    //   });
   },
   helpful: (req, res) => {
     axios({

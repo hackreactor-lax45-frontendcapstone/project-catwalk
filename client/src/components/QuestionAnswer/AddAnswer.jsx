@@ -48,17 +48,6 @@ export default props => {
             const data = {};
             formData.forEach((value, property) => data[property] = value);
 
-            // axios(`${AtelierAPI.url}/qa/questions/${props.i}/answers`, {
-            //   method: 'post',
-            //   headers: AtelierAPI.headers,
-            //   data: {
-            //     body: data['body'],
-            //     name: data['name'],
-            //     email: data['email'],
-            //     image: []
-            //   }
-            // })
-
             Server.post(`${URL}/${props.i}/answers`, {
               body: data['body'],
               name: data['name'],

@@ -6,7 +6,8 @@ import AddAnswer from './AddAnswer.jsx';
 import actions from '../../state/actions/index.js';
 import '../../../dist/styles/questionsAnswers/QuestionComponent.css';
 import { url, Server } from '../../lib/Server.js';
-const URL = url.questions;
+const QUESTION_URL = url.questions;
+const ANSWER_URL = url.answers;
 
 export default props => {
   const dispatch = useDispatch();
@@ -42,15 +43,17 @@ export default props => {
                       <span>Helpful? </span>
                       <span className="qa-answer-yes" onClick={(e) => {
                         e.target.classList.add('disabled');
-                        axios(`${AtelierAPI.url}/qa/answers/${answer.answer_id}/helpful`, {
-                          method: 'put',
-                          headers: AtelierAPI.headers,
-                          data: {
-                            helpfulness: answer.helpfulness + 1
-                          }
+
+                        Server.put(`${ANSWER_URL}/${answer.answer_id}/helpful`, {
+                          helpfulness: answer.helpfulness + 1
                         })
-                          .then(res => actions.getAnswers(dispatch, question.question_id, 1, answers.results.length))
+                          .then(res => {
+                            actions.getAnswers(
+                              dispatch, question.question_id, 1, answers.results.length
+                            );
+                          })
                           .catch(err => console.error(err));
+
                       }}>Yes</span>
                       <span>{`(${answer.helpfulness}) | `}</span>
                     </span>
