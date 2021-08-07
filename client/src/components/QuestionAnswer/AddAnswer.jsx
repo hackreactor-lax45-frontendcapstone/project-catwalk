@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import AtelierAPI from '../../lib/atelierAPI.js';
 
 import actions from '../../state/actions';
-
 import '../../../dist/styles/questionsAnswers/AddAnswer.css';
+
+import { url, Server } from '../../lib/Server.js';
+const URL = url.questions;
 
 export default props => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default props => {
       modalBox.classList.add('active');
       overlay.classList.add('active');
     }
-  }
+  };
 
   return (
     <span id="qa-add-answer">
@@ -48,15 +48,22 @@ export default props => {
             const data = {};
             formData.forEach((value, property) => data[property] = value);
 
-            axios(`${AtelierAPI.url}/qa/questions/${props.i}/answers`, {
-              method: 'post',
-              headers: AtelierAPI.headers,
-              data: {
-                body: data['body'],
-                name: data['name'],
-                email: data['email'],
-                image: []
-              }
+            // axios(`${AtelierAPI.url}/qa/questions/${props.i}/answers`, {
+            //   method: 'post',
+            //   headers: AtelierAPI.headers,
+            //   data: {
+            //     body: data['body'],
+            //     name: data['name'],
+            //     email: data['email'],
+            //     image: []
+            //   }
+            // })
+
+            Server.post(`${URL}/${props.i}/answers`, {
+              body: data['body'],
+              name: data['name'],
+              email: data['email'],
+              image: []
             })
               .then(res => handleModal())
               .catch(err => console.error(err));

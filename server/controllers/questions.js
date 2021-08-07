@@ -8,8 +8,6 @@ const ERROR_MESSAGES = [
   '',
   '',
   '',
-  '',
-  '',
 ];
 
 /* ======================
@@ -26,82 +24,53 @@ module.exports = {
       .then(response => res.status(response.status).json(response.data))
       .catch(err => res.status(404).json(ERROR_MESSAGES[1]));
   },
-  question: {
-    ask: (req, res) => {
-      Atelier.post(URL, req.body)
-        .then(response => res.status(response.status).json(response.data))
-        .catch(err => res.status(404).json(ERROR_MESSAGES[2]));
-    },
-    answer: (req, res) => {
-      axios({
-        url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
-        method: 'post',
-        data: req.body,
-        headers: HEADERS,
-      })
-        .then(response => {
-          res.status(response.status).json(response.data);
-        })
-        .catch(err => {
-          res.status(404).json('Unable to ask a new question \'/questions\'');
-        });
-    },
-    helpful: (req, res) => {
-      axios({
-        url: `${QUESTIONS_URL}/${req.params.question_id}/helpful`,
-        method: 'put',
-        headers: HEADERS,
-      })
-        .then(response => {
-          res.status(response.status).json(response.data);
-        })
-        .catch(err => {
-          res.status(404).json('Unable to mark question helpful from \'/questions/:id/helpful\'');
-        });
-    },
-    report: (req, res) => {
-      axios({
-        url: `${QUESTIONS_URL}/${req.params.question_id}/report`,
-        method: 'put',
-        headers: HEADERS,
-      })
-        .then(response => {
-          res.status(response.status).json(response.data);
-        })
-        .catch(err => {
-          res.status(404).json('Unable to report question from \'/questions/:id/report\'');
-        });
-    },
+  ask: (req, res) => {
+    Atelier.post(URL, req.body)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[2]));
   },
-  /* ======================
-      /api/qa/answers
-  ====================== */
-  answer: {
-    helpful: (req, res) => {
-      axios({
-        url: `${QUESTIONS_URL}/${req.params.answer_id}/helpful`,
-        method: 'put',
-        headers: HEADERS,
+  answer: (req, res) => {
+    Atelier.post(`${URL}/${req.params.question_id}/answers`, req.body)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[3]));
+
+    // axios({
+    //   url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
+    //   method: 'post',
+    //   data: req.body,
+    //   headers: HEADERS,
+    // })
+    //   .then(response => {
+    //     res.status(response.status).json(response.data);
+    //   })
+    //   .catch(err => {
+    //     res.status(404).json('Unable to ask a new question \'/questions\'');
+    //   });
+  },
+  helpful: (req, res) => {
+    axios({
+      url: `${QUESTIONS_URL}/${req.params.question_id}/helpful`,
+      method: 'put',
+      headers: HEADERS,
+    })
+      .then(response => {
+        res.status(response.status).json(response.data);
       })
-        .then(response => {
-          res.status(response.status).json(response.data);
-        })
-        .catch(err => {
-          res.status(404).json('Unable to mark answer helpful from \'/questions/:id/helpful\'');
-        });
-    },
-    report: (req, res) => {
-      axios({
-        url: `${QUESTIONS_URL}/${req.params.answer_id}/report`,
-        method: 'put',
-        headers: HEADERS,
+      .catch(err => {
+        res.status(404).json('Unable to mark question helpful from \'/questions/:id/helpful\'');
+      });
+  },
+  report: (req, res) => {
+    axios({
+      url: `${QUESTIONS_URL}/${req.params.question_id}/report`,
+      method: 'put',
+      headers: HEADERS,
+    })
+      .then(response => {
+        res.status(response.status).json(response.data);
       })
-        .then(response => {
-          res.status(response.status).json(response.data);
-        })
-        .catch(err => {
-          res.status(404).json('Unable to report answer from \'/questions/:id/helpful\'');
-        });
-    },
-  }
-};
+      .catch(err => {
+        res.status(404).json('Unable to report question from \'/questions/:id/report\'');
+      });
+  },
+}
