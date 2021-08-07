@@ -73,6 +73,7 @@ export default props => {
                 </div>
               )
             })}
+          </div>
             <div id="answer-see-more" className={Object.keys(question.answers).length <= 2? 'see-more-hidden' : ''}
             onClick={(e) => {
               if (e.target.innerHTML === 'See More Answers') {
@@ -83,7 +84,6 @@ export default props => {
                 e.target.innerHTML = 'See More Answers';
               }
             }}>See More Answers</div>
-          </div>
         </div>
         <div id="qa-in-right">
           <span id="qa-question-help">

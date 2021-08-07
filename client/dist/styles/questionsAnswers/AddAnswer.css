@@ -186,3 +186,7 @@ div[id^="qa-answer-modal"] textarea {
 #answer-img-preview {
   object-fit: cover;
 }
+
+.img-hidden {
+  display: none;
+}

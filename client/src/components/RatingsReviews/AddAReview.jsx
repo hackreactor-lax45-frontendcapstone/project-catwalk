@@ -20,6 +20,9 @@ export default props => {
       inputs.forEach(node => {
         node.value = '';
       });
+
+      const preview = document.querySelector('#review-img-preview');
+      preview.classList.add('img-hidden');
     } else {
       modalBox.classList.add('active');
       overlay.classList.add('active');

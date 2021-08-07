@@ -155,6 +155,8 @@
   color: #f5edf0;
   transition: all .1s ease-in-out;
   cursor: pointer;
+  height: 30px;
+  margin-left: 5px;
 }
 
 #write-review-btn:hover {
