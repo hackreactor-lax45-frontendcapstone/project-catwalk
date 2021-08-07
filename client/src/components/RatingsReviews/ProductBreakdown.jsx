@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import '../../../dist/styles/ratingsreviews/productBreakdown.css';
 const ProductBreakdown = () => {
   const characteristics = useSelector(state => {
     return state.reviews.metadataInfo.characteristics;
@@ -26,14 +26,14 @@ const ProductBreakdown = () => {
     if (data.Fit) {
       children.push(['Fit', Math.round(data.Fit.value), 'Too tight', 'Runs long']);
     }
-    var barColour = '#192fbf';
+    var barColour = '#3c2c2e';
     var width = 300;
     var height = 40;
     var xCenter = width / 2;
 
 
     return (
-      <div>
+      <div className="product-characteristics-container">
         {children.map((elm, index) => {
           for (var ind in elm) {
             var calcRate = (elm[1] - 1) / 4;
@@ -42,9 +42,9 @@ const ProductBreakdown = () => {
             return (
               <div className="product-characteristics" key={index}>
                 <div className="characteristic-name">{elm[0]}</div>
-                <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" >
-                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" transform={`translate(${pointer + xTranslate}, 0)`} />
-                  <rect x={xTranslate} y='15' width={width * 0.7} height="10" fill={barColour}/>
+                <svg width={width} height={height / 2} xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" >
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" transform={`translate(${pointer}, 0)`} />
+                  <rect y='15' width={width * 0.7} height="10" fill={barColour}/>
                 </svg>
                 <div className="characteristic-selections">
                   <div>{elm[2]}</div>
