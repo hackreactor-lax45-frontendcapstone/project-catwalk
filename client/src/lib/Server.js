@@ -1,10 +1,9 @@
-const axios = require('axios');
-
 /*
  * SERVER must be set to the public-ipv4 which may be retrieved
  * by using the following command in the instance terminal:
  * 	 curl "http://169.254.169.254/latest/meta-data/public-ipv4"
  */
+const axios = require('axios');
 const SERVER = '18.222.231.76';
 const PORT = 3000;
 const BASE_URL = `http://${SERVER}:${PORT}/api`;
