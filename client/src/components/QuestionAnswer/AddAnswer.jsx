@@ -93,12 +93,12 @@ export default props => {
               onInvalid={(e) => {
                 const checkValidity = e.target.validity;
                 checkValidity.valueMissing
-                ? e.target.setCustomValidity('You must enter the following: Your Email')
-                : e.target.setCustomValidity('Invalid Email Address');
+                  ? e.target.setCustomValidity('You must enter the following: Your Email')
+                  : e.target.setCustomValidity('Invalid Email Address');
               }}
               maxLength="60"
               placeholder="Example: jack@email.com"
-              ></input>
+            ></input>
             <div className="answer-modal-disclaimer">For authentication reasons, you will not be emailed</div>
             <label htmlFor={`answer-modal-img${props.i}`} className="answer-custom-upload">Upload Photos</label>
             <input
@@ -117,7 +117,8 @@ export default props => {
                   preview.height = 75;
                   preview.width = 75;
                   preview.src = reader.result;
-                }
+                };
+
                 if (file) {
                   reader.readAsDataURL(file);
                 }

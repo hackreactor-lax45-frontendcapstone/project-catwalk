@@ -14,6 +14,9 @@ const ERROR_MESSAGES = [
     /api/qa/questions
 ====================== */
 module.exports = {
+  /* - - - - -
+      get
+   - - - - - */
   list: (req, res) => {
     Atelier.get(URL, { params: req.query })
       .then(response => res.status(response.status).json(response.data))
@@ -24,6 +27,9 @@ module.exports = {
       .then(response => res.status(response.status).json(response.data))
       .catch(err => res.status(404).json(ERROR_MESSAGES[1]));
   },
+  /* - - - - -
+      post
+   - - - - - */
   ask: (req, res) => {
     Atelier.post(URL, req.body)
       .then(response => res.status(response.status).json(response.data))
@@ -34,30 +40,17 @@ module.exports = {
       .then(response => res.status(response.status).json(response.data))
       .catch(err => res.status(404).json(ERROR_MESSAGES[3]));
   },
+  /* - - - - -
+      put
+   - - - - - */
   helpful: (req, res) => {
-    axios({
-      url: `${QUESTIONS_URL}/${req.params.question_id}/helpful`,
-      method: 'put',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to mark question helpful from \'/questions/:id/helpful\'');
-      });
+    Atelier.put(`${URL}/${req.params.question_id}/helpful`, req.body)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[4]));
   },
   report: (req, res) => {
-    axios({
-      url: `${QUESTIONS_URL}/${req.params.question_id}/report`,
-      method: 'put',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to report question from \'/questions/:id/report\'');
-      });
+    Atelier.put(`${URL}/${req.params.question_id}/report`, req.body)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[5]));
   },
-}
+};
