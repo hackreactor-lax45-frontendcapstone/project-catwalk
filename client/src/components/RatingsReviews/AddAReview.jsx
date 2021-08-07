@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import AtelierAPI from '../../lib/atelierAPI.js';
 import '../../../dist//styles/ratingsreviews/WriteReview.css';
 
 import { url, Server } from '../../lib/Server.js';
