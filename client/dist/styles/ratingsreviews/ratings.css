@@ -29,12 +29,19 @@
   flex-direction: column;
   align-items: center;
   font-size: 16px;
+  max-width: 350px;
 }
 
-#body-reviews-top-middle,
+#body-reviews-top-middle {
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+}
+
 #body-reviews-top-right {
   align-items: center;
   justify-content: center;
+  max-width: 410px;
 }
 
 /* ============Ratings-title============= */
