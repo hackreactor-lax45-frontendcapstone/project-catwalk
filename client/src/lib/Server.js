@@ -6,7 +6,7 @@ const BASE_URL = `http://${SERVER}:${PORT}/api`;
 
 const url = {
   products: 'products',
-  review: 'reviews',
+  reviews: 'reviews',
   questions: 'qa/questions',
   answers: 'qa/answers',
   cart: 'cart',

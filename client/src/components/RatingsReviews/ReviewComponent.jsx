@@ -143,11 +143,15 @@ const ReviewComponent = () => {
                   //     helpfulness: review.helpfulness + 1
                   //   }
                   // })
+
                   Server.put(`${URL}/${review.review_id}/helpful`, {
                     helpfulness: review.helpfulness + 1
                   })
                     .then(() => {
-                      actions.setReviews(dispatch, reviews.productId, 1, reviews.reviews.results.length, 'relevant');
+                      actions.setReviews(
+                        dispatch,
+                        reviews.productId, 1, reviews.reviews.results.length, 'relevant'
+                      );
                       document.getElementById(`helpful-yes-${index}`).hidden = true;
                       document.getElementById(`helpful-yes-count-${index}`).hidden = false;
                       document.getElementById(`helpful-no-${index}`).hidden = true;

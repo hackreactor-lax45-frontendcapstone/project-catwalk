@@ -13,75 +13,52 @@ const ERROR_MESSAGES = [
 ====================== */
 module.exports = {
   list: (req, res) => {
-    Atelier.get(URL, {params: req.body })
+    Atelier.get(URL, { params: req.query })
       .then(response => res.status(response.status).json(response.data))
       .catch(err => res.status(404).json(ERROR_MESSAGES[0]));
+  },
+  meta: (req, res) => {
+    Atelier.get(`${URL}/meta`, { params: req.query })
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[1]));
+  },
+  create: (req, res) => {
+    Atelier.post(URL, req.body)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[2]));
+  },
+  helpful: (req, res) => {
+    Atelier.put(`${URL}/${req.params.review_id}/helpful`, req.body)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[3]));
 
     // axios({
-    //   url: `${URL}`,
-    //   params: req.query,
-    //   method: 'get',
+    //   url: `${URL}/${req.params.review_id}/helpful`,
+    //   method: 'put',
     //   headers: HEADERS,
     // })
     //   .then(response => {
     //     res.status(response.status).json(response.data);
     //   })
     //   .catch(err => {
-    //     res.status(404).json('Unable to retrieve reviews from \'/reviews/list\'');
+    //     res.status(404).json('Unable to mark review helpful from \'/reviews/:id/helpful\'');
     //   });
   },
-  meta: (req, res) => {
-    axios({
-      url: `${URL}/meta`,
-      params: req.query,
-      method: 'get',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve review metadata from \'/reviews/meta\'');
-      });
-  },
-  create: (req, res) => {
-    axios({
-      url: `${URL}`,
-      method: 'post',
-      data: req.body,
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to create new post at \'/reviews\'');
-      });
-  },
-  helpful: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.review_id}/helpful`,
-      method: 'put',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to mark review helpful from \'/reviews/:id/helpful\'');
-      });
-  },
   report: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.review_id}/report`,
-      method: 'put',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to report view from \'/reviews/:id/report\'');
-      });
+    Atelier.put(`${URL}/${req.params.review_id}/report`)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[4]));
+
+    // axios({
+    //   url: `${URL}/${req.params.review_id}/report`,
+    //   method: 'put',
+    //   headers: HEADERS,
+    // })
+    //   .then(response => {
+    //     res.status(response.status).json(response.data);
+    //   })
+    //   .catch(err => {
+    //     res.status(404).json('Unable to report view from \'/reviews/:id/report\'');
+    //   });
   },
 };
