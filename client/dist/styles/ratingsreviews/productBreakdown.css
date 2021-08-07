@@ -1,0 +1,9 @@
+.product-characteristics-container {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  max-height: 220px;
+  justify-content: space-between;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
