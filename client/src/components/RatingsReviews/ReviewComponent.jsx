@@ -136,14 +136,6 @@ const ReviewComponent = () => {
                 <span className="helpful-col-1">Was this review helpful?</span>
                 <span id={`helpful-yes-${index}` }onClick={() => {
 
-                  // axios(`${AtelierAPI.url}/reviews/${review.review_id}/helpful`, {
-                  //   method: 'put',
-                  //   headers: AtelierAPI.headers,
-                  //   data: {
-                  //     helpfulness: review.helpfulness + 1
-                  //   }
-                  // })
-
                   Server.put(`${URL}/${review.review_id}/helpful`, {
                     helpfulness: review.helpfulness + 1
                   })

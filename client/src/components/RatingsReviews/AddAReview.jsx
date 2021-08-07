@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import AtelierAPI from '../../lib/atelierAPI.js';
 import '../../../dist//styles/ratingsreviews/WriteReview.css';
+
+import { url, Server } from '../../lib/Server.js';
+const URL = url.reviews;
 
 export default props => {
   const dispatch = useDispatch();
@@ -68,20 +70,16 @@ export default props => {
             // const data = {};
             // formData.forEach((value, property) => data[property] = value);
 
-            // axios(`${AtelierAPI.url}/reviews`, {
-            //   method: 'post',
-            //   headers: AtelierAPI.headers,
-            //   data: {
-            //     product_id: product.product_id,
-            //     rating: starRating,
-            //     summary: data['summary'],
-            //     body: data['body'],
-            //     recommend: data['recommend'],
-            //     name: data['name'],
-            //     email: data['email'],
-            //     photos: [],
-            //     characteristics: {}
-            //   }
+            // Server.post(URL, {
+            //   product_id: product.product_id,
+            //   rating: starRating,
+            //   summary: data['summary'],
+            //   body: data['body'],
+            //   recommend: data['recommend'],
+            //   name: data['name'],
+            //   email: data['email'],
+            //   photos: [],
+            //   characteristics: {}
             // })
             //   .then(res => handleModal())
             //   .catch(err => console.error(err));
