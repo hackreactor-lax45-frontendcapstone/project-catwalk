@@ -1,12 +1,10 @@
 /* eslint-disable camelcase */
-const { app, server } = require('../server/index');
-server.close();
-
 const request = require('supertest');
+const { app, server } = require('../server/index');
 const mockData = require('../data/index');
 
+server.close();
 const PRODUCT = 16060;
-const mockServer = request(app);
 
 describe('Products endpoint', () => {
 
