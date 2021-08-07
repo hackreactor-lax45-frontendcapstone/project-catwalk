@@ -23,6 +23,9 @@ export default props => {
 
       const allStars = document.querySelectorAll('.review-modal-stars');
       allStars.forEach(star => star.classList.remove('filled'));
+
+      const preview = document.querySelector('#review-img-preview');
+      preview.classList.add('img-hidden');
     } else {
       modalBox.classList.add('active');
       overlay.classList.add('active');
