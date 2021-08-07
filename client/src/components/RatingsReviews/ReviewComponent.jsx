@@ -121,7 +121,6 @@ const ReviewComponent = () => {
                         modal.classList.add('active');
                         overlay.classList.add('active');
                       }
-                      console.log(photo.url);
                     }}>
                     </img>
 

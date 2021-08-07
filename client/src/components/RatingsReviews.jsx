@@ -27,24 +27,35 @@ export default () => {
       sumRatings += Number(metadata[key]);
       ratings += (Number(key) * Number(metadata[key]));
     }
-    let averageRating = Math.round((ratings / sumRatings * 10)) / 10;
-    return averageRating;
+    if (sumRatings === 0) {
+      return 0;
+    } else {
+      let averageRating = Math.round((ratings / sumRatings * 10)) / 10;
+      return averageRating;
+    }
   };
 
   const getWidth = (metadata) => {
     let ratings = 0;
     let sumRatings = 0;
+
     for (var key in metadata) {
       sumRatings += Number(metadata[key]);
       ratings += (Number(key) * Number(metadata[key]));
     }
-    let starPercentage = (ratings / sumRatings) / 5 * 100;
-    if ((starPercentage % 5) < 2.5) {
-      starPercentage -= (starPercentage % 5);
+    if (sumRatings === 0) {
+      return 0;
     } else {
-      starPercentage += (5 - (starPercentage % 5));
+      let starPercentage = (ratings / sumRatings) / 5 * 100;
+      if ((starPercentage % 5) < 2.5) {
+        starPercentage -= (starPercentage % 5);
+      } else {
+        starPercentage += (5 - (starPercentage % 5));
+      }
+      return starPercentage;
     }
-    return starPercentage;
+
+
   };
 
   const filterMessage = (filters) => {
@@ -76,6 +87,15 @@ export default () => {
     }
   };
 
+  // const setWidth = () => {
+  //   const target = document.querySelector('average-rating-star-inner');
+  //   if (typeof getWidth(state.metadata.ratings) === 'number') {
+  //     target.setAttribute('style', {width: `${getWidth(state.metadata.ratings)}%`});
+  //   } else {
+
+  //   }
+  // };
+
 
   return (
     <div id="body-reviews">
@@ -102,7 +122,7 @@ export default () => {
         </div>
       </div>
 
-        <ReviewList />
+      <ReviewList />
 
       {/* <KeywordSearch /> */}
     </div>
