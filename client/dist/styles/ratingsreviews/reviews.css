@@ -26,7 +26,6 @@
 .review-component-tile {
   display: flex;
   flex-direction: column;
-  /* align-items: cemter; */
   border: none;
   border-radius: 10px;
   margin: 20px 0;

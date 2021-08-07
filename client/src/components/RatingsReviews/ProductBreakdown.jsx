@@ -44,7 +44,7 @@ const ProductBreakdown = () => {
                 <div className="characteristic-name">{elm[0]}</div>
                 <svg width={width} height={height / 2} xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" >
                   <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" transform={`translate(${pointer}, 0)`} />
-                  <rect  y='15' width={width * 0.7} height="10" fill={barColour}/>
+                  <rect y='15' width={width * 0.7} height="10" fill={barColour}/>
                 </svg>
                 <div className="characteristic-selections">
                   <div>{elm[2]}</div>
