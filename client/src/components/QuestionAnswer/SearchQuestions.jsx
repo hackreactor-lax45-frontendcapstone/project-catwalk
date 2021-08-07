@@ -4,9 +4,8 @@ const SearchBar = ({ searchQuery, setSearchQuery}) => {
 
 
   return (
-    <form action="/" method="get">
+    <form>
       <label htmlFor="question-search">
-      <span className="visually-hidden">Search questions</span>
      </label>
         <input
         value={searchQuery}
@@ -16,7 +15,6 @@ const SearchBar = ({ searchQuery, setSearchQuery}) => {
         placeholder="Have a question? Search for answers…"
         name="s"
         />
-      {/* <button type="submit">Search</button> */}
     </form>
   )
 };

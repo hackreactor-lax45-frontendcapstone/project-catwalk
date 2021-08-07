@@ -76,17 +76,17 @@ export default props => {
                 </div>
               )
             })}
-            <div id="answer-see-more" className={Object.keys(question.answers).length <= 2? 'see-more-hidden' : ''}
-              onClick={(e) => {
-                if (e.target.innerHTML === 'See More Answers') {
-                  actions.getAnswers(dispatch, question.question_id, 1, Object.keys(question.answers).length);
-                  e.target.innerHTML = 'Collapse Answers';
-                } else if (e.target.innerHTML === 'Collapse Answers') {
-                  actions.getAnswers(dispatch, question.question_id, 1, 2);
-                  e.target.innerHTML = 'See More Answers';
-                }
-              }}>See More Answers</div>
           </div>
+          <div id="answer-see-more" className={Object.keys(question.answers).length <= 2? 'see-more-hidden' : ''}
+            onClick={(e) => {
+              if (e.target.innerHTML === 'See More Answers') {
+                actions.getAnswers(dispatch, question.question_id, 1, Object.keys(question.answers).length);
+                e.target.innerHTML = 'Collapse Answers';
+              } else if (e.target.innerHTML === 'Collapse Answers') {
+                actions.getAnswers(dispatch, question.question_id, 1, 2);
+                e.target.innerHTML = 'See More Answers';
+              }
+            }}>See More Answers</div>
         </div>
         <div id="qa-in-right">
           <span id="qa-question-help">

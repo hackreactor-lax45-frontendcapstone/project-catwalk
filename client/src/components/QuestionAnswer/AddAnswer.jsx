@@ -24,6 +24,9 @@ export default props => {
       inputs.forEach(node => {
         node.value = '';
       });
+
+      const preview = document.querySelector(`#answer-img-preview${props.i}`);
+      preview.classList.add('img-hidden');
     } else {
       modalBox.classList.add('active');
       overlay.classList.add('active');
@@ -33,7 +36,7 @@ export default props => {
   return (
     <span id="qa-add-answer">
       <div id="add-answer-link" onClick={handleModal}>Add Answer</div>
-      <div id={`qa-answer-modal${props.i}`} className="answer-modal">
+      <div id={`qa-answer-modal${props.i}`}>
         <div className="answer-modal-header">
           <div>
             <div className="answer-modal-title">Submit your Answer!</div>
@@ -54,7 +57,10 @@ export default props => {
               email: data['email'],
               image: []
             })
-              .then(res => handleModal())
+              .then(res => {
+                // actions.getAnswers(dispatch, props.i, 1, answers.results.length);
+                handleModal();
+              })
               .catch(err => console.error(err));
           }}>
             <label htmlFor={`answer-modal-answer${props.i}`}>Your Answer *</label>
@@ -109,7 +115,7 @@ export default props => {
               multiple
               accept="image/*"
               onChange={(e) => {
-                const preview = document.querySelector('#answer-img-preview');
+                const preview = document.querySelector(`#answer-img-preview${props.i}`);
                 const file = e.target.files[0];
                 const reader = new FileReader();
 
@@ -125,7 +131,7 @@ export default props => {
 
               }}
             ></input>
-            <img id="answer-img-preview"></img>
+            <img id={`answer-img-preview${props.i}`}></img>
             <button className="answer-modal-submit" type="submit">Submit</button>
           </form>
         </div>
