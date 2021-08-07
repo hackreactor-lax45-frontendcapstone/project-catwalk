@@ -213,8 +213,10 @@ img[id^="modal-image-"] {
   color: #f5edf0;
   transition: all .1s ease-in-out;
   cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 #more-reviews-button:hover {
   transform: scale(.97);
 }
+

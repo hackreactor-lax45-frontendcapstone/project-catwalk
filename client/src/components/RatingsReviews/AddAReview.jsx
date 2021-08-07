@@ -22,6 +22,9 @@ export default props => {
         node.value = '';
       });
 
+      const allStars = document.querySelectorAll('.review-modal-stars');
+      allStars.forEach(star => star.classList.remove('filled'));
+
       const preview = document.querySelector('#review-img-preview');
       preview.classList.add('img-hidden');
     } else {
@@ -33,7 +36,8 @@ export default props => {
   const ratings = [1, 2, 3, 4, 5];
   const rText = ['star - "Poor"', 'stars - "Fair"', 'stars - "Average"', 'stars - "Good"', 'stars - "Great"'];
 
-  const characteristics = useSelector(state => Object.keys(state.reviews.metadataInfo.characteristics));
+  const charMetadata = useSelector(state => state.reviews.metadataInfo.characteristics);
+  const characteristics = Object.keys(charMetadata);
   const charMeanings = {
     Size: ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide'],
     Width: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
@@ -52,7 +56,8 @@ export default props => {
     minCount.innerHTML = remaining > 0 ? `Minimum required characters left: [${remaining}]` : 'Minimum reached';
   };
 
-  let starRating;
+  let starRating = 3;
+  const charData = {};
 
   return (
     <div id="write-review">
@@ -67,24 +72,25 @@ export default props => {
         </div>
         <div className="review-modal-body">
           <form id="review-modal-form" onSubmit={(e) => {
-            // e.preventDefault();
-            // const formData = new FormData(e.target);
-            // const data = {};
-            // formData.forEach((value, property) => data[property] = value);
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, property) => data[property] = value);
 
-            // Server.post(URL, {
-            //   product_id: product.product_id,
-            //   rating: starRating,
-            //   summary: data['summary'],
-            //   body: data['body'],
-            //   recommend: data['recommend'],
-            //   name: data['name'],
-            //   email: data['email'],
-            //   photos: [],
-            //   characteristics: {}
-            // })
-            //   .then(res => handleModal())
-            //   .catch(err => console.error(err));
+            Server.post(URL, {
+              product_id: product.productID,
+              rating: starRating,
+              summary: data['summary'],
+              body: data['body'],
+              recommend: Boolean(data['recommend']),
+              name: data['name'],
+              email: data['email'],
+              photos: [],
+              characteristics: charData
+            })
+              .then(res => handleModal())
+              .catch(err => console.error(err));
+
           }}>
             <div> Overall Rating *
               {ratings.map((rating, i) => {
@@ -132,28 +138,45 @@ export default props => {
               </span>
             </div>
 
-            {/* <div>CHARACTERISTICS</div>
+            <div>Characteristics * </div>
               {characteristics.map(char => {
-                return <div key={char} id={`review-radio-${char}`}> {char}
-                  {ratings.map((rating, i) => {
-                    return (
-                    <div key={i}>
-                      <div id={`selected-char-${char}`} className="selected-char"></div>
-                        <span>
-                          <input
-                            type="radio"
-                            id={`radio-${char}-${i}`}
-                            className="radio-char"
-                            name={`review-${char}`}
-                            value={`${i+1}`}
-                          ></input>
-                          <label htmlFor={`radio-${char}-1`}>{i+1}</label>
-                        </span>
-                    </div>
-                    )
-                  })}
-                </div>
-              })} */}
+                return <table className="review-radio-table" key={char}>
+                  <tbody>
+                    <tr>
+                      <th className="radio-table-headers">{char}</th>
+                      {ratings.map((r, i) => {
+                        return <td id={`radio-td-${i}`} key={i}>
+                          <span
+                            id={`radio-cell-${i}`}
+                            className={`radio-meanings-${char}`}
+                          >{`${charMeanings[char][i]}`}
+                            <input
+                              type="radio"
+                              id={`radio-${char}-${i}`}
+                              className="radio-char"
+                              name={`review-${char}`}
+                              value={`${i+1}`}
+                              required
+                              onChange={(e) => {
+                                const allMeanings = document.querySelectorAll(`.radio-meanings-${char}`);
+                                allMeanings.forEach(m => {
+                                  m.style.fontWeight = '400';
+                                })
+
+                                const meaning = e.target.parentElement;
+                                meaning.style.fontWeight = '600';
+
+                                charData[charMetadata[char].id] = Number(e.target.value);
+                              }}
+                            ></input>
+                            <label htmlFor={`radio-${char}-1`}></label>
+                          </span>
+                        </td>
+                      })}
+                    </tr>
+                  </tbody>
+                </table>
+              })}
 
             <label className="review-label" htmlFor="review-modal-summary">Review Summary</label>
             <input
@@ -175,6 +198,9 @@ export default props => {
               maxLength="1000"
               placeholder="Why did you like the product or not?"
               required
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must write a review');
+              }}
               onKeyUp={charCount}
             ></textarea>
             <div id="min-char-count">{'Minimum required characters left: [50]'}</div>
@@ -213,6 +239,9 @@ export default props => {
               name="name"
               maxLength="60"
               placeholder="Example: jackson11!"
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must enter your nickname');
+              }}
             ></input>
             <div className="review-modal-disclaimer">For privacy reasons, do not use your full name or email address</div>
 
@@ -224,6 +253,9 @@ export default props => {
               name="email"
               maxLength="60"
               placeholder="Example: jackson11@email.com"
+              onInvalid={(e) => {
+                e.target.setCustomValidity('You must enter your email');
+              }}
             ></input>
             <div className="review-modal-disclaimer">For authentication reasons, you will not be emailed</div>
 
