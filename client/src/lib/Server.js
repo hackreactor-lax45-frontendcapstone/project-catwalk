@@ -15,7 +15,6 @@ const url = {
 
 const Server = axios.create({
   baseURL: BASE_URL,
-  timeout: 1000,
   headers: {
     common: {
       'access-control-allow-origin': '*',

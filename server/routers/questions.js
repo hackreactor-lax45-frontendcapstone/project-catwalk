@@ -11,7 +11,7 @@ router
   .get('/:question_id/answers', questions.answers);
 
 router
-  .post('/ask', questions.question.ask)
+  .post('/', questions.question.ask)
   .post('/:question_id/answers', questions.question.answer);
 
 router
