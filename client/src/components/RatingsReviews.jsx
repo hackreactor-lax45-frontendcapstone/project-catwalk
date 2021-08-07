@@ -82,14 +82,14 @@ export default () => {
       <div id="body-reviews-top">
         <div id="body-reviews-top-left">
           <div className="rating-title">Rating and Reviews</div>
-          <div className="rating-average">{getAverageRating(state.metadata.ratings)}</div>
-
-          <span id='average-rating-star'>
-            <span className='average-rating-star-outer'>
-              <span className='average-rating-star-inner' style={{ width: `${getWidth(state.metadata.ratings)}%`}}></span>
+          <div className="rating-title-average-container">
+            <div className="rating-average">{getAverageRating(state.metadata.ratings)}</div>
+            <span id='average-rating-star'>
+              <span className='average-rating-star-outer'>
+                <span className='average-rating-star-inner' style={{ width: `${getWidth(state.metadata.ratings)}%`}}></span>
+              </span>
             </span>
-          </span>
-
+          </div>
           <SortOptions />
           {filterMessage(state.filters)}
 

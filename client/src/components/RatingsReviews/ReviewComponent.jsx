@@ -113,32 +113,48 @@ const ReviewComponent = () => {
                     id={`thumbnail-${review.review_id}-${i}`}
                     onClick={() => {
                       const modal = document.querySelector(`#thumbnail-modal-${review.review_id}-${i}`);
-                      if (modal.classList.contains('active')) {
+                      const overlay = document.querySelector(`#modal-overlay-${review.review_id}-${i}`);
+                      if (modal.classList.contains('active') && overlay.classList.contains('active')) {
                         modal.classList.remove('active');
+                        overlay.classList.remove('active');
                       } else {
                         modal.classList.add('active');
+                        overlay.classList.add('active');
                       }
                       console.log(photo.url);
                     }}>
                     </img>
 
-                  <div id={`thumbnail-modal-${review.review_id}-${i}`}>
+                    <div id={`thumbnail-modal-${review.review_id}-${i}`}>
+                      <div id="close-thumbnail-modal">
+                        <div onClick={() => {
+                          const modal = document.querySelector(`#thumbnail-modal-${review.review_id}-${i}`);
+                          const overlay = document.querySelector(`#modal-overlay-${review.review_id}-${i}`);
+                          if (modal.classList.contains('active') && overlay.classList.contains('active')) {
+                            modal.classList.remove('active');
+                            overlay.classList.remove('active');
+                          } else {
+                            modal.classList.add('active');
+                            overlay.classList.add('active');
+                          }
+                        }}
+                        >&times;</div>
 
-                    <div id="close-thumbnail-modal">
-                      <div onClick={() => {
-                      const modal = document.querySelector(`#thumbnail-modal-${review.review_id}-${i}`);
-                        if (modal.classList.contains('active')) {
-                          modal.classList.remove('active');
-                        } else {
-                          modal.classList.add('active');
-                        }
-                      }}>&times;</div>
-
-                      <img className="thumbnail-modal-image" id={`thumbnail-image-${review.review_id}-${i}`} src={photo.url}></img>
-
+                        <img id={`modal-image-${review.review_id}-${i}`} src={photo.url}></img>
+                      </div>
                     </div>
 
-                  </div>
+                    <div id={`modal-overlay-${review.review_id}-${i}`} onClick={() => {
+                      const modal = document.querySelector(`#thumbnail-modal-${review.review_id}-${i}`);
+                      const overlay = document.querySelector(`#modal-overlay-${review.review_id}-${i}`);
+                      if (modal.classList.contains('active') && overlay.classList.contains('active')) {
+                        modal.classList.remove('active');
+                        overlay.classList.remove('active');
+                      } else if (!modal.classList.contains('active') && !overlay.classList.contains('active')) {
+                        modal.classList.add('active');
+                        overlay.classList.add('active');
+                      }
+                    }}></div>
                   </div>
                 );
               })}

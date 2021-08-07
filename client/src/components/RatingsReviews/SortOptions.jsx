@@ -1,7 +1,7 @@
 import React from 'react';
 import actions from '../../state/actions/index.js';
 import { useDispatch, useSelector } from 'react-redux';
-
+import '../../../dist/styles/ratingsreviews/ratingBreakdown.css';
 export default props => {
 
   const dispatch = useDispatch();
