@@ -24,7 +24,7 @@ const ReviewList = () => {
   let isRendered = (totalReviews <= 2);
 
   return (
-    <div className="review-bottom-right">
+    <div className="body-reviews-bottom">
       <div className="review-list">
         <ReviewComponent />
       </div>
