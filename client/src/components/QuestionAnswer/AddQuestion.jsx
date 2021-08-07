@@ -58,7 +58,6 @@ export default props => {
                 handleModal();
               })
               .catch(err => console.error(err));
-
           }} id="question-modal-form">
             <label htmlFor="question-modal-question" className="question-label">Your Question * </label>
             <textarea

@@ -4,6 +4,12 @@ let URL = url.questions;
 const ERROR_MESSAGES = [
   'Unable to retrieve questions from \'/questions/list\'',
   'Unable to retrieve answers from \'/question/:question_id/answers\'',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
 ];
 
 /* ======================
@@ -22,18 +28,9 @@ module.exports = {
   },
   question: {
     ask: (req, res) => {
-      axios({
-        url: `${QUESTIONS_URL}`,
-        method: 'post',
-        data: req.body,
-        headers: HEADERS,
-      })
-        .then(response => {
-          res.status(response.status).json(response.data);
-        })
-        .catch(err => {
-          res.status(404).json('Unable to ask a new question \'/questions\'');
-        });
+      Atelier.post(URL, req.body)
+        .then(response => res.status(response.status).json(response.data))
+        .catch(err => res.status(404).json(ERROR_MESSAGES[2]));
     },
     answer: (req, res) => {
       axios({
