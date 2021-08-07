@@ -2,9 +2,8 @@ import { url, Server } from '../../lib/Server';
 const URL = url.questions;
 
 export default (dispatch, product_id, page, count) => {
-  Server.get(URL, { params: {
-    product_id, page, count,
-  }})
+  let params = { product_id, page, count };
+  Server.get(URL, { params })
     .then(res => {
       dispatch({
         type: 'GET_QUESTIONS',

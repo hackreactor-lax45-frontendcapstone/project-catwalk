@@ -3,6 +3,7 @@ let URL = url.questions;
 
 const ERROR_MESSAGES = [
   'Unable to retrieve questions from \'/questions/list\'',
+  'Unable to retrieve answers from \'/question/:question_id/answers\'',
 ];
 
 /* ======================
@@ -15,17 +16,9 @@ module.exports = {
       .catch(err => res.status(404).json(ERROR_MESSAGES[0]));
   },
   answers: (req, res) => {
-    axios({
-      url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
-      method: 'get',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve answers from \'/question/:question_id/answers\'');
-      });
+    Atelier.get(`${URL}/${req.params.question_id}/answers`, { params: req.query })
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[1]));
   },
   question: {
     ask: (req, res) => {

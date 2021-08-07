@@ -7,7 +7,7 @@ const questions = require('../controllers/questions');
     /api/qa/questions
 */
 router
-  .get('/list', questions.list)
+  .get('/', questions.list)
   .get('/:question_id/answers', questions.answers);
 
 router
