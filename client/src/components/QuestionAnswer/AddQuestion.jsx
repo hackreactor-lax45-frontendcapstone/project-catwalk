@@ -70,7 +70,7 @@ export default props => {
               name="body"
               required
               onInvalid={(e) => {
-                e.target.setCustomValidity('You must enter the following: Your Question');
+                e.target.setCustomValidity('You must enter your question');
               }}
               maxLength="1000"
             ></textarea>
@@ -82,7 +82,7 @@ export default props => {
               name="name"
               required
               onInvalid={(e) => {
-                e.target.setCustomValidity('You must enter the following: Your Nickname');
+                e.target.setCustomValidity('You must enter your nickname');
               }}
               maxLength="60"
               placeholder="Example: jackson11!"
@@ -98,7 +98,7 @@ export default props => {
               onInvalid={(e) => {
                 const checkValidity = e.target.validity;
                 checkValidity.valueMissing
-                ? e.target.setCustomValidity('You must enter the following: Your Email')
+                ? e.target.setCustomValidity('You must enter your email')
                 : e.target.setCustomValidity('Invalid Email Address');
               }}
               maxLength="60"

@@ -12,7 +12,7 @@
   border-radius: 8px;
   z-index: 20;
   background-color: #f5edf0;
-  width: 550px;
+  width: 55%;
   max-width: 60%;
   color: #3d2c2e;
 }
@@ -239,4 +239,21 @@ div[id^="review-radio"] {
 
 #rating-text {
   margin-left: 20px;
+}
+
+.review-radio-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+[id^="radio-td-"] {
+  font-size: 11px;
+  width: 19%;
+}
+
+[id^="radio-cell-"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: 1;
 }
