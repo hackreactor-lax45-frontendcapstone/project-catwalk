@@ -48,7 +48,7 @@ export default props => {
     minCount.innerHTML = remaining > 0 ? `Minimum required characters left: [${remaining}]` : 'Minimum reached';
   };
 
-  let starRating;
+  let starRating = 3;
 
   return (
     <div id="write-review">
@@ -72,7 +72,7 @@ export default props => {
               method: 'post',
               headers: AtelierAPI.headers,
               data: {
-                product_id: product.product_id,
+                product_id: product.productID,
                 rating: starRating,
                 summary: data['summary'],
                 body: data['body'],
@@ -132,8 +132,32 @@ export default props => {
               </span>
             </div>
 
-            {/* <div>CHARACTERISTICS</div>
+            <div>CHARACTERISTICS</div>
               {characteristics.map(char => {
+                return <table>
+                  <tbody>
+                    <tr>
+                      <th>{char}</th>
+                      {ratings.map((r, i) => {
+                        return <td>
+                          <span>{`${charMeanings[char][i]}`}
+                            <input
+                              type="radio"
+                              id={`radio-${char}-${i}`}
+                              className="radio-char"
+                              name={`review-${char}`}
+                              value={`${i+1}`}
+                            ></input>
+                            <label htmlFor={`radio-${char}-1`}></label>
+                          </span>
+                        </td>
+                      })}
+                    </tr>
+                  </tbody>
+                </table>
+              })}
+
+              {/* {characteristics.map(char => {
                 return <div key={char} id={`review-radio-${char}`}>
                   <div>{char}</div>
                   {ratings.map((rating, i) => {
