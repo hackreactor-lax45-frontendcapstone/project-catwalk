@@ -22,8 +22,9 @@ export default (props) => {
     actions.getQuestions(dispatch, product, 1, 100);
   }, [product]);
 
+  // {/* <div onClick={props.handleInteraction} id="app"></div> */}
   return (
-    <div onClick={props.handleInteraction} id="app">
+    <div onClick={() => {}} id="app">
       <Header />
       <div id="app-body">
         <Overview />

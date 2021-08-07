@@ -11,35 +11,46 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
-  margin: 10px;
+  margin-top: 10px;
   overflow-y: overlay;
   max-height: 880px;
 }
 
 .review-component {
-  width: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .review-component-tile {
+  display: flex;
+  flex-direction: column;
+  /* align-items: cemter; */
   border: none;
   border-radius: 10px;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 20px 0;
+  padding: 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  overflow-y: overlay;
   background-color: #f5edf0;
   min-height: 200px;
-  max-height: 200px;
+  max-height: 300px;
   width: 70%;
   min-width: 20%;
+}
+
+.review-component-body, .review-recommend {
+  margin-top: 10px;
+}
+
+.review-component-helpful, .reviewer-name, .review-date {
+  font-size: 14px;
 }
 
 .review-tile-top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .review-user-info {
@@ -53,6 +64,11 @@
 
 .review-summary {
   font-weight: bold;
+}
+
+
+.review-body, .review-summary {
+  font-size: 18px;
 }
 
 /* ===========Helpful================ */
@@ -187,11 +203,10 @@ img[id^="modal-image-"] {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* margin: 0 10% 0 10%; */
 }
 
 #more-reviews-button {
-  font-size: 18px;
+  height: 30px;
   background-color: #3d2c2e;
   border: #3d2c2e;
   border-radius: 4px;
