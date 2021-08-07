@@ -7,14 +7,41 @@ const ProductSummary = () => {
   const state = useSelector(state => {
     return {
       productInfo: state.product.productInfo,
-      price: state.product.styleInfo.results[state.style]
+      price: state.product.styleInfo.results[state.style],
+      metadata: state.reviews.metadataInfo
     };
   });
 
-  // to be removed at a later date when metadata available
-  if (Math.random() > 0.5) {
-    state.price.sale_price = (parseFloat(state.price.original_price) * 0.9).toFixed(2).toString();
-  }
+
+  const getWidth = (metadata) => {
+    let ratings = 0;
+    let sumRatings = 0;
+    for (var key in metadata) {
+      sumRatings += Number(metadata[key]);
+      ratings += (Number(key) * Number(metadata[key]));
+    }
+    if (sumRatings === 0) {
+      return 0;
+    } else {
+      let starPercentage = (ratings / sumRatings) / 5 * 100;
+      if ((starPercentage % 5) < 2.5) {
+        starPercentage -= (starPercentage % 5);
+      } else {
+        starPercentage += (5 - (starPercentage % 5));
+      }
+      return starPercentage;
+    }
+  };
+
+  const getReviewsCount = (metadata) => {
+    let ratings = 0;
+    let sumRatings = 0;
+    for (var key in metadata) {
+      sumRatings += Number(metadata[key]);
+      ratings += (Number(key) * Number(metadata[key]));
+    }
+    return sumRatings;
+  };
 
   const priceHelper = (price) => {
     if (price.sale_price === null) {
@@ -37,9 +64,10 @@ const ProductSummary = () => {
     <div id="body-overview-productsummary">
       <div id="body-overview-star">
         <div className="stars-outer">
-          <div className="stars-inner"></div>
+          <div className="stars-inner" style={{ width: `${getWidth(state.metadata.ratings)}%`}}></div>
         </div>
-        <div id="body-overview-count">{`  Read all ${20} reviews`}</div>
+
+        <div id="body-overview-count">{`  Read all ${getReviewsCount(state.metadata.ratings)} reviews`}</div>
       </div>
 
       <div id="body-overview-category">{state.productInfo.category}</div>
