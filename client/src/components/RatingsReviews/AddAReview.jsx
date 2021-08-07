@@ -135,7 +135,7 @@ export default props => {
               </span>
             </div>
 
-            <div>CHARACTERISTICS</div>
+            {/* <div>CHARACTERISTICS</div>
               {characteristics.map(char => {
                 return <div key={char} id={`review-radio-${char}`}> {char}
                   {ratings.map((rating, i) => {
@@ -156,7 +156,7 @@ export default props => {
                     )
                   })}
                 </div>
-              })}
+              })} */}
 
             <label className="review-label" htmlFor="review-modal-summary">Review Summary</label>
             <input
