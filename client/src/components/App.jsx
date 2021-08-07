@@ -24,11 +24,7 @@ export default (props) => {
 
   // {/* <div onClick={props.handleInteraction} id="app"></div> */}
   return (
-<<<<<<< HEAD
-    <div id="app">
-=======
     <div onClick={() => {}} id="app">
->>>>>>> main
       <Header />
       <div id="app-body">
         <Overview />
