@@ -1,28 +1,13 @@
 /* eslint-disable camelcase */
-import AtelierAPI from '../../lib/atelierAPI';
-import axios from 'axios';
+import { url, Server } from '../../lib/Server';
+const URL = url.reviews;
 
-export default (dispatch, productId, pageNumber, countNumber, sortMethod) => {
-  var reviewsQuery = axios({
-    url: `${AtelierAPI.url}/reviews/`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-    params: {
-      page: pageNumber,
-      count: countNumber,
-      sort: sortMethod,
-      product_id: productId
-    }
-  });
+export default (dispatch, product_id, page, count, sort) => {
+  let params = { product_id, page, count, sort };
+  let reviewsQuery = Server.get(URL, { params });
 
-  var metadataQuery = axios({
-    url: `${AtelierAPI.url}/reviews/meta`,
-    method: 'get',
-    headers: AtelierAPI.headers,
-    params: {
-      product_id: productId
-    }
-  });
+  params = { product_id };
+  let metadataQuery = Server.get(`${URL}/meta`, { params });
 
   Promise.all([
     reviewsQuery,
