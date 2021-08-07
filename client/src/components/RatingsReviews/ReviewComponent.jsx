@@ -34,7 +34,7 @@ const ReviewComponent = () => {
     if (boolean) {
       return (
         <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check2-circle" viewBox="0 0 16 16">
+        <svg id='svg-rating-bar' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check2-circle" viewBox="0 0 16 16">
           <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
           <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
          </svg>
@@ -104,25 +104,40 @@ const ReviewComponent = () => {
             <div id={`review-fullbody-${index}`} hidden>{review.body}</div>
 
             <div className="review-thumbnails">
-              {review.photos.map((photo, index) => {
+              {review.photos.map((photo, i) => {
                 return (
-                  <div key={`t-${index}`} className="thumbnail-container">
+                  <div key={`t-${i}`}
+                    className="thumbnail-container">
+
                     <img src={photo.url}
-                    id={`thumbnail-${index}`} onClick={() => {
-                      const modal = document.getElementById(`thumbnail-modal-${review.review_id}-${index}`);
-                      modal.style.display = 'block';
+                    id={`thumbnail-${review.review_id}-${i}`}
+                    onClick={() => {
+                      const modal = document.querySelector(`#thumbnail-modal-${review.review_id}-${i}`);
+                      if (modal.classList.contains('active')) {
+                        modal.classList.remove('active');
+                      } else {
+                        modal.classList.add('active');
+                      }
+                      console.log(photo.url);
                     }}>
                     </img>
-                  <div id={`thumbnail-modal-${review.review_id}-${index}`} className="thumbnail-modal">
-                    <div className="thumbnail-modal-content">
+
+                  <div id={`thumbnail-modal-${review.review_id}-${i}`}>
+
+                    <div id="close-thumbnail-modal">
                       <div onClick={() => {
-                        const modal = document.getElementById(`thumbnail-modal-${review.review_id}-${index}`);
-                      modal.style.display = 'none';
-                    }}
-                      id="close-thumbnail-modal">
-                        &times;</div>
-                      <img src={photo.url}></img>
+                      const modal = document.querySelector(`#thumbnail-modal-${review.review_id}-${i}`);
+                        if (modal.classList.contains('active')) {
+                          modal.classList.remove('active');
+                        } else {
+                          modal.classList.add('active');
+                        }
+                      }}>&times;</div>
+
+                      <img className="thumbnail-modal-image" id={`thumbnail-image-${review.review_id}-${i}`} src={photo.url}></img>
+
                     </div>
+
                   </div>
                   </div>
                 );

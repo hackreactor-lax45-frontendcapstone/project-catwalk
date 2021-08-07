@@ -14,62 +14,9 @@ const ratingsBreakdown = () => {
     };
   });
 
-  const getAverageRating = (metadata) => {
-    let ratings = 0;
-    let sumRatings = 0;
-    for (var key in metadata) {
-      sumRatings += Number(metadata[key]);
-      ratings += (Number(key) * Number(metadata[key]));
-    }
-    let averageRating = Math.round((ratings / sumRatings * 10)) / 10;
-    return averageRating;
-  };
-
-  const getWidth = (metadata) => {
-    let ratings = 0;
-    let sumRatings = 0;
-    for (var key in metadata) {
-      sumRatings += Number(metadata[key]);
-      ratings += (Number(key) * Number(metadata[key]));
-    }
-    let starPercentage = (ratings / sumRatings) / 5 * 100;
-    if ((starPercentage % 5) < 2.5) {
-      starPercentage -= (starPercentage % 5);
-    } else {
-      starPercentage += (5 - (starPercentage % 5));
-    }
-    return starPercentage;
-  };
-
-
-  const filterMessage = (filters) => {
-    const filtersOn = [];
-    const message = ['Filters:'];
-
-    for (var keys in filters) {
-      if (filters[keys]) {
-        filtersOn.push(keys);
-      }
-    }
-
-    if (filtersOn.length > 0) {
-      for (var i = 0; i < filtersOn.length; i++) {
-        message.push(filtersOn[i]);
-      }
-      return (
-        <div>
-          <div>{message.join(' ')}</div>
-          <div onClick={() => {
-            for (var keys in state.filters) {
-              if (state.filters[keys]) {
-                dispatch(actions.selectFilters(keys));
-              }
-            }
-          }}>Remove all filters</div>
-        </div>
-      );
-    }
-  };
+  let trueValues = Number(state.metadata.recommended.true);
+  let falseValues = Number(state.metadata.recommended.false);
+  let recommendedPercentage = parseInt(trueValues / (trueValues + falseValues) * 100);
 
   let ratingsSum = 0;
   const convertData = (metadata) => {
@@ -86,9 +33,9 @@ const ratingsBreakdown = () => {
 
   const BarGroup = function (d, barHeight) {
     var barPadding = 2;
-    var barColour = '#192fbf';
-    var barColour2 = '#348AA7';
-    var fixedBarWidth = 130;
+    var barColour = '#3c2c2e';
+    var barColour2 = '#f5edf0';
+    var fixedBarWidth = 270;
     var widthScale = d => (d / ratingsSum * fixedBarWidth);
     var width = widthScale(d.value);
     var yMid = barHeight * 0.5;
@@ -96,48 +43,32 @@ const ratingsBreakdown = () => {
     return <g className='bar-group'>
       <text
         onClick={() => { (dispatch(actions.selectFilters(d.name))); }}
-        className='name-label' x='-65' y={yMid} alignmentBaseline='middle' >{d.name} stars</text>
+        className='name-label' x='-65' y={yMid} alignmentBaseline='middle' >{d.name} star</text>
       <rect y={barPadding * 0.5} width={width} height={barHeight - barPadding} fill={barColour} />
       <rect y={barPadding * 0.5} x={width} width={fixedBarWidth-width} height={barHeight - barPadding} fill={barColour2} />
     </g>;
   };
 
   //bar size
-  let barHeight = 15;
+  let barHeight = 20;
   let barGroups = convertedRatings.map((d, i) => <g key={i} transform={`translate(0, ${i * barHeight})`}>
     {BarGroup(d, barHeight)}
   </g>);
 
-  let trueValues = Number(state.metadata.recommended.true);
-  let falseValues = Number(state.metadata.recommended.false);
-  let recommendedPercentage = parseInt(trueValues / (trueValues + falseValues) * 100);
-
   return (
     <div className='rating-breakdown'>
-      RatingBreakdown
+      <svg className='svg-trash' width='90%' height='90%' >
+        <g className='container' transform='translate(100,30)'>
 
-      {filterMessage(state.filters)}
-      <div>{getAverageRating(state.metadata.ratings)}</div>
+          {barGroups}
 
-      <span id='average-rating-star'>
-        <span className='average-rating-star-outer'>
-          <span className='average-rating-star-inner' style={{ width: `${getWidth(state.metadata.ratings)}%`}}></span>
-        </span>
-      </span>
-
-      <svg width='300' height='150' >
-        <g className='container'>
-          <text className="review-recommendation" x='10' y='30'>{`${recommendedPercentage}% of reviews recommend this product`}</text>
-          <g className='chart' transform='translate(100,60)'>
-            {barGroups}
-          </g>
         </g>
       </svg>
-
+      <div className='review-recommendation'>{`${recommendedPercentage}% of reviews recommend this product`}</div>
     </div>
   );
 };
 
 export default ratingsBreakdown;
 
-
+/* <g className='chart' transform='translate(100,60)'> */
