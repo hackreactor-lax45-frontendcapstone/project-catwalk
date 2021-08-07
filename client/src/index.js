@@ -12,7 +12,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ClickTracker
       render={(handleInteraction) => {
-        return <App handleInteraction={handleInteraction}/>
+        return <App handleInteraction={handleInteraction}/>;
       }}/>
   </Provider>,
   rootElement
