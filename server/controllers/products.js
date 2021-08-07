@@ -1,18 +1,12 @@
-const axios = require('axios');
-const API = require('../lib/AtelierAPI');
-const URL = API.products;
-const HEADERS = API.headers;
+const { url, Atelier } = require('../lib/AtelierAPI');
+let URL = url.products;
 
 /* ======================
     /api/products
 ====================== */
 module.exports = {
   list: (req, res) => {
-    axios({
-      url: `${URL}`,
-      method: 'get',
-      headers: HEADERS,
-    })
+    Atelier.get(URL)
       .then(response => {
         res.status(response.status).json(response.data);
       })
@@ -21,11 +15,7 @@ module.exports = {
       });
   },
   product: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.product_id}`,
-      method: 'get',
-      headers: HEADERS,
-    })
+    Atelier.get(`${URL}/${req.params.product_id}`)
       .then(response => {
         res.status(response.status).json(response.data);
       })
@@ -34,11 +24,7 @@ module.exports = {
       });
   },
   styles: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.product_id}/styles`,
-      method: 'get',
-      headers: HEADERS
-    })
+    Atelier.get(`${URL}/${req.params.product_id}/styles`)
       .then(response => {
         res.status(response.status).json(response.data);
       })
@@ -47,11 +33,7 @@ module.exports = {
       });
   },
   related: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.product_id}/related`,
-      method: 'get',
-      headers: HEADERS
-    })
+    Atelier.get(`${URL}/${req.params.product_id}/related`)
       .then(response => {
         res.status(response.status).json(response.data);
       })

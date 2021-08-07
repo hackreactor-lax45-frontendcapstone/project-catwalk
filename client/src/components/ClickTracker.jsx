@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import qs from 'qs';
+
 import AtelierAPI from '../lib/atelierAPI.js';
+import { url, Server } from '../lib/Server.js';
 
 const ClickTracker = (props) => {
 
@@ -20,26 +23,23 @@ const ClickTracker = (props) => {
         module = 'Footer';
       } else if (element.className === 'body-related') {
         module = 'Related Items & Comparison';
-      }});
-
-    axios({
-      method: 'post',
-      url: `${AtelierAPI.url}/interactions`,
-      headers: AtelierAPI.headers,
-      data: {
-        element: e.target.localName,
-        widget: module,
-        time: new Date().toLocaleTimeString()
       }
+    });
+
+    Server.post(`${url.interactions}`, {
+      element: e.target.localName,
+      widget: module,
+      time: new Date().toLocaleTimeString()
     })
       .catch(err => console.error(err));
+
   };
 
   return (
     <div>
       {props.render(handleInteraction)}
     </div>
-  )
-}
+  );
+};
 
 export default ClickTracker;

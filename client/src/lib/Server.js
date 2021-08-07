@@ -1,4 +1,5 @@
 const axios = require('axios');
+const qs = require('qs');
 
 const SERVER = 'localhost';
 const PORT = 3000;
@@ -17,10 +18,11 @@ const Server = axios.create({
   timeout: 1000,
   headers: {
     common: {
-      'access-control-allow-headers': '*',
-      'access-control-allow-methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       'access-control-allow-origin': '*',
-      'content-type': 'application/json;charset=utf-8 application/x-www-form-urlencoded',
+      'access-control-allow-headers': '*',
+      'accept': 'application/json',
+      'access-control-allow-methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      'Content-Type': 'application/json',
     }
   }
 })
