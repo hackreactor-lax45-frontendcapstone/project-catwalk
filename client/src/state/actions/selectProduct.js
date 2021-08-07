@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { url, Server } from '../../lib/Server';
 
 export default (dispatch, productID) => {

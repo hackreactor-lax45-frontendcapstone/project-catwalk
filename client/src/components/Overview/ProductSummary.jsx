@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import axios from 'axios';
 import AtelierApi from '../../lib/atelierAPI.js';
 import { useSelector } from 'react-redux';
 

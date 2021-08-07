@@ -1,5 +1,4 @@
 const axios = require('axios');
-const qs = require('qs');
 
 const SERVER = 'localhost';
 const PORT = 3000;
@@ -9,6 +8,7 @@ const url = {
   products: 'products',
   review: 'reviews',
   questions: 'qa/questions',
+  answers: 'qa/answers',
   cart: 'cart',
   interactions: 'interactions',
 }

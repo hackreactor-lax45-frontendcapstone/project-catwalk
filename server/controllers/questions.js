@@ -1,27 +1,18 @@
-const axios = require('axios');
+const { url, Atelier } = require('../lib/AtelierAPI');
+let URL = url.questions;
 
-const API = require('../lib/AtelierAPI');
-const QUESTIONS_URL = API.questions;
-const ANSWERS_URL = API.answers;
-const HEADERS = API.headers;
+const ERROR_MESSAGES = [
+  'Unable to retrieve questions from \'/questions/list\'',
+];
 
 /* ======================
     /api/qa/questions
 ====================== */
 module.exports = {
   list: (req, res) => {
-    axios({
-      url: `${QUESTIONS_URL}`,
-      params: req.query,
-      method: 'get',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve questions from \'/questions/list\'');
-      });
+    Atelier.get(URL, { params: req.query })
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[0]));
   },
   answers: (req, res) => {
     axios({

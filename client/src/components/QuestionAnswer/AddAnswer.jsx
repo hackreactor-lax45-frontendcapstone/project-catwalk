@@ -36,8 +36,8 @@ export default props => {
       <div id={`qa-answer-modal${props.i}`} className="answer-modal">
         <div className="answer-modal-header">
           <div>
-          <div className="answer-modal-title">Submit your Answer!</div>
-          <div className="answer-modal-subtitle">{`${product}: ${props.q}`}</div>
+            <div className="answer-modal-title">Submit your Answer!</div>
+            <div className="answer-modal-subtitle">{`${product}: ${props.q}`}</div>
           </div>
           <button onClick={handleModal} className="answer-modal-close">&times;</button>
         </div>
