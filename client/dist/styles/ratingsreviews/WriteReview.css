@@ -10,9 +10,9 @@
   transition: 200ms ease-in-out;
   border: 2px solid #3d2c2e;
   border-radius: 8px;
-  z-index: 20;
+  z-index: 120;
   background-color: #f5edf0;
-  width: 500px;
+  width: 55%;
   max-width: 60%;
   color: #3d2c2e;
 }
@@ -57,7 +57,7 @@
   bottom: 0;
   background-color: rgba(66, 76, 85, 0.6);
   pointer-events: none;
-  z-index: 11;
+  z-index: 119;
 }
 
 #review-modal-overlay.active {
@@ -157,6 +157,7 @@
   cursor: pointer;
   height: 30px;
   margin-left: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 #write-review-btn:hover {
@@ -241,4 +242,21 @@ div[id^="review-radio"] {
 
 #rating-text {
   margin-left: 20px;
+}
+
+.review-radio-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+[id^="radio-td-"] {
+  font-size: 11px;
+  width: 19%;
+}
+
+[id^="radio-cell-"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: 1;
 }
