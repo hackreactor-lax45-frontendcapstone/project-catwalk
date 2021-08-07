@@ -49,8 +49,7 @@
 }
 
 .review-list {
-  overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* ===========Review Buttons============== */

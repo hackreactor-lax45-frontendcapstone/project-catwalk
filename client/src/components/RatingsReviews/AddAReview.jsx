@@ -20,6 +20,9 @@ export default props => {
       inputs.forEach(node => {
         node.value = '';
       });
+
+      const preview = document.querySelector('#review-img-preview');
+      preview.classList.add('img-hidden');
     } else {
       modalBox.classList.add('active');
       overlay.classList.add('active');
@@ -132,7 +135,7 @@ export default props => {
               </span>
             </div>
 
-            {/* <div>CHARACTERISTICS</div>
+            <div>CHARACTERISTICS</div>
               {characteristics.map(char => {
                 return <div key={char} id={`review-radio-${char}`}> {char}
                   {ratings.map((rating, i) => {
@@ -153,7 +156,7 @@ export default props => {
                     )
                   })}
                 </div>
-              })} */}
+              })}
 
             <label className="review-label" htmlFor="review-modal-summary">Review Summary</label>
             <input
