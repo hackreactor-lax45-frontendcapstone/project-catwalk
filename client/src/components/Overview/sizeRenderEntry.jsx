@@ -16,20 +16,26 @@ var SizeRenderEntry = function(props) {
     final.push(newobj);
   }
 
+
+
   //if there's no remaining stock, the dropdown become inactive and read 'OUT OF STOCK"
   if (final.length === 0) {
-    props.updateStockStatus('true');
+    props.setIsOutofStock(true)
     return (
-      <select disabled="outofstock">
+      <select disabled="outofstock" id="dropdown-size">
         <option>OUT OF STOCK</option>
       </select>
     );
   } else {
     var selectInitial = 'Size';
-
+    var sizeNotSelected ={
+      key: "0",
+      quantity: 0,
+      size: ''
+    }
     return (
-      <select id="dropdown-size" onChange={props.handleChange}>
-        <option value="outofstock" > {selectInitial}</option>
+      <select id='dropdown-size' onChange={props.handleChange}>
+        <option value={JSON.stringify(sizeNotSelected)} > {selectInitial}</option>
         {final.map(elem => {
           return (<option key={elem.key} value={JSON.stringify(elem)} > {elem.size} </option>);
         })}
@@ -37,6 +43,7 @@ var SizeRenderEntry = function(props) {
     );
   }
 };
+
 
 
 export default SizeRenderEntry;
