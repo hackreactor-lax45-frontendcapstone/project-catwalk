@@ -121,7 +121,7 @@ const ReviewComponent = () => {
                     }}
                       id="close-thumbnail-modal">
                         &times;</div>
-                      <img src={photo.url}></img>
+                      <img></img>
                     </div>
                   </div>
                   </div>

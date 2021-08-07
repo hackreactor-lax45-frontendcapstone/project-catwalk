@@ -63,28 +63,28 @@ export default props => {
         </div>
         <div className="review-modal-body">
           <form id="review-modal-form" onSubmit={(e) => {
-            // e.preventDefault();
-            // const formData = new FormData(e.target);
-            // const data = {};
-            // formData.forEach((value, property) => data[property] = value);
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, property) => data[property] = value);
 
-            // axios(`${AtelierAPI.url}/reviews`, {
-            //   method: 'post',
-            //   headers: AtelierAPI.headers,
-            //   data: {
-            //     product_id: product.product_id,
-            //     rating: starRating,
-            //     summary: data['summary'],
-            //     body: data['body'],
-            //     recommend: data['recommend'],
-            //     name: data['name'],
-            //     email: data['email'],
-            //     photos: [],
-            //     characteristics: {}
-            //   }
-            // })
-            //   .then(res => handleModal())
-            //   .catch(err => console.error(err));
+            axios(`${AtelierAPI.url}/reviews`, {
+              method: 'post',
+              headers: AtelierAPI.headers,
+              data: {
+                product_id: product.product_id,
+                rating: starRating,
+                summary: data['summary'],
+                body: data['body'],
+                recommend: data['recommend'],
+                name: data['name'],
+                email: data['email'],
+                photos: [],
+                characteristics: {}
+              }
+            })
+              .then(res => handleModal())
+              .catch(err => console.error(err));
           }}>
             <div> Overall Rating *
               {ratings.map((rating, i) => {
@@ -134,12 +134,12 @@ export default props => {
 
             {/* <div>CHARACTERISTICS</div>
               {characteristics.map(char => {
-                return <div key={char} id={`review-radio-${char}`}> {char}
+                return <div key={char} id={`review-radio-${char}`}>
+                  <div>{char}</div>
                   {ratings.map((rating, i) => {
                     return (
-                    <div key={i}>
-                      <div id={`selected-char-${char}`} className="selected-char"></div>
-                        <span>
+                      <div key={i}>
+                        <span>{`${charMeanings[char][i]}`}
                           <input
                             type="radio"
                             id={`radio-${char}-${i}`}
@@ -147,9 +147,9 @@ export default props => {
                             name={`review-${char}`}
                             value={`${i+1}`}
                           ></input>
-                          <label htmlFor={`radio-${char}-1`}>{i+1}</label>
+                          <label htmlFor={`radio-${char}-1`}></label>
                         </span>
-                    </div>
+                      </div>
                     )
                   })}
                 </div>
