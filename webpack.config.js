@@ -1,7 +1,6 @@
 var path = require('path');
 var SRC_DIR = path.join(__dirname, './client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   entry: `${SRC_DIR}/index.js`,
@@ -27,7 +26,6 @@ module.exports = {
               '@babel/preset-react'
             ],
             plugins: [
-              new LodashModuleReplacementPlugin,
               ['@babel/plugin-transform-runtime', { 'regenerator': true }]
             ]
           }
