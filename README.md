@@ -35,7 +35,11 @@ Key features of the site include:
 - Ratings and Reviews generation, also with helpfullness markers and reporting features
 - Ratings summary and product characteristic summary (size: too small, quality: perfect, etc.)
 
-![alt text](https://github.com/hackreactor-lax45-frontendcapstone/project-catwalk/tree/main/readme/Image1.jpg?raw=true)
+![Overview](https://github.com/hackreactor-lax45-frontendcapstone/project-catwalk/tree/main/readme/Image1.png?raw=true)
+
+![Related Items](https://github.com/hackreactor-lax45-frontendcapstone/project-catwalk/tree/main/readme/Image2.png?raw=true)
+
+![Related Items comparison and Outfit](https://github.com/hackreactor-lax45-frontendcapstone/project-catwalk/tree/main/readme/Image3.png?raw=true)
 
 
 # 2.0 Installation
