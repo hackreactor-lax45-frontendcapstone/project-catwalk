@@ -24,6 +24,9 @@ export default props => {
       const allStars = document.querySelectorAll('.review-modal-stars');
       allStars.forEach(star => star.classList.remove('filled'));
 
+      let ratingText = document.querySelector('#rating-text');
+      ratingText.innerHTML = '';
+
       const preview = document.querySelector('#review-img-preview');
       preview.classList.add('img-hidden');
     } else {

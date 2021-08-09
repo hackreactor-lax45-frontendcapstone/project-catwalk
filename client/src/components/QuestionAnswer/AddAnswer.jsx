@@ -75,7 +75,7 @@ export default props => {
               name="body"
               required
               onInvalid={(e) => {
-                e.target.setCustomValidity('You must enter Yyour answer');
+                e.target.setCustomValidity('You must enter Your answer');
               }}
               maxLength="1000"
             ></textarea>

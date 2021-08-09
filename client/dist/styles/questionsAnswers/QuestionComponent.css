@@ -49,6 +49,7 @@ span[id^="qa-question-yes"].disabled,
 
 #qa-answer-info {
   padding-left: 20px;
+  padding-right: 20px;
   font-size: 12px;
   font-style: italic;
   margin: 2px 0 10px 0;
