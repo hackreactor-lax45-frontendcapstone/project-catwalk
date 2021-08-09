@@ -35,6 +35,9 @@ Key features of the site include:
 - Ratings and Reviews generation, also with helpfullness markers and reporting features
 - Ratings summary and product characteristic summary (size: too small, quality: perfect, etc.)
 
+![alt text](https://github.com/hackreactor-lax45-frontendcapstone/project-catwalk/tree/main/readme/Image1.jpg?raw=true)
+
+
 # 2.0 Installation
 
 1. Run `npm install` inside the project directory to install dependencies.
