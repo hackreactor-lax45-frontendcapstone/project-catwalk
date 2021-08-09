@@ -3,12 +3,13 @@ import React, {useState, useEffect} from 'react';
 import SizeRenderEntry from './sizeRenderEntry.jsx';
 import QtyRenderEntry from './qtyRenderEntry.jsx';
 import '../../../dist/styles/overview/AddToCart.css';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import SetSelectSize from '../../state/actions/selectSize.js'
 import SetSelectQty from '../../state/actions/selectQuantity.js'
 import setToCart from '../../state/actions/addToCart.js'
-import AtelierAPI from '../../lib/atelierAPI';
+
+import { url, Server } from '../../lib/Server.js';
+const URL = url.cart;
 
 const AddToCart = () => {
 
@@ -39,7 +40,6 @@ const AddToCart = () => {
       setcurrentSkus(selectedStyle.key)
       dispatch(SetSelectSize(selectedStyle.size, selectedStyle.quantity))
       dispatch(SetSelectQty(1))
-
     }
   }
 
@@ -47,42 +47,37 @@ const AddToCart = () => {
     dispatch(SetSelectQty(parseInt(event.target.value)))
   }
 
+  if (!state) {
+    return <div>Loading...</div>
+  }
 
-  if (state) {
-    let { style, selected, currentProduct, currentSize, currentQty, isSizeSelected, selectedQty, styleThumbnail } = state;
+  let { style, selected, currentProduct, currentSize, currentQty, isSizeSelected, selectedQty, styleThumbnail } = state;
 
-
-    //when different thumbnail selected, reset size and qty in global state
-    const dropDownReset = () => {
-      dispatch(SetSelectSize("", 0, false))
-      dispatch(SetSelectQty(0))
-    }
-    useEffect(() => {
-      dropDownReset();
-    }, [styleThumbnail])
-
+  //when different thumbnail selected, reset size and qty in global state
+  const dropDownReset = () => {
+    dispatch(SetSelectSize('', 0, false))
+    dispatch(SetSelectQty(0))
+  }
+  useEffect(() => {
+    dropDownReset();
+  }, [styleThumbnail])
 
   ////////////***************** Add-TO-CART BUTTON *********************//////////
   const buttonHandlerNoSelected = () => {
-    //If the default ‘Select Size’ is currently selected: Clicking this button should open the size dropdown,
-    //and a message should appear above the dropdown stating “Please select size”.
-    alert("Please select size")
+  //If the default ‘Select Size’ is currently selected: Clicking this button should open the size dropdown,
+  //and a message should appear above the dropdown stating “Please select size”.
+    alert('Please select size')
   }
 
   //this is the function that size is selected and clicking the button
   const buttonHandler = () => {
-    dispatch(setToCart(currentProduct['productID'], selected['style_id'],currentSize.size, selectedQty))
-    axios(`${AtelierAPI.url}/cart`, {
-      method: 'POST',
-      headers: AtelierAPI.headers,
-      data: {
-        sku_id: currentSkus
-      }
-    })
+    dispatch(setToCart(currentProduct['productID'], selected['style_id'], currentSize.size, selectedQty))
+    Server.post(URL, { sku_id: currentSkus })
+      .then(response => console.log(response.data));
   }
 
   const renderCartButton = function() {
-    // if there's no stock, hide button
+  // if there's no stock, hide button
     if (isOutofStock === true) {
       return <div></div>
     } else if (isSizeSelected === false) {
@@ -92,26 +87,19 @@ const AddToCart = () => {
     }
   }
 
-
-    return (
-      <div id='body-overview-addtocart'>
-        <div id='dropdowns'>
-            <div>
-              <SizeRenderEntry selected={selected} handleChange={handleChange} setIsOutofStock={setIsOutofStock}/>
-            </div>
-            <div>
-              <QtyRenderEntry selectedQty={selectedQty} currentQty={currentQty} style={style} handleSelectQty={handleSelectQty} isSizeSelected={isSizeSelected}/>
-            </div>
-          </div>
-          {renderCartButton(selectedQty)}
+  return (
+    <div id='body-overview-addtocart'>
+      <div id='dropdowns'>
+        <div>
+          <SizeRenderEntry selected={selected} handleChange={handleChange} setIsOutofStock={setIsOutofStock}/>
+        </div>
+        <div>
+          <QtyRenderEntry selectedQty={selectedQty} currentQty={currentQty} style={style} handleSelectQty={handleSelectQty} isSizeSelected={isSizeSelected}/>
+        </div>
       </div>
-    )
-  } else {
-    return <div>Loading...</div>
-  }
-
-
+      {renderCartButton(selectedQty)}
+    </div>
+  )
 }
-
 
 export default AddToCart;

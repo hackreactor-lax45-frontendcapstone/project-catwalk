@@ -1,31 +1,21 @@
-import axios from 'axios';
-import { url, config } from '../../lib/Server';
+import { url, Server } from '../../lib/Server';
 import _ from 'lodash';
 
 export default (dispatch, productID) => {
-  return axios.get(
-    `${url.products}/${productID}/related`,
-    config
-  )
+  return Server.get(`${url.products}/${productID}/related`)
     .then(response => {
       return response.data;
     })
     .then(related => {
 
       var relatedProducts = _.map(related, (product, i) => {
-        return axios.get(
-          `${url.products}/${product}`,
-          config
-        )
+        return Server.get(`${url.products}/${product}`)
           .then(response => response.data)
           .catch(err => { throw err; });
       });
 
       var relatedStyles = _.map(related, (product, i) => {
-        return axios.get(
-          `${url.products}/${product}/styles`,
-          config
-        )
+        return Server.get(`${url.products}/${product}/styles`)
           .then(response => response.data)
           .catch(err => { throw err; });
       });

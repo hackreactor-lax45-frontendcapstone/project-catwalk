@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import AtelierAPI from '../../lib/atelierAPI.js';
 import actions from '../../state/actions';
 
 import '../../../dist/styles/questionsAnswers/AddQuestion.css';
+
+import { url, Server } from '../../lib/Server.js';
+const URL = url.questions;
 
 export default props => {
   const dispatch = useDispatch();
@@ -46,21 +47,17 @@ export default props => {
             const data = {};
             formData.forEach((value, property) => data[property] = value);
 
-            axios(`${AtelierAPI.url}/qa/questions`, {
-              method: 'post',
-              headers: AtelierAPI.headers,
-              data: {
-                body: data['body'],
-                name: data['name'],
-                email: data['email'],
-                product_id: product.productID
-              }
+            Server.post(URL, {
+              body: data['body'],
+              name: data['name'],
+              email: data['email'],
+              product_id: product.productID
             })
               .then(res => {
                 actions.getQuestions(dispatch, product.productID, 1, 4);
                 handleModal();
               })
-              .catch(err => console.error(err))
+              .catch(err => console.error(err));
           }} id="question-modal-form">
             <label htmlFor="question-modal-question" className="question-label">Your Question * </label>
             <textarea

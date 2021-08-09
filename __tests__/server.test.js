@@ -1,12 +1,10 @@
 /* eslint-disable camelcase */
-const { app, server } = require('../server/index');
-server.close();
-
 const request = require('supertest');
+const { app, server } = require('../server/index');
 const mockData = require('../data/index');
 
+server.close();
 const PRODUCT = 16060;
-const mockServer = request(app);
 
 describe('Products endpoint', () => {
 
@@ -14,7 +12,7 @@ describe('Products endpoint', () => {
 
   it('GET /api/products/list', done => {
     request(app)
-      .get('/api/products/list')
+      .get('/api/products')
       .expect(200)
       .then(response => {
         let data = response.body;
@@ -69,9 +67,9 @@ describe('Reviews endpoint', () => {
 
   const reviewsData = mockData.reviews;
 
-  it('GET /api/reviews/list', done => {
+  it('GET /api/reviews', done => {
     request(app)
-      .get('/api/reviews/list')
+      .get('/api/reviews')
       .query({ product_id: PRODUCT })
       .expect(200)
       .then(response => {
@@ -95,9 +93,9 @@ describe('Reviews endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/reviews/create', done => {
+  it('POST /api/reviews', done => {
     request(app)
-      .post('/api/reviews/create')
+      .post('/api/reviews')
       .send({
         'product_id': 16060,
         'rating': 4,
@@ -148,9 +146,9 @@ describe('Questions endpoint', () => {
 
   const questionsData = mockData.questions;
 
-  it('GET /api/qa/questions/list', done => {
+  it('GET /api/qa/questions', done => {
     request(app)
-      .get('/api/qa/questions/list')
+      .get('/api/qa/questions')
       .query({ product_id: PRODUCT })
       .expect(200)
       .then(response => {
@@ -173,9 +171,9 @@ describe('Questions endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/qa/questions/ask', done => {
+  it('POST /api/qa/questions', done => {
     request(app)
-      .post('/api/qa/questions/ask')
+      .post('/api/qa/questions')
       .send({
         'body': 'A new question',
         'name': 'Anonymous',
@@ -259,21 +257,32 @@ describe('Questions endpoint', () => {
 
 });
 
-// describe('Cart endpoint', () => {
+describe('Cart endpoint', () => {
 
-//   const cartData = mockData.cart;
+  const cartData = mockData.cart;
 
-//   it('GET /api/qa/questions/list', done => {
-//     request(app)
-//       .get('/api/qa/questions/list')
-//       .query({ product_id: PRODUCT })
-//       .expect(200)
-//       .then(response => {
-//         let data = response.body;
-//         expect(data.product_id.toString()).toEqual(questionsData.list.product_id);
-//       })
-//       .catch(err => console.error(err))
-//       .finally(() => done());
-//   });
+  it('POST /api/cart', done => {
+    request(app)
+      .post('/api/cart')
+      .send(cartData[0])
+      .expect(201)
+      .then(response => {
+        expect(response.body).toEqual('Created');
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
 
-// });
+  it('GET /api/cart', done => {
+    request(app)
+      .get('/api/cart')
+      .expect(200)
+      .then(response => {
+        let data = response.body;
+        expect(data[0].sku_id).toEqual(cartData[0].sku_id);
+      })
+      .catch(err => console.error(err))
+      .finally(() => done());
+  });
+
+});

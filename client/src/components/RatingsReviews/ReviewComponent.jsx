@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import actions from '../../state/actions/index.js';
-import axios from 'axios';
-import AtelierAPI from '../../lib/atelierAPI.js';
+import { url, Server} from '../../lib/Server.js';
+const URL = url.reviews;
 
 const ReviewComponent = () => {
   const dispatch = useDispatch();
@@ -168,15 +168,15 @@ const ReviewComponent = () => {
               <div className="review-component-helpful">
                 <span className="helpful-col-1">Was this review helpful?</span>
                 <span id={`helpful-yes-${index}` }onClick={() => {
-                  axios(`${AtelierAPI.url}/reviews/${review.review_id}/helpful`, {
-                    method: 'put',
-                    headers: AtelierAPI.headers,
-                    data: {
-                      helpfulness: review.helpfulness + 1
-                    }
-                    })
+
+                  Server.put(`${URL}/${review.review_id}/helpful`, {
+                    helpfulness: review.helpfulness + 1
+                  })
                     .then(() => {
-                      actions.setReviews(dispatch, reviews.productId, 1, reviews.reviews.results.length, 'relevant');
+                      actions.setReviews(
+                        dispatch,
+                        reviews.productId, 1, reviews.reviews.results.length, 'relevant'
+                      );
                       document.getElementById(`helpful-yes-${index}`).hidden = true;
                       document.getElementById(`helpful-yes-count-${index}`).hidden = false;
                       document.getElementById(`helpful-no-${index}`).hidden = true;

@@ -1,62 +1,35 @@
-const axios = require('axios');
-const API = require('../lib/AtelierAPI');
-const URL = API.products;
-const HEADERS = API.headers;
+const { url, Atelier } = require('../lib/AtelierAPI');
+let URL = url.products;
+
+const ERROR_MESSAGES = [
+  'Unable to retrieve products from \'/products\'',
+  'Unable to retrieve products from \'/products/:product_id\'',
+  'Unable to retrieve products from \'/products/:product_id/styles\'',
+  'Unable to retrieve products from \'/products/:product_id/related\'',
+];
 
 /* ======================
     /api/products
 ====================== */
 module.exports = {
   list: (req, res) => {
-    axios({
-      url: `${URL}`,
-      method: 'get',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/products/list\'');
-      });
+    Atelier.get(URL)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[0]));
   },
   product: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.product_id}`,
-      method: 'get',
-      headers: HEADERS,
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/products/:product_id\'');
-      });
+    Atelier.get(`${URL}/${req.params.product_id}`)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[1]));
   },
   styles: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.product_id}/styles`,
-      method: 'get',
-      headers: HEADERS
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/products/:product_id/styles\'');
-      });
+    Atelier.get(`${URL}/${req.params.product_id}/styles`)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[2]));
   },
   related: (req, res) => {
-    axios({
-      url: `${URL}/${req.params.product_id}/related`,
-      method: 'get',
-      headers: HEADERS
-    })
-      .then(response => {
-        res.status(response.status).json(response.data);
-      })
-      .catch(err => {
-        res.status(404).json('Unable to retrieve products from \'/products/:product_id/related\'');
-      });
+    Atelier.get(`${URL}/${req.params.product_id}/related`)
+      .then(response => res.status(response.status).json(response.data))
+      .catch(err => res.status(404).json(ERROR_MESSAGES[3]));
   },
 };
