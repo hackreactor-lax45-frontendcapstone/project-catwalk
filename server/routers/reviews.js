@@ -7,11 +7,11 @@ const reviews = require('../controllers/reviews');
     /api/reviews
 */
 router
-  .get('/', reviews.list)
+  .get('/list', reviews.list)
   .get('/meta', reviews.meta);
 
 router
-  .post('/', reviews.create);
+  .post('/create', reviews.create);
 
 router
   .put('/:review_id/helpful', reviews.helpful)

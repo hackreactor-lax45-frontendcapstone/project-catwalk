@@ -1,56 +1,126 @@
-const { url, Atelier } = require('../lib/AtelierAPI');
-let URL = url.questions;
+const axios = require('axios');
 
-const ERROR_MESSAGES = [
-  'Unable to retrieve questions from \'/questions/list\'',
-  'Unable to retrieve answers from \'/question/:question_id/answers\'',
-  '',
-  '',
-  '',
-  '',
-];
+const API = require('../lib/AtelierAPI');
+const QUESTIONS_URL = API.questions;
+const ANSWERS_URL = API.answers;
+const HEADERS = API.headers;
 
 /* ======================
     /api/qa/questions
 ====================== */
 module.exports = {
-  /* - - - - -
-      get
-   - - - - - */
   list: (req, res) => {
-    Atelier.get(URL, { params: req.query })
-      .then(response => res.status(response.status).json(response.data))
-      .catch(err => res.status(404).json(ERROR_MESSAGES[0]));
+    axios({
+      url: `${QUESTIONS_URL}`,
+      params: req.query,
+      method: 'get',
+      headers: HEADERS,
+    })
+      .then(response => {
+        res.status(response.status).json(response.data);
+      })
+      .catch(err => {
+        res.status(404).json('Unable to retrieve questions from \'/questions/list\'');
+      });
   },
   answers: (req, res) => {
-    Atelier.get(`${URL}/${req.params.question_id}/answers`, { params: req.query })
-      .then(response => res.status(response.status).json(response.data))
-      .catch(err => res.status(404).json(ERROR_MESSAGES[1]));
+    axios({
+      url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
+      method: 'get',
+      headers: HEADERS,
+    })
+      .then(response => {
+        res.status(response.status).json(response.data);
+      })
+      .catch(err => {
+        res.status(404).json('Unable to retrieve answers from \'/question/:question_id/answers\'');
+      });
   },
-  /* - - - - -
-      post
-   - - - - - */
-  ask: (req, res) => {
-    Atelier.post(URL, req.body)
-      .then(response => res.status(response.status).json(response.data))
-      .catch(err => res.status(404).json(ERROR_MESSAGES[2]));
+  question: {
+    ask: (req, res) => {
+      axios({
+        url: `${QUESTIONS_URL}`,
+        method: 'post',
+        data: req.body,
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to ask a new question \'/questions\'');
+        });
+    },
+    answer: (req, res) => {
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.question_id}/answers`,
+        method: 'post',
+        data: req.body,
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to ask a new question \'/questions\'');
+        });
+    },
+    helpful: (req, res) => {
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.question_id}/helpful`,
+        method: 'put',
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to mark question helpful from \'/questions/:id/helpful\'');
+        });
+    },
+    report: (req, res) => {
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.question_id}/report`,
+        method: 'put',
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to report question from \'/questions/:id/report\'');
+        });
+    },
   },
-  answer: (req, res) => {
-    Atelier.post(`${URL}/${req.params.question_id}/answers`, req.body)
-      .then(response => res.status(response.status).json(response.data))
-      .catch(err => res.status(404).json(ERROR_MESSAGES[3]));
-  },
-  /* - - - - -
-      put
-   - - - - - */
-  helpful: (req, res) => {
-    Atelier.put(`${URL}/${req.params.question_id}/helpful`, req.body)
-      .then(response => res.status(response.status).json(response.data))
-      .catch(err => res.status(404).json(ERROR_MESSAGES[4]));
-  },
-  report: (req, res) => {
-    Atelier.put(`${URL}/${req.params.question_id}/report`, req.body)
-      .then(response => res.status(response.status).json(response.data))
-      .catch(err => res.status(404).json(ERROR_MESSAGES[5]));
-  },
+  /* ======================
+      /api/qa/answers
+  ====================== */
+  answer: {
+    helpful: (req, res) => {
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.answer_id}/helpful`,
+        method: 'put',
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to mark answer helpful from \'/questions/:id/helpful\'');
+        });
+    },
+    report: (req, res) => {
+      axios({
+        url: `${QUESTIONS_URL}/${req.params.answer_id}/report`,
+        method: 'put',
+        headers: HEADERS,
+      })
+        .then(response => {
+          res.status(response.status).json(response.data);
+        })
+        .catch(err => {
+          res.status(404).json('Unable to report answer from \'/questions/:id/helpful\'');
+        });
+    },
+  }
 };

@@ -1,9 +1,17 @@
-import { url, Server } from '../../lib/Server';
-const URL = url.questions;
+import axios from 'axios';
+import AtelierAPI from '../../lib/atelierAPI';
 
-export default (dispatch, product_id, page, count) => {
-  let params = { product_id, page, count };
-  Server.get(URL, { params })
+export default (dispatch, productID, page, count) => {
+  axios({
+    method: 'get',
+    url: `${AtelierAPI.url}/qa/questions/`,
+    headers: AtelierAPI.headers,
+    params: {
+      product_id: productID,
+      page,
+      count
+    }
+  })
     .then(res => {
       dispatch({
         type: 'GET_QUESTIONS',
@@ -13,14 +21,20 @@ export default (dispatch, product_id, page, count) => {
     })
     .then(question => {
       question.results.map(q => {
-        Server.get(`${URL}/${q.question_id}/answers`, { params: {
-          page: 1, count: 2,
-        }})
+        axios({
+          method: 'get',
+          url: `${AtelierAPI.url}/qa/questions/${q.question_id}/answers`,
+          headers: AtelierAPI.headers,
+          params: {
+            page: 1,
+            count: 2
+          }
+        })
           .then(res => dispatch({
             type: 'GET_ANSWERS',
             payload: res.data
-          }));
-      });
+          }))
+      })
     })
     .catch(err => console.error(err));
 };

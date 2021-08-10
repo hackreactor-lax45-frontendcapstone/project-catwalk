@@ -4,6 +4,7 @@ import { create, act } from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
 import axios from 'axios';
+// import AtelierAPI from '../client/src/lib/atelierAPI';
 import Server from '../client/src/lib/Server';
 import MockAdapter from 'axios-mock-adapter';
 

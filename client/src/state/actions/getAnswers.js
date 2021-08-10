@@ -1,11 +1,16 @@
-import { url, Server } from '../../lib/Server';
-const URL = url.questions;
+import axios from 'axios';
+import AtelierAPI from '../../lib/atelierAPI';
 
 export default (dispatch, questionID, page, count) => {
-
-  Server.get(`${URL}/${questionID}/answers`, { params: {
-    page, count,
-  }})
+  axios({
+    method: 'get',
+    url: `${AtelierAPI.url}/qa/questions/${questionID}/answers`,
+    headers: AtelierAPI.headers,
+    params: {
+      page,
+      count
+    }
+  })
     .then(info => {
       dispatch({
         type: 'GET_ANSWERS',

@@ -7,15 +7,19 @@ const questions = require('../controllers/questions');
     /api/qa/questions
 */
 router
-  .get('/', questions.list)
+  .get('/list', questions.list)
   .get('/:question_id/answers', questions.answers);
 
 router
-  .post('/', questions.ask)
-  .post('/:question_id/answers', questions.answer);
+  .post('/ask', questions.question.ask)
+  .post('/:question_id/answers', questions.question.answer);
 
 router
-  .put('/:question_id/helpful', questions.helpful)
-  .put('/:question_id/report', questions.report);
+  .put('/:question_id/helpful', questions.question.helpful)
+  .put('/:question_id/report', questions.question.report);
+
+router
+  .put('/:answer_id/helpful', questions.answer.helpful)
+  .put('/:answer_id/report', questions.answer.report);
 
 module.exports = router;

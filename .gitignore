@@ -9,7 +9,7 @@ node_modules/
 ## private keys
 config.js
 *.pem
-*login.sh
+login.sh
 
 ## build
 *bundle.js

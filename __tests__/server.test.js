@@ -1,10 +1,12 @@
 /* eslint-disable camelcase */
-const request = require('supertest');
 const { app, server } = require('../server/index');
+server.close();
+
+const request = require('supertest');
 const mockData = require('../data/index');
 
-server.close();
 const PRODUCT = 16060;
+const mockServer = request(app);
 
 describe('Products endpoint', () => {
 
@@ -12,7 +14,7 @@ describe('Products endpoint', () => {
 
   it('GET /api/products/list', done => {
     request(app)
-      .get('/api/products')
+      .get('/api/products/list')
       .expect(200)
       .then(response => {
         let data = response.body;
@@ -67,9 +69,9 @@ describe('Reviews endpoint', () => {
 
   const reviewsData = mockData.reviews;
 
-  it('GET /api/reviews', done => {
+  it('GET /api/reviews/list', done => {
     request(app)
-      .get('/api/reviews')
+      .get('/api/reviews/list')
       .query({ product_id: PRODUCT })
       .expect(200)
       .then(response => {
@@ -93,9 +95,9 @@ describe('Reviews endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/reviews', done => {
+  it('POST /api/reviews/create', done => {
     request(app)
-      .post('/api/reviews')
+      .post('/api/reviews/create')
       .send({
         'product_id': 16060,
         'rating': 4,
@@ -146,9 +148,9 @@ describe('Questions endpoint', () => {
 
   const questionsData = mockData.questions;
 
-  it('GET /api/qa/questions', done => {
+  it('GET /api/qa/questions/list', done => {
     request(app)
-      .get('/api/qa/questions')
+      .get('/api/qa/questions/list')
       .query({ product_id: PRODUCT })
       .expect(200)
       .then(response => {
@@ -171,9 +173,9 @@ describe('Questions endpoint', () => {
       .finally(() => done());
   });
 
-  it('POST /api/qa/questions', done => {
+  it('POST /api/qa/questions/ask', done => {
     request(app)
-      .post('/api/qa/questions')
+      .post('/api/qa/questions/ask')
       .send({
         'body': 'A new question',
         'name': 'Anonymous',
@@ -257,32 +259,21 @@ describe('Questions endpoint', () => {
 
 });
 
-describe('Cart endpoint', () => {
+// describe('Cart endpoint', () => {
 
-  const cartData = mockData.cart;
+//   const cartData = mockData.cart;
 
-  it('POST /api/cart', done => {
-    request(app)
-      .post('/api/cart')
-      .send(cartData[0])
-      .expect(201)
-      .then(response => {
-        expect(response.body).toEqual('Created');
-      })
-      .catch(err => console.error(err))
-      .finally(() => done());
-  });
+//   it('GET /api/qa/questions/list', done => {
+//     request(app)
+//       .get('/api/qa/questions/list')
+//       .query({ product_id: PRODUCT })
+//       .expect(200)
+//       .then(response => {
+//         let data = response.body;
+//         expect(data.product_id.toString()).toEqual(questionsData.list.product_id);
+//       })
+//       .catch(err => console.error(err))
+//       .finally(() => done());
+//   });
 
-  it('GET /api/cart', done => {
-    request(app)
-      .get('/api/cart')
-      .expect(200)
-      .then(response => {
-        let data = response.body;
-        expect(data[0].sku_id).toEqual(cartData[0].sku_id);
-      })
-      .catch(err => console.error(err))
-      .finally(() => done());
-  });
-
-});
+// });

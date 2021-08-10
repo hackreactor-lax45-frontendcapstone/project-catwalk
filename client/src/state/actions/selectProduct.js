@@ -1,10 +1,17 @@
-import { url, Server } from '../../lib/Server';
+import axios from 'axios';
+import { url, config } from '../../lib/Server';
 
 export default (dispatch, productID) => {
 
-  let productResponse = Server.get(`${url.products}/${productID}`);
-  let stylesResponse = Server.get(`${url.products}/${productID}/styles`);
+  let productResponse = axios.get(
+    `${url.products}/${productID}`,
+    config
+  );
 
+  let stylesResponse = axios.get(
+    `${url.products}/${productID}/styles`,
+    config
+  );
   return Promise.all([
     productResponse,
     stylesResponse,

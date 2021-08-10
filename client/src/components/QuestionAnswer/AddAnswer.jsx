@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import AtelierAPI from '../../lib/atelierAPI.js';
 
 import actions from '../../state/actions';
-import '../../../dist/styles/questionsAnswers/AddAnswer.css';
 
-import { url, Server } from '../../lib/Server.js';
-const URL = url.questions;
+import '../../../dist/styles/questionsAnswers/AddAnswer.css';
 
 export default props => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export default props => {
       modalBox.classList.add('active');
       overlay.classList.add('active');
     }
-  };
+  }
 
   return (
     <span id="qa-add-answer">
@@ -39,8 +39,8 @@ export default props => {
       <div id={`qa-answer-modal${props.i}`}>
         <div className="answer-modal-header">
           <div>
-            <div className="answer-modal-title">Submit your Answer!</div>
-            <div className="answer-modal-subtitle">{`${product}: ${props.q}`}</div>
+          <div className="answer-modal-title">Submit your Answer!</div>
+          <div className="answer-modal-subtitle">{`${product}: ${props.q}`}</div>
           </div>
           <button onClick={handleModal} className="answer-modal-close">&times;</button>
         </div>
@@ -51,11 +51,15 @@ export default props => {
             const data = {};
             formData.forEach((value, property) => data[property] = value);
 
-            Server.post(`${URL}/${props.i}/answers`, {
-              body: data['body'],
-              name: data['name'],
-              email: data['email'],
-              image: []
+            axios(`${AtelierAPI.url}/qa/questions/${props.i}/answers`, {
+              method: 'post',
+              headers: AtelierAPI.headers,
+              data: {
+                body: data['body'],
+                name: data['name'],
+                email: data['email'],
+                image: []
+              }
             })
               .then(res => {
                 // actions.getAnswers(dispatch, props.i, 1, answers.results.length);
@@ -71,7 +75,7 @@ export default props => {
               name="body"
               required
               onInvalid={(e) => {
-                e.target.setCustomValidity('You must enter Yyour answer');
+                e.target.setCustomValidity('You must enter Your answer');
               }}
               maxLength="1000"
             ></textarea>
@@ -104,7 +108,7 @@ export default props => {
               }}
               maxLength="60"
               placeholder="Example: jack@email.com"
-            ></input>
+              ></input>
             <div className="answer-modal-disclaimer">For authentication reasons, you will not be emailed</div>
             <label htmlFor={`answer-modal-img${props.i}`} className="answer-custom-upload">Upload Photos</label>
             <input
@@ -123,8 +127,7 @@ export default props => {
                   preview.height = 75;
                   preview.width = 75;
                   preview.src = reader.result;
-                };
-
+                }
                 if (file) {
                   reader.readAsDataURL(file);
                 }

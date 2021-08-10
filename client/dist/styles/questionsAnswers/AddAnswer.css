@@ -4,9 +4,9 @@
 
 #add-answer-link {
   margin-top: 5px;
-  cursor: pointer;
   text-decoration: underline;
   font-size: 14px;
+  cursor: pointer;
 }
 
 div[id^="qa-answer-modal"] {
